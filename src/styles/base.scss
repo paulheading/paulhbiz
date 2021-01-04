@@ -10,17 +10,16 @@
 .no-borderradius,
 .no-boxsizing,
 .no-boxshadow,
-.no-cssgrid,
 .no-cssanimations {
   body {
-    // background-image: url("../static/fallback.png");
-    // background-size: 240px;
+    background-image: url("../static/fallback.png");
+    background-size: 240px;
 
-    // .component-site-wrap {
-    //   position: relative;
-    //   overflow: hidden;
-    //   height: 0;
-    // }
+    .component-site-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 0;
+    }
   }
 }
 
