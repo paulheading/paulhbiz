@@ -1,0 +1,65 @@
+.site-nav {
+  &__container {
+    min-width: $body-min-width;
+    padding-bottom: 1.875rem;
+    padding-top: 1.875rem;
+
+    @include media-breakpoint-up(sm) {
+      padding: 3.75rem;
+    }
+
+    &.is-home {
+      position: absolute;
+      z-index: 999;
+      right: 0;
+      left: 0;
+      top: 0;
+    }
+
+    .btn {
+      font-size: $h5-font-size * 1.1;
+    }
+
+    .btn-link {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  &__wrap {
+    max-width: $mobile-max-width;
+    grid-auto-flow: column;
+    display: grid;
+    margin: auto;
+
+    @include media-breakpoint-up(sm) {
+      max-width: 60rem;
+    }
+  }
+
+  &__block {
+    grid-auto-flow: column;
+    justify-content: end;
+    align-items: center;
+    grid-gap: 1.25rem;
+    display: grid;
+  }
+
+  &__anchor {
+    @include ib;
+
+    &.focus-visible {
+      @include ph-box-shadow($gray-200, $black);
+
+      &.btn-link {
+        @include ph-box-shadow($gray-200, $black, true);
+      }
+    }
+  }
+
+  &__btn {
+    &.focus-visible {
+      @include ph-box-shadow($gray-200, $black);
+    }
+  }
+}

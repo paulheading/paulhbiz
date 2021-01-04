@@ -1,0 +1,99 @@
+@mixin next-margin($val: 1.25rem) {
+  margin-bottom: 0;
+
+  + * {
+    margin-top: $val;
+  }
+}
+
+@mixin zeros {
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+@mixin placeholder($col: $gray-300, $max: none) {
+  background-color: $col;
+  max-width: $max;
+  color: $col;
+}
+
+@mixin ib($align: middle) {
+  vertical-align: $align;
+  display: inline-block;
+}
+
+@mixin center {
+  text-align: center;
+  &:before {
+    @include ib;
+    margin-right: -0.25em;
+    height: 100%;
+    content: "";
+  }
+}
+
+@mixin ph-box-shadow($bg: $white, $col: $black, $fill: false) {
+  box-shadow: 0 0 0 0.625rem $bg, 0 0 0 0.8125rem $col;
+
+  @if $fill {
+    background-color: $bg;
+  }
+}
+
+@mixin container-default {
+  height: $mobile-min-height;
+  overflow: hidden;
+
+  @include media-breakpoint-up(sm) {
+    min-height: $mobile-min-height;
+    max-height: 40rem;
+    height: 75vh;
+  }
+}
+
+@mixin trello-section {
+  grid-template-columns: auto 1.5rem;
+  padding: 0.625rem;
+  display: grid;
+}
+
+@mixin reset-button-core($col: $black) {
+  background-color: $col;
+  border-color: $col;
+}
+
+@mixin reset-button($col: $black) {
+  @include reset-button-core($col);
+
+  &:active {
+    background-color: $col !important;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $col;
+  }
+}
+
+@mixin hero-colors($a: #4261ff, $b: #ff4262, $c: #ff66b3) {
+  .component-hero-content {
+    background: linear-gradient(0deg, $a 0%, $b 100%);
+  }
+  .hero-content {
+    &__svg path {
+      stroke: $c;
+    }
+    &__title a.focus-visible {
+      background-color: $c;
+    }
+  }
+}
+
+@mixin input-color($col: inherit) {
+  color: $col;
+  &::placeholder {
+    color: $col;
+  }
+}

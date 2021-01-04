@@ -1,0 +1,8 @@
+.spotify-svg {
+  transition: fill 200ms;
+  fill: $white;
+
+  &.placeholder {
+    fill: $c-spotify-bg;
+  }
+}

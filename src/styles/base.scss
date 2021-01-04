@@ -1,0 +1,93 @@
+@import "variables";
+
+.no-js,
+.no-svg,
+.no-fetch,
+.no-csscalc,
+.no-cssgradients,
+.no-emoji,
+.no-cssvhunit,
+.no-fontface,
+.no-cssvwunit,
+.no-inlinesvg,
+.no-borderradius,
+.no-boxsizing,
+.no-boxshadow,
+.no-cssgrid,
+.no-cssanimations,
+.no-js-focus-visible {
+  body {
+    background-image: url("../static/fallback.png");
+    background-size: 240px;
+
+    .component-site-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 0;
+    }
+  }
+}
+
+body {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  background-color: $gray-200;
+  min-width: $body-min-width;
+  color: $black;
+
+  @include media-breakpoint-up(sm) {
+    font-size: $font-size-base;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  @include next-margin;
+  font-weight: bold;
+}
+
+p {
+  @include next-margin(0.625rem);
+}
+
+a {
+  text-decoration: underline;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.btn {
+  text-decoration: none;
+  transition: none;
+}
+
+*:focus {
+  outline: 0;
+}
+
+.focus-visible {
+  @include ph-box-shadow;
+  border-radius: 0.125rem;
+  position: relative;
+  z-index: 999;
+
+  &.btn {
+    border-radius: $border-radius;
+
+    &:focus {
+      @include ph-box-shadow;
+    }
+  }
+}

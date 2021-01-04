@@ -1,0 +1,23 @@
+.badge {
+  border-radius: $border-radius-lg;
+  background-color: $gray-600;
+  padding: 0.5em 0.8em;
+  font-size: 100%;
+  color: $white;
+
+  &.purple {
+    background-color: $purple;
+  }
+  &.green {
+    background-color: $green;
+  }
+  &.orange {
+    background-color: $orange;
+  }
+  &.red {
+    background-color: $red;
+  }
+  &.blue {
+    background-color: $blue;
+  }
+}

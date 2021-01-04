@@ -1,0 +1,57 @@
+.hero-content {
+  &__container {
+    @include container-default;
+    @include center;
+    position: relative;
+
+    &.overlay-content {
+      height: 100vh;
+    }
+  }
+
+  &__wrap {
+    @include ib;
+  }
+
+  &__title {
+    font-size: $h1-font-size * 0.9;
+    margin-right: auto;
+    position: relative;
+    margin-left: auto;
+    line-height: 1.25;
+    max-width: 15rem;
+    z-index: 2;
+
+    a {
+      text-decoration: none;
+
+      &.focus-visible {
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    @include media-breakpoint-up(sm) {
+      font-size: $h1-font-size;
+      max-width: 24rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: $h5-font-size;
+  }
+
+  &__svg {
+    @include zeros;
+    transform-origin: center;
+    transform: scale(2);
+    position: absolute;
+    height: 20rem;
+    margin: auto;
+    width: 20rem;
+
+    svg {
+      display: block;
+    }
+  }
+}

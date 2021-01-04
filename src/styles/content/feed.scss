@@ -1,0 +1,19 @@
+.feed-content {
+  &__container {
+    padding-bottom: 5.8125rem;
+
+    @include media-breakpoint-up(sm) {
+      padding: 0 3.75rem 8.25rem;
+    }
+  }
+
+  &__wrap {
+    max-width: $mobile-max-width;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include media-breakpoint-up(sm) {
+      max-width: 60rem;
+    }
+  }
+}

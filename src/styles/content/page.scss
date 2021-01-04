@@ -1,0 +1,120 @@
+.page-content {
+  &__container {
+    padding-bottom: 8rem;
+
+    @include media-breakpoint-up(sm) {
+      padding-right: 1.875rem;
+      padding-left: 1.875rem;
+    }
+  }
+  &__wrap {
+    box-shadow: 0 0 0.5rem $gray-300;
+    max-width: $mobile-max-width;
+    background-color: $white;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2rem;
+
+    @include media-breakpoint-up(sm) {
+      max-width: 48rem;
+      padding: 2.5rem;
+    }
+  }
+
+  &__row {
+    padding-bottom: 1.25rem;
+    padding-top: 1.25rem;
+
+    @include media-breakpoint-up(sm) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 1.25rem;
+      display: grid;
+    }
+
+    &.triple {
+      grid-column: 1 / span 3;
+    }
+
+    &.skills {
+      margin: -0.25rem;
+      display: block;
+
+      .badge {
+        margin: 0.25rem;
+
+        @include media-breakpoint-down(xs) {
+          font-size: $font-size-sm;
+        }
+      }
+    }
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+
+    + .page-content__row {
+      border-top: 1px solid $black;
+    }
+  }
+
+  &__column {
+    &.double {
+      grid-column: 1 / span 2;
+    }
+
+    &.triple {
+      grid-column: 1 / span 3;
+    }
+
+    + .page-content__column {
+      @include media-breakpoint-down(xs) {
+        margin-top: 1.25rem;
+      }
+    }
+  }
+
+  &__address {
+    font-size: $font-size-lg;
+    font-weight: bold;
+  }
+}
+
+.link {
+  &__email {
+    font-size: $font-size-lg;
+    display: block;
+  }
+  &__social {
+    display: block;
+  }
+}
+
+.column {
+  &__title {
+    font-size: $font-size-lg;
+
+    &.placeholder {
+      @include placeholder($max: 8rem);
+
+      &.skills {
+        max-width: 6rem;
+      }
+    }
+
+    + * {
+      margin-top: 1.25rem;
+    }
+  }
+}
+
+.component-resume-card {
+  + .component-resume-card {
+    @include media-breakpoint-down(xs) {
+      margin-top: 1.25rem;
+    }
+  }
+}

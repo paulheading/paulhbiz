@@ -1,0 +1,35 @@
+.component-resume-card {
+  @include media-breakpoint-down(xs) {
+    + .component-education-card {
+      margin-top: 1.25rem;
+    }
+  }
+
+  .card__due {
+    @include ib;
+    font-size: $font-size-sm;
+    color: $gray-700;
+  }
+
+  .card__badge {
+    &.placeholder {
+      @include placeholder($gray-300, 25%);
+    }
+  }
+  .card__name {
+    margin-top: 0.625rem;
+
+    &.placeholder {
+      @include placeholder($gray-300, 75%);
+    }
+  }
+  .card__description {
+    font-size: $font-size-sm;
+    margin-top: 0.3125rem;
+    color: $gray-700;
+
+    &.placeholder {
+      @include placeholder($gray-300, 50%);
+    }
+  }
+}

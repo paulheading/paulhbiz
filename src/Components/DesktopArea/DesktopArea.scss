@@ -1,0 +1,86 @@
+.desktop-topbar {
+  &__container {
+    border-bottom: 0.25rem solid darken($teal, 15%);
+    background-color: darken($teal, 10%);
+    color: darken($teal, 35%);
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+  }
+
+  &__status {
+    @include ib;
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+    min-width: 4rem;
+
+    &.placeholder {
+      @include placeholder(darken($teal, 15%));
+    }
+
+    .wifi-svg {
+      fill: darken($teal, 35%);
+    }
+  }
+}
+
+.desktop-content {
+  &__container {
+    background-color: $teal;
+    padding: 1.25rem;
+
+    @include media-breakpoint-up(sm) {
+      @include container-default;
+    }
+  }
+
+  &__wrap {
+    @include media-breakpoint-up(sm) {
+      grid-auto-flow: column;
+      max-width: 75rem;
+      display: grid;
+      margin: auto;
+    }
+  }
+
+  &__folders {
+    text-align: right;
+    direction: rtl;
+  }
+}
+
+.folder {
+  &__container {
+    @include ib;
+    padding: 0.625rem;
+  }
+
+  &__wrap {
+    background-color: darken($teal, 10%);
+    border-radius: $border-radius;
+    padding: 0.625rem;
+  }
+}
+
+.window {
+  &__container {
+    @include ib;
+    padding: 0.625rem;
+    font-size: 1rem;
+  }
+
+  &__wrap {
+    background-color: darken($teal, 10%);
+    border-radius: $border-radius;
+    width: 12rem;
+
+    &.spotify {
+      background-color: $c-spotify-bg;
+      color: $c-spotify-text;
+      width: 15rem;
+    }
+  }
+
+  &__row {
+    padding: 0.25rem 0.75rem;
+  }
+}

@@ -1,0 +1,9 @@
+.overlay-menu {
+  &__container {
+    @include center;
+    height: 100vh;
+  }
+  &__wrap {
+    @include ib;
+  }
+}

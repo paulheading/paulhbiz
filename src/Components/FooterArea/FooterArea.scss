@@ -1,0 +1,20 @@
+.footer-area {
+  &__container {
+    background-color: $black;
+    text-align: center;
+    font-weight: bold;
+    padding: 1.25rem;
+    color: $white;
+
+    * {
+      padding-right: 0.75rem;
+      padding-left: 0.75rem;
+    }
+  }
+
+  &__anchor {
+    &.focus-visible {
+      @include ph-box-shadow($black, $white);
+    }
+  }
+}

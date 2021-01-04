@@ -1,0 +1,10 @@
+.blog-summary {
+  &__row {
+    grid-template-columns: 9rem repeat(2, 1fr);
+    display: grid;
+
+    &.focus-visible {
+      @include ph-box-shadow($gray-200, $black);
+    }
+  }
+}
