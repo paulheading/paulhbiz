@@ -1,9 +1,10 @@
 .footer-area {
   &__container {
     background-color: $black;
+    font-size: $font-size-lg;
     text-align: center;
     font-weight: bold;
-    padding: 1.25rem;
+    padding: 1rem;
     color: $white;
 
     * {

@@ -1,6 +1,6 @@
 .component-marquee-scroll {
+  font-size: $font-size-lg;
   position: relative;
-  font-size: 1.125rem;
 }
 
 .marquee-scroll {
@@ -8,14 +8,14 @@
     border-bottom: 0.25rem solid $black;
     border-top: 0.25rem solid $black;
     background-color: $white;
-    padding-bottom: 1.125rem;
-    padding-top: 1.125rem;
+    padding-bottom: 1rem;
     white-space: nowrap;
+    padding-top: 1rem;
     overflow: hidden;
   }
   &__target {
     @include ib;
-    padding-right: 1.25rem;
+    padding-right: 1rem;
     user-select: none;
   }
 }

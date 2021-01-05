@@ -3,15 +3,15 @@
     border-bottom: 0.25rem solid darken($teal, 15%);
     background-color: darken($teal, 10%);
     color: darken($teal, 35%);
-    padding: 0.75rem 1.25rem;
+    font-size: $font-size-lg;
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
     text-align: center;
   }
 
   &__status {
     @include ib;
-    margin-right: 0.25rem;
-    margin-left: 0.25rem;
-    min-width: 4rem;
+    min-width: 5rem;
 
     &.placeholder {
       @include placeholder(darken($teal, 15%));
