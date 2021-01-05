@@ -7,11 +7,10 @@
 .no-fontface,
 // .no-cssvwunit,
 .no-inlinesvg,
-// .no-borderradius,
+.no-borderradius,
 .no-boxsizing,
-.no-boxshadow
-// .no-cssanimations
-{
+.no-boxshadow,
+.no-cssanimations {
   body {
     background-image: url("../static/fallback.png");
     background-size: 240px;
