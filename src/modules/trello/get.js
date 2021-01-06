@@ -1,10 +1,11 @@
+import axios from "axios";
+import showdown from "showdown";
 import { simplify, localify, objectKey } from "../helpers";
 import { placeholder } from "../placeholder";
 import { hero } from "../animations";
 
-const fetch = require("node-fetch");
-const showdown = require("showdown");
 const converter = new showdown.Converter();
+
 const TRELLO = {
   USER_ID: process.env.REACT_APP_TRELLO_USER_ID,
   BOARD_ID: process.env.REACT_APP_TRELLO_BOARD_ID,
@@ -19,15 +20,15 @@ const TRELLO = {
   API_BASE: "https://api.trello.com/1/",
 };
 
-function fetchTrello(target) {
-  return fetch(
-    `${TRELLO.API_BASE}${target}?key=${TRELLO.API_KEY}&token=${TRELLO.USER_TOKEN}`,
-    {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    }
-  )
-    .then((res) => res.json())
+function getTrello(target) {
+  return axios
+    .get(
+      `${TRELLO.API_BASE}${target}?key=${TRELLO.API_KEY}&token=${TRELLO.USER_TOKEN}`,
+      {
+        headers: { Accept: "application/json" },
+      }
+    )
+    .then(({ data }) => data)
     .catch((err) => console.error(err));
 }
 
@@ -38,7 +39,7 @@ function promiseData(target) {
 }
 
 function getCardsOnList(id = TRELLO.LIST.HERO) {
-  return fetchTrello(`list/${id}/cards/`).then((data) => {
+  return getTrello(`list/${id}/cards/`).then((data) => {
     return data.map((value) => {
       value.desc = converter.makeHtml(value.desc);
       return value;
@@ -47,7 +48,7 @@ function getCardsOnList(id = TRELLO.LIST.HERO) {
 }
 
 function getAttachmentsOnCard(id) {
-  return fetchTrello(`cards/${id}/attachments`);
+  return getTrello(`cards/${id}/attachments`);
 }
 
 function prepColors(colors) {
@@ -63,7 +64,7 @@ function prepColors(colors) {
 }
 
 function getActionsOnCard(id) {
-  return fetchTrello(`cards/${id}/actions`).then((data) => {
+  return getTrello(`cards/${id}/actions`).then((data) => {
     return data.map(({ data }) => {
       if (data.text) {
         let text = data.text;
@@ -151,7 +152,7 @@ async function getCardData(id, className = false) {
 }
 
 async function getList(id = TRELLO.LIST.HERO) {
-  const data = await fetchTrello(`lists/${id}`);
+  const data = await getTrello(`lists/${id}`);
   return { id: data.id, name: data.name };
 }
 

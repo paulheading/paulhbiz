@@ -9,6 +9,8 @@
 @import "styles/summary.scss";
 
 @import "./Components/SvgIcons/SpotifySvg/SpotifySvg.scss";
+@import "./Components/SvgIcons/WifiSvg/WifiSvg.scss";
+
 @import "./Components/ArticleContent/ArticleContent.scss";
 @import "./Components/ResumeContent/ResumeContent.scss";
 @import "./Components/BlogContent/BlogContent.scss";
@@ -17,11 +19,14 @@
 @import "./Components/OverlayMenu/OverlayMenu.scss";
 @import "./Components/FooterArea/FooterArea.scss";
 @import "./Components/EmailForm/EmailForm.scss";
+
 @import "./Components/DesktopArea/DesktopArea.scss";
 @import "./Components/DesktopArea/Trello.scss";
 @import "./Components/DesktopArea/Spotify.scss";
+
 @import "./Components/MarqueeScroll/MarqueeScroll.scss";
 @import "./Components/SiteNav/SiteNav.scss";
+
 @import "./Components/HeroContent/HeroContent.scss";
 @import "./Components/HeroContent/Feed/0.scss";
 @import "./Components/HeroContent/Feed/1.scss";

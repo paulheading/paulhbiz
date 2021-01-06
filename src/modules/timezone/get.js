@@ -32,17 +32,18 @@
 //   ).then((res) => res.json());
 // }
 
+import axios from "axios";
+
 export function getTimezoneData() {
-  return fetch("/timezone.json", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log("timezone: ", res);
-      return res;
+  return axios
+    .get("/timezone.json", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(({ data }) => {
+      console.log("timezone: ", data);
+      return data;
     })
     .catch((err) => console.error(err));
 }

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const SPOTIFY = {
   USER_ID: process.env.REACT_APP_SPOTIFY_USER_ID,
   PLAYLIST_ID: process.env.REACT_APP_SPOTIFY_PLAYLIST_ID,
@@ -24,12 +26,16 @@ function getToken() {
 
 async function getSpotify(target = `/users/${SPOTIFY.USER_ID}`) {
   const token = await getToken();
-  return await fetch(`${SPOTIFY.API_BASE}${target}`, {
-    method: "GET",
-    headers: { Authorization: "Bearer " + token },
-  })
-    .then((res) => res.json())
-    .catch((err) => console.error(err));
+  return await axios
+    .get(`${SPOTIFY.API_BASE}${target}`, {
+      headers: { Authorization: "Bearer " + token },
+    })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 export async function getSpotifyData() {

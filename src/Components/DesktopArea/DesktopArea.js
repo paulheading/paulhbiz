@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { printDesktop } from "../../modules/trello/print";
-import { makeDraggable } from "../../modules/animations";
+import { makeDraggable, wifiSignal } from "../../modules/animations";
 
 function DesktopArea() {
   useEffect(() => {
     makeDraggable();
+    wifiSignal();
   }, []);
   const store = {
     timezoneData: useSelector((state) => state.timezoneData),

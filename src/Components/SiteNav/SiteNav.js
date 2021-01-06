@@ -3,7 +3,7 @@ import { connect, useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import { useLocation, Link } from "react-router-dom";
 import { menuState } from "../../actions";
-import { MobileLogoSvg, LogoSvg } from "../SvgIcons";
+import { MobileLogoSvg, LogoSvg, BurgerSvg } from "../SvgIcons";
 import { isHome, isSmall } from "../../modules/helpers";
 
 function SiteNav({ menuState }) {
@@ -34,7 +34,7 @@ function SiteNav({ menuState }) {
               menuState(true);
             }}
           >
-            Menu
+            {isSmall(store.siteWidth) ? <BurgerSvg /> : "Menu"}
           </Button>
         </div>
       </div>
