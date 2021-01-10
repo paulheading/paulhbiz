@@ -1,5 +1,4 @@
 .component-marquee-scroll {
-  font-size: $font-size-lg;
   position: relative;
 }
 
@@ -22,7 +21,6 @@
 
 .marquee-link {
   &__container {
-    font-size: $h5-font-size;
     text-align: center;
     position: absolute;
     top: -3.875rem;

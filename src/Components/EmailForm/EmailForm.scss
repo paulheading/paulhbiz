@@ -150,8 +150,16 @@
       @include input-color;
       border: none;
 
-      @include media-breakpoint-down(xs) {
-        width: 174px;
+      &.subject {
+        @include media-breakpoint-down(xs) {
+          width: 10.625rem;
+        }
+      }
+
+      &.email {
+        @include media-breakpoint-down(xs) {
+          width: 11.875rem;
+        }
       }
     }
   }

@@ -21,7 +21,7 @@ function EmailForm() {
               <label className="field-title">Subject</label>
               <input
                 placeholder="Hey there!"
-                className="field-value"
+                className="field-value subject"
                 name="subject"
                 type="text"
               />
@@ -30,7 +30,7 @@ function EmailForm() {
               <label className="field-title">From</label>
               <input
                 placeholder="friendly@visitor.org"
-                className="field-value"
+                className="field-value email"
                 name="from"
                 type="text"
               />

@@ -3,7 +3,6 @@
     border-bottom: 0.25rem solid darken($teal, 15%);
     background-color: darken($teal, 10%);
     color: darken($teal, 35%);
-    font-size: $font-size-lg;
     padding-bottom: 0.625rem;
     padding-top: 0.625rem;
     text-align: center;
@@ -65,7 +64,7 @@
   &__container {
     @include ib;
     padding: 0.625rem;
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 
   &__wrap {

@@ -25,11 +25,8 @@ body {
   font-family: neue-haas-grotesk-display, sans-serif;
   background-color: $gray-200;
   min-width: $body-min-width;
+  font-size: $font-size-lg;
   color: $black;
-
-  @include media-breakpoint-up(sm) {
-    font-size: $font-size-base;
-  }
 }
 
 h1,
@@ -63,6 +60,7 @@ a {
 
 .btn {
   text-decoration: none;
+  font-size: inherit;
   transition: none;
 }
 

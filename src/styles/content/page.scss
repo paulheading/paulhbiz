@@ -78,14 +78,12 @@
   }
 
   &__address {
-    font-size: $font-size-lg;
     font-weight: bold;
   }
 }
 
 .link {
   &__email {
-    font-size: $font-size-lg;
     display: block;
   }
   &__social {
@@ -95,8 +93,6 @@
 
 .column {
   &__title {
-    font-size: $font-size-lg;
-
     &.placeholder {
       @include placeholder($max: 8rem);
 
