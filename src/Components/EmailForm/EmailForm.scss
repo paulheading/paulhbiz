@@ -71,7 +71,7 @@
   }
 
   &__row {
-    padding: 0.625rem;
+    padding: 0.75rem;
 
     @include media-breakpoint-up(sm) {
       padding-left: 0;
@@ -109,6 +109,7 @@
       border: none;
       resize: none;
       width: 100%;
+      padding: 0;
 
       @include media-breakpoint-up(sm) {
         height: 14rem;
@@ -152,13 +153,13 @@
 
       &.subject {
         @include media-breakpoint-down(xs) {
-          width: 10.625rem;
+          width: 10.3125rem;
         }
       }
 
       &.email {
         @include media-breakpoint-down(xs) {
-          width: 11.875rem;
+          width: 11.5625rem;
         }
       }
     }
