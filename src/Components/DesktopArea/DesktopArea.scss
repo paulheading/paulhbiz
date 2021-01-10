@@ -25,6 +25,7 @@
 .desktop-content {
   &__container {
     background-color: $teal;
+    font-size: 1.125rem;
     padding: 1.25rem;
 
     @include media-breakpoint-up(sm) {
@@ -64,7 +65,6 @@
   &__container {
     @include ib;
     padding: 0.625rem;
-    font-size: 1.125rem;
   }
 
   &__wrap {

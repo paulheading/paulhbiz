@@ -1,3 +1,57 @@
+.component-email-form {
+  @include media-breakpoint-down(xs) {
+    font-size: 1.125rem;
+  }
+
+  .focus-visible,
+  .focus-visible.btn:focus {
+    @include ph-box-shadow($col: $gray-400);
+  }
+
+  .field-title {
+    @include ib;
+    @include media-breakpoint-down(xs) {
+      margin-right: 0.75rem;
+    }
+    @include media-breakpoint-up(sm) {
+      min-width: 6rem;
+    }
+  }
+
+  .field-value {
+    @include ib;
+
+    &.tag {
+      background-color: lightskyblue;
+      border-radius: $border-radius;
+      padding: 0.25rem 0.5rem;
+      font-weight: normal;
+      color: $black;
+    }
+
+    &.subject {
+      @include media-breakpoint-down(xs) {
+        width: 10rem;
+      }
+    }
+
+    &.email {
+      @include media-breakpoint-down(xs) {
+        width: 11.25rem;
+      }
+    }
+  }
+
+  textarea {
+    height: 8rem;
+    width: 100%;
+
+    @include media-breakpoint-up(sm) {
+      height: 14rem;
+    }
+  }
+}
+
 .topbar {
   &__btn {
     @include ib;
@@ -26,11 +80,6 @@
     padding-top: 3.75rem;
     position: relative;
     overflow: hidden;
-
-    .focus-visible,
-    .focus-visible.btn:focus {
-      @include ph-box-shadow($col: $gray-400);
-    }
 
     @include media-breakpoint-up(sm) {
       padding-top: 5.625rem;
@@ -78,89 +127,21 @@
 
     &.input {
       @include media-breakpoint-up(sm) {
-        grid-template-columns: 5rem auto;
+        grid-template-columns: 6rem auto;
         display: grid;
-      }
-    }
-
-    &.tag {
-      .field-title {
-        margin: 0 0.625rem 0 0;
-
-        @include media-breakpoint-up(sm) {
-          margin-right: 0;
-          min-width: 5rem;
-        }
       }
     }
 
     &.submit {
       text-align: right;
 
-      button {
+      .btn {
         text-decoration: none;
-      }
-    }
-
-    &.text-field textarea {
-      @include input-color;
-      height: 10rem;
-      border: none;
-      resize: none;
-      width: 100%;
-      padding: 0;
-
-      @include media-breakpoint-up(sm) {
-        height: 14rem;
-      }
-    }
-
-    &.submit-btn {
-      padding: 1.5625rem 1.5625rem 1.5625rem 0;
-      text-align: right;
-    }
-
-    .field-title {
-      @include ib;
-      margin: 0;
-
-      @include media-breakpoint-up(sm) {
-        margin-top: 0.25rem;
-        min-width: 5rem;
-      }
-    }
-
-    .field-value {
-      @include ib;
-      padding: 0.25rem 0.5rem;
-      font-weight: normal;
-
-      &.tag {
-        background-color: lightskyblue;
-        border-radius: $border-radius;
-        color: $black;
       }
     }
 
     + .email-form__row:not(.submit) {
       border-top: 1px solid $gray-300;
-    }
-
-    input.field-value {
-      @include input-color;
-      border: none;
-
-      &.subject {
-        @include media-breakpoint-down(xs) {
-          width: 10.3125rem;
-        }
-      }
-
-      &.email {
-        @include media-breakpoint-down(xs) {
-          width: 11.5625rem;
-        }
-      }
     }
   }
 }

@@ -58,10 +58,23 @@ a {
   }
 }
 
-.btn {
-  text-decoration: none;
-  font-size: inherit;
-  transition: none;
+input,
+textarea {
+  color: inherit;
+  border: none;
+  padding: 0;
+
+  &::placeholder {
+    color: inherit;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+label {
+  margin: 0;
 }
 
 *:focus {

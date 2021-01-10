@@ -1,16 +1,22 @@
-.btn-link {
-  text-decoration: underline;
-  color: inherit;
+.btn {
+  text-decoration: none;
+  font-size: inherit;
+  transition: none;
 
-  &:hover {
+  &-dark {
+    @include reset-button;
+  }
+
+  &-link {
+    text-decoration: underline;
     color: inherit;
-  }
 
-  &:focus {
-    box-shadow: none;
-  }
-}
+    &:hover {
+      color: inherit;
+    }
 
-.btn-dark {
-  @include reset-button;
+    &:focus {
+      box-shadow: none;
+    }
+  }
 }
