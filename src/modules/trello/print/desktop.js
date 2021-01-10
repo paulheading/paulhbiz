@@ -11,7 +11,7 @@ export const printDesktop = {
   projects: (feed) => {
     return (
       <div className="window__container">
-        <div className="trello__list">
+        <div className="window__wrap trello">
           <div className="trello__header">
             {header(feed)}
             <DotsSvg />

@@ -70,12 +70,21 @@
   &__wrap {
     background-color: darken($teal, 10%);
     border-radius: $border-radius;
-    width: 12rem;
+    min-width: 15rem;
 
     &.spotify {
       background-color: $c-spotify-bg;
       color: $c-spotify-text;
-      width: 15rem;
+      max-width: 16rem;
+    }
+
+    &.trello {
+      background-color: $c-trello-bg;
+      border-radius: $border-radius;
+      padding-right: 0.625rem;
+      padding-left: 0.625rem;
+      color: $c-trello-text;
+      max-width: 18rem;
     }
   }
 

@@ -8,14 +8,6 @@
       @include placeholder($gray-400, 75%);
     }
   }
-  &__list {
-    background-color: $c-trello-bg;
-    border-radius: $border-radius;
-    padding-right: 0.625rem;
-    padding-left: 0.625rem;
-    color: $c-trello-text;
-    width: 16rem;
-  }
   &__card {
     box-shadow: 0 0.125rem #b3b8c5;
     border-radius: $border-radius;
