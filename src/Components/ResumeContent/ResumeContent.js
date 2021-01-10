@@ -10,6 +10,7 @@ function ResumeContent() {
   return (
     <div className="component-resume-content">
       <div className="page-content__container">
+        {/* component */}
         <div className="page-content__wrap">
           <div className="page-content__row">
             <div className="page-content__column double">
@@ -25,6 +26,9 @@ function ResumeContent() {
               </a>
             </div>
           </div>
+        </div>
+        {/* component */}
+        <div className="page-content__wrap">
           <div className="page-content__row">
             <div className="page-content__column double">
               <h2 className="column__title">Biography</h2>
@@ -51,9 +55,21 @@ function ResumeContent() {
               </a>
             </div>
           </div>
+        </div>
+        {/* component */}
+        <div className="page-content__wrap">
           {printResume.projects(store.trelloData)}
+        </div>
+        {/* component */}
+        <div className="page-content__wrap">
           {printResume.roles(store.trelloData)}
+        </div>
+        {/* component */}
+        <div className="page-content__wrap">
           {printResume.skills(store.treehouseData)}
+        </div>
+        {/* component */}
+        <div className="page-content__wrap">
           {printResume.education(store.trelloData)}
         </div>
       </div>

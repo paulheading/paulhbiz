@@ -27,10 +27,10 @@
   }
 
   &__wrap {
+    @include auto-margin;
     max-width: $content-max-width;
     grid-auto-flow: column;
     display: grid;
-    margin: auto;
 
     @include media-breakpoint-up(sm) {
       max-width: 60rem;

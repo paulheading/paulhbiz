@@ -14,10 +14,9 @@
   }
 
   &__title {
+    @include auto-margin;
     font-size: $h1-font-size * 0.9;
-    margin-right: auto;
     position: relative;
-    margin-left: auto;
     line-height: 1.25;
     max-width: 15rem;
     z-index: 2;

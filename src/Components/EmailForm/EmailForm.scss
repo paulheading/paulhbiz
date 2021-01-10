@@ -43,10 +43,9 @@
   }
 
   &__wrap {
+    @include auto-margin;
     box-shadow: 0 0 0.5rem $gray-300;
     max-width: $content-max-width;
-    margin-right: auto;
-    margin-left: auto;
 
     @include media-breakpoint-up(sm) {
       max-width: 34rem;

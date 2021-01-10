@@ -34,10 +34,10 @@
 
   &__wrap {
     @include media-breakpoint-up(sm) {
+      @include auto-margin;
       grid-auto-flow: column;
       max-width: 75rem;
       display: grid;
-      margin: auto;
     }
   }
 

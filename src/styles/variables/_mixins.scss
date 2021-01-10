@@ -6,6 +6,11 @@
   }
 }
 
+@mixin auto-margin {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @mixin zeros {
   bottom: 0;
   right: 0;

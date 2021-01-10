@@ -8,12 +8,17 @@
     }
   }
   &__wrap {
+    @include auto-margin;
     box-shadow: 0 0 0.5rem $gray-300;
     max-width: $page-max-width;
     background-color: $white;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 2rem;
+    padding: 1.875rem;
+
+    @include media-breakpoint-down(xs) {
+      + .page-content__wrap {
+        margin-top: 2rem;
+      }
+    }
 
     @include media-breakpoint-up(sm) {
       max-width: 48rem;
