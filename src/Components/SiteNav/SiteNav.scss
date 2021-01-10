@@ -27,7 +27,7 @@
   }
 
   &__wrap {
-    max-width: $mobile-max-width;
+    max-width: $content-max-width;
     grid-auto-flow: column;
     display: grid;
     margin: auto;
