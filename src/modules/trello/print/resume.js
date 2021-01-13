@@ -12,6 +12,6 @@ export const printResume = {
     return resumeComponent(feed, feed.roles, "Roles");
   },
   skills: (feed) => {
-    printResumeSkills(feed);
+    return printResumeSkills(feed);
   },
 };

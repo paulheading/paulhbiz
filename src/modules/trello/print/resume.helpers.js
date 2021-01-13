@@ -1,34 +1,43 @@
 import { objectReady, linkBadges, handleDate, parse } from "../../helpers";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export function resumeComponent(trello, list, title) {
   if (!objectReady(trello)) {
     return (
-      <div className="page-content__row">
-        <h2 className="column__title placeholder">.</h2>
-        <div className="page-content__row triple">
+      <Container className="page-row">
+        <Row>
+          <Col sm={12}>
+            <h2 className="column__title placeholder">.</h2>
+          </Col>
           {placeholder()}
           {placeholder()}
           {placeholder()}
-        </div>
-      </div>
+        </Row>
+      </Container>
     );
   } else {
     return (
-      <div className="page-content__row">
-        <h2 className="column__title">{title}</h2>
-        <div className="page-content__row triple">{cards(list)}</div>
-      </div>
+      <Container className="page-row">
+        <Row>
+          <Col sm={12}>
+            <h2 className="column__title">{title}</h2>
+          </Col>
+          {cards(list)}
+        </Row>
+      </Container>
     );
   }
 }
 
 function placeholder() {
   return (
-    <div className="component-resume-card">
+    <Col sm={4}>
       <div className="card__badge placeholder">.</div>
       <div className="card__name placeholder">.</div>
       <div className="card__description placeholder">.</div>
-    </div>
+    </Col>
   );
 }
 
@@ -36,14 +45,14 @@ function cards(trello) {
   return trello.cards.map((card, index) => {
     if (index < 3) {
       return (
-        <div className="component-resume-card" key={card.id}>
+        <Col sm={4} key={card.id}>
           {linkBadges(card)}
           <div className="card__name">
             {card.name}&nbsp;
             {certificateDate(card.due)}
           </div>
           <div className="card__description">{parse(card.desc)}</div>
-        </div>
+        </Col>
       );
     } else {
       return null;

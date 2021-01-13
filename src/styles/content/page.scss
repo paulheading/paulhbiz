@@ -1,3 +1,74 @@
+.page-row.container {
+  background-color: $white;
+  padding: 1.875rem;
+  max-width: none;
+
+  @include media-breakpoint-down(xs) {
+    box-shadow: 0 0 0.5rem $gray-300;
+
+    + .page-row.container {
+      margin-top: 2rem;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding: 1.875rem 2.5rem;
+
+    + .page-row.container {
+      border-top: 1px dashed $gray-300;
+    }
+  }
+
+  .col-sm-12 {
+    margin-bottom: 1.25rem;
+  }
+
+  .col-sm-4 + .col-sm-4 {
+    @include media-breakpoint-down(xs) {
+      margin-top: 1.25rem;
+    }
+  }
+
+  .card__due {
+    @include ib;
+    font-size: $font-size-sm;
+    color: $gray-700;
+  }
+
+  .card__badge {
+    &.placeholder {
+      @include placeholder($gray-300, 25%);
+    }
+  }
+
+  .card__name {
+    margin-top: 0.625rem;
+
+    &.placeholder {
+      @include placeholder($gray-300, 75%);
+    }
+  }
+
+  .card__description {
+    font-size: $font-size-sm;
+    margin-top: 0.3125rem;
+    color: $gray-700;
+
+    &.placeholder {
+      @include placeholder($gray-300, 50%);
+    }
+  }
+
+  .link {
+    &__email {
+      display: block;
+    }
+    &__social {
+      display: block;
+    }
+  }
+}
+
 .page-content {
   &__container {
     padding-bottom: 8rem;
@@ -9,113 +80,11 @@
   }
   &__wrap {
     @include auto-margin;
-    box-shadow: 0 0 0.5rem $gray-300;
     max-width: $page-max-width;
-    background-color: $white;
-    padding: 1.875rem;
-
-    @include media-breakpoint-down(xs) {
-      + .page-content__wrap {
-        margin-top: 2rem;
-      }
-    }
 
     @include media-breakpoint-up(sm) {
+      box-shadow: 0 0 0.5rem $gray-300;
       max-width: 48rem;
-      padding: 2.5rem;
-    }
-  }
-
-  &__row {
-    padding-bottom: 1.25rem;
-    padding-top: 1.25rem;
-
-    @include media-breakpoint-up(sm) {
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 1.25rem;
-      display: grid;
-    }
-
-    &.triple {
-      grid-column: 1 / span 3;
-    }
-
-    &.skills {
-      margin: -0.25rem;
-      display: block;
-
-      .badge {
-        margin: 0.25rem;
-
-        @include media-breakpoint-down(xs) {
-          font-size: $font-size-sm;
-        }
-      }
-    }
-
-    &:first-of-type {
-      padding-top: 0;
-    }
-
-    &:last-of-type {
-      padding-bottom: 0;
-    }
-
-    + .page-content__row {
-      border-top: 1px solid $black;
-    }
-  }
-
-  &__column {
-    &.double {
-      grid-column: 1 / span 2;
-    }
-
-    &.triple {
-      grid-column: 1 / span 3;
-    }
-
-    + .page-content__column {
-      @include media-breakpoint-down(xs) {
-        margin-top: 1.25rem;
-      }
-    }
-  }
-
-  &__address {
-    font-weight: bold;
-  }
-}
-
-.link {
-  &__email {
-    display: block;
-  }
-  &__social {
-    display: block;
-  }
-}
-
-.column {
-  &__title {
-    &.placeholder {
-      @include placeholder($max: 8rem);
-
-      &.skills {
-        max-width: 6rem;
-      }
-    }
-
-    + * {
-      margin-top: 1.25rem;
-    }
-  }
-}
-
-.component-resume-card {
-  + .component-resume-card {
-    @include media-breakpoint-down(xs) {
-      margin-top: 1.25rem;
     }
   }
 }

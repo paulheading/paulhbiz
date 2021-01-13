@@ -31,9 +31,7 @@ export function printResumeSkills(skills) {
   if (!objectReady(skills)) {
     return (
       <div className="page-content__row">
-        <div className="page-content__column triple">
-          <h2 className="column__title placeholder skills">.</h2>
-        </div>
+        <h2 className="column__title placeholder skills">.</h2>
         <div className="page-content__row triple skills">
           <Badge>.</Badge>
         </div>
@@ -43,9 +41,7 @@ export function printResumeSkills(skills) {
     skills = skills.points;
     return (
       <div className="page-content__row">
-        <div className="page-content__column triple">
-          <h2 className="column__title">Skills</h2>
-        </div>
+        <h2 className="column__title">Skills</h2>
         <div className="page-content__row triple skills">
           {handleSkills(skills)}
         </div>
