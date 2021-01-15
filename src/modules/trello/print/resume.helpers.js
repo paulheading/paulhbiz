@@ -9,7 +9,7 @@ export function resumeComponent(trello, list, title) {
       <Container className="page-row">
         <Row>
           <Col sm={12}>
-            <h2 className="column__title placeholder">.</h2>
+            <h3 className="column__title placeholder">.</h3>
           </Col>
           {placeholder()}
           {placeholder()}
@@ -22,7 +22,7 @@ export function resumeComponent(trello, list, title) {
       <Container className="page-row">
         <Row>
           <Col sm={12}>
-            <h2 className="column__title">{title}</h2>
+            <h3 className="column__title">{title}</h3>
           </Col>
           {cards(list)}
         </Row>

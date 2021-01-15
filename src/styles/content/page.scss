@@ -19,13 +19,10 @@
     }
   }
 
-  .col-sm-12 {
-    margin-bottom: 1.25rem;
-  }
-
-  .col-sm-4 + .col-sm-4 {
-    @include media-breakpoint-down(xs) {
-      margin-top: 1.25rem;
+  @include media-breakpoint-down(xs) {
+    .col-sm-8,
+    .col-sm-4 {
+      @include repeat-margin(1.25rem);
     }
   }
 
@@ -42,7 +39,7 @@
   }
 
   .card__name {
-    margin-top: 0.625rem;
+    margin-top: $label-margin-bottom;
 
     &.placeholder {
       @include placeholder($gray-300, 75%);
@@ -50,8 +47,8 @@
   }
 
   .card__description {
+    margin-top: $form-text-margin-top;
     font-size: $font-size-sm;
-    margin-top: 0.3125rem;
     color: $gray-700;
 
     &.placeholder {
@@ -86,5 +83,21 @@
       box-shadow: 0 0 0.5rem $gray-300;
       max-width: 48rem;
     }
+  }
+}
+
+.page-row__title {
+  margin: 0;
+
+  @include media-breakpoint-up(sm) {
+    margin: 0.625rem 0 0;
+  }
+}
+
+.skills {
+  margin: -0.25rem;
+
+  .badge {
+    margin: 0.25rem;
   }
 }

@@ -1,4 +1,7 @@
+import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { objectReady } from "../helpers";
 
 function handleSkills(skills) {
@@ -30,22 +33,30 @@ function handleSkills(skills) {
 export function printResumeSkills(skills) {
   if (!objectReady(skills)) {
     return (
-      <div className="page-content__row">
-        <h2 className="column__title placeholder skills">.</h2>
-        <div className="page-content__row triple skills">
-          <Badge>.</Badge>
-        </div>
-      </div>
+      <Container className="page-row">
+        <Row>
+          <Col sm={12}>
+            <h3 className="column__title placeholder">.</h3>
+          </Col>
+          <Col sm={12}>
+            <Badge>.</Badge>
+          </Col>
+        </Row>
+      </Container>
     );
   } else {
     skills = skills.points;
     return (
-      <div className="page-content__row">
-        <h2 className="column__title">Skills</h2>
-        <div className="page-content__row triple skills">
-          {handleSkills(skills)}
-        </div>
-      </div>
+      <Container className="page-row">
+        <Row>
+          <Col sm={12}>
+            <h3 className="column__title placeholder">Skills</h3>
+          </Col>
+          <Col className="skills" sm={12}>
+            {handleSkills(skills)}
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

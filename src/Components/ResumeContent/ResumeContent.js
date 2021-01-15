@@ -18,7 +18,7 @@ function ResumeContent() {
           <Container className="page-row">
             <Row>
               <Col sm={8}>
-                <h1>Paul Heading</h1>
+                <h1 className="page-row__title">Paul Heading</h1>
               </Col>
               <Col sm={4}>
                 <div className="page-row__address">Hackney, London</div>
@@ -35,7 +35,7 @@ function ResumeContent() {
           <Container className="page-row">
             <Row>
               <Col sm={8}>
-                <h2 className="column__title">Biography</h2>
+                <h3 className="column__title">Biography</h3>
                 <div className="column__copy">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Praesent ut ultrices ante.
@@ -68,7 +68,7 @@ function ResumeContent() {
           {/* component */}
           {printResume.roles(store.trelloData)}
           {/* component */}
-          {/* {printResume.skills(store.treehouseData)} */}
+          {printResume.skills(store.treehouseData)}
           {/* component */}
           {printResume.education(store.trelloData)}
         </div>

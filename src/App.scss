@@ -32,6 +32,10 @@
 @import "./Components/HeroContent/Feed/1.scss";
 @import "./Components/HeroContent/Feed/2.scss";
 
+#root {
+  height: 100%;
+}
+
 .component-site-wrap {
   &.menu-open {
     position: relative;
