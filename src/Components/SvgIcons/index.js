@@ -8,6 +8,7 @@ import AddCardSvg from "./AddCardSvg";
 import LogoSvg from "./LogoSvg";
 import MobileLogoSvg from "./MobileLogoSvg";
 import BurgerSvg from "./BurgerSvg";
+import RightArrowSvg from "./RightArrowSvg";
 
 export {
   CheckBoxBlank,
@@ -20,4 +21,5 @@ export {
   LogoSvg,
   MobileLogoSvg,
   BurgerSvg,
+  RightArrowSvg,
 };

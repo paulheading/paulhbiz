@@ -38,7 +38,7 @@
     padding: 1rem;
 
     &.focus-visible {
-      @include ph-box-shadow;
+      @include double-box;
     }
   }
 }

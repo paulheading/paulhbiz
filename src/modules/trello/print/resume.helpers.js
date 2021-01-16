@@ -9,7 +9,7 @@ export function resumeComponent(trello, list, title) {
       <Container className="page-row">
         <Row>
           <Col sm={12}>
-            <h3 className="column__title placeholder">.</h3>
+            <h2 className="column__title placeholder">.</h2>
           </Col>
           {placeholder()}
           {placeholder()}
@@ -22,7 +22,7 @@ export function resumeComponent(trello, list, title) {
       <Container className="page-row">
         <Row>
           <Col sm={12}>
-            <h3 className="column__title">{title}</h3>
+            <h2 className="column__title">{title}</h2>
           </Col>
           {cards(list)}
         </Row>
@@ -48,8 +48,8 @@ function cards(trello) {
         <Col sm={4} key={card.id}>
           {linkBadges(card)}
           <div className="card__name">
-            {card.name}&nbsp;
-            {certificateDate(card.due)}
+            <span className="card__title">{card.name}</span>
+            <span className="card__due">{handleDate.short(card.due)}</span>
           </div>
           <div className="card__description">{parse(card.desc)}</div>
         </Col>
@@ -58,19 +58,4 @@ function cards(trello) {
       return null;
     }
   });
-}
-
-function certificateDate(date) {
-  date = handleDate(date);
-
-  if (date === "Coming Soon") {
-    return <span className="card__due">{`(${date})`}</span>;
-  } else {
-    date = date.split(" ");
-    return (
-      <span className="card__due">{`(${parse(date[1])} ${parse(
-        date[3]
-      )})`}</span>
-    );
-  }
 }

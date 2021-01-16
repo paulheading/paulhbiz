@@ -3,9 +3,12 @@
     font-size: 1.125rem;
   }
 
-  .focus-visible,
+  .focus-visible {
+    @include double-box($col: $gray-400);
+  }
+
   .focus-visible.btn:focus {
-    @include ph-box-shadow($col: $gray-400);
+    @include single-box($gray-400);
   }
 
   .field-title {

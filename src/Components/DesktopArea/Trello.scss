@@ -33,7 +33,7 @@
     }
 
     &.focus-visible {
-      @include ph-box-shadow($c-trello-bg, $c-trello-text);
+      @include single-box($c-trello-text);
     }
 
     + .trello__card {

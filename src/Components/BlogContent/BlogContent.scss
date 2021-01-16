@@ -4,7 +4,7 @@
     display: grid;
 
     &.focus-visible {
-      @include ph-box-shadow($gray-200, $black);
+      @include double-box($gray-200, $black);
     }
   }
 }

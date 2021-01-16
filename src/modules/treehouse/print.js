@@ -36,7 +36,7 @@ export function printResumeSkills(skills) {
       <Container className="page-row">
         <Row>
           <Col sm={12}>
-            <h3 className="column__title placeholder">.</h3>
+            <h2 className="column__title placeholder">.</h2>
           </Col>
           <Col sm={12}>
             <Badge>.</Badge>
@@ -50,7 +50,7 @@ export function printResumeSkills(skills) {
       <Container className="page-row">
         <Row>
           <Col sm={12}>
-            <h3 className="column__title placeholder">Skills</h3>
+            <h2 className="column__title placeholder">Skills</h2>
           </Col>
           <Col className="skills" sm={12}>
             {handleSkills(skills)}

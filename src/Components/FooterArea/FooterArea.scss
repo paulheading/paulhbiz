@@ -15,7 +15,7 @@
 
   &__anchor {
     &.focus-visible {
-      @include ph-box-shadow($black, $white);
+      @include double-box($black, $white);
     }
   }
 }

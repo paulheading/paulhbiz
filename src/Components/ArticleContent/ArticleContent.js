@@ -14,7 +14,9 @@ function data(article) {
     <div className="component-blog-content">
       <h1 className="article__title">{article.title}</h1>
       <div className="article__content">{parse(article.content)}</div>
-      <p className="article__published">{handleDate(article.published)}</p>
+      <p className="article__published">
+        {handleDate.basic(article.published)}
+      </p>
       <Link className="article__back-link" to="/blog">
         Back
       </Link>

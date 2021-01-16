@@ -1,6 +1,7 @@
 import { handleBadges, handleDate, pathify } from "./index";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import { RightArrowSvg } from "../../Components/SvgIcons";
 
 export function printSummary(feed) {
   if (!feed) {
@@ -28,16 +29,25 @@ function placeholder() {
 
 function items(feed) {
   return feed.map((item) => {
-    return (
-      <Card key={item.id} className={`summary ${ifType(item.type)}`}>
-        <div className={`summary__column date ${ifType(item.type)}`}>
-          {handleDate(item.date)}
-        </div>
+    const body = (
+      <Card.Body className={`${ifExists(item.type)}`}>
         {ifLabels(item.labels)}
-        <div className={`summary__column name ${ifType(item.type)}`}>
-          {item.title}
+        <div className={`summary-name ${ifExists(item.type)}`}>
+          <div className="summary-title">{item.title}</div>
+          <div className="summary-date">{handleDate.short(item.date)}</div>
         </div>
-        {ifUrl(item.url)}
+        {item.url ? <RightArrowSvg /> : null}
+      </Card.Body>
+    );
+    return (
+      <Card key={item.id} className={`summary ${ifExists(item.type)}`}>
+        {item.url ? (
+          <Link to={pathify(item.url)} className="summary-link">
+            {body}
+          </Link>
+        ) : (
+          body
+        )}
       </Card>
     );
   });
@@ -45,20 +55,14 @@ function items(feed) {
 
 function ifLabels(labels) {
   if (labels) {
-    return <div className="summary__column labels">{handleBadges(labels)}</div>;
+    return (
+      <span className="summary__column labels">{handleBadges(labels)}</span>
+    );
   } else {
     return null;
   }
 }
 
-function ifType(type) {
+function ifExists(type) {
   return type ? type : "";
-}
-
-function ifUrl(url) {
-  return url ? (
-    <Link className="summary__column readmore" to={pathify(url)}>
-      Read More
-    </Link>
-  ) : null;
 }

@@ -15,7 +15,7 @@
   }
   &__name-link {
     &.focus-visible {
-      @include ph-box-shadow($c-spotify-header, $white);
+      @include double-box($c-spotify-header, $white);
     }
   }
   &__owner {
@@ -26,7 +26,7 @@
   }
   &__owner-link {
     &.focus-visible {
-      @include ph-box-shadow($c-spotify-header, $white);
+      @include double-box($c-spotify-header, $white);
     }
   }
   &__profile-img {
@@ -40,7 +40,7 @@
   }
   &__profile-img-link {
     &.focus-visible {
-      @include ph-box-shadow($c-spotify-header, $white);
+      @include double-box($c-spotify-header, $white);
     }
     &:not(.focus-visible) {
       .playlist__profile-img {
@@ -95,13 +95,13 @@
 
     .track-title-link {
       &.focus-visible {
-        @include ph-box-shadow($c-spotify-bg, $white);
+        @include double-box($c-spotify-bg, $white);
       }
     }
 
     .track-artist-link {
       &.focus-visible {
-        @include ph-box-shadow($c-spotify-bg, $c-spotify-text);
+        @include double-box($c-spotify-bg, $c-spotify-text);
       }
     }
   }

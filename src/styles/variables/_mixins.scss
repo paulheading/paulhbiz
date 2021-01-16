@@ -21,17 +21,21 @@
   display: inline-block;
 }
 
-@mixin center {
+@mixin center($pcent: 100%) {
   text-align: center;
   &:before {
     @include ib;
     margin-right: -0.25em;
-    height: 100%;
+    height: $pcent;
     content: "";
   }
 }
 
-@mixin ph-box-shadow($bg: $white, $col: $black, $fill: false) {
+@mixin single-box($bg: $black) {
+  box-shadow: 0 0 0 0.25rem $bg;
+}
+
+@mixin double-box($bg: $white, $col: $black, $fill: false) {
   box-shadow: 0 0 0 0.625rem $bg, 0 0 0 0.8125rem $col;
 
   @if $fill {
@@ -101,4 +105,10 @@
   &:last-of-type {
     margin-bottom: 0;
   }
+}
+
+@mixin style-date {
+  @include ib;
+  font-size: $font-size-sm;
+  color: $gray-700;
 }

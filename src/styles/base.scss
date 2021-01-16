@@ -87,7 +87,7 @@ label {
 }
 
 .focus-visible {
-  @include ph-box-shadow;
+  @include double-box;
   border-radius: 0.125rem;
   position: relative;
   z-index: 999;
@@ -96,7 +96,7 @@ label {
     border-radius: $border-radius;
 
     &:focus {
-      @include ph-box-shadow;
+      @include double-box;
     }
   }
 }

@@ -35,7 +35,7 @@ function ResumeContent() {
           <Container className="page-row">
             <Row>
               <Col sm={8}>
-                <h3 className="column__title">Biography</h3>
+                <h2 className="column__title">Biography</h2>
                 <div className="column__copy">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Praesent ut ultrices ante.

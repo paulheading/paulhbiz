@@ -49,17 +49,17 @@
     @include ib;
 
     &.focus-visible {
-      @include ph-box-shadow($gray-200, $black);
+      @include single-box;
 
       &.btn-link {
-        @include ph-box-shadow($gray-200, $black, true);
+        @include double-box($gray-200, $black, true);
       }
     }
   }
 
   &__btn {
     &.focus-visible {
-      @include ph-box-shadow($gray-200, $black);
+      @include double-box($gray-200, $black);
     }
   }
 }
