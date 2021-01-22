@@ -1,16 +1,17 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
-import { printBlogSummary } from "../../modules/medium";
+import { Link } from "react-router-dom";
+import { printAbout } from "../../modules/trello/print";
 
-function BlogContent() {
+function AboutContent() {
   const store = {
-    mediumData: useSelector((state) => state.mediumData),
+    trelloData: useSelector((state) => state.trelloData),
   };
   return (
     <div className="component-about-content">
       <div className="feed-content__container">
         <div className="feed-content__wrap">
-          <h1 className="feed-content__title">Blogging is my passion.</h1>
+          <h1 className="feed-content__title">About Me</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
             tempus ullamcorper tincidunt. Aliquam posuere ex a lacus placerat
@@ -28,7 +29,12 @@ function BlogContent() {
             Donec sit amet faucibus tortor. Nulla facilisi. Etiam feugiat quam
             ut enim placerat vehicula.
           </p>
-          {printBlogSummary(store.mediumData)}
+          <p>
+            Here's my <Link to="/resume">resume</Link>.
+          </p>
+          <div className="summary__container">
+            {printAbout.summary(store.trelloData)}
+          </div>
         </div>
       </div>
     </div>
@@ -39,4 +45,4 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-export default connect(mapStateToProps)(BlogContent);
+export default connect(mapStateToProps)(AboutContent);

@@ -1,6 +1,7 @@
 .badge {
   border-radius: $border-radius-lg;
   background-color: $gray-600;
+  transition: none;
   padding: 0.625em;
   font-size: 80%;
   color: $white;
@@ -19,5 +20,10 @@
   }
   &.blue {
     background-color: $blue;
+  }
+
+  &.placeholder {
+    @include placeholder;
+    border-radius: 0;
   }
 }

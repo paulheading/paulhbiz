@@ -1,8 +1,8 @@
 .desktop-topbar {
   &__container {
-    border-bottom: 0.25rem solid darken($teal, 15%);
-    background-color: darken($teal, 10%);
-    color: darken($teal, 35%);
+    border-bottom: 0.25rem solid $c-teal--shade;
+    background-color: $c-teal--tint;
+    color: $c-teal--dark;
     padding-bottom: 0.625rem;
     padding-top: 0.625rem;
     text-align: center;
@@ -13,11 +13,11 @@
     min-width: 5rem;
 
     &.placeholder {
-      @include placeholder(darken($teal, 15%));
+      @include placeholder($c-teal--shade);
     }
 
     .wifi-svg {
-      fill: darken($teal, 35%);
+      fill: $c-teal--dark;
     }
   }
 }
@@ -29,7 +29,7 @@
     padding: 1.25rem;
 
     @include media-breakpoint-up(sm) {
-      @include container-default;
+      @include container-default(70vh);
     }
   }
 
@@ -55,7 +55,7 @@
   }
 
   &__wrap {
-    background-color: darken($teal, 10%);
+    background-color: $c-teal--tint;
     border-radius: $border-radius;
     padding: 0.625rem;
   }
@@ -68,14 +68,13 @@
   }
 
   &__wrap {
-    background-color: darken($teal, 10%);
+    background-color: $c-teal--tint;
     border-radius: $border-radius;
-    min-width: 15rem;
+    width: 15rem;
 
     &.spotify {
       background-color: $c-spotify-bg;
       color: $c-spotify-text;
-      max-width: 16rem;
     }
 
     &.trello {
@@ -84,7 +83,7 @@
       padding-right: 0.625rem;
       padding-left: 0.625rem;
       color: $c-trello-text;
-      max-width: 18rem;
+      width: 16rem;
     }
   }
 

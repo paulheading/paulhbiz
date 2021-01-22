@@ -117,3 +117,7 @@ export const breakpoints = {
 export const isSmall = (value) => {
   return value < breakpoints.sm ? true : false;
 };
+
+export function ifTrue(test, positive, negative) {
+  return test ? positive : negative;
+}

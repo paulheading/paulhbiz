@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HeroContent from "./Components/HeroContent/HeroContent";
-import AboutContent from "./Components/AboutContent/AboutContent";
-import BlogContent from "./Components/BlogContent/BlogContent";
-import ArticleContent from "./Components/ArticleContent/ArticleContent";
-import MarqueeScroll from "./Components/MarqueeScroll/MarqueeScroll";
-import DesktopArea from "./Components/DesktopArea/DesktopArea";
-import EmailForm from "./Components/EmailForm/EmailForm";
-import FooterArea from "./Components/FooterArea/FooterArea";
-import OverlayMenu from "./Components/OverlayMenu/OverlayMenu";
-import SiteNav from "./Components/SiteNav/SiteNav";
-import NotFound from "./Components/NotFound/NotFound";
-import ResumeContent from "./Components/ResumeContent/ResumeContent";
+import HeroContent from "./Components/HeroContent";
+import AboutContent from "./Components/AboutContent";
+import BlogContent from "./Components/BlogContent";
+import MarqueeScroll from "./Components/MarqueeScroll";
+import DesktopArea from "./Components/DesktopArea";
+import CreditLine from "./Components/CreditLine";
+import EmailForm from "./Components/EmailForm";
+import FooterArea from "./Components/FooterArea";
+import OverlayMenu from "./Components/OverlayMenu";
+import SiteNav from "./Components/SiteNav";
+import NotFound from "./Components/NotFound";
+import ResumeContent from "./Components/ResumeContent";
 import { getMediumData } from "./modules/medium";
 import { getTimezoneData } from "./modules/timezone";
 import { getSpotifyData } from "./modules/spotify";
@@ -101,12 +101,12 @@ function App({
           <Route path="/about" exact component={AboutContent} />
           <Route path="/blog" exact component={BlogContent} />
           <Route path="/resume" exact component={ResumeContent} />
-          <Route path="/blog/:articleId" component={ArticleContent} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
         </Switch>
         <MarqueeScroll />
         <DesktopArea />
+        <CreditLine />
         <EmailForm />
         <FooterArea />
       </div>

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { printDesktop } from "../../modules/trello/print";
 import { makeDraggable, wifiSignal } from "../../modules/animations";
+import { FolderClosedSvg } from "../SvgIcons";
 
 function DesktopArea() {
   useEffect(() => {
@@ -22,14 +23,14 @@ function DesktopArea() {
             {printDesktop.playlist(store.spotifyData)}
             {printDesktop.projects(store.trelloData)}
           </div>
-          {/* <div className="desktop-content__folders">
+          <div className="desktop-content__folders">
             <div className="folder__container">
-              <div className="folder__wrap">folder 1</div>
+              <FolderClosedSvg />
             </div>
             <div className="folder__container">
-              <div className="folder__wrap">folder 2</div>
+              <FolderClosedSvg />
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

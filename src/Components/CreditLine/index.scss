@@ -1,0 +1,15 @@
+.component-credit-line {
+  background-color: $teal;
+  padding-bottom: 1rem;
+  color: $c-teal--dark;
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 90%;
+
+  @include media-breakpoint-up(sm) {
+    .line {
+      @include ib;
+      @include repeat-margin("right", 0.25rem);
+    }
+  }
+}

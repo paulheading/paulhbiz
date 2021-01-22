@@ -22,7 +22,7 @@
   @include media-breakpoint-down(xs) {
     .col-sm-8,
     .col-sm-4 {
-      @include repeat-margin(1.25rem);
+      @include repeat-margin($val: 1.25rem);
     }
   }
 
@@ -41,6 +41,11 @@
 
     &.placeholder {
       @include placeholder($gray-300, 75%);
+
+      .card__title,
+      .card__due {
+        opacity: 0;
+      }
     }
   }
 

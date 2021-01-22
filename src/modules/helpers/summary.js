@@ -1,56 +1,78 @@
-import { handleBadges, handleDate, pathify } from "./index";
-import { Link } from "react-router-dom";
+import { handleBadges, handleDate } from "./index";
 import Card from "react-bootstrap/Card";
 import { RightArrowSvg } from "../../Components/SvgIcons";
 
 export function printSummary(feed) {
-  if (!feed) {
-    return (
-      <div className="summary__container">
-        {placeholder()}
-        {placeholder()}
-        {placeholder()}
-      </div>
-    );
+  if (feed) {
+    return feed.map((item, index) => {
+      const data = {
+        live: true,
+        labels: item.labels,
+        title: item.title,
+        date: item.date,
+        link: item.link,
+        type: item.type,
+        index,
+      };
+      return printCard(data);
+    });
   } else {
-    return <div className="summary__container">{items(feed)}</div>;
+    const loop = ["1", "2", "3"];
+    return loop.map((index) => {
+      const data = {
+        title: ".",
+        index,
+      };
+      return printCard(data);
+    });
   }
 }
 
-function placeholder() {
+function printCard(card) {
+  const key = card.title + "-" + card.index;
+  const ifLive = card.live ? "" : "placeholder";
+  const ifType = card.type ? card.type : "";
+
+  function ifDate() {
+    if (card.date) {
+      return <div className="summary-date">{handleDate.short(card.date)}</div>;
+    }
+  }
+
+  function ifArrow() {
+    if (card.link) {
+      return <RightArrowSvg />;
+    }
+  }
+
+  const body = (
+    <Card.Body className={ifType}>
+      {ifLabels(card.labels)}
+      <div className={`summary-name ${ifLive} ${ifType}`}>
+        <div className={`summary-title ${ifLive}`}>{card.title}</div>
+        {ifDate()}
+      </div>
+      {ifArrow()}
+    </Card.Body>
+  );
+
+  function ifLink() {
+    if (card.link) {
+      return (
+        <a href={card.link} className="summary-link">
+          {body}
+        </a>
+      );
+    } else {
+      return body;
+    }
+  }
+
   return (
-    <Card className="summary">
-      <div className="summary__column date placeholder">.</div>
-      <div className="summary__column labels placeholder">.</div>
-      <div className="summary__column name placeholder">.</div>
+    <Card key={key} className={`summary ${ifType}`}>
+      {ifLink()}
     </Card>
   );
-}
-
-function items(feed) {
-  return feed.map((item) => {
-    const body = (
-      <Card.Body className={`${ifExists(item.type)}`}>
-        {ifLabels(item.labels)}
-        <div className={`summary-name ${ifExists(item.type)}`}>
-          <div className="summary-title">{item.title}</div>
-          <div className="summary-date">{handleDate.short(item.date)}</div>
-        </div>
-        {item.url ? <RightArrowSvg /> : null}
-      </Card.Body>
-    );
-    return (
-      <Card key={item.id} className={`summary ${ifExists(item.type)}`}>
-        {item.url ? (
-          <Link to={pathify(item.url)} className="summary-link">
-            {body}
-          </Link>
-        ) : (
-          body
-        )}
-      </Card>
-    );
-  });
 }
 
 function ifLabels(labels) {
@@ -58,11 +80,5 @@ function ifLabels(labels) {
     return (
       <span className="summary__column labels">{handleBadges(labels)}</span>
     );
-  } else {
-    return null;
   }
-}
-
-function ifExists(type) {
-  return type ? type : "";
 }

@@ -43,14 +43,14 @@
   }
 }
 
-@mixin container-default {
+@mixin container-default($vh: 75vh) {
   height: $mobile-min-height;
   overflow: hidden;
 
   @include media-breakpoint-up(sm) {
     min-height: $mobile-min-height;
     max-height: 40rem;
-    height: 75vh;
+    height: $vh;
   }
 }
 
@@ -99,11 +99,22 @@
   }
 }
 
-@mixin repeat-margin($val: 0.625rem) {
-  margin-bottom: $val;
-
-  &:last-of-type {
-    margin-bottom: 0;
+@mixin repeat-margin($pos: "bottom", $val: 0.625rem) {
+  @if $pos == "left" {
+    margin-left: $val;
+    &:last-of-type {
+      margin-left: 0;
+    }
+  } @else if $pos == "right" {
+    margin-right: $val;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  } @else if $pos == "bottom" {
+    margin-bottom: $val;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }
 

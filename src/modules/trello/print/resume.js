@@ -1,17 +1,16 @@
-import { resumeComponent } from "./resume.helpers";
-import { printResumeSkills } from "../../treehouse";
+import { ProjectsRow, SkillsRow } from "../../../Components/ResumeContent/Row";
 
-export const printResume = {
-  education: (feed) => {
-    return resumeComponent(feed, feed.education, "Education");
-  },
-  projects: (feed) => {
-    return resumeComponent(feed, feed.projects, "Projects");
-  },
-  roles: (feed) => {
-    return resumeComponent(feed, feed.roles, "Roles");
-  },
-  skills: (feed) => {
-    return printResumeSkills(feed);
-  },
-};
+// export const printResume = {
+//   education: (feed) => {
+//     return ProjectsRow(feed, feed.education, "Education");
+//   },
+//   projects: (feed) => {
+//     return ProjectsRow(feed, feed.projects, "Projects");
+//   },
+//   roles: (feed) => {
+//     return ProjectsRow(feed, feed.roles, "Roles");
+//   },
+//   skills: (feed) => {
+//     return SkillsRow(feed);
+//   },
+// };

@@ -13,3 +13,9 @@
     }
   }
 }
+
+.column__title {
+  &.placeholder {
+    @include placeholder($max: 25%);
+  }
+}
