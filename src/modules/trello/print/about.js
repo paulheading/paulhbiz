@@ -1,4 +1,5 @@
-import { objectReady, printSummary } from "../../helpers";
+import { objectReady } from "../../helpers";
+import { printSummary } from "../../helpers/summary";
 
 export const printAbout = {
   summary: (feed) => {

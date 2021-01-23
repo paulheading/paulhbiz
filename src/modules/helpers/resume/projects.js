@@ -1,4 +1,5 @@
-import { objectReady, linkBadges, handleDate, parse } from "../index";
+import { objectReady, handleDate, parse } from "../index";
+import { handleBadges } from "../summary";
 import Col from "react-bootstrap/Col";
 
 export function projectData(feed, props) {
@@ -68,4 +69,17 @@ function printCard(card) {
       </div>
     </Col>
   );
+}
+
+function linkBadges(card) {
+  const links = card.attachments;
+  if (links.length > 0) {
+    return (
+      <a className="card__link-badge" href={links[0].url} key={card.id}>
+        {handleBadges(card.labels)}
+      </a>
+    );
+  } else {
+    return handleBadges(card.labels);
+  }
 }

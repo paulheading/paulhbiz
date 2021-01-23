@@ -81,6 +81,12 @@
   @include media-breakpoint-up(sm) {
     margin-right: 0.5rem;
   }
+
+  &.placeholder {
+    @include placeholder;
+    display: block;
+    margin: 0;
+  }
 }
 
 .summary-date {

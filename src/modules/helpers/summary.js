@@ -1,4 +1,5 @@
-import { handleBadges, handleDate } from "./index";
+import { handleDate } from "./index";
+import Badge from "react-bootstrap/Badge";
 import Card from "react-bootstrap/Card";
 import { RightArrowSvg } from "../../Components/SvgIcons";
 
@@ -25,6 +26,20 @@ export function printSummary(feed) {
       };
       return printCard(data);
     });
+  }
+}
+
+export function handleBadges(labels) {
+  if (labels.length > 0) {
+    return labels.map((label) => {
+      return (
+        <Badge key={label.id} className={label.color}>
+          {label.name}
+        </Badge>
+      );
+    });
+  } else {
+    return <Badge>Personal</Badge>;
   }
 }
 

@@ -1,4 +1,5 @@
-import { objectReady, printSummary } from "../helpers";
+import { objectReady } from "../helpers";
+import { printSummary } from "../helpers/summary";
 
 export function printBlogSummary(feed) {
   if (!objectReady(feed)) {

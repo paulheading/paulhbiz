@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useLocation, Link } from "react-router-dom";
 import { menuState } from "../../actions";
 import { MobileLogoSvg, LogoSvg, BurgerSvg } from "../SvgIcons";
-import { isHome, isSmall } from "../../modules/helpers";
+import { is } from "../../modules/helpers";
 
 function SiteNav({ menuState }) {
   const path = useLocation().pathname;
@@ -14,11 +14,11 @@ function SiteNav({ menuState }) {
   };
 
   return (
-    <div className={`site-nav__container ${isHome(path)}`}>
+    <div className={`site-nav__container ${is.home(path)}`}>
       <div className="site-nav__wrap">
         <div className="site-nav__logo">
           <Link to="/" className="site-nav__anchor home btn btn-link">
-            {isSmall(store.siteWidth) ? <MobileLogoSvg /> : <LogoSvg />}
+            {is.small(store.siteWidth) ? <MobileLogoSvg /> : <LogoSvg />}
           </Link>
         </div>
         <div className="site-nav__block">
@@ -34,7 +34,7 @@ function SiteNav({ menuState }) {
               menuState(true);
             }}
           >
-            {isSmall(store.siteWidth) ? <BurgerSvg /> : "Menu"}
+            {is.small(store.siteWidth) ? <BurgerSvg /> : "Menu"}
           </Button>
         </div>
       </div>
