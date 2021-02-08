@@ -6,15 +6,10 @@ export default function CreditLine() {
         by&nbsp;
         <a
           href="https://www.flaticon.com/authors/dinosoftlabs"
+          className="credit-line"
           title="DinosoftLabs"
         >
           DinosoftLabs
-        </a>
-      </div>
-      <div className="line">
-        from&nbsp;
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          flaticon.com
         </a>
       </div>
     </div>

@@ -13,11 +13,11 @@ import OverlayMenu from "./Components/OverlayMenu";
 import SiteNav from "./Components/SiteNav";
 import NotFound from "./Components/NotFound";
 import ResumeContent from "./Components/ResumeContent";
-import { getMediumData } from "./modules/medium";
-import { getTimezoneData } from "./modules/timezone";
-import { getSpotifyData } from "./modules/spotify";
+import { getMediumData } from "./modules/medium/get";
+import { getTimezoneData } from "./modules/timezone/get";
+import { getSpotifyData } from "./modules/spotify/get";
 import { getTrelloData } from "./modules/trello/get";
-import { getTreehouseData } from "./modules/treehouse";
+import { getTreehouseData } from "./modules/treehouse/get";
 import { getGithubData } from "./modules/github";
 import {
   treehouseData,

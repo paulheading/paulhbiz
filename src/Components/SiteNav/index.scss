@@ -48,18 +48,25 @@
   &__anchor {
     @include ib;
 
-    &.focus-visible {
-      @include single-box;
+    &.btn-link {
+      padding: 0.375rem;
 
-      &.btn-link {
-        @include double-box($gray-200, $black, true);
+      &.focus-visible {
+        @include single-box($white);
+        background-color: rgba($black, 0.8);
+        text-decoration: none;
+        color: $white;
+
+        svg path {
+          fill: $white;
+        }
       }
     }
   }
 
   &__btn {
     &.focus-visible {
-      @include double-box($gray-200, $black);
+      @include double-box($white, $black);
     }
   }
 }

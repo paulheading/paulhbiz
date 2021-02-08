@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
-import { printBlogSummary } from "../../modules/medium";
+import { printBlogSummary } from "../../modules/medium/print";
 
 function BlogContent() {
   const store = {

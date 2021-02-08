@@ -95,8 +95,8 @@ label {
   &.btn {
     border-radius: $border-radius;
 
-    &:focus {
-      @include double-box;
+    &.focus-visible {
+      @include single-box($white);
     }
   }
 }

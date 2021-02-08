@@ -1,21 +1,13 @@
-import { objectReady } from "../helpers";
-import { SpotifySvg } from "../../Components/SvgIcons";
+import React from "react";
+import { connect, useSelector } from "react-redux";
+import { objectReady } from "../../../modules/helpers";
+import { SpotifySvg } from "../../../Components/SvgIcons";
 
-export function printPlaylist(spotify) {
-  return (
-    <div className="window__container">
-      <div className="window__wrap spotify">
-        {printPlaylistHeader(spotify)}
-        <div className="playlist__track-wrap">
-          {printPlaylistTracks(spotify)}
-        </div>
-      </div>
-    </div>
-  );
-}
+function SpotifyFeed() {
+  const spotify = useSelector((state) => state.spotifyData);
+  const ready = objectReady(spotify);
 
-export function printPlaylistHeader(spotify) {
-  if (!objectReady(spotify)) {
+  function headerPlaceholder() {
     return (
       <div className="playlist__header">
         <div className="playlist__profile-img placeholder"></div>
@@ -30,7 +22,9 @@ export function printPlaylistHeader(spotify) {
         </div>
       </div>
     );
-  } else {
+  }
+
+  function headerContent() {
     const profile = spotify.profile;
     const playlist = spotify.playlist;
     return (
@@ -62,49 +56,8 @@ export function printPlaylistHeader(spotify) {
       </div>
     );
   }
-}
 
-function isTopTrack(index) {
-  return index === 0 ? "top-track" : "";
-}
-
-function isLastTrack(last, index) {
-  return last === index ? "last-track" : "";
-}
-
-function isTooLong(title) {
-  const limit = 20;
-  if (title.length > limit) {
-    return title.slice(0, limit) + " ...";
-  }
-  return title;
-}
-
-function printRow(position) {
-  if (!position) {
-    position = "";
-  }
-  return (
-    <div className={`playlist__row ${position}`}>
-      <div className="track-position placeholder">.</div>
-      <div className="track-info">
-        <div className="track-title placeholder">.</div>
-        <div className="track-artist placeholder">.</div>
-      </div>
-    </div>
-  );
-}
-
-export function printPlaylistTracks(spotify) {
-  if (!objectReady(spotify)) {
-    return (
-      <div>
-        {printRow("top-track")}
-        {printRow()}
-        {printRow("last-track")}
-      </div>
-    );
-  } else {
+  function bodyContent() {
     const last = spotify.tracks.length - 1;
     return spotify.tracks.map((value, index) => {
       return (
@@ -135,4 +88,62 @@ export function printPlaylistTracks(spotify) {
       );
     });
   }
+
+  function bodyPlaceholder() {
+    return (
+      <div>
+        {printRow("top-track")}
+        {printRow()}
+        {printRow("last-track")}
+      </div>
+    );
+  }
+
+  function isTopTrack(index) {
+    return index === 0 ? "top-track" : "";
+  }
+
+  function isLastTrack(last, index) {
+    return last === index ? "last-track" : "";
+  }
+
+  function isTooLong(title) {
+    const limit = 18;
+    if (title.length > limit) {
+      return title.slice(0, limit) + " ...";
+    }
+    return title;
+  }
+
+  function printRow(position) {
+    if (!position) {
+      position = "";
+    }
+    return (
+      <div className={`playlist__row ${position}`}>
+        <div className="track-position placeholder">.</div>
+        <div className="track-info">
+          <div className="track-title placeholder">.</div>
+          <div className="track-artist placeholder">.</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="window__container">
+      <div className="window__wrap spotify">
+        {ready ? headerContent() : headerPlaceholder()}
+        <div className="playlist__track-wrap">
+          {ready ? bodyContent() : bodyPlaceholder()}
+        </div>
+      </div>
+    </div>
+  );
 }
+
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps)(SpotifyFeed);

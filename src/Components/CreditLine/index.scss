@@ -13,3 +13,9 @@
     }
   }
 }
+
+.credit-line {
+  &.focus-visible {
+    @include double-box($teal, $c-teal--dark);
+  }
+}

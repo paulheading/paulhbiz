@@ -8,8 +8,8 @@
 @import "styles/content/page.scss";
 @import "styles/summary.scss";
 
-@import "./Components/SvgIcons/SpotifySvg/SpotifySvg.scss";
-@import "./Components/SvgIcons/WifiSvg/WifiSvg.scss";
+@import "./Components/SvgIcons/SpotifySvg";
+@import "./Components/SvgIcons/WifiSvg";
 
 @import "./Components/ResumeContent";
 @import "./Components/BlogContent";
@@ -18,11 +18,13 @@
 @import "./Components/FooterArea";
 @import "./Components/EmailForm";
 
-@import "./Components/DesktopArea";
-@import "./Components/DesktopArea/Trello.scss";
-@import "./Components/DesktopArea/Spotify.scss";
+@import "./Components/Buttons/Folder";
 
-@import "./Components/CreditLine/";
+@import "./Components/DesktopArea";
+@import "./Components/DesktopArea/TrelloFeed";
+@import "./Components/DesktopArea/SpotifyFeed";
+
+@import "./Components/CreditLine";
 
 @import "./Components/MarqueeScroll";
 @import "./Components/SiteNav";

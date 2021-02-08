@@ -1,0 +1,6 @@
+.folder-button {
+  &.btn.focus-visible {
+    background-color: $c-teal--shade;
+    box-shadow: none;
+  }
+}

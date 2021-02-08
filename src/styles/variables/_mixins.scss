@@ -31,16 +31,12 @@
   }
 }
 
-@mixin single-box($bg: $black) {
-  box-shadow: 0 0 0 0.25rem $bg;
+@mixin single-box($bg: $white, $size: 4px) {
+  box-shadow: 0 0 0 $size $bg;
 }
 
-@mixin double-box($bg: $white, $col: $black, $fill: false) {
-  box-shadow: 0 0 0 0.625rem $bg, 0 0 0 0.8125rem $col;
-
-  @if $fill {
-    background-color: $bg;
-  }
+@mixin double-box($bg: $white, $col: $black) {
+  box-shadow: 0 0 0 6px $bg, 0 0 0 10px $col;
 }
 
 @mixin container-default($vh: 75vh) {

@@ -14,5 +14,9 @@
     @include media-breakpoint-up(sm) {
       max-width: 60rem;
     }
+
+    .focus-visible {
+      @include double-box($gray-200, $black);
+    }
   }
 }
