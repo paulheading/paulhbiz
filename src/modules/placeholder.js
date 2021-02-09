@@ -2,7 +2,7 @@ import { hero } from "./animations";
 
 export const placeholder = {
   id: 0,
-  name: "Full Stack Developer working in React & Vue.js",
+  name: "Full Stack Designer working in React & Vue.js",
   marquee: "loading data ... please wait",
   link: {
     name: "About Me",

@@ -86,6 +86,18 @@ function App({
     return store.menuState ? "menu-open" : "menu-closed";
   }
 
+  // function heroClass() {
+  //   if (condition) {
+  //   }
+  //   switch (key) {
+  //     case value:
+  //       break;
+
+  //     default:
+  //       break;
+  //   }
+  // }
+
   return (
     <BrowserRouter>
       <OverlayMenu />
