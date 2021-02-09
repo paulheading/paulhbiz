@@ -16,7 +16,7 @@ function HeroContent() {
 
   useEffect(() => {
     feed.animation();
-  }, [store.trelloData, store.countdown]);
+  }, [feed, store.trelloData, store.countdown]);
 
   function ifHeroName(name, link) {
     if (name) {
