@@ -4,19 +4,12 @@
   color: $c-teal--dark;
   text-align: center;
   font-size: 90%;
-
-  @include media-breakpoint-up(sm) {
-    .line {
-      @include ib;
-      @include repeat-margin("right", 0.25rem);
-    }
-  }
 }
 
 .credit-line {
   &.badge {
-    background-color: $c-teal--shade;
-    color: $teal;
+    background-color: $c-teal--tint;
+    color: $white;
   }
 
   &.focus-visible {
