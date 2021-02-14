@@ -1,6 +1,17 @@
 .folder-button {
   &.btn.focus-visible {
-    background-color: $c-teal--shade;
     box-shadow: none;
+
+    .badge {
+      background-color: $c-teal--dark;
+    }
+  }
+
+  .badge {
+    background-color: $c-teal--tint;
+
+    &-wrap {
+      margin-top: 0.25rem;
+    }
   }
 }

@@ -1,11 +1,11 @@
 import CheckBoxBlank from "./CheckBoxBlank";
 import CheckBoxDone from "./CheckBoxDone";
-import WifiSvg from "./WifiSvg/WifiSvg";
+import WifiSvg from "./WifiSvg";
 import ExitSvg from "./ExitSvg";
-import SpotifySvg from "./SpotifySvg/SpotifySvg";
+import SpotifySvg from "./SpotifySvg";
 import DotsSvg from "./DotsSvg";
 import AddCardSvg from "./AddCardSvg";
-import LogoSvg from "./LogoSvg";
+import DesktopLogoSvg from "./DesktopLogoSvg";
 import MobileLogoSvg from "./MobileLogoSvg";
 import BurgerSvg from "./BurgerSvg";
 import RightArrowSvg from "./RightArrowSvg";
@@ -20,7 +20,7 @@ export {
   SpotifySvg,
   DotsSvg,
   AddCardSvg,
-  LogoSvg,
+  DesktopLogoSvg,
   MobileLogoSvg,
   BurgerSvg,
   RightArrowSvg,

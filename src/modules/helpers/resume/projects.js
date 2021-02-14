@@ -1,6 +1,20 @@
 import { objectReady, handleDate, parse } from "../index";
-import { handleBadges } from "../summary";
 import Col from "react-bootstrap/Col";
+import Badge from "react-bootstrap/Badge";
+
+function handleBadges(labels) {
+  if (labels.length > 0) {
+    return labels.map((label) => {
+      return (
+        <Badge key={label.id} className={label.color}>
+          {label.name}
+        </Badge>
+      );
+    });
+  } else {
+    return <Badge>Personal</Badge>;
+  }
+}
 
 export function projectData(feed, props) {
   if (!objectReady(feed)) {

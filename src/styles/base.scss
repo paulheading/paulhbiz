@@ -89,8 +89,6 @@ label {
 .focus-visible {
   @include double-box;
   border-radius: 0.125rem;
-  position: relative;
-  z-index: 999;
 
   &.btn {
     border-radius: $border-radius;

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
-import { WifiSvg } from "../../../Components/SvgIcons";
+import { WifiSvg } from "../../SvgIcons";
 import { objectReady } from "../../../modules/helpers";
 import { wifiSignal } from "../../../modules/animations";
 
-function TimezoneData() {
+function DesktopTopbar() {
   const timezone = useSelector((state) => state.timezoneData);
   const ready = objectReady(timezone);
 
@@ -39,4 +39,4 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-export default connect(mapStateToProps)(TimezoneData);
+export default connect(mapStateToProps)(DesktopTopbar);

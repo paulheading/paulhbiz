@@ -41,7 +41,6 @@
 
 @mixin container-default($vh: 75vh) {
   height: $mobile-min-height;
-  overflow: hidden;
 
   @include media-breakpoint-up(sm) {
     min-height: $mobile-min-height;

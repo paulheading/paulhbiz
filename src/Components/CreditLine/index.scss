@@ -3,7 +3,6 @@
   padding-bottom: 1rem;
   color: $c-teal--dark;
   text-align: center;
-  padding-top: 1rem;
   font-size: 90%;
 
   @include media-breakpoint-up(sm) {
@@ -15,7 +14,14 @@
 }
 
 .credit-line {
+  &.badge {
+    background-color: $c-teal--shade;
+    color: $teal;
+  }
+
   &.focus-visible {
-    @include double-box($teal, $c-teal--dark);
+    @include double-box($c-teal--dark, $c-teal--dark);
+    background-color: $c-teal--dark;
+    color: $white;
   }
 }

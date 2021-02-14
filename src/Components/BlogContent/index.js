@@ -1,11 +1,10 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
-import { printBlogSummary } from "../../modules/medium/print";
+import Summary from "../Summary";
 
 function BlogContent() {
-  const store = {
-    mediumData: useSelector((state) => state.mediumData),
-  };
+  const feed = useSelector((state) => state.mediumData);
+
   return (
     <div className="component-about-content">
       <div className="feed-content__container">
@@ -28,9 +27,7 @@ function BlogContent() {
             Donec sit amet faucibus tortor. Nulla facilisi. Etiam feugiat quam
             ut enim placerat vehicula.
           </p>
-          <div className="summary__container">
-            {printBlogSummary(store.mediumData)}
-          </div>
+          <Summary feed={feed} type="blog" />
         </div>
       </div>
     </div>

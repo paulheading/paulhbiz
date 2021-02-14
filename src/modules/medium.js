@@ -1,4 +1,4 @@
-import { pathify } from "../helpers";
+import { pathify } from "./helpers";
 import axios from "axios";
 
 const RSS2JSON = {

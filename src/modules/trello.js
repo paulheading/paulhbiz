@@ -1,8 +1,8 @@
 import axios from "axios";
 import showdown from "showdown";
-import { simplify, localify, objectKey } from "../helpers";
-import { placeholder } from "../placeholder";
-import { hero } from "../animations";
+import { simplify, localify, objectKey } from "./helpers";
+import { placeholder } from "./placeholder";
+import { hero } from "./animations";
 
 const converter = new showdown.Converter();
 

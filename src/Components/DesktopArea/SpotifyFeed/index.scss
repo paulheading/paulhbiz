@@ -1,4 +1,4 @@
-.playlist {
+.spotify-feed {
   &__header {
     border-top-right-radius: $border-radius;
     border-top-left-radius: $border-radius;
@@ -54,7 +54,7 @@
     display: grid;
   }
   &__track-wrap {
-    max-height: 14.625rem;
+    max-height: 16.5rem;
     overflow: scroll;
   }
 

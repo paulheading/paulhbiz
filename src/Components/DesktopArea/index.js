@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { makeDraggable } from "../../modules/animations";
 import { FolderButton } from "../Buttons/Folder";
-import TimezoneData from "./TimezoneData";
+import DesktopTopbar from "./DesktopTopbar";
 import SpotifyFeed from "./SpotifyFeed";
 import TrelloFeed from "./TrelloFeed";
+import CreditLine from "../CreditLine";
 
 function DesktopArea() {
   useEffect(() => {
@@ -16,7 +17,7 @@ function DesktopArea() {
 
   return (
     <div className="component-desktop-area">
-      <TimezoneData />
+      <DesktopTopbar />
       <div className="desktop-content__container">
         <div className="desktop-content__wrap">
           <div className="desktop-content__windows">
@@ -24,8 +25,16 @@ function DesktopArea() {
             {trelloFolder ? <TrelloFeed /> : null}
           </div>
           <div className="desktop-content__folders">
-            <FolderButton input={spotifyFolder} output={setSpotifyFolder} />
-            <FolderButton input={trelloFolder} output={setTrelloFolder} />
+            <FolderButton
+              title="Spotify"
+              input={spotifyFolder}
+              output={setSpotifyFolder}
+            />
+            <FolderButton
+              title="Trello"
+              input={trelloFolder}
+              output={setTrelloFolder}
+            />
           </div>
         </div>
       </div>

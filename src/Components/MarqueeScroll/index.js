@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
-import { objectReady, calcRepeat } from "../../modules/helpers";
-import { printMarquee } from "../../modules/trello/print";
+import { Link } from "react-router-dom";
+import { objectReady, calcRepeat, parse } from "../../modules/helpers";
 import { countdown, repeat } from "../../actions";
 import { marquee } from "../../modules/animations";
+import { placeholder } from "../../modules/placeholder";
 
 function MarqueeScroll({ countdown, repeat }) {
   const store = {
@@ -11,6 +12,10 @@ function MarqueeScroll({ countdown, repeat }) {
     countdown: useSelector((state) => state.countdown),
     repeat: useSelector((state) => state.repeat),
   };
+  const ready = objectReady(store.trelloData);
+  const feed = ready
+    ? store.trelloData.hero.cards[store.countdown]
+    : placeholder;
 
   useEffect(() => {
     marquee.scroll();
@@ -50,15 +55,33 @@ function MarqueeScroll({ countdown, repeat }) {
     }
   }, [store.trelloData, store.countdown, countdown]);
 
+  function printTitle() {
+    let items = [];
+
+    if (!feed.marquee) {
+      feed.marquee = feed.name;
+    }
+
+    for (let index = 0; index < store.repeat; index++) {
+      items.push(
+        <div key={index} className="marquee-scroll__target">
+          {parse(feed.marquee)}
+        </div>
+      );
+    }
+
+    return items;
+  }
+
   return (
     <div className="component-marquee-scroll">
       <div className="marquee-link__container">
-        {printMarquee.link(store.trelloData, store.countdown)}
+        <Link to={feed.link.url} className="marquee-link__wrap">
+          {feed.link.name}
+        </Link>
       </div>
       <div className="marquee-scroll__container">
-        <div className="marquee-scroll__wrap">
-          {printMarquee.title(store.trelloData, store.countdown, store.repeat)}
-        </div>
+        <div className="marquee-scroll__wrap">{printTitle()}</div>
       </div>
     </div>
   );

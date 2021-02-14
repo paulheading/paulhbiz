@@ -10,7 +10,7 @@ function TrelloFeed() {
 
   function placeholder() {
     return (
-      <div className="trello__card placeholder">
+      <div className="trello-feed__card placeholder">
         <div>.</div>
       </div>
     );
@@ -29,7 +29,7 @@ function TrelloFeed() {
   function cardsContent() {
     return trello.projects.cards.map((card, index) => {
       return index < 3 ? (
-        <Link to="/" className="trello__card" key={card.id}>
+        <Link to="/" className="trello-feed__card" key={card.id}>
           {parse(card.name)}
         </Link>
       ) : null;
@@ -37,17 +37,19 @@ function TrelloFeed() {
   }
 
   return (
-    <div className="window__container">
+    <div className="window__container trello">
       <div className="window__wrap trello">
-        <div className="trello__header">
-          <div className={`trello__title ${ready ? "" : "placeholder"}`}>
+        <div className="trello-feed__header">
+          <div className={`trello-feed__title ${ready ? "" : "placeholder"}`}>
             {ready ? trello.projects.info.name : "."}
           </div>
           <DotsSvg />
         </div>
         {ready ? cardsContent() : cardsPlaceholder()}
-        <div className="trello__footer">
-          <div className={`trello__add-another ${ready ? "" : "placeholder"}`}>
+        <div className="trello-feed__footer">
+          <div
+            className={`trello-feed__add-another ${ready ? "" : "placeholder"}`}
+          >
             {ready ? "+ Add another card" : "."}
           </div>
           <AddCardSvg />
