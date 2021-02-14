@@ -81,8 +81,8 @@
     overflow: hidden;
 
     @include media-breakpoint-up(sm) {
+      min-height: $mobile-min-height;
       padding-top: 5.625rem;
-      min-height: 29rem;
     }
 
     @include media-breakpoint-up(md) {
