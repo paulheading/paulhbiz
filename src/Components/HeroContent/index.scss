@@ -2,7 +2,9 @@
   &__container {
     @include container-default;
     @include center;
+    height: $mobile-min-height;
     position: relative;
+    overflow: hidden;
 
     &.overlay-content {
       height: 100vh;
