@@ -40,8 +40,6 @@
 }
 
 @mixin container-default($vh: 75vh) {
-  height: $mobile-min-height;
-
   @include media-breakpoint-up(sm) {
     min-height: $mobile-min-height;
     max-height: 40rem;

@@ -2,15 +2,12 @@
   &__container {
     background-color: $teal;
     font-size: 1.125rem;
-
-    @include media-breakpoint-up(sm) {
-      @include container-default(70vh);
-      padding: 1.25rem;
-    }
+    padding: 1.25rem;
   }
 
   &__wrap {
     @include media-breakpoint-up(sm) {
+      @include container-default(70vh);
       @include auto-margin;
       grid-auto-flow: column;
       max-width: 75rem;
@@ -19,8 +16,8 @@
   }
 
   &__windows {
+    min-height: $mobile-min-height;
     position: relative;
-    min-height: 28rem;
     z-index: 2;
   }
 

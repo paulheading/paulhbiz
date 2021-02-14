@@ -6,7 +6,6 @@ import AboutContent from "./Components/AboutContent";
 import BlogContent from "./Components/BlogContent";
 import MarqueeScroll from "./Components/MarqueeScroll";
 import DesktopArea from "./Components/DesktopArea";
-import CreditLine from "./Components/CreditLine";
 import EmailForm from "./Components/EmailForm";
 import FooterArea from "./Components/FooterArea";
 import OverlayMenu from "./Components/OverlayMenu";
@@ -108,7 +107,6 @@ function App({
         </Switch>
         <MarqueeScroll />
         <DesktopArea />
-        <CreditLine />
         <EmailForm />
         <FooterArea />
       </div>
