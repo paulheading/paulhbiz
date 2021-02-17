@@ -22,8 +22,6 @@ export default function Summary({ feed, type = "about" }) {
     return item;
   });
 
-  console.log("data: ", data);
-
   return (
     <div className="summary__container">
       {data.map((item, index) => {
