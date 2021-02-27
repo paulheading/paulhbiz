@@ -34,7 +34,7 @@
 
 import axios from "axios";
 
-export function getTimezoneData() {
+export default function getTimezoneData() {
   return axios
     .get("/timezone.json", {
       headers: {

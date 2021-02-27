@@ -156,7 +156,7 @@ async function getList(id = TRELLO.LIST.HERO) {
   return { id: data.id, name: data.name };
 }
 
-export async function getTrelloData() {
+export default async function getTrelloData() {
   const data = {
     hero: {
       info: await getList(TRELLO.LIST.HERO),

@@ -5,7 +5,7 @@ const RSS2JSON = {
   API_KEY: process.env.REACT_APP_RSS2JSON_API_KEY,
 };
 
-export async function getMediumData() {
+export default async function getMediumData() {
   return await axios
     .get("https://api.rss2json.com/v1/api.json", {
       params: {

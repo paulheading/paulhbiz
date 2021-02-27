@@ -38,7 +38,7 @@ async function getSpotify(target = `/users/${SPOTIFY.USER_ID}`) {
     });
 }
 
-export async function getSpotifyData() {
+export default async function getSpotifyData() {
   let data = await getSpotify(`/playlists/${SPOTIFY.PLAYLIST_ID}`);
 
   if (data.error) {

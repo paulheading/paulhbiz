@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
-import Summary from "../Summary";
+import Summary from "@/Components/Summary";
 
 function BlogContent() {
   const feed = useSelector((state) => state.mediumData);

@@ -1,4 +1,4 @@
-import { objectReady } from "../index";
+import { objectReady } from "@/modules/helpers";
 import Badge from "react-bootstrap/Badge";
 
 export function skillsData(feed, props) {

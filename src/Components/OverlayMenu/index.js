@@ -2,9 +2,9 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { menuState } from "../../actions";
-import { ExitSvg } from "../SvgIcons";
-import { marquee } from "../../modules/animations";
+import { menuState } from "@/actions";
+import { ExitSvg } from "@/Components/SvgIcons";
+import { marquee } from "@/modules/animations";
 
 function OverlayMenu({ menuState }) {
   const store = {

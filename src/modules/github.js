@@ -1,15 +1,8 @@
 const axios = require("axios");
 
-const environment = process.env.REACT_APP_ENVIRONMENT;
-
-const githubPath =
-  environment === "production"
-    ? "https://api.github.com/users/paulheading"
-    : "/github.json";
-
-export function getGithubData() {
+export default function getGithubData() {
   return axios
-    .get(githubPath, {
+    .get("https://api.github.com/users/paulheading/repos", {
       headers: { Accept: "application/json" },
     })
     .then(({ data }) => {

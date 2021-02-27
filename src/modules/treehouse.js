@@ -2,7 +2,7 @@ import axios from "axios";
 
 const TREEHOUSE_API = "https://teamtreehouse.com/paulheading.json";
 
-export function getTreehouseData() {
+export default function getTreehouseData() {
   return axios
     .get(TREEHOUSE_API, {
       headers: { Accept: "application/json" },

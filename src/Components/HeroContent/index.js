@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect, useSelector } from "react-redux";
-import { objectReady, parse } from "../../modules/helpers";
-import { placeholder } from "../../modules/placeholder";
+import { objectReady, parse } from "@/modules/helpers";
+import { placeholder } from "@/modules/placeholder";
 
 function HeroContent() {
   const store = {

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { objectReady, calcRepeat, parse } from "../../modules/helpers";
-import { countdown, repeat } from "../../actions";
-import { marquee } from "../../modules/animations";
-import { placeholder } from "../../modules/placeholder";
+import { objectReady, calcRepeat, parse } from "@/modules/helpers";
+import { countdown, repeat } from "@/actions";
+import { marquee } from "@/modules/animations";
+import { placeholder } from "@/modules/placeholder";
 
 function MarqueeScroll({ countdown, repeat }) {
   const store = {

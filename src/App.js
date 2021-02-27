@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HeroContent from "./Components/HeroContent";
+import HeroContent from "@/Components/HeroContent";
 import AboutContent from "./Components/AboutContent";
 import BlogContent from "./Components/BlogContent";
 import MarqueeScroll from "./Components/MarqueeScroll";
@@ -12,12 +12,12 @@ import OverlayMenu from "./Components/OverlayMenu";
 import SiteNav from "./Components/SiteNav";
 import NotFound from "./Components/NotFound";
 import ResumeContent from "./Components/ResumeContent";
-import { getMediumData } from "./modules/medium";
-import { getTimezoneData } from "./modules/timezone";
-import { getSpotifyData } from "./modules/spotify";
-import { getTrelloData } from "./modules/trello";
-import { getTreehouseData } from "./modules/treehouse";
-import { getGithubData } from "./modules/github";
+import getMediumData from "./modules/medium";
+import getTimezoneData from "./modules/timezone";
+import getSpotifyData from "./modules/spotify";
+import getTrelloData from "./modules/trello";
+import getTreehouseData from "./modules/treehouse";
+import getGithubData from "./modules/github";
 import {
   treehouseData,
   timezoneData,

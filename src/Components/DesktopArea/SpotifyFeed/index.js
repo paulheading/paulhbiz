@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
-import { objectReady } from "../../../modules/helpers";
-import { SpotifySvg } from "../../../Components/SvgIcons";
+import { objectReady } from "@/modules/helpers";
+import { SpotifySvg } from "@/Components/SvgIcons";
 
 function SpotifyFeed() {
   const spotify = useSelector((state) => state.spotifyData);

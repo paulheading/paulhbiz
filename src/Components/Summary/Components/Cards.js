@@ -1,8 +1,8 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import { handleDate } from "../../../modules/helpers";
-import { RightArrowSvg } from "../../SvgIcons";
+import { handleDate } from "@/modules/helpers";
+import { RightArrowSvg } from "@/Components/SvgIcons";
 
 export default function SummaryCards({ card, type }) {
   type = card.placeholder ? "placeholder" : type;
@@ -42,6 +42,7 @@ export default function SummaryCards({ card, type }) {
       ) : null}
       <div className={`summary-name ${type}`}>
         <div className={`summary-title ${type}`}>{card.title}</div>
+        {card.attachments ? card.attachments.map(({ name }) => name) : null}
         {card.date ? (
           <div className="summary-date">{handleDate.short(card.date)}</div>
         ) : null}

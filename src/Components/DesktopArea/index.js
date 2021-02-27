@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { makeDraggable } from "../../modules/animations";
-import { FolderButton } from "../Buttons/Folder";
+import { makeDraggable } from "@/modules/animations";
+import { FolderButton } from "@/Components/Buttons/Folder";
+import CreditLine from "@/Components/CreditLine";
 import DesktopTopbar from "./DesktopTopbar";
 import SpotifyFeed from "./SpotifyFeed";
 import TrelloFeed from "./TrelloFeed";
-import CreditLine from "../CreditLine";
 
 function DesktopArea() {
   useEffect(() => {

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
-import { WifiSvg } from "../../SvgIcons";
-import { objectReady } from "../../../modules/helpers";
-import { wifiSignal } from "../../../modules/animations";
+import { WifiSvg } from "@/Components/SvgIcons";
+import { objectReady } from "@/modules/helpers";
+import { wifiSignal } from "@/modules/animations";
 
 function DesktopTopbar() {
   const timezone = useSelector((state) => state.timezoneData);

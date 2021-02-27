@@ -1,8 +1,8 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { objectReady } from "../../modules/helpers";
-import Summary from "../Summary";
+import { objectReady } from "@/modules/helpers";
+import Summary from "@/Components/Summary";
 
 function AboutContent() {
   const feed = useSelector((state) => state.trelloData);
