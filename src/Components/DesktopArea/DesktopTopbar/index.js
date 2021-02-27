@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
-import { WifiSvg } from "@/Components/SvgIcons";
+import { WifiSvg } from "@/components/SvgIcons";
 import { objectReady } from "@/modules/helpers";
 import { wifiSignal } from "@/modules/animations";
 

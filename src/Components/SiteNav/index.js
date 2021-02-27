@@ -7,7 +7,7 @@ import {
   MobileLogoSvg,
   DesktopLogoSvg,
   BurgerSvg,
-} from "@/Components/SvgIcons";
+} from "@/components/SvgIcons";
 import { is } from "@/modules/helpers";
 
 function SiteNav({ menuState }) {

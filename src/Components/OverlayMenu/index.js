@@ -3,7 +3,7 @@ import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { menuState } from "@/actions";
-import { ExitSvg } from "@/Components/SvgIcons";
+import { ExitSvg } from "@/components/SvgIcons";
 import { marquee } from "@/modules/animations";
 
 function OverlayMenu({ menuState }) {

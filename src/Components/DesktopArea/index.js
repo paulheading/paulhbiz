@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { makeDraggable } from "@/modules/animations";
-import { FolderButton } from "@/Components/Buttons/Folder";
-import CreditLine from "@/Components/CreditLine";
+import { FolderButton } from "@/components/Buttons/Folder";
+import CreditLine from "@/components/CreditLine";
 import DesktopTopbar from "./DesktopTopbar";
 import SpotifyFeed from "./SpotifyFeed";
 import TrelloFeed from "./TrelloFeed";
