@@ -8,32 +8,32 @@
 @import "styles/content/page.scss";
 @import "styles/summary.scss";
 
-@import "./Components/SvgIcons/SpotifySvg";
-@import "./Components/SvgIcons/WifiSvg";
+@import "components/SvgIcons/SpotifySvg";
+@import "components/SvgIcons/WifiSvg";
 
-@import "./Components/ResumeContent";
-@import "./Components/BlogContent";
-@import "./Components/NotFound";
-@import "./Components/OverlayMenu";
-@import "./Components/FooterArea";
-@import "./Components/EmailForm";
+@import "components/ResumeContent";
+@import "components/BlogContent";
+@import "components/NotFound";
+@import "components/OverlayMenu";
+@import "components/FooterArea";
+@import "components/EmailForm";
 
-@import "./Components/Buttons/Folder";
+@import "components/Buttons/Folder";
 
-@import "./Components/DesktopArea";
-@import "./Components/DesktopArea/DesktopTopbar";
-@import "./Components/DesktopArea/TrelloFeed";
-@import "./Components/DesktopArea/SpotifyFeed";
+@import "components/DesktopArea";
+@import "components/DesktopArea/DesktopTopbar";
+@import "components/DesktopArea/TrelloFeed";
+@import "components/DesktopArea/SpotifyFeed";
 
-@import "./Components/CreditLine";
+@import "components/CreditLine";
 
-@import "./Components/MarqueeScroll";
-@import "./Components/SiteNav";
+@import "components/MarqueeScroll";
+@import "components/SiteNav";
 
-@import "./Components/HeroContent";
-@import "./Components/HeroContent/Feed/0.scss";
-@import "./Components/HeroContent/Feed/1.scss";
-@import "./Components/HeroContent/Feed/2.scss";
+@import "components/HeroContent";
+@import "components/HeroContent/Feed/0.scss";
+@import "components/HeroContent/Feed/1.scss";
+@import "components/HeroContent/Feed/2.scss";
 
 #root {
   height: 100%;

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
-import { FolderClosedSvg, FolderOpenSvg } from "@/components/SvgIcons";
+import { FolderClosedSvg, FolderOpenSvg } from "components/SvgIcons";
 
 export function FolderButton({ title, input, output }) {
   return (

@@ -1,8 +1,8 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import { handleDate } from "@/modules/helpers";
-import { RightArrowSvg } from "@/components/SvgIcons";
+import { handleDate } from "modules/helpers";
+import { RightArrowSvg } from "components/SvgIcons";
 
 export default function SummaryCards({ card, type }) {
   type = card.placeholder ? "placeholder" : type;

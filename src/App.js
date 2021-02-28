@@ -1,23 +1,23 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HeroContent from "@/components/HeroContent";
-import AboutContent from "@/components/AboutContent";
-import BlogContent from "@/components/BlogContent";
-import MarqueeScroll from "@/components/MarqueeScroll";
-import DesktopArea from "@/components/DesktopArea";
-import EmailForm from "@/components/EmailForm";
-import FooterArea from "@/components/FooterArea";
-import OverlayMenu from "@/components/OverlayMenu";
-import SiteNav from "@/components/SiteNav";
-import NotFound from "@/components/NotFound";
-import ResumeContent from "@/components/ResumeContent";
-import getMediumData from "@/modules/medium";
-import getTimezoneData from "@/modules/timezone";
-import getSpotifyData from "@/modules/spotify";
-import getTrelloData from "@/modules/trello";
-import getTreehouseData from "@/modules/treehouse";
-import getGithubData from "@/modules/github";
+import HeroContent from "components/HeroContent";
+import AboutContent from "components/AboutContent";
+import BlogContent from "components/BlogContent";
+import MarqueeScroll from "components/MarqueeScroll";
+import DesktopArea from "components/DesktopArea";
+import EmailForm from "components/EmailForm";
+import FooterArea from "components/FooterArea";
+import OverlayMenu from "components/OverlayMenu";
+import SiteNav from "components/SiteNav";
+import NotFound from "components/NotFound";
+import ResumeContent from "components/ResumeContent";
+import getMediumData from "modules/medium";
+import getTimezoneData from "modules/timezone";
+import getSpotifyData from "modules/spotify";
+import getTrelloData from "modules/trello";
+import getTreehouseData from "modules/treehouse";
+import getGithubData from "modules/github";
 import {
   treehouseData,
   timezoneData,
@@ -26,9 +26,9 @@ import {
   trelloData,
   githubData,
   siteWidth,
-} from "@/actions";
-import { objectReady } from "@/modules/helpers";
-import { placeholder } from "@/modules/placeholder";
+} from "actions";
+import { objectReady } from "modules/helpers";
+import { placeholder } from "modules/placeholder";
 
 import "focus-visible/dist/focus-visible.min.js";
 import "./App.scss";

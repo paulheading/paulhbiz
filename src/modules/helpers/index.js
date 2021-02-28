@@ -1,4 +1,4 @@
-import { marquee } from "@/modules/animations";
+import { marquee } from "modules/animations";
 
 export const parse = require("html-react-parser");
 

@@ -3,7 +3,7 @@ import { connect, useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { projectData, printProjects } from "@/modules/helpers/resume";
+import { projectData, printProjects } from "modules/helpers/resume";
 
 function ProjectsRow(props) {
   const feed = useSelector((state) => state.trelloData);

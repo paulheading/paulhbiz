@@ -3,7 +3,7 @@ import { connect, useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { skillsData, printSkills } from "@/modules/helpers/resume";
+import { skillsData, printSkills } from "modules/helpers/resume";
 
 function SkillsRow(props) {
   const feed = useSelector((state) => state.treehouseData);

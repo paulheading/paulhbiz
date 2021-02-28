@@ -2,13 +2,13 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import { useLocation, Link } from "react-router-dom";
-import { menuState } from "@/actions";
+import { menuState } from "actions";
 import {
   MobileLogoSvg,
   DesktopLogoSvg,
   BurgerSvg,
-} from "@/components/SvgIcons";
-import { is } from "@/modules/helpers";
+} from "components/SvgIcons";
+import { is } from "modules/helpers";
 
 function SiteNav({ menuState }) {
   const path = useLocation().pathname;

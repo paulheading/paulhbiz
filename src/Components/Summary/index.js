@@ -1,5 +1,5 @@
 import React from "react";
-import { objectReady } from "@/modules/helpers";
+import { objectReady } from "modules/helpers";
 import SummaryCards from "./Components/Cards";
 
 export default function Summary({ feed, type = "about" }) {

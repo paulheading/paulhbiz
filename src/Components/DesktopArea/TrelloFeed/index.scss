@@ -17,6 +17,11 @@
     text-decoration: none;
     display: block;
 
+    .badge {
+      display: inline-block;
+      margin-left: 1rem;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }

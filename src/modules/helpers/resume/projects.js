@@ -1,4 +1,4 @@
-import { objectReady, handleDate, parse } from "@/modules/helpers";
+import { objectReady, handleDate, parse } from "modules/helpers";
 import Col from "react-bootstrap/Col";
 import Badge from "react-bootstrap/Badge";
 
