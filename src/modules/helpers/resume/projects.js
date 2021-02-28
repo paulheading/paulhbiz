@@ -63,7 +63,7 @@ export function printProjects(data) {
 function printCard(card) {
   return (
     <Col sm={4} key={card.id}>
-      {card.placeholder ? null : linkBadges(card)}
+      {!card.placeholder && linkBadges(card)}
       <div
         className={`card__name ${card.placeholder ? "placeholder" : "live"}`}
       >

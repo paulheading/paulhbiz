@@ -100,11 +100,11 @@ function SpotifyFeed() {
   }
 
   function isTopTrack(index) {
-    return index === 0 ? "top-track" : "";
+    return index === 0 && "top-track";
   }
 
   function isLastTrack(last, index) {
-    return last === index ? "last-track" : "";
+    return last === index && "last-track";
   }
 
   function isTooLong(title) {

@@ -12,35 +12,37 @@ function OverlayMenu({ menuState }) {
     countdown: useSelector((state) => state.countdown),
     menuState: useSelector((state) => state.menuState),
   };
-  return store.menuState ? (
-    <div className="overlay-content__container">
-      <div
-        className="overlay-content__wrap"
-        onClick={() => {
-          menuState(false);
-        }}
-      >
-        <div className="overlay-content__row">
-          <Button variant="link">
-            <ExitSvg />
-          </Button>
-        </div>
-        <div className="overlay-content__row">
-          <Link
-            onClick={() => {
-              marquee.scroll();
-            }}
-            to="/resume"
-          >
-            Resume
-          </Link>
-        </div>
-        <div className="overlay-content__row">
-          <Link to="/blog">Blog</Link>
+  return (
+    store.menuState && (
+      <div className="overlay-content__container">
+        <div
+          className="overlay-content__wrap"
+          onClick={() => {
+            menuState(false);
+          }}
+        >
+          <div className="overlay-content__row">
+            <Button variant="link">
+              <ExitSvg />
+            </Button>
+          </div>
+          <div className="overlay-content__row">
+            <Link
+              onClick={() => {
+                marquee.scroll();
+              }}
+              to="/resume"
+            >
+              Resume
+            </Link>
+          </div>
+          <div className="overlay-content__row">
+            <Link to="/blog">Blog</Link>
+          </div>
         </div>
       </div>
-    </div>
-  ) : null;
+    )
+  );
 }
 
 const mapStateToProps = (state) => {
