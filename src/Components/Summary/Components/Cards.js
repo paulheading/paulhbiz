@@ -35,19 +35,19 @@ export default function SummaryCards({ card, type }) {
 
   const body = (
     <Card.Body className={type}>
-      {card.labels ? (
+      {card.labels && (
         <span className="summary__column labels">
           {printLabels(card.labels)}
         </span>
-      ) : null}
+      )}
       <div className={`summary-name ${type}`}>
         <div className={`summary-title ${type}`}>{card.title}</div>
-        {card.attachments ? card.attachments.map(({ name }) => name) : null}
-        {card.date ? (
+        {card.attachments && card.attachments.map(({ name }) => name)}
+        {card.date && (
           <div className="summary-date">{handleDate.short(card.date)}</div>
-        ) : null}
+        )}
       </div>
-      {card.link ? <RightArrowSvg /> : null}
+      {card.link && <RightArrowSvg />}
     </Card.Body>
   );
 

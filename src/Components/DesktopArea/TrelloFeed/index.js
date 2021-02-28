@@ -31,6 +31,9 @@ function TrelloFeed() {
       return index < 3 ? (
         <Link to="/" className="trello-feed__card" key={card.id}>
           {parse(card.name)}
+          {card.attachments.map((item) => {
+            return item.name === "Repo" ? item.url : null;
+          })}
         </Link>
       ) : null;
     });
