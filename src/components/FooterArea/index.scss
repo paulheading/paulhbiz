@@ -1,0 +1,21 @@
+.footer-area {
+  &__container {
+    background-color: $black;
+    padding-bottom: 1rem;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 1rem;
+    color: $white;
+
+    * {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+  }
+
+  &__anchor {
+    &.focus-visible {
+      @include double-box($black, $white);
+    }
+  }
+}

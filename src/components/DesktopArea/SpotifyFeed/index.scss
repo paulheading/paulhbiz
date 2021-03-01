@@ -1,0 +1,138 @@
+.spotify-container {
+  @include window-container;
+  left: -2rem;
+  top: 2rem;
+
+  @include media-breakpoint-up(sm) {
+    left: 2rem;
+    top: 2rem;
+  }
+}
+
+.spotify-wrap {
+  &.card {
+    background-color: $c-spotify-bg;
+    border-radius: $border-radius;
+    color: $c-spotify-text;
+    border: none;
+    width: 15rem;
+  }
+}
+
+.spotify-feed {
+  &.header {
+    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+    background-color: $c-spotify-header;
+    grid-template-columns: 5rem auto;
+    display: grid;
+    color: $white;
+    padding: 0;
+  }
+
+  &.profile-img-link {
+    &.focus-visible {
+      @include double-box($c-spotify-header, $white);
+    }
+    &:not(.focus-visible) {
+      .spotify-feed.profile-img {
+        border-top-left-radius: $border-radius;
+      }
+    }
+  }
+
+  &.profile-img {
+    max-width: 100%;
+
+    &.placeholder {
+      @include placeholder($c-spotify-bg);
+      border-top-left-radius: $border-radius;
+      height: 5rem;
+    }
+  }
+
+  &.profile-wrap {
+    grid-template-columns: auto 1.5rem;
+    padding: 0.625rem;
+    display: grid;
+  }
+
+  &.name {
+    &.placeholder {
+      @include placeholder($c-spotify-bg, 50%);
+    }
+  }
+
+  &.name-link {
+    &.focus-visible {
+      @include double-box($c-spotify-header, $white);
+    }
+  }
+
+  &.owner {
+    &.placeholder {
+      @include placeholder($c-spotify-bg, 75%);
+      margin-top: 0.375rem;
+    }
+  }
+
+  &.owner-link {
+    &.focus-visible {
+      @include double-box($c-spotify-header, $white);
+    }
+  }
+
+  &.body-wrap {
+    max-height: 16.5rem;
+    overflow: scroll;
+  }
+
+  &.row {
+    grid-template-columns: 2rem auto;
+    padding: 0.25rem 0.75rem;
+    display: grid;
+    margin: 0;
+
+    &.top-track {
+      padding-top: 0.75rem;
+    }
+
+    &.last-track {
+      padding-bottom: 0.75rem;
+    }
+
+    .track-position {
+      &.placeholder {
+        @include placeholder($c-spotify-header, 75%);
+        max-height: 1.5rem;
+      }
+    }
+
+    .track-title {
+      color: $white;
+
+      &.placeholder {
+        @include placeholder($c-spotify-header);
+      }
+    }
+
+    .track-artist {
+      &.placeholder {
+        @include placeholder($c-spotify-header);
+        margin-top: 0.375rem;
+      }
+    }
+
+    .track-title-link {
+      &.focus-visible {
+        @include double-box($c-spotify-bg, $white);
+      }
+    }
+
+    .track-artist-link {
+      &.focus-visible {
+        @include double-box($c-spotify-bg, $c-spotify-text);
+      }
+    }
+  }
+}

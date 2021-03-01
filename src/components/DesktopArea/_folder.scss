@@ -1,0 +1,11 @@
+.folder {
+  &__container {
+    @include ib;
+  }
+
+  &__wrap {
+    background-color: $c-teal--tint;
+    border-radius: $border-radius;
+    padding: 0.625rem;
+  }
+}

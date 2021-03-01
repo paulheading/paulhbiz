@@ -1,0 +1,21 @@
+.component-resume-content {
+  .column__copy,
+  .card__name,
+  .card__description {
+    line-height: 1.3;
+  }
+}
+
+.component-resume-card {
+  @include media-breakpoint-down(xs) {
+    + .component-education-card {
+      margin-top: 1.25rem;
+    }
+  }
+}
+
+.column__title {
+  &.placeholder {
+    @include placeholder($max: 25%);
+  }
+}
