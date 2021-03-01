@@ -12,19 +12,23 @@ function TrelloFeed() {
   function cardPlaceholders(length) {
     let cards = [];
     for (let index = 0; index < length; index++) {
-      cards.push(<div className="trello-feed__card placeholder" key={`placeholder-${index}`}><div>.</div></div>);
+      cards.push(<div className="trello-feed card placeholder" key={`placeholder-${index}`}><div>.</div></div>);
     }
     return cards;
   }
 
-  function cardsContent() {
+  function cardContents() {
     return trello.projects.cards.map((card, index) => {
+      const liveUrl = card.attachments.map(item => item.name === "Live" && item.url)[0];
+
       return (
         index < 3 && (
-          <Card className="trello-feed__card" key={card.id}>
-            <Link to="/">{parse(card.name)}</Link>
+          <Card className="trello-feed" key={card.id}>
+            <a href={liveUrl ? liveUrl : '#'}>
+              {parse(card.name)}
+            </a>
             {card.attachments.map((item,index) => {
-              return item.name === "Repo" && <Badge key={`repo-${index}`}><a href={item.url}>code</a></Badge>;
+              return item.name === "Code" && <Badge key={`repo-${index}`}><a href={item.url}>code</a></Badge>;
             })}
           </Card>
         )
@@ -33,24 +37,22 @@ function TrelloFeed() {
   }
 
   return (
-    <div className="window__container trello">
-      <div className="window__wrap trello">
-        <div className="trello-feed__header">
-          <div className={`trello-feed__title ${!ready && "placeholder"}`}>
+    <div className="trello-container">
+      <Card className="trello-wrap">
+        <div className="trello-feed header">
+          <div className={`trello-feed header-title ${!ready && "placeholder"}`}>
             {ready ? trello.projects.info.name : "."}
           </div>
           <DotsSvg />
         </div>
-        {ready ? cardsContent() : cardPlaceholders(3)}
-        <div className="trello-feed__footer">
-          <div
-            className={`trello-feed__add-another ${!ready && "placeholder"}`}
-          >
+        {ready ? cardContents() : cardPlaceholders(3)}
+        <div className="trello-feed footer">
+          <div className={`trello-feed add-another ${!ready && "placeholder"}`}>
             {ready ? "+ Add another card" : "."}
           </div>
           <AddCardSvg />
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

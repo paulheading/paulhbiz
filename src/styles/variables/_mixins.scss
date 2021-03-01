@@ -116,3 +116,12 @@
   font-size: $font-size-sm;
   color: $gray-700;
 }
+
+@mixin window-container {
+  @include ib;
+  position: absolute;
+
+  @include media-breakpoint-up(sm) {
+    padding: 0.625rem;
+  }
+}
