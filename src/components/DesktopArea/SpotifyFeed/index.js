@@ -122,10 +122,10 @@ function SpotifyFeed() {
   }
 
   return (
-    <div className="spotify-container">
+    <div className="container spotify-feed">
       <Card className="spotify-wrap">
         {ready ? headerContent() : headerPlaceholder()}
-        <div className="spotify-feed body-wrap">
+        <div className="wrap spotify-feed">
           {ready ? bodyContent() : bodyPlaceholder()}
         </div>
       </Card>

@@ -36,7 +36,7 @@ function TrelloFeed() {
   }
 
   return (
-    <div className="trello-container">
+    <div className="container trello-feed">
       <Card className="trello-wrap">
         <div className="trello-feed header">
           <div className={`trello-feed header-title ${!ready && "placeholder"}`}>

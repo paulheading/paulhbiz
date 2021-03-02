@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { makeDraggable } from "modules/animations";
 import { FolderButton } from "components/Buttons/Folder";
 import CreditLine from "components/CreditLine";
-import DesktopTopbar from "./DesktopTopbar";
+import DesktopTopbar from "./Topbar";
 import SpotifyFeed from "./SpotifyFeed";
 import TrelloFeed from "./TrelloFeed";
 
@@ -16,15 +16,15 @@ function DesktopArea() {
   const [trelloFolder, setTrelloFolder] = useState(true);
 
   return (
-    <div className="component-desktop-area">
+    <div className="component desktop-area">
       <DesktopTopbar />
-      <div className="desktop-content__container">
-        <div className="desktop-content__wrap">
-          <div className="desktop-content__windows">
+      <div className="container desktop-area">
+        <div className="wrap desktop-area">
+          <div className="windows desktop-area">
             {spotifyFolder && <SpotifyFeed />}
             {trelloFolder && <TrelloFeed />}
           </div>
-          <div className="desktop-content__folders">
+          <div className="folders desktop-area">
             <FolderButton
               title="Spotify"
               input={spotifyFolder}

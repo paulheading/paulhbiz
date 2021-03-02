@@ -1,25 +1,20 @@
-.spotify-container {
-  @include window-container;
-  left: -2rem;
-  top: 2rem;
-
-  @include media-breakpoint-up(sm) {
-    left: 2rem;
-    top: 2rem;
-  }
-}
-
-.spotify-wrap {
-  &.card {
-    background-color: $c-spotify-bg;
-    border-radius: $border-radius;
-    color: $c-spotify-text;
-    border: none;
-    width: 15rem;
-  }
-}
-
 .spotify-feed {
+  &.container {
+    @include window-container;
+    left: -2rem;
+    top: 2rem;
+
+    @include media-breakpoint-up(sm) {
+      left: 2rem;
+      top: 2rem;
+    }
+  }
+
+  &.wrap {
+    max-height: 16.5rem;
+    overflow: scroll;
+  }
+
   &.header {
     border-top-right-radius: $border-radius;
     border-top-left-radius: $border-radius;
@@ -82,11 +77,6 @@
     }
   }
 
-  &.body-wrap {
-    max-height: 16.5rem;
-    overflow: scroll;
-  }
-
   &.row {
     grid-template-columns: 2rem auto;
     padding: 0.25rem 0.75rem;
@@ -135,4 +125,12 @@
       }
     }
   }
+}
+
+.spotify-wrap.card {
+  background-color: $c-spotify-bg;
+  border-radius: $border-radius;
+  color: $c-spotify-text;
+  border: none;
+  width: 15rem;
 }

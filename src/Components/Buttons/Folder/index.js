@@ -5,7 +5,7 @@ import { FolderClosedSvg, FolderOpenSvg } from "components/SvgIcons";
 
 export function FolderButton({ title, input, output }) {
   return (
-    <div className="folder__container">
+    <div className="folder-button container">
       <Button
         onClick={() => output(!input)}
         className="folder-button"

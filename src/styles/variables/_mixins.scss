@@ -120,6 +120,7 @@
 @mixin window-container {
   @include ib;
   position: absolute;
+  width: auto;
 
   @include media-breakpoint-up(sm) {
     padding: 0.625rem;
