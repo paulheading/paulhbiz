@@ -23,7 +23,7 @@ function TrelloFeed() {
       return (
         index < 3 && (
           <Card className="trello-feed" key={card.id}>
-            <a href={liveUrl ? liveUrl : '#'}>
+            <a className="trello-feed link" href={liveUrl ? liveUrl : '#'}>
               {parse(card.name)}
             </a>
             {card.attachments.map((item,index) => {
