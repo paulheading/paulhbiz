@@ -21,8 +21,8 @@ function DesktopArea() {
       <div className="container desktop-area">
         <div className="wrap desktop-area">
           <div className="windows desktop-area">
-            {spotifyFolder && <SpotifyFeed />}
-            {trelloFolder && <TrelloFeed />}
+            <SpotifyFeed />
+            <TrelloFeed />
           </div>
           <div className="folders desktop-area">
             <FolderButton
