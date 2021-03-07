@@ -11,7 +11,7 @@ function EmailForm() {
             <div className="topbar__btn close-btn"></div>
             <div className="topbar__btn minimise-btn"></div>
           </div>
-          <form className="email-form__content" method="post" action="/?success=true">
+          <form className="email-form__content" method="post">
             <input type="hidden" name="form-name" value="contact" />
             <div className="email-form__row tag">
               <div className="field-title">To</div>
