@@ -3,41 +3,50 @@ import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 
 function EmailForm() {
-  document.querySelector("form").addEventListener("submit", handleSubmit);
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    let myForm = document.getElementById('pizzaOrder');
-    let formData = new FormData(myForm)
-    fetch('/', {
-      method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
-    }).then(() => console.log('Form successfully submitted')).catch((error) =>
-      alert(error))
-  }
-  
   return (
-    <form name="contact" method="POST" data-netlify="true">
-      <p>
-        <label>Your Name: <input type="text" name="name" /></label>   
-      </p>
-      <p>
-        <label>Your Email: <input type="email" name="email" /></label>
-      </p>
-      <p>
-        <label>Your Role: <select name="role[]" multiple>
-          <option value="leader">Leader</option>
-          <option value="follower">Follower</option>
-        </select></label>
-      </p>
-      <p>
-        <label>Message: <textarea name="message"></textarea></label>
-      </p>
-      <p>
-        <button type="submit">Send</button>
-      </p>
-    </form>
+    <div className="component-email-form">
+      <div className="email-form__container">
+        <div className="email-form__wrap">
+          <div className="email-form__topbar">
+            <div className="topbar__btn close-btn"></div>
+            <div className="topbar__btn minimise-btn"></div>
+          </div>
+          <form className="email-form__content" method="post">
+            <input type="hidden" name="form-name" value="contact" />
+            <div className="email-form__row tag">
+              <div className="field-title">To</div>
+              <div className="field-value tag">hello@paulh.biz</div>
+            </div>
+            <div className="email-form__row input">
+              <label className="field-title">Subject</label>
+              <input
+                placeholder="Hey there!"
+                className="field-value subject"
+                name="subject"
+                type="text"
+              />
+            </div>
+            <div className="email-form__row input">
+              <label className="field-title">From</label>
+              <input
+                placeholder="friendly@visitor.org"
+                className="field-value email"
+                name="from"
+                type="text"
+              />
+            </div>
+            <div className="email-form__row text-field">
+              <textarea placeholder="Message" name="message" rows="4" />
+            </div>
+            <div className="email-form__row submit">
+              <Button variant="link" type="submit">
+                Submit
+              </Button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
 
