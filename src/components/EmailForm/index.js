@@ -1,52 +1,35 @@
 import React from "react";
 import { connect } from "react-redux";
-import Button from "react-bootstrap/Button";
+import { useForm } from 'react-hook-form';
+// import Button from "react-bootstrap/Button";
 
 function EmailForm() {
+  const { register, handleSubmit, watch, errors } = useForm();
+
+  function encode(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
+  const onSubmit = event => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "hookTest", event })
+    }).then(data => console.log('form data: ', data)).catch(error => alert(error))
+  }
+
+  console.log(watch('example'));
+
   return (
-    <div className="component-email-form">
-      <div className="email-form__container">
-        <div className="email-form__wrap">
-          <div className="email-form__topbar">
-            <div className="topbar__btn close-btn"></div>
-            <div className="topbar__btn minimise-btn"></div>
-          </div>
-          <form className="email-form__content" method="post">
-            <input type="hidden" name="form-name" value="contact" />
-            <div className="email-form__row tag">
-              <div className="field-title">To</div>
-              <div className="field-value tag">hello@paulh.biz</div>
-            </div>
-            <div className="email-form__row input">
-              <label className="field-title">Subject</label>
-              <input
-                placeholder="Hey there!"
-                className="field-value subject"
-                name="subject"
-                type="text"
-              />
-            </div>
-            <div className="email-form__row input">
-              <label className="field-title">From</label>
-              <input
-                placeholder="friendly@visitor.org"
-                className="field-value email"
-                name="from"
-                type="text"
-              />
-            </div>
-            <div className="email-form__row text-field">
-              <textarea placeholder="Message" name="message" rows="4" />
-            </div>
-            <div className="email-form__row submit">
-              <Button variant="link" type="submit">
-                Submit
-              </Button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    <form data-netlify="true" name="hookTest" method="post" onSubmit={handleSubmit(onSubmit)}>
+      <input type="hidden" name="form-name" value="hookTest" />
+      <input name="example" defaultValue="test" ref={register} type="text" />
+      <input name="exampleRequired" ref={register({ required: true })} type="text" />
+      {errors.exampleRequired && <span>This field is required</span>}
+      <input type="submit" />
+    </form>
   );
 }
 
