@@ -23,8 +23,8 @@ function EmailForm() {
   console.log(watch('example'));
 
   return (
-    <form data-netlify="true" name="hookTest" method="post" onSubmit={handleSubmit(onSubmit)}>
-      <input type="hidden" name="form-name" value="hookTest" />
+    <form data-netlify="true" name="contact" method="post" onSubmit={handleSubmit(onSubmit)}>
+      <input type="hidden" name="form-name" value="contact" />
       <input name="example" defaultValue="test" ref={register} type="text" />
       <input name="exampleRequired" ref={register({ required: true })} type="text" />
       {errors.exampleRequired && <span>This field is required</span>}
