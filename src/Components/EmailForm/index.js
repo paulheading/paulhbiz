@@ -3,6 +3,32 @@ import { connect } from "react-redux";
 import Button from "react-bootstrap/Button";
 
 function EmailForm() {
+  function encode(data) {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": event.target.getAttribute("name"),
+        subject: form.subject.value,
+        from: form.from.value,
+        message: form.message.value,
+      }),
+    })
+      .then(() => console.log("sent message!"))
+      .catch((error) => alert(error));
+  };
+
   return (
     <div className="component-email-form">
       <div className="email-form__container">
@@ -13,12 +39,12 @@ function EmailForm() {
           </div>
           <form
             className="email-form__content"
-            action="/?success=true"
+            onSubmit={handleSubmit}
+            // duplicate below @ public/index.html
             data-netlify="true"
             name="contact"
             method="post"
           >
-            <input type="hidden" name="form-name" value="contact" />
             <div className="email-form__row tag">
               <div className="field-title">To</div>
               <div className="field-value tag">hello@paulh.biz</div>
