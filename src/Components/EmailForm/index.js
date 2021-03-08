@@ -11,7 +11,13 @@ function EmailForm() {
             <div className="topbar__btn close-btn"></div>
             <div className="topbar__btn minimise-btn"></div>
           </div>
-          <form className="email-form__content" name="contact" data-netlify="true" action="/?success=true">
+          <form
+            className="email-form__content"
+            action="/?success=true"
+            data-netlify="true"
+            name="contact"
+            method="post"
+          >
             <input type="hidden" name="form-name" value="contact" />
             <div className="email-form__row tag">
               <div className="field-title">To</div>
