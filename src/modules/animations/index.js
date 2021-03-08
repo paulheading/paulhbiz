@@ -37,9 +37,7 @@ export function wifiSignal() {
 }
 
 export function makeDraggable() {
-  Draggable.create(".window__container", {
-    // bounds: document.querySelector(".desktop-content__container"),
-  });
+  Draggable.create(".windows.desktop-area .container");
 }
 
 export { hero, marquee };
