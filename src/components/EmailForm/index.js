@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import Button from "react-bootstrap/Button";
+import { useForm } from "react-hook-form";
+import { Button, Alert } from "react-bootstrap";
 
 function EmailForm() {
+  const { register, handleSubmit, errors } = useForm();
+  const [formSuccess, setFormSuccess] = useState(false);
+
   function encode(data) {
     return Object.keys(data)
       .map(
@@ -11,21 +15,16 @@ function EmailForm() {
       .join("&");
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-
+  const onSubmit = (form) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": event.target.getAttribute("name"),
-        subject: form.subject.value,
-        from: form.from.value,
-        message: form.message.value,
+        "form-name": "contact",
+        form,
       }),
     })
-      .then(() => console.log("sent message!"))
+      .then(() => setFormSuccess(true))
       .catch((error) => alert(error));
   };
 
@@ -33,13 +32,22 @@ function EmailForm() {
     <div className="component-email-form">
       <div className="email-form__container">
         <div className="email-form__wrap">
+          {formSuccess && (
+            <Alert
+              variant="success"
+              onClose={() => setFormSuccess(false)}
+              dismissible
+            >
+              sent!
+            </Alert>
+          )}
           <div className="email-form__topbar">
             <div className="topbar__btn close-btn"></div>
             <div className="topbar__btn minimise-btn"></div>
           </div>
           <form
             className="email-form__content"
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             // duplicate below @ public/index.html
             data-netlify="true"
             name="contact"
@@ -52,8 +60,9 @@ function EmailForm() {
             <div className="email-form__row input">
               <label className="field-title">Subject</label>
               <input
-                placeholder="Hey there!"
                 className="field-value subject"
+                placeholder="Hey there!"
+                ref={register}
                 name="subject"
                 type="text"
               />
@@ -62,13 +71,20 @@ function EmailForm() {
               <label className="field-title">From</label>
               <input
                 placeholder="friendly@visitor.org"
+                ref={register({ required: true })}
                 className="field-value email"
                 name="from"
                 type="text"
               />
             </div>
+            {errors.from && <span>This field is required</span>}
             <div className="email-form__row text-field">
-              <textarea placeholder="Message" name="message" rows="4" />
+              <textarea
+                placeholder="Message"
+                name="message"
+                ref={register}
+                rows="4"
+              />
             </div>
             <div className="email-form__row submit">
               <Button variant="link" type="submit">
