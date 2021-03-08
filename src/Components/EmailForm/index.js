@@ -21,7 +21,7 @@ function EmailForm() {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": "contact",
-        form,
+        ...form,
       }),
     })
       .then(() => setFormSuccess(true))
