@@ -92,7 +92,7 @@
 
   &__wrap {
     @include auto-margin;
-    box-shadow: 0 0 0.5rem $gray-300;
+    // box-shadow: 0 0 0.5rem $gray-300;
     max-width: $content-max-width;
 
     @include media-breakpoint-up(sm) {

@@ -7,16 +7,29 @@ import { RightArrowSvg } from "components/SvgIcons";
 export default function SummaryCards({ card, type }) {
   type = card.placeholder ? "placeholder" : type;
 
+  console.log("card: ", card);
+
   function ifLink() {
-    if (card.link) {
+    let liveUrl = false;
+    // check attachments for a live link
+    if (card.attachments) {
+      card.attachments.map(item => {
+        if (item.name === "Live") {
+          // set live link if "Live" name found
+          liveUrl = item.url;
+        }
+      });
+    }
+    // if live link is available
+    if (liveUrl) {
       return (
-        <a href={card.link} className="summary-link">
+        <a href={liveUrl} className="summary-link">
           {body}
         </a>
       );
-    } else {
-      return body;
     }
+    // else don't wrap the body in a link
+    return body;
   }
 
   function printLabels(labels) {
