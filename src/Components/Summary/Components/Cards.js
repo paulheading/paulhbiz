@@ -16,8 +16,9 @@ export default function SummaryCards({ card, type }) {
       card.attachments.map(item => {
         if (item.name === "Live") {
           // set live link if "Live" name found
-          liveUrl = item.url;
+          return liveUrl = item.url;
         }
+        return null;
       });
     }
     // if live link is available
