@@ -6,9 +6,7 @@ import { RightArrowSvg } from "components/SvgIcons";
 
 export default function SummaryCards({ card, type }) {
   type = card.placeholder ? "placeholder" : type;
-
-  console.log("card: ", card);
-
+  
   function ifLink() {
     let liveUrl = false;
     // check attachments for a live link

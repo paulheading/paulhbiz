@@ -10,6 +10,7 @@ const TRELLO = {
   USER_ID: process.env.REACT_APP_TRELLO_USER_ID,
   BOARD_ID: process.env.REACT_APP_TRELLO_BOARD_ID,
   LIST: {
+    PAGES: process.env.REACT_APP_TRELLO_LIST_PAGES,
     HERO: process.env.REACT_APP_TRELLO_LIST_HERO,
     PROJECTS: process.env.REACT_APP_TRELLO_LIST_PROJECTS,
     ROLES: process.env.REACT_APP_TRELLO_LIST_ROLES,
@@ -158,6 +159,10 @@ async function getList(id = TRELLO.LIST.HERO) {
 
 export default async function getTrelloData() {
   const data = {
+    pages: {
+      info: await getList(TRELLO.LIST.PAGES),
+      cards: await getCardData(TRELLO.LIST.PAGES, "pages"),
+    },
     hero: {
       info: await getList(TRELLO.LIST.HERO),
       cards: await getCardData(TRELLO.LIST.HERO, "hero"),
