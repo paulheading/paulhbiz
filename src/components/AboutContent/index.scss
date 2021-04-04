@@ -1,0 +1,18 @@
+.container.trello-feed {
+  margin-top: 2rem;
+  max-width: none;
+  padding: 0;
+
+  @include media-breakpoint-up(sm) {
+    margin-top: 4rem;
+  }
+}
+
+.wrap.trello-feed {
+  @include auto-margin;
+  max-width: 18rem;
+  
+  @include media-breakpoint-up(md) {
+    max-width: 42rem;
+  }
+}

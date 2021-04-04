@@ -1,3 +1,21 @@
+
+.desktop-area.windows {
+  min-height: $mobile-min-height;
+  position: relative;
+  z-index: 2;
+
+  .container.trello-feed {
+    @include window-container;
+    left: 2rem;
+    top: 8rem;
+
+    @include media-breakpoint-up(sm) {
+      left: 10rem;
+      top: 7rem;
+    }
+  }
+}
+
 .desktop-area {
   &.component {
     overflow: hidden;
@@ -18,12 +36,6 @@
       max-width: 75rem;
       display: grid;
     }
-  }
-
-  &.windows {
-    min-height: $mobile-min-height;
-    position: relative;
-    z-index: 2;
   }
 
   &.folders {

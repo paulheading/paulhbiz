@@ -1,0 +1,33 @@
+.trello-feed {
+  &.header {
+    @include trello-section;
+    fill: $c-trello-text;
+  }
+
+  &.header-title {
+    &.placeholder {
+      @include placeholder($gray-400, 75%);
+    }
+  }
+
+  &.footer {
+    @include trello-section;
+    color: $c-trello-text--faded;
+    fill: $c-trello-text--faded;
+  }
+
+  &.add-another {
+    &.placeholder {
+      @include placeholder($gray-400, 75%);
+    }
+  }
+}
+
+.trello-wrap.card {
+  background-color: $c-trello-bg;
+  padding-right: 0.625rem;
+  padding-left: 0.625rem;
+  color: $c-trello-text;
+  border: none;
+  width: 16rem;
+}

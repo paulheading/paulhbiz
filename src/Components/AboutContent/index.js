@@ -1,14 +1,9 @@
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { objectReady } from "modules/helpers";
-import Summary from "components/Summary";
+import { TrelloCards } from "components/Trello";
 
 function AboutContent() {
-  const feed = useSelector((state) => state.trelloData);
-  const ready = objectReady(feed);
-  const data = ready ? feed.projects.cards : feed;
-
   return (
     <div className="component-about-content">
       <div className="feed-content__container">
@@ -34,7 +29,11 @@ function AboutContent() {
           <p>
             Here's my <Link to="/resume">resume</Link>.
           </p>
-          <Summary feed={data} />
+          <div className="container trello-feed">
+            <div className="wrap trello-feed">
+              <TrelloCards date />
+            </div>
+          </div>
         </div>
       </div>
     </div>

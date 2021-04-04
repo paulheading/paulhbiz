@@ -5,7 +5,7 @@ import { FolderButton } from "components/Buttons/Folder";
 import CreditLine from "components/CreditLine";
 import DesktopTopbar from "./Topbar";
 import SpotifyFeed from "./SpotifyFeed";
-import TrelloFeed from "./TrelloFeed";
+import { TrelloFeed } from "components/Trello";
 
 function DesktopArea() {
   useEffect(() => {

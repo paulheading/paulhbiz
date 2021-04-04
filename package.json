@@ -10,6 +10,7 @@
     "focus-visible": "^5.2.0",
     "gsap": "file:src/libraries/gsap-bonus.tgz",
     "html-react-parser": "^0.14.3",
+    "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",

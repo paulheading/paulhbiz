@@ -126,3 +126,10 @@
     padding: 0.625rem;
   }
 }
+
+@mixin animate-colors {
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(4);
+  animation-name: colorCycle;
+  animation-duration: 1s;
+}
