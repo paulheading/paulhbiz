@@ -14,7 +14,7 @@ function SkillsRow(props) {
       <Row>
         <Col sm={12}>
           <h2
-            className={`column__title ${
+            className={`title resume-row ${
               data.placeholder ? "placeholder" : "live"
             }`}
           >

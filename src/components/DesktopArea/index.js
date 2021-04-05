@@ -5,7 +5,7 @@ import { FolderButton } from "components/Buttons/Folder";
 import CreditLine from "components/CreditLine";
 import DesktopTopbar from "./Topbar";
 import SpotifyFeed from "./SpotifyFeed";
-import { ProjectsFeed } from "components/Trello";
+import { TrelloFeed } from "components/Trello";
 
 function DesktopArea() {
   useEffect(() => {
@@ -22,7 +22,7 @@ function DesktopArea() {
         <div className="wrap desktop-area">
           <div className="windows desktop-area">
             <SpotifyFeed />
-            <ProjectsFeed />
+            <TrelloFeed />
           </div>
           <div className="folders desktop-area">
             <FolderButton

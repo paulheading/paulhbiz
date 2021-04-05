@@ -3,25 +3,21 @@ import { connect, useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { projectData, printProjects } from "modules/helpers/resume";
+import { objectReady } from "modules/helpers";
+import { ResumeCards } from "components/Trello";
 
-function ProjectsRow(props) {
+function ProjectsRow({ title }) {
   const feed = useSelector((state) => state.trelloData);
-  const data = projectData(feed, props);
+  const ready = objectReady(feed);
+  const placeholder = ready ? "" : "placeholder";
 
   return (
     <Container className="page-row">
       <Row>
         <Col sm={12}>
-          <h2
-            className={`column__title ${
-              data.placeholder ? "placeholder" : "live"
-            }`}
-          >
-            {data.title}
-          </h2>
+          <h2 className={`title resume-row ${ placeholder }`}>{title}</h2>
         </Col>
-        {printProjects(data)}
+        <ResumeCards source={title} />
       </Row>
     </Container>
   );

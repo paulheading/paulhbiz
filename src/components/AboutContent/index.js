@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { TrelloPage, ProjectsCards } from "components/Trello";
+import { TrelloPage, DesktopCards } from "components/Trello";
 
 function AboutContent() {
   return (
@@ -10,7 +10,7 @@ function AboutContent() {
           <TrelloPage name="About" />
           <div className="container trello-feed">
             <div className="wrap trello-feed">
-              <ProjectsCards date />
+              <DesktopCards date />
             </div>
           </div>
         </div>

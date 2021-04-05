@@ -55,12 +55,8 @@ export function calcRepeat() {
 }
 
 export const is = {
-  home: (path) => {
-    return "/" === path ? "is-home" : "not-home";
-  },
-  small: (value) => {
-    return value < breakpoints.sm ? true : false;
-  },
+  home: path => "/" === path ? "is-home" : "not-home",
+  small: value => value < breakpoints.sm ? true : false,
 };
 
 export const breakpoints = {

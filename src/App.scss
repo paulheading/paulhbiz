@@ -25,8 +25,9 @@
 @import "components/DesktopArea/Topbar";
 @import "components/DesktopArea/SpotifyFeed";
 
-@import "components/Trello/Projects/Feed";
-@import "components/Trello/Projects/Cards";
+@import "components/Trello/Feed";
+@import "components/Trello/Cards/Desktop";
+@import "components/Trello/Cards/Resume";
 
 @import "components/CreditLine";
 

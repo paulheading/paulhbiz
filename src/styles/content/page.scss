@@ -26,40 +26,9 @@
     }
   }
 
-  .card__due {
-    @include style-date;
-  }
-
   .card__badge {
     &.placeholder {
       @include placeholder($gray-300, 25%);
-    }
-  }
-
-  .card__name {
-    margin-top: $label-margin-bottom;
-
-    &.placeholder {
-      @include placeholder($gray-300, 75%);
-
-      .card__title,
-      .card__due {
-        opacity: 0;
-      }
-    }
-  }
-
-  .card__title {
-    margin-right: 0.25rem;
-  }
-
-  .card__description {
-    margin-top: $form-text-margin-top;
-    font-size: $font-size-sm;
-    color: $gray-700;
-
-    &.placeholder {
-      @include placeholder($gray-300, 50%);
     }
   }
 
