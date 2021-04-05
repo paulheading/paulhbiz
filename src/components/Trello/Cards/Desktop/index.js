@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { connect, useSelector } from "react-redux";
 import { objectReady, parse } from "modules/helpers";
-import { Badge, Card, Col } from "react-bootstrap";
+import { Badge, Card } from "react-bootstrap";
 
 function getCards(trello,source) {
   switch (source) {
@@ -52,7 +52,6 @@ function TrelloCards({ source, total = 3, date = false }) {
     } else {
       return getCards(trello, source).map((card,index) => {
         const url = card.attachments.map(item => item.name === "Live" && item.url)[0];
-        const due = moment(card.due).format('MMM YYYY');
         if (index < total) {
           return (
             <Card className={`trello-card ${hasDate}`} key={card.id}>
@@ -69,6 +68,7 @@ function TrelloCards({ source, total = 3, date = false }) {
             </Card>
           );
         }
+        return null;
       });
     }
   }
