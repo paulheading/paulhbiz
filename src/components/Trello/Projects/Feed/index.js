@@ -3,9 +3,9 @@ import { connect, useSelector } from "react-redux";
 import { objectReady } from "modules/helpers";
 import { DotsSvg, AddCardSvg } from "components/SvgIcons";
 import { Card } from "react-bootstrap";
-import { TrelloCards } from '../index';
+import { ProjectsCards } from '../../index';
 
-function TrelloFeed() {
+function ProjectsFeed() {
   const trello = useSelector((state) => state.trelloData);
   const ready = objectReady(trello);
 
@@ -18,7 +18,7 @@ function TrelloFeed() {
           </div>
           <DotsSvg />
         </div>
-        <TrelloCards />
+        <ProjectsCards />
         <div className="trello-feed footer">
           <div className={`trello-feed add-another ${!ready && "placeholder"}`}>
             {ready ? "+ Add another card" : "."}
@@ -34,4 +34,4 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-export default connect(mapStateToProps)(TrelloFeed);
+export default connect(mapStateToProps)(ProjectsFeed);

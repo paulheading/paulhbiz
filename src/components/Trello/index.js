@@ -1,9 +1,9 @@
-import TrelloCards from "./TrelloCards";
-import TrelloFeed from "./TrelloFeed";
-import TrelloPage from "./TrelloPage";
+import ProjectsCards from "./Projects/Cards";
+import ProjectsFeed from "./Projects/Feed";
+import TrelloPage from "./Pages";
 
 export {
-  TrelloCards,
-  TrelloFeed,
+  ProjectsCards,
+  ProjectsFeed,
   TrelloPage
 }

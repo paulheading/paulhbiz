@@ -4,7 +4,7 @@ import { connect, useSelector } from "react-redux";
 import { objectReady, parse } from "modules/helpers";
 import { Badge, Card } from "react-bootstrap";
 
-function TrelloCards({ total = 3, date = false }) {
+function ProjectsCards({ total = 3, date = false }) {
   const trello = useSelector((state) => state.trelloData);
   const hasDate = date ? "has-date" : "";
   const ready = objectReady(trello);
@@ -69,4 +69,4 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-export default connect(mapStateToProps)(TrelloCards);
+export default connect(mapStateToProps)(ProjectsCards);
