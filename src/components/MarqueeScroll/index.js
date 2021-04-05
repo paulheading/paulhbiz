@@ -13,18 +13,10 @@ function MarqueeScroll({ countdown, repeat }) {
     repeat: useSelector((state) => state.repeat),
   };
   const ready = objectReady(store.trelloData);
-  const feed = ready
-    ? store.trelloData.hero.cards[store.countdown]
-    : placeholder;
+  const feed = ready ? store.trelloData.hero.cards[store.countdown] : placeholder;
 
-  useEffect(() => {
-    marquee.scroll();
-  }, []);
-
-  useEffect(() => {
-    marquee.restart();
-  }, [store.trelloData, store.countdown]);
-
+  useEffect(() => marquee.scroll(), []);
+  useEffect(() => marquee.tl.restart(), [store.trelloData, store.countdown]);
   useEffect(() => {
     let resize;
     repeat(calcRepeat());
@@ -34,26 +26,19 @@ function MarqueeScroll({ countdown, repeat }) {
         repeat(calcRepeat());
       }, 100);
     });
-  }, [store.trelloData, store.countdown, repeat]);
+  }, [repeat]);
 
   useEffect(() => {
-    if (objectReady(store.trelloData)) {
-      if (store.countdown !== 0) {
-        const count = setInterval(() => {
-          countdown(store.countdown - 1);
-        }, 3000);
-        return () => {
-          clearInterval(count);
-        };
+    const speed = 3000;
+    if (ready) {
+      if (store.countdown > 0) {
+        const count = setInterval(() => countdown(store.countdown - 1), speed);
+        return () => clearInterval(count);
       } else {
-        return setTimeout(() => {
-          let reset = store.trelloData.hero.cards;
-          reset = reset.length - 1;
-          countdown(reset);
-        }, 3000);
+        return setTimeout(() => countdown(store.trelloData.hero.cards.length - 1), speed);
       }
     }
-  }, [store.trelloData, store.countdown, countdown]);
+  }, [ready, store.trelloData, store.countdown, countdown]);
 
   function printTitle() {
     let items = [];
