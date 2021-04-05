@@ -18,7 +18,7 @@ function TrelloCards({ source, total = 3, date = false }) {
   const ready = objectReady(trello);
 
   function printDate(due) {
-    return (<div className="title trello-card-date">{ due ? moment(due).format("MMM YYYY") : "Coming Soon" }</div>);
+    return (<div className="date trello-card-desktop">{ due ? moment(due).format("MMM YYYY") : "Coming Soon" }</div>);
   }
 
   function printLabels(labels) {
@@ -31,9 +31,9 @@ function TrelloCards({ source, total = 3, date = false }) {
 
   function linkName(card,url) {
     if (url) {
-      return <a className="link trello-card" href={url}>{parse(card.name)}</a>;
+      return <a className="link trello-card-desktop" href={url}>{parse(card.name)}</a>;
     } else {
-      return <span className="card__title">{parse(card.name)}</span>;
+      return <span className="title trello-card-desktop">{parse(card.name)}</span>;
     }
   }
 
@@ -42,9 +42,9 @@ function TrelloCards({ source, total = 3, date = false }) {
       const cards = [];
       for (let index = 0; index < total; index++) {
         cards.push( 
-        <Card className={`trello-card ${hasDate}`} key={`placeholder-${index}`}>
-          <div className="title trello-card placeholder">.</div>
-          <div className="desc trello-card placeholder">.</div>
+        <Card className={`trello-card-desktop ${hasDate}`} key={`placeholder-${index}`}>
+          <div className="title trello-card-desktop placeholder">.</div>
+          <div className="desc trello-card-desktop placeholder">.</div>
         </Card>
         );
       }
@@ -54,11 +54,11 @@ function TrelloCards({ source, total = 3, date = false }) {
         const url = card.attachments.map(item => item.name === "Live" && item.url)[0];
         if (index < total) {
           return (
-            <Card className={`trello-card ${hasDate}`} key={card.id}>
+            <Card className={`trello-card-desktop ${hasDate}`} key={card.id}>
               { date && printDate(card.due) }
-              <div className="wrap trello-card-inner">
+              <div className="wrap trello-card-desktop-inner">
                 {linkName(card,url)}
-                <span className="wrap trello-card-badges">
+                <span className="wrap trello-card-desktop-badges">
                   {card.attachments.map((item,index) => {
                     return item.name === "Code" && <Badge className="code" key={`repo-${index}`}><a href={item.url}>Code</a></Badge>;
                   })}

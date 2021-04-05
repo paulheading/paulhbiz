@@ -1,4 +1,4 @@
-.card.trello-card {
+.card.trello-card-desktop {
   box-shadow: 0 0.125rem #b3b8c5;
   border-radius: $border-radius;
   background-color: $white;
@@ -12,47 +12,46 @@
     margin-bottom: 0;
   }
 
+  .placeholder {
+    @include placeholder;
+  }
+
   &.has-date {
-    @include media-breakpoint-down(sm) {
-      padding: 0.5rem 0.75rem;
-      
-      .wrap.trello-card-badges {
+    padding: 0.5rem 0.75rem;
+
+    @include media-breakpoint-down(sm) {     
+      .wrap.trello-card-desktop-badges {
         margin-top: 0.25rem;
         display: block;
       }
     }
+
     @include media-breakpoint-up(md) {
-      grid-template-columns: 9rem auto;
+      grid-template-columns: 10rem auto;
+      grid-column-gap: 0.25rem;
       display: grid;
     }
   }
 }
 
-.title.trello-card {
+.title.trello-card-desktop {
   line-height: $line-height-sm;
-  margin-right: 0.25rem;
 
   &.placeholder {
-    @include placeholder;
-    margin-bottom: 0.25rem;
-    line-height: 1.25;
-    max-width: 85%;
+    max-width: 90%;
   }
 }
 
-.desc.trello-card {
-  margin-top: $form-text-margin-top;
+.desc.trello-card-desktop {
   line-height: $line-height-sm;
   font-size: $font-size-sm;
   color: $gray-700;
 
   &.placeholder {
-    @include placeholder;
-    line-height: 1.25;
-    max-width: 60%;
+    max-width: 80%;
   }
 }
 
-.link.trello-card {
+.link.trello-card-desktop {
   padding-right: $badge-margin;
 }

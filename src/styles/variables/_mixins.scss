@@ -10,10 +10,13 @@
   top: 0;
 }
 
-@mixin placeholder($col: $gray-300, $max: none) {
+@mixin placeholder($col: $gray-300, $max: false) {
   background-color: $col;
-  max-width: $max;
   color: $col;
+
+  @if $max {
+    max-width: $max;
+  }
 }
 
 @mixin ib($align: middle) {

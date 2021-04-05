@@ -34,24 +34,26 @@ body {
   height: 100%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 1.25rem;
   font-weight: bold;
+
+  &.placeholder {
+    @include placeholder($max:50%);
+  }
 }
 
 p {
   @include repeat-margin;
+
+  &.placeholder {
+    @include placeholder;
+
+    &:nth-child(even) {
+      max-width: 90%;
+    }
+  }
 }
 
 a {

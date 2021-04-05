@@ -1,34 +1,36 @@
-// .card__name {
-//   margin-top: $label-margin-bottom;
+@mixin title-trello-card-resume {
+  line-height: $line-height-sm;
+  padding-right: $trello-card-margin;
+  margin-bottom: $trello-card-margin;
+}
 
-//   &.placeholder {
-//     @include placeholder($gray-300, 75%);
+.title.trello-card-resume {
+  @include title-trello-card-resume;
 
-//     .card__title,
-//     .card__due {
-//       opacity: 0;
-//     }
-//   }
-// }
+  &.placeholder {
+    @include placeholder;
+  }
+}
 
-// .card__title {
-//   margin-right: 0.25rem;
-// }
+.link.trello-card-resume {
+  @include title-trello-card-resume;
+}
 
-// .card__description {
-//   margin-top: $form-text-margin-top;
-//   font-size: $font-size-sm;
-//   color: $gray-700;
+.desc.trello-card-resume {
+  line-height: $line-height-sm;
+  font-size: $font-size-sm;
+  margin-top: $trello-card-margin;
+  color: $gray-700;
 
-//   &.placeholder {
-//     @include placeholder($gray-300, 50%);
-//   }
-// }
+  &.placeholder {
+    @include placeholder($max: 80%);
+  }
+}
 
-.wrap.trello-card-title {
+.wrap.trello-card-resume-title {
   margin-top: $label-margin-bottom;
 }
 
-.due.trello-card {
+.due.trello-card-resume {
   @include style-date;
 }

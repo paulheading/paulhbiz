@@ -5,8 +5,8 @@ import { TrelloPage, DesktopCards } from "components/Trello";
 function AboutContent() {
   return (
     <div className="component-about-content">
-      <div className="feed-content__container">
-        <div className="feed-content__wrap">
+      <div className="container feed-content">
+        <div className="wrap feed-content">
           <TrelloPage name="About" />
           <div className="container trello-feed">
             <div className="wrap trello-feed">

@@ -1,22 +1,24 @@
-.feed-content {
-  &__container {
-    padding-bottom: 5.8125rem;
+.container.feed-content {
+  padding-bottom: 5.8125rem;
 
-    @include media-breakpoint-up(sm) {
-      padding: 0 3.75rem 8.25rem;
-    }
+  @include media-breakpoint-up(sm) {
+    padding: 0 3.75rem 8.25rem;
+  }
+}
+
+.wrap.feed-content {
+  @include auto-margin;
+  max-width: $content-max-width;
+
+  @include media-breakpoint-up(sm) {
+    max-width: $feed-max-width * 3;
   }
 
-  &__wrap {
-    @include auto-margin;
-    max-width: $content-max-width;
+  > .placeholder {
+    @include placeholder($gray-400);
+  }
 
-    @include media-breakpoint-up(sm) {
-      max-width: 60rem;
-    }
-
-    .focus-visible {
-      @include double-box($gray-200, $black);
-    }
+  .focus-visible {
+    @include double-box($gray-200, $black);
   }
 }

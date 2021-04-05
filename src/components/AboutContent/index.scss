@@ -10,9 +10,9 @@
 
 .wrap.trello-feed {
   @include auto-margin;
-  max-width: 18rem;
+  max-width: $feed-max-width;
   
   @include media-breakpoint-up(md) {
-    max-width: 42rem;
+    max-width: $feed-max-width * 2;
   }
 }

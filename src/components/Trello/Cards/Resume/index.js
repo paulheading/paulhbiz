@@ -26,9 +26,9 @@ function ResumeCards({ source, total = 3 }) {
 
   function linkName(card,url) {
     if (url) {
-      return <a className="link trello-card" href={url}>{parse(card.name)}</a>;
+      return <a className="link trello-card-resume" href={url}>{parse(card.name)}</a>;
     } else {
-      return <span className="title trello-card">{card.name}</span>;
+      return <span className="title trello-card-resume">{card.name}</span>;
     }
   }
 
@@ -40,7 +40,7 @@ function ResumeCards({ source, total = 3 }) {
         return ".";
       }
     }
-    return parse(`<span class="due trello-card">${printContent()}</span>`);
+    return parse(`<span class="due trello-card-resume">${printContent()}</span>`);
   }
 
   function cardContents() {
@@ -49,8 +49,8 @@ function ResumeCards({ source, total = 3 }) {
       for (let index = 0; index < total; index++) {
         cards.push( 
         <Col sm={4} key={`placeholder-${index}`}>
-          <div className="title trello-card placeholder">.</div>
-          <div className="desc trello-card placeholder">.</div>
+          <div className="title trello-card-resume placeholder">.</div>
+          <div className="desc trello-card-resume placeholder">.</div>
         </Col>
         );
       }
@@ -63,11 +63,11 @@ function ResumeCards({ source, total = 3 }) {
           return (
             <Col sm={4} key={card.id}>
               {card.labels && printLabels(card.labels)}
-              <div className="wrap trello-card-title">
+              <div className="wrap trello-card-resume-title">
                 {linkName(card,url)}
                 {printDue(card,due)}     
               </div>
-              <div className="desc trello-card">
+              <div className="desc trello-card-resume">
                 {card.placeholder ? "." : parse(card.desc)}
               </div>
             </Col>

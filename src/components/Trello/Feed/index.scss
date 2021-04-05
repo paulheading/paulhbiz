@@ -23,11 +23,19 @@
   }
 }
 
-.trello-wrap.card {
+.card.trello-wrap {
   background-color: $c-trello-bg;
   padding-right: 0.625rem;
   padding-left: 0.625rem;
   color: $c-trello-text;
   border: none;
   width: 16rem;
+
+  .title.trello-card-desktop {
+    margin-bottom: 0.25rem;
+  }
+
+  .desc.trello-card-desktop {
+    margin-top: $form-text-margin-top;
+  }
 }

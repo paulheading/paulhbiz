@@ -4,7 +4,7 @@ import { objectReady, parse } from "modules/helpers";
 function TrelloPage({ name, links }) {
   const trello = useSelector((state) => state.trelloData);
   const ready = objectReady(trello);
-  let content = "placeholder";
+  let content = "";
 
   if (ready) { 
     trello.pages.cards.forEach(card => {
@@ -20,8 +20,14 @@ function TrelloPage({ name, links }) {
         }
       }
     }); 
-  }  
-  
+  } else {
+    content += "<h1 class='placeholder'>.</h1>";
+    const copy = "<p class='placeholder'>.</p>";
+    for (let index = 0; index < 3; index++) {
+      content += copy;      
+    }
+  }
+    
   return parse(content);
 }
 
