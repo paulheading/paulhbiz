@@ -12,7 +12,7 @@
   }
 
   .field-title {
-    @include ib;
+    @include inline-block;
     @include media-breakpoint-down(xs) {
       margin-right: 0.75rem;
     }
@@ -22,7 +22,7 @@
   }
 
   .field-value {
-    @include ib;
+    @include inline-block;
 
     &.tag {
       background-color: lightskyblue;
@@ -57,7 +57,7 @@
 
 .topbar {
   &__btn {
-    @include ib;
+    @include inline-block;
     background-color: $gray-600;
     border-radius: 50%;
     height: 1.25rem;

@@ -1,11 +1,5 @@
-@mixin title-trello-card-resume {
-  line-height: $line-height-sm;
-  padding-right: $trello-card-margin;
-  margin-bottom: $trello-card-margin;
-}
-
 .title.trello-card-resume {
-  @include title-trello-card-resume;
+  padding-right: $trello-card-margin;
 
   &.placeholder {
     @include placeholder;
@@ -13,13 +7,13 @@
 }
 
 .link.trello-card-resume {
-  @include title-trello-card-resume;
+  padding-right: $trello-card-margin;
 }
 
 .desc.trello-card-resume {
+  margin-top: $label-margin-bottom;
   line-height: $line-height-sm;
   font-size: $font-size-sm;
-  margin-top: $trello-card-margin;
   color: $gray-700;
 
   &.placeholder {
@@ -29,6 +23,7 @@
 
 .wrap.trello-card-resume-title {
   margin-top: $label-margin-bottom;
+  line-height: $line-height-sm;
 }
 
 .due.trello-card-resume {

@@ -19,7 +19,7 @@
   }
 }
 
-@mixin ib($align: middle) {
+@mixin inline-block($align: middle) {
   vertical-align: $align;
   display: inline-block;
 }
@@ -27,7 +27,7 @@
 @mixin center($pcent: 100%) {
   text-align: center;
   &:before {
-    @include ib;
+    @include inline-block;
     margin-right: -0.25em;
     height: $pcent;
     content: "";
@@ -115,13 +115,13 @@
 }
 
 @mixin style-date {
-  @include ib;
+  @include inline-block;
   font-size: $font-size-sm;
   color: $gray-700;
 }
 
 @mixin window-container {
-  @include ib;
+  @include inline-block;
   position: absolute;
   width: auto;
 

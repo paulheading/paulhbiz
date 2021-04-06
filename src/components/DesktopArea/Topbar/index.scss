@@ -9,7 +9,7 @@
   }
 
   &__status {
-    @include ib;
+    @include inline-block;
     min-width: 5rem;
 
     &.placeholder {

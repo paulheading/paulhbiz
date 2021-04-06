@@ -46,7 +46,7 @@
   }
 
   &__anchor {
-    @include ib;
+    @include inline-block;
 
     &.btn-link {
       padding: 0.375rem;

@@ -12,7 +12,7 @@
   }
 
   &__wrap {
-    @include ib;
+    @include inline-block;
   }
 
   &__title {

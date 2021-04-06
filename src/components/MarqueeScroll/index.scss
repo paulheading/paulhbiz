@@ -13,7 +13,7 @@
     overflow: hidden;
   }
   &__target {
-    @include ib;
+    @include inline-block;
     padding-right: 1.25rem;
     user-select: none;
   }
@@ -30,7 +30,7 @@
   }
 
   &__wrap {
-    @include ib;
+    @include inline-block;
     border-top-right-radius: $border-radius;
     border-top-left-radius: $border-radius;
     background-color: $black;

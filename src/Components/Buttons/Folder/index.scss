@@ -1,6 +1,6 @@
 .folder-button {
   &.container {
-    @include ib;
+    @include inline-block;
   }
 
   &.btn.focus-visible {

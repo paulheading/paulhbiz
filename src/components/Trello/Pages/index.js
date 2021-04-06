@@ -6,7 +6,11 @@ function TrelloPage({ name, links }) {
   const ready = objectReady(trello);
   let content = "";
 
-  if (ready) { 
+  if (!ready) { 
+    if (!links) { content += "<h1 class='placeholder'>.</h1>"; }
+    const copy = "<p class='placeholder'>.</p>";
+    for (let index = 0; index < 3; index++) { content += copy; }
+  } else {
     trello.pages.cards.forEach(card => {
       if (name === card.name) {
         if (links) {
@@ -19,15 +23,9 @@ function TrelloPage({ name, links }) {
           content = card.desc;
         }
       }
-    }); 
-  } else {
-    content += "<h1 class='placeholder'>.</h1>";
-    const copy = "<p class='placeholder'>.</p>";
-    for (let index = 0; index < 3; index++) {
-      content += copy;      
-    }
+    });  
   }
-    
+
   return parse(content);
 }
 

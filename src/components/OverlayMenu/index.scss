@@ -4,6 +4,6 @@
     height: 100vh;
   }
   &__wrap {
-    @include ib;
+    @include inline-block;
   }
 }
