@@ -27,20 +27,16 @@ export function objectReady(target) {
   return keys > 0 ? true : false;
 }
 
-export function objectKey(value) {
-  return Object.keys(value).toString();
-}
+export const objectKey = value => Object.keys(value).toString();
 
 export function pathify(value) {
   value = simplify(value);
   return value.split(" ").join("-").toLowerCase();
 }
 
-export function simplify(value) {
-  return value.replace(/[!@£$%^&*):('.`]/g, "");
-}
+export const simplify = value => value.replace(/[!@£$%^&*):('.`]/g, "");
 
-export function localify(url) {
+export const localify = url => {
   if (!url.startsWith("http")) {
     return url;
   } else {
@@ -65,3 +61,5 @@ export const breakpoints = {
   lg: 992,
   xl: 1200,
 };
+
+export const limitLength = (title, limit = 140) => title.length > limit ? `${title.slice(0, limit)} ...` : title;

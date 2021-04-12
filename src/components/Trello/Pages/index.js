@@ -29,8 +29,6 @@ function TrelloPage({ name, links }) {
   return parse(content);
 }
 
-const mapStateToProps = (state) => {
-  return state;
-};
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps)(TrelloPage);

@@ -1,19 +1,11 @@
 import React from "react";
 import moment from "moment";
 import { connect, useSelector } from "react-redux";
-import { objectReady, parse } from "modules/helpers";
+import { objectReady, parse, limitLength } from "modules/helpers";
 import { Badge, Card } from "react-bootstrap";
 
-function getCards(trello,source) {
-  switch (source) {
-    case "Education": return trello.education.cards;
-    case "Roles": return trello.roles.cards;
-    default: return trello.projects.cards;
-  }
-}
-
-function TrelloCards({ source, total = 3, date = false }) {
-  const trello = useSelector((state) => state.trelloData);
+function DesktopCards({ total = 3, date = false }) {
+  const trello = useSelector(state => state.trelloData);
   const hasDate = date ? "has-date" : "";
   const ready = objectReady(trello);
 
@@ -26,14 +18,6 @@ function TrelloCards({ source, total = 3, date = false }) {
       return labels.map(label =><Badge key={label.id} className={label.color}>{label.name}</Badge>);
     } else {
       return <Badge>Personal</Badge>;
-    }
-  }
-
-  function linkName(card,url) {
-    if (url) {
-      return <a className="link trello-card-desktop" href={url}>{parse(card.name)}</a>;
-    } else {
-      return <span className="title trello-card-desktop">{parse(card.name)}</span>;
     }
   }
 
@@ -50,14 +34,18 @@ function TrelloCards({ source, total = 3, date = false }) {
       }
       return cards;
     } else {
-      return getCards(trello, source).map((card,index) => {
+      const cards = trello.projects.cards.filter(({ name }) => !name.startsWith("Hero:"));
+      return cards.map((card,index) => {
         const url = card.attachments.map(item => item.name === "Live" && item.url)[0];
+        const name = parse(limitLength(card.name,40));
+        const title = url ? <a className="link trello-card-desktop" href={url}>{name}</a> : <span className="title trello-card-desktop">{name}</span>;
+        
         if (index < total) {
           return (
             <Card className={`trello-card-desktop ${hasDate}`} key={card.id}>
               { date && printDate(card.due) }
               <div className="wrap trello-card-desktop-inner">
-                {linkName(card,url)}
+                { title }
                 <span className="wrap trello-card-desktop-badges">
                   {card.attachments.map((item,index) => {
                     return item.name === "Code" && <Badge className="code" key={`repo-${index}`}><a href={item.url}>Code</a></Badge>;
@@ -76,8 +64,6 @@ function TrelloCards({ source, total = 3, date = false }) {
   return cardContents();
 }
 
-const mapStateToProps = (state) => {
-  return state;
-};
+const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(TrelloCards);
+export default connect(mapStateToProps)(DesktopCards);

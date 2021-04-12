@@ -4,9 +4,7 @@ const TREEHOUSE_API = "https://teamtreehouse.com/paulheading.json";
 
 export default function getTreehouseData() {
   return axios
-    .get(TREEHOUSE_API, {
-      headers: { Accept: "application/json" },
-    })
+    .get(TREEHOUSE_API, { headers: { Accept: "application/json" }})
     .then(({ data }) => {
       data = {
         badges: data.badges,

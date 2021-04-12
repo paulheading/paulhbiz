@@ -1,8 +1,8 @@
 import axios from "axios";
 import showdown from "showdown";
-import { simplify, localify, objectKey } from "./helpers";
+import { localify } from "./helpers";
 import { placeholder } from "./placeholder";
-import { hero } from "./animations";
+import { tl0, tl2 } from "./animations/hero";
 
 const converter = new showdown.Converter();
 
@@ -21,23 +21,14 @@ const TRELLO = {
   API_BASE: "https://api.trello.com/1/",
 };
 
-function getTrello(target) {
+const getTrello = target => {
   return axios
-    .get(
-      `${TRELLO.API_BASE}${target}?key=${TRELLO.API_KEY}&token=${TRELLO.USER_TOKEN}`,
-      {
-        headers: { Accept: "application/json" },
-      }
-    )
-    .then(({ data }) => data)
-    .catch((err) => console.error(err));
+  .get(`${TRELLO.API_BASE}${target}?key=${TRELLO.API_KEY}&token=${TRELLO.USER_TOKEN}`, { headers: { Accept: "application/json" }, })
+  .then(({ data }) => data)
+  .catch((err) => console.error(err));
 }
 
-function promiseData(target) {
-  return Promise.all(target).then((data) => {
-    return data;
-  });
-}
+const promiseData = target => Promise.all(target).then(data => data);
 
 function getCardsOnList(id = TRELLO.LIST.HERO) {
   return getTrello(`list/${id}/cards/`).then((data) => {
@@ -48,106 +39,50 @@ function getCardsOnList(id = TRELLO.LIST.HERO) {
   });
 }
 
-function getAttachmentsOnCard(id) {
-  return getTrello(`cards/${id}/attachments`);
-}
-
-function prepColors(colors) {
-  colors = colors.replace(/\r?\n|\r/g, " ");
-  colors = colors.split(" ");
-  colors = colors.filter((color) => {
-    return color !== "" && !color.startsWith("**");
-  });
-  colors = colors.map((color) => {
-    return simplify(color);
-  });
-  return colors;
-}
-
-function getActionsOnCard(id) {
-  return getTrello(`cards/${id}/actions`).then((data) => {
-    return data.map(({ data }) => {
-      if (data.text) {
-        let text = data.text;
-        let html = converter.makeHtml(text);
-        if (text.startsWith("**svg**")) {
-          return { svg: text.split("`")[1] };
-        } else if (text.startsWith("**colors**")) {
-          return { colors: prepColors(text) };
-        } else {
-          return { text, html };
-        }
-      } else {
-        return null;
-      }
-    });
-  });
-}
-
-function getColorsOnCard(actions) {
-  let results;
-  actions.forEach((value) => {
-    if (value) {
-      if (objectKey(value) === "colors") {
-        results = Object.values(value)[0];
+const getSvgsOnCard = actions => {
+  let result;
+  actions.forEach(({ data }) => {
+    if (data.text) {
+      if (data.text.startsWith("`<svg")) {
+        result = data.text.slice(1, -1);        
       }
     }
   });
-  return results;
+  return result;
 }
 
-function getSvgsOnCard(actions) {
-  let results;
-  actions.forEach((value) => {
-    if (value) {
-      if (objectKey(value) === "svg") {
-        results = Object.values(value)[0];
-      }
+const createLink = value => {
+  if (value.attachments.length === 0) {
+    value.attachments.push(placeholder.link);
+  }
+  value.link = value.attachments[0];
+  value.link.url = localify(value.link.url);
+}
+
+const attachAnimation = card => {
+  return card.animation = () => {
+    if (card.id === "606d70215309533eec28564a") {
+      return tl0();
+    } else if (card.id === "6073409c74b96c31fb853842") {
+      return tl2();
+    } else {
+      return tl0();
     }
-  });
-  return results;
-}
-
-function createClass(value, className, index) {
-  return className ? (value.className = `${className}-${index + 1}`) : null;
-}
-
-function createLink(value, className) {
-  if (className && className === "hero") {
-    if (value.attachments.length === 0) {
-      value.attachments.push(placeholder.link);
-    }
-    value.link = value.attachments[0];
-    value.link.url = localify(value.link.url);
   }
 }
 
-function attachAnimation(value, className, index) {
-  if (className && className === "hero") {
-    index = index + 1;
-    value.animation = () => {
-      if (index === 1) {
-        hero.tl1(value);
-      } else if (index === 2) {
-        hero.tl2(value);
-      }
-    };
-  }
-  return value;
-}
-
-async function getCardData(id, className = false) {
+async function getCardData(id) {
   let cards = await getCardsOnList(id);
-  cards = cards.map(async (value, index) => {
-    const actions = await getActionsOnCard(value.id);
-    value.actions = actions;
-    value.attachments = await getAttachmentsOnCard(value.id);
-    value.colors = getColorsOnCard(actions);
-    value.svg = getSvgsOnCard(actions);
-    createClass(value, className, index);
-    createLink(value, className);
-    attachAnimation(value, className, index);
-    return value;
+  cards = cards.map(async card => {
+    const actions = await getTrello(`cards/${card.id}/actions`);
+    const attachments = await getTrello(`cards/${card.id}/attachments`);
+    card.actions = actions;
+    card.attachments = attachments;
+    card.svg = getSvgsOnCard(actions);
+    card.className = `card-${card.id}`;
+    attachAnimation(card);
+    createLink(card);
+    return card;
   });
   return promiseData(cards);
 }
@@ -161,11 +96,7 @@ export default async function getTrelloData() {
   const data = {
     pages: {
       info: await getList(TRELLO.LIST.PAGES),
-      cards: await getCardData(TRELLO.LIST.PAGES, "pages"),
-    },
-    hero: {
-      info: await getList(TRELLO.LIST.HERO),
-      cards: await getCardData(TRELLO.LIST.HERO, "hero"),
+      cards: await getCardData(TRELLO.LIST.PAGES),
     },
     projects: {
       info: await getList(TRELLO.LIST.PROJECTS),

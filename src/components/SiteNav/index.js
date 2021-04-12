@@ -46,9 +46,7 @@ function SiteNav({ menuState }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return state;
-};
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps, {
   menuState,

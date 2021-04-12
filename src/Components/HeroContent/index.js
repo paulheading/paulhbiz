@@ -2,23 +2,28 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect, useSelector } from "react-redux";
 import { objectReady, parse } from "modules/helpers";
-import { placeholder } from "modules/placeholder";
+import temp from "modules/placeholder";
 
 function HeroContent() {
   const store = {
-    trelloData: useSelector((state) => state.trelloData),
-    countdown: useSelector((state) => state.countdown),
+    trello: useSelector(state => state.trelloData),
+    countdown: useSelector(state => state.countdown),
   };
-  const ready = objectReady(store.trelloData);
-  const feed = ready
-    ? store.trelloData.hero.cards[store.countdown]
-    : placeholder;
+  const ready = objectReady(store.trello);
+  const hero = {};
+
+  hero.feed = ready ? store.trello.projects.cards : temp.trello.projects.cards;
+  hero.feed = hero.feed.filter(({ name }) => name.startsWith("Hero: "));
+  hero.card = hero.feed[store.countdown];
 
   useEffect(() => {
-    feed.animation();
-  }, [feed, store.trelloData, store.countdown]);
+    hero.card.animation();
+  }, [hero.card]);
 
   function ifHeroName(name, link) {
+    name = name.startsWith("Hero: ") ? name.replace("Hero: ","") : name;
+
+    return <h1 className="hero-content__title">{parse(name)}</h1>;
     if (name) {
       return (
         <h1 className="hero-content__title">
@@ -39,8 +44,8 @@ function HeroContent() {
       <div className="hero-content__container">
         <div className="hero-content__wrap">
           <div>
-            {ifHeroName(feed.name, feed.link)}
-            {ifHeroSvg(feed.svg)}
+            {ifHeroName(hero.card.name, hero.card.link)}
+            {ifHeroSvg(hero.card.svg)}
           </div>
         </div>
       </div>
@@ -48,8 +53,6 @@ function HeroContent() {
   );
 }
 
-const mapStateToProps = (state) => {
-  return state;
-};
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps)(HeroContent);

@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { marquee } from "./marquee";
-import { hero } from "./hero";
 
 gsap.registerPlugin(Draggable);
 
@@ -40,4 +39,4 @@ export function makeDraggable() {
   Draggable.create(".windows.desktop-area .container");
 }
 
-export { hero, marquee };
+export { marquee };

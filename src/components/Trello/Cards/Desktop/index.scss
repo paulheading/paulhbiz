@@ -27,7 +27,7 @@
     }
 
     @include media-breakpoint-up(md) {
-      grid-template-columns: 10rem auto;
+      grid-template-columns: 1fr 4fr;
       grid-column-gap: 0.25rem;
       display: grid;
     }

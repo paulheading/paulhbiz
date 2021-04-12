@@ -12,90 +12,41 @@ import OverlayMenu from "components/OverlayMenu";
 import SiteNav from "components/SiteNav";
 import NotFound from "components/NotFound";
 import ResumeContent from "components/ResumeContent";
-import getMediumData from "modules/medium";
-import getTimezoneData from "modules/timezone";
-import getSpotifyData from "modules/spotify";
-import getTrelloData from "modules/trello";
-import getTreehouseData from "modules/treehouse";
-import getGithubData from "modules/github";
-import {
-  treehouseData,
-  timezoneData,
-  spotifyData,
-  mediumData,
-  trelloData,
-  githubData,
-  siteWidth,
-} from "actions";
+import { siteWidth } from "actions";
 import { objectReady } from "modules/helpers";
-import { placeholder } from "modules/placeholder";
+import temp from "modules/placeholder";
 
 import "focus-visible/dist/focus-visible.min.js";
 import "./App.scss";
 
-function App({
-  treehouseData,
-  timezoneData,
-  spotifyData,
-  mediumData,
-  trelloData,
-  githubData,
-  siteWidth,
-}) {
-  useEffect(() => {
-    (async () => {
-      treehouseData(await getTreehouseData());
-      timezoneData(await getTimezoneData());
-      spotifyData(await getSpotifyData());
-      mediumData(await getMediumData());
-      trelloData(await getTrelloData());
-      githubData(await getGithubData());
-    })();
-  }, [
-    treehouseData,
-    timezoneData,
-    spotifyData,
-    mediumData,
-    trelloData,
-    githubData,
-  ]);
+function App({ siteWidth }) {
+  const store = { 
+    trello: useSelector(state => state.trelloData),
+    countdown: useSelector(state => state.countdown),
+    menuState: useSelector(state => state.menuState),
+  };
 
-  useEffect(() => {
-    setInterval(async () => {
-      timezoneData(await getTimezoneData());
-    }, 60000);
-  }, [timezoneData]);
+  const menuState = store.menuState ? "menu-open" : "menu-closed";
+  const ready = objectReady(store.trello);
+  const hero = {};
+
+  hero.feed = ready ? store.trello.projects.cards : temp.trello.projects.cards;
+  hero.feed = hero.feed.filter(({ name }) => name.startsWith("Hero: "));
+  hero.card = hero.feed[store.countdown];
 
   useEffect(() => {
     let resize;
     siteWidth(window.innerWidth);
     window.addEventListener("resize", () => {
       clearTimeout(resize);
-      resize = setTimeout(() => {
-        siteWidth(window.innerWidth);
-      }, 100);
+      resize = setTimeout(() => siteWidth(window.innerWidth), 100);
     });
   }, [siteWidth]);
-
-  const store = {
-    trelloData: useSelector((state) => state.trelloData),
-    menuState: useSelector((state) => state.menuState),
-    countdown: useSelector((state) => state.countdown),
-  };
-
-  const ready = objectReady(store.trelloData);
-  const hero = ready
-    ? store.trelloData.hero.cards[store.countdown]
-    : placeholder;
-
-  function menuState() {
-    return store.menuState ? "menu-open" : "menu-closed";
-  }
 
   return (
     <BrowserRouter>
       <OverlayMenu />
-      <div className={`component-site-wrap ${menuState()} ${hero.className}`}>
+      <div className={`component-site-wrap ${menuState} ${hero.card.className}`}>
         <SiteNav />
         <Switch>
           <Route path="/" exact component={HeroContent} />
@@ -114,16 +65,6 @@ function App({
   );
 }
 
-const mapStateToProps = (state) => {
-  return state;
-};
+const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, {
-  treehouseData,
-  timezoneData,
-  spotifyData,
-  mediumData,
-  trelloData,
-  githubData,
-  siteWidth,
-})(App);
+export default connect(mapStateToProps, { siteWidth })(App);

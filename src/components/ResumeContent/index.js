@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { NameRow, BiographyRow, ProjectsRow, SkillsRow } from "./Rows";
+import NameRow from "./Rows/Name";
+import BiographyRow from "./Rows/Biography";
+import ProjectsRow from "./Rows/Projects";
+import SkillsRow from "./Rows/Skills";
 
 function ResumeContent() {
   return (
@@ -19,8 +22,6 @@ function ResumeContent() {
   );
 }
 
-const mapStateToProps = (state) => {
-  return state;
-};
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps)(ResumeContent);

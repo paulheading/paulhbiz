@@ -5,7 +5,7 @@ import { objectReady, parse } from "modules/helpers";
 import { Badge, Col } from "react-bootstrap";
 
 function ResumeCards({ source, total = 3 }) {
-  const trello = useSelector((state) => state.trelloData);
+  const trello = useSelector(state => state.trelloData);
   const ready = objectReady(trello);
 
   function getTrelloCards() {
@@ -25,11 +25,8 @@ function ResumeCards({ source, total = 3 }) {
   }
 
   function linkName(card,url) {
-    if (url) {
-      return <a className="link trello-card-resume" href={url}>{parse(card.name)}</a>;
-    } else {
-      return <span className="title trello-card-resume">{card.name}</span>;
-    }
+    const name = card.name.startsWith("Hero: ") ? card.name.replace("Hero: ","") : card.name;
+    return url ? <a className="link trello-card-resume" href={url}>{parse(name)}</a> : <span className="title trello-card-resume">{name}</span>;
   }
 
   function printDue(card,due) {
@@ -81,8 +78,6 @@ function ResumeCards({ source, total = 3 }) {
   return cardContents();
 }
 
-const mapStateToProps = (state) => {
-  return state;
-};
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps)(ResumeCards);

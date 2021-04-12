@@ -56,3 +56,19 @@
     }
   }
 }
+
+.card-000000 {
+  @include hero-colors;
+}
+
+.card-606d70215309533eec28564a {
+  @include hero-colors(hsl(230, 100%, 60%), hsl(150, 100%, 60%), hsl(170, 100%, 70%));
+}
+
+.card-6073409c74b96c31fb853842 {
+  @include hero-colors(hsl(45, 100%, 50%), hsl(1, 100%, 65%), hsl(50, 100%, 70%));
+
+  .hero-content__svg path {
+    fill: rgba(hsl(45, 100%, 50%), 25%);
+  }
+}

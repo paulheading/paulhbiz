@@ -4,19 +4,23 @@ import { Link } from "react-router-dom";
 import { objectReady, calcRepeat, parse } from "modules/helpers";
 import { countdown, repeat } from "actions";
 import { marquee } from "modules/animations";
-import { placeholder } from "modules/placeholder";
+import temp from "modules/placeholder";
 
 function MarqueeScroll({ countdown, repeat }) {
   const store = {
-    trelloData: useSelector((state) => state.trelloData),
-    countdown: useSelector((state) => state.countdown),
-    repeat: useSelector((state) => state.repeat),
+    trello: useSelector(state => state.trelloData),
+    countdown: useSelector(state => state.countdown),
+    repeat: useSelector(state => state.repeat),
   };
-  const ready = objectReady(store.trelloData);
-  const feed = ready ? store.trelloData.hero.cards[store.countdown] : placeholder;
+  const ready = objectReady(store.trello);
+  const hero = {};
+
+  hero.feed = ready ? store.trello.projects.cards : temp.trello.projects.cards;
+  hero.feed = hero.feed.filter(({ name }) => name.startsWith("Hero: "));
+  hero.card = hero.feed[store.countdown];
 
   useEffect(() => marquee.scroll(), []);
-  useEffect(() => marquee.tl.restart(), [store.trelloData, store.countdown]);
+  useEffect(() => marquee.tl.restart(), [store.trello, store.countdown]);
   useEffect(() => {
     let resize;
     repeat(calcRepeat());
@@ -35,22 +39,23 @@ function MarqueeScroll({ countdown, repeat }) {
         const count = setInterval(() => countdown(store.countdown - 1), speed);
         return () => clearInterval(count);
       } else {
-        return setTimeout(() => countdown(store.trelloData.hero.cards.length - 1), speed);
-      }
+        return setTimeout(() => countdown(hero.feed.length - 1), speed);
+      }      
     }
-  }, [ready, store.trelloData, store.countdown, countdown]);
+  }, [ready, hero.feed, store.countdown, countdown]);
 
   function printTitle() {
+    const name = hero.card.name.startsWith("Hero: ") ? hero.card.name.replace("Hero: ","") : hero.card.name;
     let items = [];
-
-    if (!feed.marquee) {
-      feed.marquee = feed.name;
+    
+    if (!hero.marquee) {
+      hero.marquee = name;
     }
 
     for (let index = 0; index < store.repeat; index++) {
       items.push(
         <div key={index} className="marquee-scroll__target">
-          {parse(feed.marquee)}
+          {parse(hero.marquee)}
         </div>
       );
     }
@@ -61,8 +66,8 @@ function MarqueeScroll({ countdown, repeat }) {
   return (
     <div className="component-marquee-scroll">
       <div className="marquee-link__container">
-        <Link to={feed.link.url} className="marquee-link__wrap">
-          {feed.link.name}
+        <Link to={hero.card.link.url} className="marquee-link__wrap">
+          {hero.card.link.name}
         </Link>
       </div>
       <div className="marquee-scroll__container">
@@ -72,9 +77,7 @@ function MarqueeScroll({ countdown, repeat }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return state;
-};
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps, {
   countdown,

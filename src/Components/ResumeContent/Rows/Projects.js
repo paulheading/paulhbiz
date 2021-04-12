@@ -7,7 +7,7 @@ import { objectReady } from "modules/helpers";
 import { ResumeCards } from "components/Trello";
 
 function ProjectsRow({ title }) {
-  const feed = useSelector((state) => state.trelloData);
+  const feed = useSelector(state => state.trelloData);
   const ready = objectReady(feed);
   const placeholder = ready ? "" : "placeholder";
 
@@ -23,8 +23,6 @@ function ProjectsRow({ title }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return state;
-};
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps)(ProjectsRow);
