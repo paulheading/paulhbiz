@@ -52,11 +52,27 @@ const getSvgsOnCard = actions => {
 }
 
 const createLink = value => {
+  let fallback = true;
+
   if (value.attachments.length === 0) {
     value.attachments.push(placeholder.link);
   }
-  value.link = value.attachments[0];
-  value.link.url = localify(value.link.url);
+
+  value.attachments.forEach(({ name, url }) => {
+    if (name === "Read more") {
+      value.link = { name, url: localify(url) }
+      fallback = false;
+    } else if (name === "Show project") {
+      value.link = { name, url }    
+      fallback = false;
+    }
+  });
+
+  if (fallback) {
+    value.link = value.attachments[0];  
+  }
+
+  return value.link;  
 }
 
 const attachAnimation = card => {

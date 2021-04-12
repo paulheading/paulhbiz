@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { TrelloPage } from "components/Trello";
+import getMediumData from "modules/medium";
+import { mediumData } from "actions";
 
-function BlogContent() {
+function BlogContent({mediumData}) {
+  useEffect(() => {
+    (async () => mediumData(await getMediumData()))();
+  }, [mediumData]);
+
   return (
     <div className="component-about-content">
       <div className="container feed-content">
@@ -16,4 +22,4 @@ function BlogContent() {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(BlogContent);
+export default connect(mapStateToProps,{mediumData})(BlogContent);

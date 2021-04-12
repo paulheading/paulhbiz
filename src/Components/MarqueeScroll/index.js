@@ -66,9 +66,13 @@ function MarqueeScroll({ countdown, repeat }) {
   return (
     <div className="component-marquee-scroll">
       <div className="marquee-link__container">
+        { hero.card.link.name === "Read more" ? 
         <Link to={hero.card.link.url} className="marquee-link__wrap">
           {hero.card.link.name}
-        </Link>
+        </Link> : 
+        <a href={hero.card.link.url} className="marquee-link__wrap">
+          {hero.card.link.name}
+        </a> }
       </div>
       <div className="marquee-scroll__container">
         <div className="marquee-scroll__wrap">{printTitle()}</div>

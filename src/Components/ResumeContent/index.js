@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import NameRow from "./Rows/Name";
 import BiographyRow from "./Rows/Biography";
 import ProjectsRow from "./Rows/Projects";
 import SkillsRow from "./Rows/Skills";
+import getGithubData from "modules/github";
+import { githubData } from "actions";
 
-function ResumeContent() {
+function ResumeContent({ githubData }) {
+  useEffect(() => {
+    (async () => githubData(await getGithubData()))();
+  }, [githubData]);
+
   return (
     <div className="component-resume-content">
       <div className="page-content__container">
@@ -24,4 +30,4 @@ function ResumeContent() {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(ResumeContent);
+export default connect(mapStateToProps,{ githubData })(ResumeContent);
