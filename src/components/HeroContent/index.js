@@ -22,15 +22,12 @@ function HeroContent() {
 
   function ifHeroName(name, link) {
     name = name.startsWith("Hero: ") ? name.replace("Hero: ","") : name;
-
-    return <h1 className="hero-content__title">{parse(name)}</h1>;
-    if (name) {
-      return (
-        <h1 className="hero-content__title">
-          <Link to={link.url}>{parse(name)}</Link>
-        </h1>
-      );
-    }
+    
+    return (
+      <h1 className="hero-content__title">
+        <Link to={link.url}>{parse(name)}</Link>
+      </h1>
+    );
   }
 
   function ifHeroSvg(svg) {
