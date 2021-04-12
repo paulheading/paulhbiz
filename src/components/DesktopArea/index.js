@@ -18,7 +18,7 @@ function DesktopArea({ spotifyData, trelloData }) {
       trelloData(await getTrelloData());
     })();
     makeDraggable();
-  }, []);
+  }, [spotifyData, trelloData]);
 
   const [spotifyFolder, setSpotifyFolder] = useState(true);
   const [trelloFolder, setTrelloFolder] = useState(true);
