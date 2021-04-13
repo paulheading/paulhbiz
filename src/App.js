@@ -13,26 +13,12 @@ import SiteNav from "components/SiteNav";
 import NotFound from "components/NotFound";
 import ResumeContent from "components/ResumeContent";
 import { siteWidth } from "actions";
-import { objectReady } from "modules/helpers";
-import temp from "modules/placeholder";
 
 import "focus-visible/dist/focus-visible.min.js";
 import "./App.scss";
 
 function App({ siteWidth }) {
-  const store = { 
-    trello: useSelector(state => state.trelloData),
-    countdown: useSelector(state => state.countdown),
-    menuState: useSelector(state => state.menuState),
-  };
-
-  const menuState = store.menuState ? "menu-open" : "menu-closed";
-  const ready = objectReady(store.trello);
-  const hero = {};
-
-  hero.feed = ready ? store.trello.projects.cards : temp.trello.projects.cards;
-  hero.feed = hero.feed.filter(({ name }) => name.startsWith("Hero: "));
-  hero.card = hero.feed[store.countdown];
+  const menuState = useSelector(state => state.menuState) ? "menu-open" : "menu-closed";
 
   useEffect(() => {
     let resize;
@@ -46,7 +32,7 @@ function App({ siteWidth }) {
   return (
     <BrowserRouter>
       <OverlayMenu />
-      <div className={`component-site-wrap ${menuState} ${hero.card.className}`}>
+      <div className={`component-site-wrap ${menuState}`}>
         <SiteNav />
         <Switch>
           <Route path="/" exact component={HeroContent} />

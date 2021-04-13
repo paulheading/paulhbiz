@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { connect, useSelector } from "react-redux";
-import { objectReady, parse } from "modules/helpers";
+import { objectReady, parse, remove } from "modules/helpers";
 import { Badge, Col } from "react-bootstrap";
 
 function ResumeCards({ source, total = 3 }) {
@@ -25,7 +25,7 @@ function ResumeCards({ source, total = 3 }) {
   }
 
   function linkName(card,url) {
-    const name = card.name.startsWith("Hero: ") ? card.name.replace("Hero: ","") : card.name;
+    const name = remove.hero(card.name);
     return url ? <a className="link trello-card-resume" href={url}>{parse(name)}</a> : <span className="title trello-card-resume">{name}</span>;
   }
 

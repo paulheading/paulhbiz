@@ -1,4 +1,5 @@
 import { marquee } from "modules/animations";
+import { Link } from "react-router-dom";
 
 export const parse = require("html-react-parser");
 
@@ -63,3 +64,20 @@ export const breakpoints = {
 };
 
 export const limitLength = (title, limit = 140) => title.length > limit ? `${title.slice(0, limit)} ...` : title;
+
+export const remove = {
+  hero: value => value.startsWith("Hero: ") ? value.replace("Hero: ","") : value,
+}
+
+export const filter = {
+  keep: {
+    hero: value => value.filter(({ name }) => name.startsWith("Hero: ")),
+  },
+  remove: {
+    hero: value => value.filter(({ name }) => !name.startsWith("Hero: ")),
+  }  
+}
+
+export const check = {
+  linkIsLocal: (link, name = link.name) => link.local ? <Link to={link.url}>{name}</Link> : <a href={link.url}>{name}</a>
+}

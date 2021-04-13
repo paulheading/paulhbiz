@@ -1,7 +1,6 @@
 import axios from "axios";
 import showdown from "showdown";
 import { localify } from "./helpers";
-import { placeholder } from "./placeholder";
 import { tl0, tl2 } from "./animations/hero";
 
 const converter = new showdown.Converter();
@@ -52,25 +51,14 @@ const getSvgsOnCard = actions => {
 }
 
 const createLink = value => {
-  let fallback = true;
-
-  if (value.attachments.length === 0) {
-    value.attachments.push(placeholder.link);
-  }
 
   value.attachments.forEach(({ name, url }) => {
     if (name === "Read more") {
-      value.link = { name, url: localify(url) }
-      fallback = false;
-    } else if (name === "Show project") {
-      value.link = { name, url }    
-      fallback = false;
+      value.link = { name, url: localify(url), local: true, }
+    } else if (name === "Live") {
+      value.link = { name: "See project", url, local: false }
     }
   });
-
-  if (fallback) {
-    value.link = value.attachments[0];  
-  }
 
   return value.link;  
 }
