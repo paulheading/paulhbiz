@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ReactGA from 'react-ga';
+import { Helmet } from 'react-helmet';
 import "focus-visible/dist/focus-visible.min.js";
 
 import HeroContent from "components/HeroContent";
@@ -36,6 +37,10 @@ function App({ siteWidth }) {
 
   return (
     <BrowserRouter>
+      <Helmet>
+        <title>Paul Heading | Portfolio | Full Stack Designer</title>
+        <meta name="description" content="Welcome to my online home: I'm a Full Stack Designer. I design and build with the React.js and Vue.js frameworks." />
+      </Helmet>
       <OverlayMenu />
       <div className={`component-site-wrap ${menuState}`}>
         <SiteNav />
