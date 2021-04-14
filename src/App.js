@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ReactGA from 'react-ga';
+import "focus-visible/dist/focus-visible.min.js";
+
 import HeroContent from "components/HeroContent";
 import AboutContent from "components/AboutContent";
 import BlogContent from "components/BlogContent";
@@ -14,8 +17,10 @@ import NotFound from "components/NotFound";
 import ResumeContent from "components/ResumeContent";
 import { siteWidth } from "actions";
 
-import "focus-visible/dist/focus-visible.min.js";
 import "./App.scss";
+
+ReactGA.initialize('UA-57002736-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 function App({ siteWidth }) {
   const menuState = useSelector(state => state.menuState) ? "menu-open" : "menu-closed";
