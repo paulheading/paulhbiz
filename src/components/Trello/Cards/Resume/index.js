@@ -32,7 +32,7 @@ function ResumeCards({ source, total = 3 }) {
   function printDue(card,due) {
     function printContent() {
       if (!card.placeholder) {
-        return due !== "Invalid date" ? `(${due})` : "Coming Soon";        
+        return due !== "Invalid date" ? `(${due})` : "Soon";        
       } else {
         return ".";
       }

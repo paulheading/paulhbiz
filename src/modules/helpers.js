@@ -3,26 +3,6 @@ import { Link } from "react-router-dom";
 
 export const parse = require("html-react-parser");
 
-export const handleDate = {
-  basic: (timestamp) => {
-    if (!timestamp) {
-      return "Coming Soon";
-    } else {
-      timestamp = new Date(timestamp);
-      return timestamp.toDateString();
-    }
-  },
-  short: (date) => {
-    date = handleDate.basic(date);
-    if (date === "Coming Soon") {
-      return `(${date})`;
-    } else {
-      date = date.split(" ");
-      return `(${parse(date[1])} ${parse(date[3])})`;
-    }
-  },
-};
-
 export function objectReady(target) {
   const keys = Object.keys(target).length;
   return keys > 0 ? true : false;

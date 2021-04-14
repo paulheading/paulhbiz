@@ -1,9 +1,19 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
+import { Helmet } from 'react-helmet';
+import { objectReady } from "modules/helpers";
 
 function NotFound() {
+  let manifest = useSelector(state => state.manifest);
+  const ready = objectReady(manifest);
+  manifest = ready ? manifest.pages.notfound : manifest;
+
   return (
     <div className="component-not-found">
+      <Helmet>
+        <title>{manifest.title}</title>
+        <meta name="description" content={manifest.description} />
+      </Helmet>
       <div className="container feed-content">
         <div className="wrap feed-content">
           <h1 className="feed-content__title">Page Not Found 🤬</h1>

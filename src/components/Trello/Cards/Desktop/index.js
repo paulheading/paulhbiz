@@ -9,9 +9,7 @@ function DesktopCards({ total = 3, date = false }) {
   const hasDate = date ? "has-date" : "";
   const ready = objectReady(trello);
 
-  function printDate(due) {
-    return (<div className="date trello-card-desktop">{ due ? moment(due).format("MMM YYYY") : "Coming Soon" }</div>);
-  }
+  const printDate = due => <div className="date trello-card-desktop">{ due ? moment(due).format("MMM YYYY") : "Soon" }</div>;
 
   function printLabels(labels) {
     if (labels.length) {
