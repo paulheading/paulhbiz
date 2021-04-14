@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ReactGA from 'react-ga';
-import { Helmet } from 'react-helmet';
 import "focus-visible/dist/focus-visible.min.js";
 
 import HeroContent from "components/HeroContent";
@@ -16,15 +15,20 @@ import OverlayMenu from "components/OverlayMenu";
 import SiteNav from "components/SiteNav";
 import NotFound from "components/NotFound";
 import ResumeContent from "components/ResumeContent";
-import { siteWidth } from "actions";
+import { siteWidth, manifest } from "actions";
+import getManifestData from "modules/manifest";
 
 import "./App.scss";
 
 ReactGA.initialize('UA-57002736-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
-function App({ siteWidth }) {
+function App({ siteWidth, manifest }) {
   const menuState = useSelector(state => state.menuState) ? "menu-open" : "menu-closed";
+
+  useEffect(() => {
+    (async () => manifest(await getManifestData()))();
+  }, [manifest]);
 
   useEffect(() => {
     let resize;
@@ -37,10 +41,6 @@ function App({ siteWidth }) {
 
   return (
     <BrowserRouter>
-      <Helmet>
-        <title>Paul Heading | Portfolio | Full Stack Designer</title>
-        <meta name="description" content="Welcome to my online home: I'm a Full Stack Designer. I design and build with the React.js and Vue.js frameworks." />
-      </Helmet>
       <OverlayMenu />
       <div className={`component-site-wrap ${menuState}`}>
         <SiteNav />
@@ -63,4 +63,4 @@ function App({ siteWidth }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { siteWidth })(App);
+export default connect(mapStateToProps, { siteWidth, manifest })(App);

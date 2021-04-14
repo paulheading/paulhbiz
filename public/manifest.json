@@ -1,6 +1,12 @@
 {
-  "short_name": "Paul Heading | Portfolio",
-  "name": "Online portfolio of Paul Heading: Full-Stack Web Designer",
+  "title": "Paul Heading | Portfolio | Full Stack Designer",
+  "description": "Welcome to my online home: I'm a Full Stack Designer. I design and build with the React.js and Vue.js frameworks.",
+  "pages": {
+    "about": {
+      "title": "Paul Heading | About | Full Stack Designer",
+      "description": "I built this site using the React.js framework, GSAP for animations, Netlify for form handling and several external api's. I use Trello as my CMS and pull data from Spotify, Medium, Github and TeamTreehouse."    
+    }
+  },
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +25,5 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "standalone"
 }

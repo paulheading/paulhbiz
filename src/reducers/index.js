@@ -1,5 +1,12 @@
 import { combineReducers } from "redux";
 
+const manifest = (data = {}, action) => {
+  if (action.type === "MANIFEST") {
+    return action.payload;
+  }
+  return data;
+};
+
 const siteWidth = (state = 0, action) => {
   if (action.type === "SITEWIDTH") {
     return action.payload;
@@ -81,4 +88,5 @@ export default combineReducers({
   countdown,
   repeat,
   siteWidth,
+  manifest
 });
