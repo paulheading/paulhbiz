@@ -9,8 +9,8 @@ function HeroContent() {
     trello: useSelector(state => state.trelloData),
     countdown: useSelector(state => state.countdown)
   };
-  let manifest = useSelector(state => state.manifest);
   const ready = objectReady(store.trello);
+  let manifest = useSelector(state => state.manifestData);
 
   let feed = ready ? store.trello.projects.cards : temp.trello.projects.cards;
   feed = filter.keep.hero(feed);

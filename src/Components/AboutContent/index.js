@@ -5,7 +5,7 @@ import { TrelloPage, DesktopCards } from "components/Trello";
 import { objectReady } from "modules/helpers";
 
 function AboutContent() {
-  let manifest = useSelector(state => state.manifest);
+  let manifest = useSelector(state => state.manifestData);
   const ready = objectReady(manifest);
   manifest = ready ? manifest.pages.about : manifest;
 

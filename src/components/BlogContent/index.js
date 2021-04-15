@@ -7,7 +7,7 @@ import { objectReady } from "modules/helpers";
 import { mediumData } from "actions";
 
 function BlogContent({mediumData}) {
-  let manifest = useSelector(state => state.manifest);
+  let manifest = useSelector(state => state.manifestData);
   const ready = objectReady(manifest);
   manifest = ready ? manifest.pages.blog : manifest;
 

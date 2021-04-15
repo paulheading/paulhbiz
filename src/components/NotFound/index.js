@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { objectReady } from "modules/helpers";
 
 function NotFound() {
-  let manifest = useSelector(state => state.manifest);
+  let manifest = useSelector(state => state.manifestData);
   const ready = objectReady(manifest);
   manifest = ready ? manifest.pages.notfound : manifest;
 

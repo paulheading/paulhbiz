@@ -1,12 +1,5 @@
 import { combineReducers } from "redux";
 
-const manifest = (data = {}, action) => {
-  if (action.type === "MANIFEST") {
-    return action.payload;
-  }
-  return data;
-};
-
 const siteWidth = (state = 0, action) => {
   if (action.type === "SITEWIDTH") {
     return action.payload;
@@ -33,6 +26,13 @@ const menuState = (state = false, action) => {
     return action.payload;
   }
   return state;
+};
+
+const manifestData = (data = {}, action) => {
+  if (action.type === "MANIFEST_DATA") {
+    return action.payload;
+  }
+  return data;
 };
 
 const timezoneData = (zone = {}, action) => {
@@ -78,6 +78,7 @@ const treehouseData = (profile = {}, action) => {
 };
 
 export default combineReducers({
+  manifestData,
   treehouseData,
   timezoneData,
   spotifyData,
@@ -88,5 +89,4 @@ export default combineReducers({
   countdown,
   repeat,
   siteWidth,
-  manifest
 });

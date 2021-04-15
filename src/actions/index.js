@@ -1,10 +1,3 @@
-export const manifest = query => {
-  return {
-    type: "MANIFEST",
-    payload: query,
-  };
-};
-
 export const menuState = query => {
   return {
     type: "MENU_STATE",
@@ -29,6 +22,13 @@ export const countdown = query => {
 export const repeat = query => {
   return {
     type: "REPEAT",
+    payload: query,
+  };
+};
+
+export const manifestData = query => {
+  return {
+    type: "MANIFEST_DATA",
     payload: query,
   };
 };

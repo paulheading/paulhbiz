@@ -7,18 +7,20 @@ import DesktopTopbar from "./Topbar";
 import SpotifyFeed from "./SpotifyFeed";
 import { TrelloFeed } from "components/Trello";
 
+import getManifestData from "modules/manifest";
 import getSpotifyData from "modules/spotify";
 import getTrelloData from "modules/trello";
-import { spotifyData, trelloData } from "actions";
+import { manifestData, spotifyData, trelloData } from "actions";
 
-function DesktopArea({ spotifyData, trelloData }) {
+function DesktopArea({ manifestData, spotifyData, trelloData }) {
   useEffect(() => {
     (async () => {
+      manifestData(await getManifestData());
       spotifyData(await getSpotifyData());
       trelloData(await getTrelloData());
     })();
     makeDraggable();
-  }, [spotifyData, trelloData]);
+  }, [manifestData, spotifyData, trelloData]);
 
   const [spotifyFolder, setSpotifyFolder] = useState(true);
   const [trelloFolder, setTrelloFolder] = useState(true);
@@ -53,4 +55,4 @@ function DesktopArea({ spotifyData, trelloData }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ spotifyData, trelloData })(DesktopArea);
+export default connect(mapStateToProps,{ manifestData, spotifyData, trelloData })(DesktopArea);

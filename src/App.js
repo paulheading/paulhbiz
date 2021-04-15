@@ -15,20 +15,15 @@ import OverlayMenu from "components/OverlayMenu";
 import SiteNav from "components/SiteNav";
 import NotFound from "components/NotFound";
 import ResumeContent from "components/ResumeContent";
-import { siteWidth, manifest } from "actions";
-import getManifestData from "modules/manifest";
+import { siteWidth } from "actions";
 
 import "./App.scss";
 
 ReactGA.initialize('UA-57002736-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
-function App({ siteWidth, manifest }) {
+function App({ siteWidth }) {
   const menuState = useSelector(state => state.menuState) ? "menu-open" : "menu-closed";
-
-  useEffect(() => {
-    (async () => manifest(await getManifestData()))();
-  }, [manifest]);
 
   useEffect(() => {
     let resize;
@@ -63,4 +58,4 @@ function App({ siteWidth, manifest }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { siteWidth, manifest })(App);
+export default connect(mapStateToProps, { siteWidth })(App);

@@ -10,7 +10,7 @@ import { githubData } from "actions";
 import { objectReady } from "modules/helpers";
 
 function ResumeContent({ githubData }) {
-  let manifest = useSelector(state => state.manifest);
+  let manifest = useSelector(state => state.manifestData);
   const ready = objectReady(manifest);
   manifest = ready ? manifest.pages.resume : manifest;
   
