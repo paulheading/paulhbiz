@@ -3,27 +3,20 @@ import { objectReady, parse } from "modules/helpers";
 
 function TrelloPage({ name, links }) {
   const trello = useSelector((state) => state.trelloData);
-  const ready = objectReady(trello);
+  const card = objectReady(trello) && trello.pages.cards.filter(card => name === card.name)[0];
   let content = "";
-
-  if (!ready) { 
+   
+  if (!card) { 
     if (!links) { content += "<h1 class='placeholder'>.</h1>"; }
-    const copy = "<p class='placeholder'>.</p>";
-    for (let index = 0; index < 3; index++) { content += copy; }
+    for (let index = 0; index < 3; index++) { content += "<p class='placeholder'>.</p>"; }
   } else {
-    trello.pages.cards.forEach(card => {
-      if (name === card.name) {
-        if (links) {
-          let attachments = "";
-          card.attachments.forEach(card => {
-            attachments += `<a class="link__social" href="${card.url}">${card.name}</a>`; 
-          });
-          content = attachments;
-        } else {
-          content = card.desc;
-        }
-      }
-    });  
+    if (links) {
+      let attachments = "";
+      card.attachments.forEach(card => attachments += `<a class="link__social" href="${card.url}">${card.name}</a>`);
+      content = attachments;
+    } else {
+      content = card.desc;
+    }  
   }
 
   return parse(content);
