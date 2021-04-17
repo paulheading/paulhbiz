@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { objectReady, remove, pathify } from "modules/helpers";
+import { objectReady } from "modules/helpers";
 import NotFound from "components/NotFound";
 import HappyRoute from "./HappyRoute";
 import temp from "modules/placeholder";

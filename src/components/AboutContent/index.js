@@ -3,7 +3,7 @@ import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import { TrelloPage, DesktopCards } from "components/Trello";
-import { objectReady, parse } from "modules/helpers";
+import { objectReady } from "modules/helpers";
 
 function AboutContent() {
   const store = {
@@ -24,6 +24,7 @@ function AboutContent() {
       <div className="container feed-content">
         <div className="wrap feed-content">
           <TrelloPage name="About" />
+          { resumeLink }
           <div className="container trello-feed">
             <div className="wrap trello-feed">
               <DesktopCards date />

@@ -1,11 +1,9 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import { objectReady, remove } from "modules/helpers";
 
 function ArticleContent({ card }) {
-  const { route } = useParams();
   const store = {
     manifest: useSelector(state => state.manifestData),
     trello: useSelector(state => state.trelloData)
