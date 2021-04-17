@@ -10,10 +10,7 @@ export function objectReady(target) {
 
 export const objectKey = value => Object.keys(value).toString();
 
-export function pathify(value) {
-  value = simplify(value);
-  return value.split(" ").join("-").toLowerCase();
-}
+export const pathify = value => simplify(value).split(" ").join("-").toLowerCase();
 
 export const simplify = value => value.replace(/[!@£$%^&*):('.`]/g, "");
 
@@ -34,6 +31,7 @@ export function calcRepeat() {
 export const is = {
   home: path => "/" === path ? "is-home" : "not-home",
   small: value => value < breakpoints.sm ? true : false,
+  linkLocal: (link, name = link.name) => link.local ? <Link to={link.url}>{name}</Link> : <a href={link.url}>{name}</a>
 };
 
 export const breakpoints = {
@@ -50,14 +48,11 @@ export const remove = {
 }
 
 export const filter = {
-  keep: {
+  in: {
     hero: value => value.filter(({ name }) => name.startsWith("Hero: ")),
+    readmore: value => value.filter(({ name }) => name === "Read more")[0]
   },
-  remove: {
+  out: {
     hero: value => value.filter(({ name }) => !name.startsWith("Hero: ")),
   }  
-}
-
-export const check = {
-  linkIsLocal: (link, name = link.name) => link.local ? <Link to={link.url}>{name}</Link> : <a href={link.url}>{name}</a>
 }

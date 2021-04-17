@@ -4,9 +4,12 @@ import { Helmet } from 'react-helmet';
 import { objectReady } from "modules/helpers";
 
 function NotFound() {
-  let manifest = useSelector(state => state.manifestData);
-  const ready = objectReady(manifest);
-  manifest = ready ? manifest.pages.notfound : manifest;
+  const store = {
+    manifest: useSelector(state => state.manifestData)
+  };
+  
+  // Get SEO information from store
+  const manifest = objectReady(store.manifest) && store.manifest.pages.notfound;
 
   return (
     <div className="component-not-found">

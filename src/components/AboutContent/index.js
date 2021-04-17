@@ -3,17 +3,16 @@ import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import { TrelloPage, DesktopCards } from "components/Trello";
-import { objectReady } from "modules/helpers";
+import { objectReady, parse } from "modules/helpers";
 
 function AboutContent() {
   const store = {
-    trello: useSelector(state => state.trelloData)
+    trello: useSelector(state => state.trelloData),
+    manifest: useSelector(state => state.manifestData)
   }
 
   // Get SEO information from store
-  let manifest = useSelector(state => state.manifestData);
-  manifest = objectReady(manifest) ? manifest.pages.about : manifest;
-
+  const manifest = objectReady(store.manifest) && store.manifest.pages.about;
   const resumeLink = objectReady(store.trello) ? <p>My online resume is <Link to="/resume">available here</Link>.</p> : <p className="placeholder">.</p>;
 
   return (
@@ -25,7 +24,6 @@ function AboutContent() {
       <div className="container feed-content">
         <div className="wrap feed-content">
           <TrelloPage name="About" />
-          { resumeLink }
           <div className="container trello-feed">
             <div className="wrap trello-feed">
               <DesktopCards date />

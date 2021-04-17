@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
-import { objectReady, calcRepeat, parse, filter, remove, check } from "modules/helpers";
+import { Link } from "react-router-dom";
+import { objectReady, calcRepeat, parse, filter, remove } from "modules/helpers";
 import { countdown, repeat } from "actions";
 import { marquee } from "modules/animations";
 import temp from "modules/placeholder";
@@ -15,7 +16,7 @@ function MarqueeScroll({ countdown, repeat }) {
   const hero = {};
 
   hero.feed = ready ? store.trello.projects.cards : temp.trello.projects.cards;
-  hero.feed = filter.keep.hero(hero.feed);
+  hero.feed = filter.in.hero(hero.feed);
   hero.card = hero.feed[store.countdown];
 
   useEffect(() => marquee.scroll(), []);
@@ -43,6 +44,11 @@ function MarqueeScroll({ countdown, repeat }) {
     }
   }, [ready, hero.feed, store.countdown, countdown]);
 
+  function printLink() {
+    const link = filter.in.readmore(hero.card.attachments);
+    return <Link to={link.url}>{link.name}</Link>
+  }
+
   function printTitle() {
     const name = remove.hero(hero.card.name);
     let items = [];
@@ -54,7 +60,7 @@ function MarqueeScroll({ countdown, repeat }) {
   return (
     <div className="component-marquee-scroll">
       <div className="marquee-link__container">
-        {check.linkIsLocal(hero.card.link)}
+        {printLink()}
       </div>
       <div className="marquee-scroll__container">
         <div className="marquee-scroll__wrap">{printTitle()}</div>

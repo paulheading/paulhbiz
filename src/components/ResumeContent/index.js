@@ -10,9 +10,12 @@ import { githubData } from "actions";
 import { objectReady } from "modules/helpers";
 
 function ResumeContent({ githubData }) {
-  let manifest = useSelector(state => state.manifestData);
-  const ready = objectReady(manifest);
-  manifest = ready ? manifest.pages.resume : manifest;
+  const store = {
+    manifest: useSelector(state => state.manifestData)
+  };
+  
+  // Get SEO information from store
+  const manifest = objectReady(store.manifest) && store.manifest.pages.resume;
   
   useEffect(() => {
     (async () => githubData(await getGithubData()))();

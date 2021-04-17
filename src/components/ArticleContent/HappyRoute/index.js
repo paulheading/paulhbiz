@@ -1,22 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { Helmet } from 'react-helmet';
-import { TrelloPage } from "components/Trello";
-import getMediumData from "modules/medium";
-import { objectReady } from "modules/helpers";
-import { mediumData } from "actions";
+import { objectReady, remove } from "modules/helpers";
 
-function BlogContent({mediumData}) {
+function ArticleContent({ card }) {
+  const { route } = useParams();
   const store = {
-    manifest: useSelector(state => state.manifestData)
-  }
-  
+    manifest: useSelector(state => state.manifestData),
+    trello: useSelector(state => state.trelloData)
+  };
+
   // Get SEO information from store
   const manifest = objectReady(store.manifest) && store.manifest.pages.blog;
-
-  useEffect(() => {
-    (async () => mediumData(await getMediumData()))();
-  }, [mediumData]);
 
   return (
     <div className="component-about-content">
@@ -26,7 +22,7 @@ function BlogContent({mediumData}) {
       </Helmet>
       <div className="container feed-content">
         <div className="wrap feed-content">
-          <TrelloPage name="Blog" />
+          { remove.hero(card.name) }
         </div>
       </div>
     </div>
@@ -35,4 +31,4 @@ function BlogContent({mediumData}) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{mediumData})(BlogContent);
+export default connect(mapStateToProps)(ArticleContent);

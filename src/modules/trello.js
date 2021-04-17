@@ -1,6 +1,6 @@
 import axios from "axios";
 import showdown from "showdown";
-import { localify } from "./helpers";
+import { remove, pathify } from "./helpers";
 import { tl0, tl2 } from "./animations/hero";
 
 const converter = new showdown.Converter();
@@ -50,19 +50,6 @@ const getSvgsOnCard = actions => {
   return result;
 }
 
-const createLink = value => {
-
-  value.attachments.forEach(({ name, url }) => {
-    if (name === "Read more") {
-      value.link = { name, url: localify(url), local: true, }
-    } else if (name === "Live") {
-      value.link = { name: "See project", url, local: false }
-    }
-  });
-
-  return value.link;  
-}
-
 const attachAnimation = card => {
   return card.animation = () => {
     if (card.id === "606d70215309533eec28564a") {
@@ -80,12 +67,14 @@ async function getCardData(id) {
   cards = cards.map(async card => {
     const actions = await getTrello(`cards/${card.id}/actions`);
     const attachments = await getTrello(`cards/${card.id}/attachments`);
+    const route = pathify(remove.hero(card.name));
+    card.route = route;
     card.actions = actions;
     card.attachments = attachments;
+    card.attachments.push({ name: "Read more", url: `/blog/${route}` });
     card.svg = getSvgsOnCard(actions);
     card.className = `card-${card.id}`;
     attachAnimation(card);
-    createLink(card);
     return card;
   });
   return promiseData(cards);

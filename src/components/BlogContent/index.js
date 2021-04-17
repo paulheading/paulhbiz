@@ -7,9 +7,12 @@ import { objectReady } from "modules/helpers";
 import { mediumData } from "actions";
 
 function BlogContent({mediumData}) {
-  let manifest = useSelector(state => state.manifestData);
-  const ready = objectReady(manifest);
-  manifest = ready ? manifest.pages.blog : manifest;
+  const store = {
+    manifest: useSelector(state => state.manifestData)
+  }
+  
+  // Get SEO information from store
+  const manifest = objectReady(store.manifest) && store.manifest.pages.blog;
 
   useEffect(() => {
     (async () => mediumData(await getMediumData()))();
