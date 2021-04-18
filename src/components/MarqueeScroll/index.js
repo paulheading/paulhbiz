@@ -45,7 +45,7 @@ function MarqueeScroll({ countdown, repeat }) {
   }, [ready, hero.feed, store.countdown, countdown]);
 
   function printLink() {
-    const link = filter.in.readmore(hero.card.attachments);
+    const link = filter.in.more(hero.card.attachments);
     return <Link to={link.url}>{link.name}</Link>
   }
 

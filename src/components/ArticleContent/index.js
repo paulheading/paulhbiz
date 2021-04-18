@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { objectReady } from "modules/helpers";
 import NotFound from "components/NotFound";
 import HappyRoute from "./HappyRoute";
+import LoadRoute from "./LoadRoute";
 import temp from "modules/placeholder";
 
 function ArticleContent() {
@@ -14,17 +15,13 @@ function ArticleContent() {
 
   temp.trello.projects.cards.forEach(card => { if (card.route === route) { valid = true; data = card; }});
 
-  function validateRoute() {
+  function validateRoute() { 
     if (!objectReady(store.trello)) {
-      return loadRoute();      
+      return <LoadRoute />;
     } else {
       store.trello.projects.cards.forEach(card => { if (card.route === route) { valid = true; data = card; }});
       return valid ? <HappyRoute card={data} /> : <NotFound />;
     }
-  }
-
-  function loadRoute() {
-    return <div>load route</div>;
   }
 
   return validateRoute();

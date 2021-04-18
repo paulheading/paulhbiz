@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ReactGA from 'react-ga';
 import "focus-visible/dist/focus-visible.min.js";
 
+import ScrollToTop from "hooks/ScrollToTop";
 import HeroContent from "components/HeroContent";
 import AboutContent from "components/AboutContent";
 import BlogContent from "components/BlogContent";
@@ -37,6 +38,7 @@ function App({ siteWidth }) {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <OverlayMenu />
       <div className={`component-site-wrap ${menuState}`}>
         <SiteNav />

@@ -22,7 +22,7 @@ function HeroContent() {
   useEffect(() => card.animation(), [card]);
 
   function printLink(name) {
-    const link = filter.in.readmore(card.attachments);
+    const link = filter.in.more(card.attachments);
     return <Link to={link.url}>{remove.hero(name)}</Link>
   }
 

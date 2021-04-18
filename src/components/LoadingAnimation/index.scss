@@ -1,0 +1,97 @@
+$offset: 0.875rem;
+$animSetup: 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+@mixin loading-icon($size: 0.75rem) {
+  @include inline-block;
+  border-radius: 50%;
+  position: absolute;
+  height: $size;
+  width: $size;
+  content: "";
+}
+
+.loading-wrap {
+  padding-bottom: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 2rem;
+  height: 6.5rem;
+  width: 8.5rem;
+}
+
+.loading-icon {
+  @include inline-block;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-right: $offset * 1.75;
+  }
+
+  &:before {
+    @include loading-icon;
+    background-color: $gray-600;
+    animation: animBefore $animSetup;
+  }
+
+  &:after {
+    @include loading-icon;
+    background-color: $gray-500;
+    animation: animAfter $animSetup;
+  }
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      &:before,
+      &:after {
+        animation-delay: #{$i * 0.2}s;
+      }
+    }
+  }
+}
+
+@keyframes animBefore {
+  0% {
+    top: -$offset;
+    z-index: 2;
+  }
+  25% {
+    transform: scale(1.25);
+    z-index: 2;
+  }
+  50% {
+    top: $offset;
+    z-index: 1;
+  }
+  75% {
+    transform: scale(0.75);
+    z-index: 1;
+  }
+  100% {
+    top: -$offset;
+    z-index: 2;
+  }
+}
+
+@keyframes animAfter {
+  0% {
+    top: $offset;
+    z-index: 1;
+  }
+  25% {
+    background-color: $gray-400;
+    transform: scale(0.75);
+    z-index: 1;
+  }
+  50% {
+    top: -$offset;
+    z-index: 2;
+  }
+  75% {
+    transform: scale(1.25);
+    z-index: 2;
+  }
+  100% {
+    top: $offset;
+    z-index: 2;
+  }
+}

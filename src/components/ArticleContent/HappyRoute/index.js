@@ -1,26 +1,24 @@
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { Helmet } from 'react-helmet';
-import { objectReady, remove } from "modules/helpers";
+import { parse, remove, seo, filter } from "modules/helpers";
 
 function ArticleContent({ card }) {
-  const store = {
-    manifest: useSelector(state => state.manifestData),
-    trello: useSelector(state => state.trelloData)
-  };
-
-  // Get SEO information from store
-  const manifest = objectReady(store.manifest) && store.manifest.pages.blog;
-
+  const live = filter.in.live(card.attachments);
+  const code = filter.in.code(card.attachments);
+  
   return (
     <div className="component-about-content">
       <Helmet>
-        <title>{manifest.title}</title>
-        <meta name="description" content={manifest.description} />
+        <title>{ seo.title(remove.hero(card.name)) }</title>
+        <meta name="description" content={ card.desc } />
       </Helmet>
       <div className="container feed-content">
         <div className="wrap feed-content">
-          { remove.hero(card.name) }
+          <p>{ remove.hero(card.name) }</p>
+          { parse(card.desc) }          
+          { live && <p>You can see the <a href={live.url}>live project here</a></p> }
+          { code && <p>You can see the <a href={code.url}>live code here</a></p> }
         </div>
       </div>
     </div>

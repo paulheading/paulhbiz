@@ -50,9 +50,15 @@ export const remove = {
 export const filter = {
   in: {
     hero: value => value.filter(({ name }) => name.startsWith("Hero: ")),
-    readmore: value => value.filter(({ name }) => name === "Read more")[0]
+    more: value => value.filter(({ name }) => name === "Read more")[0],
+    live: value => value.filter(({ name }) => name === "Live")[0],
+    code: value => value.filter(({ name }) => name === "Code")[0]
   },
   out: {
     hero: value => value.filter(({ name }) => !name.startsWith("Hero: ")),
   }  
 }
+
+export const seo = {
+  title: content => `Paul Heading | ${ content } | Full Stack Designer`
+};
