@@ -89,14 +89,9 @@ label {
 }
 
 .focus-visible {
-  @include double-box;
-  border-radius: 0.125rem;
+  border-radius: $border-radius;
+}
 
-  &.btn {
-    border-radius: $border-radius;
-
-    &.focus-visible {
-      @include single-box($white);
-    }
-  }
+.btn.focus-visible {
+  @include single-box($white);
 }
