@@ -16,6 +16,10 @@
   font-size: $font-size-sm;
   color: $gray-700;
 
+  img {
+    display: none;
+  }
+
   &.placeholder {
     @include placeholder($max: 80%);
   }

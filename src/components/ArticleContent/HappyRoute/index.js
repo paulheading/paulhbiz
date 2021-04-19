@@ -45,7 +45,7 @@ function ArticleContent({ card }) {
             { live && <a href={live.url}>See project</a> }
             { code && <a href={code.url}>See code</a> }
           </div>
-          { parse(card.desc) }          
+          { card.desc && parse(card.desc) }          
          </div>
       </div>
     </div>
