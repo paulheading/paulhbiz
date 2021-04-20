@@ -40,4 +40,10 @@
   margin-bottom: 1.25rem;
   display: grid;
   gap: 1rem;
+
+  &.dates {
+    @include media-breakpoint-down(sm) {
+      display: block;
+    }
+  }
 }

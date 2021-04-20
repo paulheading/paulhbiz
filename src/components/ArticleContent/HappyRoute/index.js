@@ -19,7 +19,7 @@ function ArticleContent({ card }) {
 
     if (due !== invalid && start !== invalid) {
       return (
-        <div className="summary feed-content">
+        <div className="summary feed-content dates">
           {printDue()}
           <div>Lasted: {printSpan()}</div>
         </div>
