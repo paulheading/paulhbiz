@@ -1,21 +1,21 @@
-.folder-button {
-  &.container {
-    @include inline-block;
-  }
 
-  &.btn.focus-visible {
+.container.folder-button {
+  @include inline-block;
+  max-width: none;
+  padding: 0;
+}
+
+.btn.folder-button {
+  &.focus-visible {
     box-shadow: none;
 
     .badge {
       background-color: $c-teal--dark;
     }
   }
+}
 
-  .badge {
-    background-color: $c-teal--tint;
-
-    &-wrap {
-      margin-top: 0.25rem;
-    }
-  }
+.badge.folder-button {
+  background-color: $c-teal--tint;
+  margin-top: 0.25rem;
 }

@@ -20,15 +20,9 @@ export function FolderButton({ title, input, output }) {
 
   return (
     <div className="folder-button container">
-      <Button
-        onClick={toggleState}
-        className="folder-button"
-        variant="link"
-      >
-        {input ? <FolderOpenSvg /> : <FolderClosedSvg />}
-        <div className="badge-wrap">
-          <Badge pill>{title}</Badge>
-        </div>
+      <Button onClick={toggleState} className="folder-button" variant="link">
+        { input ? <FolderOpenSvg /> : <FolderClosedSvg /> }
+        <Badge className="folder-button" pill>{title}</Badge>
       </Button>
     </div>
   );
