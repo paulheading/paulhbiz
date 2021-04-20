@@ -26,6 +26,13 @@ export const repeat = query => {
   };
 };
 
+export const rubyGemsData = query => {
+  return {
+    type: "RUBY_GEMS_DATA",
+    payload: query,
+  };
+};
+
 export const manifestData = query => {
   return {
     type: "MANIFEST_DATA",

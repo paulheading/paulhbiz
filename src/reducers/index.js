@@ -28,6 +28,13 @@ const menuState = (state = false, action) => {
   return state;
 };
 
+const rubyGemsData = (data = {}, action) => {
+  if (action.type === "RUBY_GEMS_DATA") {
+    return action.payload;
+  }
+  return data;
+};
+
 const manifestData = (data = {}, action) => {
   if (action.type === "MANIFEST_DATA") {
     return action.payload;
@@ -78,6 +85,7 @@ const treehouseData = (profile = {}, action) => {
 };
 
 export default combineReducers({
+  rubyGemsData,
   manifestData,
   treehouseData,
   timezoneData,
