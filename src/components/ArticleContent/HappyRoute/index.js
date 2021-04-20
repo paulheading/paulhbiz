@@ -8,24 +8,20 @@ function ArticleContent({ card }) {
   const live = filter.in.live(card.attachments);
   const code = filter.in.code(card.attachments);
   const title = remove.hero(card.name);
-
-  const due  = moment(card.due).format("MMM YYYY");
-  const start = moment(card.start).format("MMM YYYY");
-
-  function dateSpan(due, start) {
-    const months = moment(due).diff(start, "months");
-    return months > 1 ? `${months} Months` : `${months} Month`;
-  }
+  const start = moment(card.start);
+  const due = moment(card.due);
+  const span = moment(due).diff(start, "months");
 
   function dateSummary() {
     const invalid = "Invalid date";
-    const printFinish = () => card.dueComplete ? <div>Finished: {due}</div> : <div>In progress</div>;
+    const printDue = () => card.dueComplete ? <div>Finished: {due.format("MMM YYYY")}</div> : <div>In progress</div>;
+    const printSpan = () => span > 1 ? `${span} Months` : `${span} Month`;
 
     if (due !== invalid && start !== invalid) {
       return (
         <div className="summary feed-content">
-          {printFinish()}
-          <div>Lasted: {dateSpan(due,start)}</div>
+          {printDue()}
+          <div>Lasted: {printSpan()}</div>
         </div>
       );
     }
