@@ -38,9 +38,7 @@ function DesktopCards({ total = 3, date = false }) {
                 <Link className="link trello-card-desktop" to={link.url}>
                   { parse(limitLength(card.name,40)) }
                 </Link>
-                <span className="wrap trello-card-desktop-badges">
-                  { card.labels && printLabels(card.labels) }
-                </span>
+                { card.labels && printLabels(card.labels) }
               </div>
             </Card>
           );

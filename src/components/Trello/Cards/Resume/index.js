@@ -1,81 +1,53 @@
 import React from "react";
 import moment from "moment";
-import { connect, useSelector } from "react-redux";
-import { objectReady, parse, remove } from "modules/helpers";
+import { connect } from "react-redux";
+import { objectReady, parse, remove, filter } from "modules/helpers";
 import { Badge, Col } from "react-bootstrap";
 
-function ResumeCards({ source, total = 3 }) {
-  const trello = useSelector(state => state.trelloData);
-  const ready = objectReady(trello);
+function ResumeCards({ source, total = 3, finished = true }) {
 
-  function getTrelloCards() {
-    switch (source) {
-      case "Education": return trello.education.cards;
-      case "Roles": return trello.roles.cards;
-      default: return trello.projects.cards;
-    }
-  }
+  const printLabels = labels => labels.length ? labels.map(label =><Badge key={label.id} className={label.color}>{label.name}</Badge>) : <Badge>Personal</Badge>;
 
-  function printLabels(labels) {
-    if (labels.length) {
-      return labels.map(label =><Badge key={label.id} className={label.color}>{label.name}</Badge>);
-    } else {
-      return <Badge>Personal</Badge>;
-    }
-  }
-
-  function linkName(card,url) {
+  const linkName = card => {
+    const url = filter.in.live(card.attachments);
     const name = remove.hero(card.name);
-    return url ? <a className="link trello-card-resume" href={url}>{parse(name)}</a> : <span className="title trello-card-resume">{name}</span>;
+    return url ? <a className="link trello-card-resume" href={url}>{parse(name)}</a> : <span className="title trello-card-resume">{parse(name)}</span>;
   }
 
-  function printDue(card,due) {
-    function printContent() {
-      if (!card.placeholder) {
-        return due !== "Invalid date" ? `(${due})` : "Soon";        
-      } else {
-        return ".";
-      }
+  function printDates(card) {
+    const date = finished ? moment(card.due) : moment(card.start);
+    const handle = finished ? "Finished" : "Started";
+    return parse(`<div class="due trello-card-resume"><strong>${handle}</strong>: ${date.format(`MMM YYYY`)}</div>`);
+  }
+
+  const printPlaceholders = () => {
+    const cards = [];
+    for (let index = 0; index < total; index++) {
+      cards.push( 
+      <Col sm={4} key={`placeholder-${index}`}>
+        <div className="title trello-card-resume placeholder">.</div>
+        <div className="desc trello-card-resume placeholder">.</div>
+      </Col>
+      );
     }
-    return parse(`<span class="due trello-card-resume">${printContent()}</span>`);
+    return cards;
   }
 
-  function cardContents() {
-    if (!ready) {
-      const cards = [];
-      for (let index = 0; index < total; index++) {
-        cards.push( 
-        <Col sm={4} key={`placeholder-${index}`}>
-          <div className="title trello-card-resume placeholder">.</div>
-          <div className="desc trello-card-resume placeholder">.</div>
-        </Col>
-        );
-      }
-      return cards;
-    } else {
-      return getTrelloCards().map((card, index) => {
-        const url = card.attachments.map(item => item.name === "Live" && item.url)[0];
-        const due = moment(card.due).format('MMM YYYY');
-        if (index < total) {
-          return (
-            <Col sm={4} key={card.id}>
-              {card.labels && printLabels(card.labels)}
-              <div className="wrap trello-card-resume-title">
-                {linkName(card,url)}
-                {printDue(card,due)}     
-              </div>
-              <div className="desc trello-card-resume">
-                {card.placeholder ? "." : parse(card.desc)}
-              </div>
-            </Col>
-          );          
-        }
-        return null;
-      });
-    }
-  }
+  const printCard = card => 
+  <Col sm={4} key={card.id}>
+    {card.labels && printLabels(card.labels)}
+    <div className="wrap trello-card-resume-title">
+      {linkName(card)}
+      {printDates(card)}
+    </div>
+    <div className="desc trello-card-resume">
+      {parse(card.desc)}
+    </div>
+  </Col>;
 
-  return cardContents();
+  const cardContents = source => !objectReady(source) ? printPlaceholders() : source.map((card,index) => index < total ? printCard(card) : null);
+
+  return cardContents(source);
 }
 
 const mapStateToProps = state => state;

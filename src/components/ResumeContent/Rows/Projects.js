@@ -7,9 +7,24 @@ import { objectReady } from "modules/helpers";
 import { ResumeCards } from "components/Trello";
 
 function ProjectsRow({ title }) {
-  const feed = useSelector(state => state.trelloData);
-  const ready = objectReady(feed);
-  const placeholder = ready ? "" : "placeholder";
+  const trello = useSelector(state => state.trelloData);
+  const placeholder = !objectReady(trello) ? "placeholder" : "";
+  let finished = true;
+
+  const trelloCards = title => {
+    if (objectReady(trello)) {
+      if (title === "Education") {
+        return trello.education.cards;
+      } else if (title === "Roles") {
+        finished = false;
+        return trello.roles.cards;
+      } else {
+        return trello.projects.cards;
+      }      
+    } else {
+      return {};
+    }
+  }
 
   return (
     <Container className="page-row">
@@ -17,7 +32,7 @@ function ProjectsRow({ title }) {
         <Col sm={12}>
           <h2 className={`title resume-row ${ placeholder }`}>{title}</h2>
         </Col>
-        <ResumeCards source={title} />
+        <ResumeCards source={trelloCards(title)} finished={finished} />
       </Row>
     </Container>
   );

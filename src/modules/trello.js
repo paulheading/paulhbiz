@@ -20,23 +20,17 @@ const TRELLO = {
   API_BASE: "https://api.trello.com/1/",
 };
 
-const getTrello = target => {
-  return axios
+const getTrello = target => axios
   .get(`${TRELLO.API_BASE}${target}?key=${TRELLO.API_KEY}&token=${TRELLO.USER_TOKEN}`, { headers: { Accept: "application/json" }, })
   .then(({ data }) => data)
-  .catch((err) => console.error(err));
-}
+  .catch(err => console.error(err));
 
 const promiseData = target => Promise.all(target).then(data => data);
 
-function getCardsOnList(id = TRELLO.LIST.HERO) {
-  return getTrello(`list/${id}/cards/`).then((data) => {
-    return data.map((value) => {
-      value.desc = converter.makeHtml(value.desc);
-      return value;
-    });
-  });
-}
+const getCardsOnList = (id = TRELLO.LIST.HERO) => getTrello(`list/${id}/cards/`).then(data => data.map(value => {
+  value.desc = converter.makeHtml(value.desc);
+  return value;
+}));
 
 const getSvgsOnCard = actions => {
   let result;
@@ -62,7 +56,7 @@ const attachAnimation = card => {
   }
 }
 
-async function getCardData(id) {
+const getCardData = async (id,label) => {
   let cards = await getCardsOnList(id);
   cards = cards.map(async card => {
     const actions = await getTrello(`cards/${card.id}/actions`);
@@ -71,7 +65,9 @@ async function getCardData(id) {
     card.route = route;
     card.actions = actions;
     card.attachments = attachments;
-    card.attachments.push({ name: "Read more", url: `/blog/${route}` });
+    if (label === "projects") {
+      card.attachments.push({ name: "Read more", url: `/blog/${route}` });      
+    }
     card.svg = getSvgsOnCard(actions);
     card.className = `card-${card.id}`;
     attachAnimation(card);
@@ -80,7 +76,7 @@ async function getCardData(id) {
   return promiseData(cards);
 }
 
-async function getList(id = TRELLO.LIST.HERO) {
+const getList = async (id = TRELLO.LIST.HERO) => {
   const data = await getTrello(`lists/${id}`);
   return { id: data.id, name: data.name };
 }
@@ -89,19 +85,19 @@ export default async function getTrelloData() {
   const data = {
     pages: {
       info: await getList(TRELLO.LIST.PAGES),
-      cards: await getCardData(TRELLO.LIST.PAGES),
+      cards: await getCardData(TRELLO.LIST.PAGES, "pages"),
     },
     projects: {
       info: await getList(TRELLO.LIST.PROJECTS),
-      cards: await getCardData(TRELLO.LIST.PROJECTS),
+      cards: await getCardData(TRELLO.LIST.PROJECTS, "projects"),
     },
     roles: {
       info: await getList(TRELLO.LIST.ROLES),
-      cards: await getCardData(TRELLO.LIST.ROLES),
+      cards: await getCardData(TRELLO.LIST.ROLES, "roles"),
     },
     education: {
       info: await getList(TRELLO.LIST.EDUCATION),
-      cards: await getCardData(TRELLO.LIST.EDUCATION),
+      cards: await getCardData(TRELLO.LIST.EDUCATION, "education"),
     },
   };
   console.log("trello: ", data);

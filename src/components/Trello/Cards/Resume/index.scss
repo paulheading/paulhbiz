@@ -32,4 +32,5 @@
 
 .due.trello-card-resume {
   @include style-date;
+  display: block;
 }

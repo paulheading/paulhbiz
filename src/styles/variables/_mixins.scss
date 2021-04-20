@@ -113,9 +113,10 @@
 }
 
 @mixin style-date {
-  @include inline-block;
   font-size: $font-size-sm;
+  margin-top: 0.25rem;
   color: $gray-700;
+  display: block;
 }
 
 @mixin window-container {

@@ -18,14 +18,7 @@
 
   &.has-date {
     padding: ($trello-card-margin * 2) ($trello-card-margin * 3);
-
-    @include media-breakpoint-down(sm) {     
-      .wrap.trello-card-desktop-badges {
-        margin-top: $trello-card-margin;
-        display: block;
-      }
-    }
-
+    
     @include media-breakpoint-up(md) {
       grid-template-columns: 1fr 5fr;
       grid-column-gap: $trello-card-margin;

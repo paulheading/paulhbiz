@@ -38,8 +38,6 @@ function DesktopArea({ rubyGemsData, manifestData, spotifyData, trelloData }) {
   const [spotifyFolder, setSpotifyFolder] = useState(true);
   const [trelloFolder, setTrelloFolder] = useState(true);
 
-  console.log("pulling: ", store.rubyGems);
-
   return (
     <div className="component desktop-area">
       <DesktopTopbar />
