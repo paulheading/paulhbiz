@@ -16,8 +16,17 @@ function ResumeCards({ source, total = 3, title }) {
       if (card.start) {
         const start = moment(card.start);
         const span = moment(due).diff(start, "months");
-        const months = span > 1 ? "months" : "month";
-        return <Badge className={`outline ${color}`}>{span} {months}</Badge>;
+
+        const time = span => {
+          if (span > 11) {
+            span = Math.round((span / 12) * 10) / 10;
+            return span > 1 ? `${span} years` : `${span} year`;
+          } else {
+            return span > 1 ? `${span} months` : `${span} month`; 
+          }
+        }
+
+        return <Badge className={`outline ${color}`}>{time(span)}</Badge>;
       } else {
         return <Badge className={`outline ${color}`}>tbc</Badge>;
       }
