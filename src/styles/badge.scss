@@ -1,30 +1,13 @@
 .badge {
   border-radius: $border-radius-lg;
-  background-color: $gray-600;
   margin-right: $badge-margin;
+  border: 1px solid $gray-600;
+  font-size: $font-size-sm;
   padding: 0.375rem 0.5rem;
   transition: none;
-  font-size: 80%;
-  color: $white;
 
   &:last-child {
     margin-right: 0;
-  }
-
-  &.purple {
-    background-color: $purple;
-  }
-  &.green {
-    background-color: $green;
-  }
-  &.orange {
-    background-color: $orange;
-  }
-  &.red {
-    background-color: $red;
-  }
-  &.blue {
-    background-color: $blue;
   }
 
   &.code {
@@ -47,5 +30,37 @@
   &.placeholder {
     @include placeholder;
     border-radius: 0;
+  }
+}
+
+$colors: (
+  "purple" : $purple, 
+  "green"  : $green, 
+  "orange" : $orange, 
+  "red"    : $red, 
+  "blue"   : $blue
+);
+
+.badge:not(.outline) {
+  background-color: $gray-600;
+  color: $white;
+
+  @each $name, $color in $colors {
+    &.#{$name} {
+      background-color: $color;
+      border-color: $color;
+    }  
+  }
+}
+
+.badge.outline {
+  background-color: $white;
+  color: $gray-600;
+
+  @each $name, $color in $colors {
+    &.#{$name} {
+      border-color: $color;
+      color: $color;
+    }  
   }
 }

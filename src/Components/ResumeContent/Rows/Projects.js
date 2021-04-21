@@ -9,14 +9,12 @@ import { ResumeCards } from "components/Trello";
 function ProjectsRow({ title }) {
   const trello = useSelector(state => state.trelloData);
   const placeholder = !objectReady(trello) ? "placeholder" : "";
-  let finished = true;
 
   const trelloCards = title => {
     if (objectReady(trello)) {
       if (title === "Education") {
         return trello.education.cards;
       } else if (title === "Roles") {
-        finished = false;
         return trello.roles.cards;
       } else {
         return trello.projects.cards;
@@ -32,7 +30,7 @@ function ProjectsRow({ title }) {
         <Col sm={12}>
           <h2 className={`title resume-row ${ placeholder }`}>{title}</h2>
         </Col>
-        <ResumeCards source={trelloCards(title)} finished={finished} />
+        <ResumeCards source={trelloCards(title)} title={title} />
       </Row>
     </Container>
   );
