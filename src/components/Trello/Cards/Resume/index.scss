@@ -16,6 +16,11 @@
   font-size: $font-size-sm;
   color: $gray-700;
 
+  p {
+    display: inline;
+    margin: 0;
+  }
+
   img {
     display: none;
   }

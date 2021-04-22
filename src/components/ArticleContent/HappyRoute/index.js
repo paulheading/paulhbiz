@@ -9,7 +9,7 @@ function ArticleContent({ card }) {
   const code = filter.in.code(card.attachments);
   const title = remove.hero(card.name);
   const start = moment(card.start);
-  const due = moment(card.due);
+  const due = card.due ? moment(card.due) : moment();
   const span = moment(due).diff(start, "months");
 
   function dateSummary() {

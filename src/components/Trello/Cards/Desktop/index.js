@@ -2,20 +2,17 @@ import React from "react";
 import moment from "moment";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { objectReady, parse, limitLength, filter } from "modules/helpers";
+import { objectReady, parse, limitLength, filter, print } from "modules/helpers";
 import { Badge, Card } from "react-bootstrap";
 
 function DesktopCards({ total = 3, date = false }) {
   const trello = useSelector(state => state.trelloData);
   const hasDate = date ? "has-date" : "";
-  const ready = objectReady(trello);
 
-  const printDate = due => <div className="date trello-card-desktop">{ due ? moment(due).format("MMM YYYY") : "Soon" }</div>;
-
-  const printLabels = labels => labels.length ? labels.map(label =><Badge key={label.id} className={label.color}>{label.name}</Badge>) : <Badge>Personal</Badge>;
+  const printDate = due => <div className="date trello-card-desktop">{ due ? moment(due).format("MMM YYYY") : "Ongoing" }</div>;
 
   function cardContents() {
-    if (!ready) {
+    if (!objectReady(trello)) {
       const cards = [];
       for (let index = 0; index < total; index++) {
         cards.push( 
@@ -38,7 +35,7 @@ function DesktopCards({ total = 3, date = false }) {
                 <Link className="link trello-card-desktop" to={link.url}>
                   { parse(limitLength(card.name,40)) }
                 </Link>
-                { card.labels && printLabels(card.labels) }
+                { card.labels && print.labels(card) }
               </div>
             </Card>
           );

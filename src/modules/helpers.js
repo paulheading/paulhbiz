@@ -1,5 +1,7 @@
+import { Badge } from "react-bootstrap";
 import { marquee } from "modules/animations";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 export const parse = require("html-react-parser");
 
@@ -62,3 +64,48 @@ export const filter = {
 export const seo = {
   title: content => `Paul Heading | ${ content } | Full Stack Designer`
 };
+
+export const print = {
+  label: {
+    time: span => {
+      if (span > 11) {
+        span = Math.round((span / 12) * 10) / 10;
+        return span > 1 ? `${span} years` : `${span} year`;
+      } else {
+        return span > 1 ? `${span} months` : `${span} month`; 
+      }
+    },
+    dates: (card, color) => {
+      const due = card.due ? moment(card.due) : moment();  
+      if (card.start) {
+        const start = moment(card.start);
+        const span = moment(due).diff(start, "months");
+        return <Badge className={`outline ${color}`}>{print.label.time(span)}</Badge>;
+      } else {
+        return <Badge className={`outline ${color}`}>tbc</Badge>;
+      }
+    },
+  },
+  labels: card => {
+    const labels = card.labels;
+    if (labels.length) {
+      let color = "";
+      return (
+        <span>
+          {labels.map(label => {
+            color = label.color;
+            return <Badge key={label.id} className={label.color}>{label.name}</Badge>;
+          })}
+          { print.label.dates(card,color) }
+        </span>
+      );
+    } else {
+      return (
+        <span>
+          <Badge>Personal</Badge>
+          { print.label.dates(card) }
+        </span>
+      );
+    }
+  }
+}

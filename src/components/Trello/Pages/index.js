@@ -19,7 +19,7 @@ function TrelloPage({ name, links }) {
     }  
   }
 
-  return parse(content);
+  return <div className={`component trello-page ${name.toLowerCase()}`}>{parse(content)}</div>;
 }
 
 const mapStateToProps = state => state;

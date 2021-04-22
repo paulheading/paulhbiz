@@ -2,56 +2,10 @@ import React from "react";
 import moment from "moment";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { objectReady, parse, remove, filter } from "modules/helpers";
-import { Badge, Col } from "react-bootstrap";
+import { objectReady, parse, remove, filter, limitLength, print } from "modules/helpers";
+import { Col } from "react-bootstrap";
 
 function ResumeCards({ source, total = 3, title }) {
-
-  const printLabels = card => {
-    const labels = card.labels;
-
-    function createDates(color) {
-      const due = card.due ? moment(card.due) : moment();
-
-      if (card.start) {
-        const start = moment(card.start);
-        const span = moment(due).diff(start, "months");
-
-        const time = span => {
-          if (span > 11) {
-            span = Math.round((span / 12) * 10) / 10;
-            return span > 1 ? `${span} years` : `${span} year`;
-          } else {
-            return span > 1 ? `${span} months` : `${span} month`; 
-          }
-        }
-
-        return <Badge className={`outline ${color}`}>{time(span)}</Badge>;
-      } else {
-        return <Badge className={`outline ${color}`}>tbc</Badge>;
-      }
-    } 
-
-    if (labels.length) {
-      let color = "";
-      return (
-        <div>
-          {labels.map(label => {
-            color = label.color;
-            return <Badge key={label.id} className={label.color}>{label.name}</Badge>;
-          })}
-          { createDates(color) }
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <Badge>Personal</Badge>
-          { createDates() }
-        </div>
-      );
-    }
-  }
 
   const linkName = card => {
     if (title === "Projects") {
@@ -85,13 +39,13 @@ function ResumeCards({ source, total = 3, title }) {
   const printCard = card => {
     return (
       <Col sm={4} key={card.id}>
-        {card.labels && printLabels(card)}
+        {card.labels && print.labels(card)}
         <div className="wrap trello-card-resume-title">
           {linkName(card)}
           {printDates(card)}
         </div>
         <div className="desc trello-card-resume">
-          {parse(card.desc)}
+          {parse(limitLength(card.desc))}
         </div>
       </Col>
     );
