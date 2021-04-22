@@ -3,7 +3,7 @@ import moment from "moment";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { objectReady, parse, limitLength, filter, print } from "modules/helpers";
-import { Badge, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 function DesktopCards({ total = 3, date = false }) {
   const trello = useSelector(state => state.trelloData);
