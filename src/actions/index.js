@@ -26,6 +26,13 @@ export const repeat = query => {
   };
 };
 
+export const npmData = query => {
+  return {
+    type: "NPM_DATA",
+    payload: query,
+  };
+};
+
 export const rubyGemsData = query => {
   return {
     type: "RUBY_GEMS_DATA",

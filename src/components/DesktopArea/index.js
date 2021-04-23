@@ -12,10 +12,14 @@ import getRubyGemsData from "modules/rubygems";
 import getManifestData from "modules/manifest";
 import getSpotifyData from "modules/spotify";
 import getTrelloData from "modules/trello";
-import { rubyGemsData, manifestData, spotifyData, trelloData } from "actions";
+import { npmData, rubyGemsData, manifestData, spotifyData, trelloData } from "actions";
 import { objectReady } from "modules/helpers";
+// import moment from "moment";
 
-function DesktopArea({ rubyGemsData, manifestData, spotifyData, trelloData }) {
+// const npm = require('api-npm');
+// const now = moment().format();
+
+function DesktopArea({ npmData, rubyGemsData, manifestData, spotifyData, trelloData }) {
   useEffect(() => {
     (async () => {
       rubyGemsData(await getRubyGemsData());
@@ -26,14 +30,19 @@ function DesktopArea({ rubyGemsData, manifestData, spotifyData, trelloData }) {
     makeDraggable();
   }, [rubyGemsData, manifestData, spotifyData, trelloData]);
 
+  // npm.getstat('barbican-reset','2021-04-06', now, test);
+
+  // function test(data){
+  //   return npmData(data);
+  // }
+
   const store = {
     rubyGems: useSelector(state => state.rubyGemsData),
+    npm: useSelector(state => state.npmData),
   };
 
-  const gem = {
-    name: objectReady(store.rubyGems) ? store.rubyGems.name : "futuro",
-    downloads: objectReady(store.rubyGems) ? store.rubyGems.downloads : "20000"
-  };
+  const gem = objectReady(store.rubyGems) ? { downloads: store.rubyGems.downloads } : { downloads: "20000" };
+  const reset = objectReady(store.npm) ? { downloads: store.npm.downloads } : { downloads: "1000" };
 
   const [spotifyFolder, setSpotifyFolder] = useState(true);
   const [trelloFolder, setTrelloFolder] = useState(true);
@@ -63,8 +72,17 @@ function DesktopArea({ rubyGemsData, manifestData, spotifyData, trelloData }) {
                 <RubyGemSvg />
               </div>
               <div className="col ruby-gem-details">
-                <div>{gem.name}</div>
+                <div>futuro</div>
                 <div>{gem.downloads}</div>              
+              </div>
+            </div>
+            <div className="container ruby-gem-details">
+              <div className="col ruby-gem-details">
+                <RubyGemSvg />
+              </div>
+              <div className="col ruby-gem-details">
+                <div>barbican-reset</div>
+                <div>{reset.downloads}</div>              
               </div>
             </div>
           </div>
@@ -77,4 +95,4 @@ function DesktopArea({ rubyGemsData, manifestData, spotifyData, trelloData }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ rubyGemsData, manifestData, spotifyData, trelloData })(DesktopArea);
+export default connect(mapStateToProps,{ npmData, rubyGemsData, manifestData, spotifyData, trelloData })(DesktopArea);

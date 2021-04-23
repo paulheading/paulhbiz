@@ -9,7 +9,5 @@ export default function getRubyGemsData() {
       console.log("futuro ruby gem: ", data);
       return data;
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
 }

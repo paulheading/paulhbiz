@@ -28,6 +28,13 @@ const menuState = (state = false, action) => {
   return state;
 };
 
+const npmData = (data = {}, action) => {
+  if (action.type === "NPM_DATA") {
+    return action.payload;
+  }
+  return data;
+};
+
 const rubyGemsData = (data = {}, action) => {
   if (action.type === "RUBY_GEMS_DATA") {
     return action.payload;
@@ -97,4 +104,5 @@ export default combineReducers({
   countdown,
   repeat,
   siteWidth,
+  npmData
 });
