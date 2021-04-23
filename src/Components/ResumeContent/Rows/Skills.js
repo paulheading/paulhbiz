@@ -7,27 +7,6 @@ import getTreehouseData from "modules/treehouse";
 import { treehouseData } from "actions";
 import temp from "modules/placeholder";
 
-const printSkills = (feed,ready) => {
-  let points = feed.points;
-  let list = Object.keys(points);
-
-  list = list.sort((a,b) => {
-    if (points[a] > points[b]) return -1;
-    if (points[a] < points[b]) return 1;
-    return 0;
-  });
-
-  return list.map((topic,index) => {
-    const value = points[topic];
-    const placeholder = ready ? "purple" : "placeholder";
-
-    if (topic !== "total") {
-      return value >= 100 && <Badge className={placeholder} key={`topic-${index}`}>{topic} {value}</Badge>;
-    }
-    return null;
-  });
-}
-
 function SkillsRow({ treehouseData, title }) {
   const store = {
     treehouse: useSelector(state => state.treehouseData)
@@ -36,6 +15,27 @@ function SkillsRow({ treehouseData, title }) {
   const placeholder = ready ? "live" : "placeholder";
   const newTitle = ready ? parse(title) : ".";
   const feed = ready ? store.treehouse : temp.treehouse;
+
+  const printSkills = () => {
+    let points = feed.points;
+    let list = Object.keys(points);
+  
+    list = list.sort((a,b) => {
+      if (points[a] > points[b]) return -1;
+      if (points[a] < points[b]) return 1;
+      return 0;
+    });
+  
+    return list.map((topic,index) => {
+      const value = points[topic];
+      const placeholder = ready ? "purple" : "placeholder";
+  
+      if (topic !== "total") {
+        return value >= 100 && <Badge className={placeholder} key={`topic-${index}`}>{topic} {value}</Badge>;
+      }
+      return null;
+    });
+  }
 
   useEffect(() => {
     (async () => treehouseData(await getTreehouseData()))();
@@ -48,7 +48,7 @@ function SkillsRow({ treehouseData, title }) {
           <h2 className={`title resume-row ${placeholder}`}>{newTitle}</h2>
         </Col>
         <Col className="skills" sm={12}>
-          {printSkills(feed,ready)}
+          {printSkills()}
         </Col>
       </Row>
     </Container>

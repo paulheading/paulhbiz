@@ -19,7 +19,7 @@ function BlogContent({mediumData}) {
   }, [mediumData]);
 
   return (
-    <div className="component-about-content">
+    <div className="component about-content">
       <Helmet>
         <title>{manifest.title}</title>
         <meta name="description" content={manifest.description} />

@@ -1,6 +1,6 @@
-.component-resume-card {
+.component.resume-card {
   @include media-breakpoint-down(xs) {
-    + .component-education-card {
+    + .component.education-card {
       margin-top: 1.25rem;
     }
   }

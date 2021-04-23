@@ -22,7 +22,7 @@ function ResumeContent({ githubData }) {
   }, [githubData]);
 
   return (
-    <div className="component-resume-content">
+    <div className="component resume-content">
       <Helmet>
         <title>{manifest.title}</title>
         <meta name="description" content={manifest.description} />

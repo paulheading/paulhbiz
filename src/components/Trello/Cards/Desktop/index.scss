@@ -20,8 +20,8 @@
     padding: ($trello-card-margin * 2) ($trello-card-margin * 3);
     
     @include media-breakpoint-up(md) {
-      grid-template-columns: 1fr 5fr;
-      grid-column-gap: $trello-card-margin;
+      grid-column-gap: $trello-card-margin * 2;
+      grid-template-columns: 5.5rem auto;
       display: grid;
     }
   }

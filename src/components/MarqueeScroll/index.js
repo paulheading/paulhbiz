@@ -58,7 +58,7 @@ function MarqueeScroll({ countdown, repeat }) {
   }
 
   return (
-    <div className="component-marquee-scroll">
+    <div className="component marquee-scroll">
       <div className="marquee-link__container">
         {printLink()}
       </div>

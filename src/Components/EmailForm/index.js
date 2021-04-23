@@ -29,7 +29,7 @@ function EmailForm() {
   };
 
   return (
-    <div className="component-email-form">
+    <div className="component email-form">
       <div className="email-form__container">
         <div className="email-form__wrap">
           {formSuccess && (

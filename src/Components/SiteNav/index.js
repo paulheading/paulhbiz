@@ -18,21 +18,21 @@ function SiteNav({ menuState }) {
   };
 
   return (
-    <div className={`site-nav__container ${is.home(path)}`}>
-      <div className="site-nav__wrap">
-        <div className="site-nav__logo">
-          <Link to="/" className="site-nav__anchor home btn btn-link">
+    <div className={`container site-nav ${is.home(path)}`}>
+      <div className="wrap site-nav">
+        <div className="logo site-nav">
+          <Link to="/" className="link site-nav home btn btn-link">
             {is.small(store.siteWidth) ? <MobileLogoSvg /> : <DesktopLogoSvg />}
           </Link>
         </div>
-        <div className="site-nav__block">
-          <div className="site-nav__about">
-            <Link to="/about" className="site-nav__anchor btn btn-dark">
+        <div className="block site-nav">
+          <div className="about site-nav">
+            <Link to="/about" className="link site-nav btn btn-dark">
               About
             </Link>
           </div>
           <Button
-            className="site-nav__anchor"
+            className="link site-nav"
             variant="link"
             onClick={() => {
               menuState(true);

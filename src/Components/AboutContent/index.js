@@ -16,7 +16,7 @@ function AboutContent() {
   const resumeLink = objectReady(store.trello) ? <p>My online resume is <Link to="/resume">available here</Link>.</p> : <p className="placeholder">.</p>;
 
   return (
-    <div className="component-about-content">
+    <div className="component about-content">
       <Helmet>
         <title>{manifest.title}</title>
         <meta name="description" content={manifest.description} />

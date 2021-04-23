@@ -7,7 +7,7 @@ import LoadingAnimation from "components/LoadingAnimation";
 
 function LoadRoute() {
   return (
-    <div className="component-load-route">
+    <div className="component load-route">
       <Helmet>
         <title>{ seo.title("Loading route") }</title>
       </Helmet>

@@ -30,7 +30,7 @@ function HeroContent() {
   const ifHeroSvg = svg => svg && <div className="hero-content__svg">{parse(card.svg)}</div>;
 
   return (
-    <div className={`component-hero-content ${card.className}`}>
+    <div className={`component hero-content ${card.className}`}>
       <Helmet>
         <title>{manifest.title}</title>
         <meta name="description" content={manifest.description} />

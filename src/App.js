@@ -42,7 +42,7 @@ function App({ siteWidth }) {
     <BrowserRouter>
       <ScrollToTop />
       <OverlayMenu />
-      <div className={`component-site-wrap ${menuState}`}>
+      <div className={`component site-wrap ${menuState}`}>
         <SiteNav />
         <Switch>
           <Route path="/" exact component={HeroContent} />

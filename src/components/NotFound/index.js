@@ -12,7 +12,7 @@ function NotFound() {
   const manifest = objectReady(store.manifest) && store.manifest.pages.notfound;
 
   return (
-    <div className="component-not-found">
+    <div className="component not-found">
       <Helmet>
         <title>{manifest.title}</title>
         <meta name="description" content={manifest.description} />

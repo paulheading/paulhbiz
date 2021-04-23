@@ -28,7 +28,7 @@ function ArticleContent({ card }) {
   }
   
   return (
-    <div className="component-about-content">
+    <div className="component about-content">
       <Helmet>
         <title>{ seo.title(title) }</title>
         <meta name="description" content={ card.desc } />
