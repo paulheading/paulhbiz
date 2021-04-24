@@ -1,5 +1,6 @@
 import { connect, useSelector } from "react-redux";
-import { objectReady, parse } from "modules/helpers";
+import { objectReady } from "modules/helpers";
+import parse from "html-react-parser";
 
 function TrelloPage({ name, links }) {
   const trello = useSelector((state) => state.trelloData);

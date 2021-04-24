@@ -48,7 +48,7 @@ function App({ siteWidth }) {
         </Switch>
         <MarqueeScroll />
         <DesktopArea />
-        <EmailForm />
+        <EmailForm /> 
         <FooterArea />
       </div>
     </BrowserRouter>

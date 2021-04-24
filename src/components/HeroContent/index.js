@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
-import { objectReady, parse, filter, remove } from "modules/helpers";
+import { objectReady, filter, remove } from "modules/helpers";
 import temp from "modules/placeholder";
+import parse from "html-react-parser";
 
 function HeroContent() {
   const store = {
@@ -23,11 +24,11 @@ function HeroContent() {
 
   function printLink(name) {
     const link = filter.in.more(card.attachments);
-    return <Link to={link.url}>{remove.hero(name)}</Link>
+    return <Link to={link.url}>{remove.hero(name)}</Link>;
   }
 
   const ifHeroName = name => name && <h1 className="hero-content__title">{printLink(name)}</h1>;
-  const ifHeroSvg = svg => svg && <div className="hero-content__svg">{parse(card.svg)}</div>;
+  const ifHeroSvg = svg => svg && <div className="hero-content__svg">{parse(svg)}</div>;
 
   return (
     <div className={`component hero-content ${card.className}`}>

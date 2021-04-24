@@ -3,8 +3,6 @@ import { marquee } from "modules/animations";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-export const parse = require("html-react-parser");
-
 export function objectReady(target) {
   const keys = Object.keys(target).length;
   return keys > 0 ? true : false;

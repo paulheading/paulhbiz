@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
-import { objectReady, parse } from "modules/helpers";
+import { objectReady } from "modules/helpers";
 import Badge from "react-bootstrap/Badge";
 import getTreehouseData from "modules/treehouse";
 import { treehouseData } from "actions";
 import temp from "modules/placeholder";
+import parse from "html-react-parser";
 
 function SkillsRow({ treehouseData, title }) {
   const store = {

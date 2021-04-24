@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Helmet } from 'react-helmet';
 import moment from "moment";
-import { parse, remove, seo, filter } from "modules/helpers";
+import { remove, seo, filter } from "modules/helpers";
+import parse from "html-react-parser";
 
 function ArticleContent({ card }) {
   const live = filter.in.live(card.attachments);

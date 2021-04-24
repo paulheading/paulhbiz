@@ -4,43 +4,28 @@ import { useForm } from "react-hook-form";
 import { Button, Alert } from "react-bootstrap";
 
 function EmailForm() {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [formSuccess, setFormSuccess] = useState(false);
 
   function encode(data) {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
+    return Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
   }
 
-  const onSubmit = (form) => {
+  const onSubmit = form => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "contact",
-        ...form,
-      }),
+      body: encode({ "form-name": "contact", ...form })
     })
-      .then(() => setFormSuccess(true))
-      .catch((error) => alert(error));
+    .then(() => setFormSuccess(true))
+    .catch(error => alert(error));
   };
 
   return (
     <div className="component email-form">
       <div className="email-form__container">
         <div className="email-form__wrap">
-          {formSuccess && (
-            <Alert
-              variant="success"
-              onClose={() => setFormSuccess(false)}
-              dismissible
-            >
-              sent!
-            </Alert>
-          )}
+          {formSuccess && <Alert variant="success" onClose={() => setFormSuccess(false)} dismissible>sent!</Alert>}
           <div className="email-form__topbar">
             <div className="topbar__btn close-btn"></div>
             <div className="topbar__btn minimise-btn"></div>
@@ -62,27 +47,24 @@ function EmailForm() {
               <input
                 className="field-value subject"
                 placeholder="Hey there!"
-                ref={register}
-                name="subject"
+                {...register("subject")}
                 type="text"
               />
             </div>
             <div className="email-form__row input">
               <label className="field-title">From</label>
               <input
+                {...register("from", { required: true })}
                 placeholder="friendly@visitor.org"
-                ref={register({ required: true })}
                 className="field-value email"
-                name="from"
                 type="text"
               />
             </div>
             {errors.from && <span>This field is required</span>}
             <div className="email-form__row text-field">
               <textarea
+                {...register("message")}
                 placeholder="Message"
-                name="message"
-                ref={register}
                 rows="4"
               />
             </div>

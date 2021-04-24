@@ -2,8 +2,9 @@ import React from "react";
 import moment from "moment";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { objectReady, parse, remove, filter, limitLength, print } from "modules/helpers";
+import { objectReady, remove, filter, limitLength, print } from "modules/helpers";
 import { Col } from "react-bootstrap";
+import parse from "html-react-parser";
 
 function ResumeCards({ source, total = 3, title }) {
 
