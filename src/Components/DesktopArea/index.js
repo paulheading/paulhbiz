@@ -3,7 +3,6 @@ import { connect, useSelector } from "react-redux";
 import { makeDraggable } from "modules/animations";
 import { FolderButton } from "components/Buttons/Folder";
 import CreditLine from "components/CreditLine";
-import DesktopTopbar from "./Topbar";
 import SpotifyFeed from "./SpotifyFeed";
 import { TrelloFeed } from "components/Trello";
 import { RubyGemSvg } from "components/SvgIcons";
@@ -49,7 +48,6 @@ function DesktopArea({ npmData, rubyGemsData, manifestData, spotifyData, trelloD
 
   return (
     <div className="component desktop-area">
-      <DesktopTopbar />
       <div className="container desktop-area">
         <div className="wrap desktop-area">
           <div className="windows desktop-area">

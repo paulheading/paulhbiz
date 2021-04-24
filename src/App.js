@@ -9,6 +9,7 @@ import AboutContent from "components/AboutContent";
 import BlogContent from "components/BlogContent";
 import ArticleContent from "components/ArticleContent";
 import MarqueeScroll from "components/MarqueeScroll";
+import DesktopTopbar from "components/DesktopTopbar";
 import DesktopArea from "components/DesktopArea";
 import EmailForm from "components/EmailForm";
 import FooterArea from "components/FooterArea";
@@ -47,8 +48,9 @@ function App({ siteWidth }) {
           <Route component={NotFound} />
         </Switch>
         <MarqueeScroll />
+        <DesktopTopbar />
         <DesktopArea />
-        <EmailForm /> 
+        <EmailForm />
         <FooterArea />
       </div>
     </BrowserRouter>
