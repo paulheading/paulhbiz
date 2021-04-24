@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import TagManager from 'react-gtm-module';
-import ReactGA from 'react-ga';
 import "focus-visible/dist/focus-visible.min.js";
 
 import ScrollToTop from "hooks/ScrollToTop";
@@ -21,10 +19,6 @@ import ResumeContent from "components/ResumeContent";
 import { siteWidth } from "actions";
 
 import "./App.scss";
-
-TagManager.initialize({gtmId: 'G-Q2G4QMV7WB'});
-ReactGA.initialize('UA-57002736-1');
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 function App({ siteWidth }) {
   const menuState = useSelector(state => state.menuState) ? "menu-open" : "menu-closed";
