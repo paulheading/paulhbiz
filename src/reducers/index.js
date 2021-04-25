@@ -35,8 +35,8 @@ const npmData = (data = {}, action) => {
   return data;
 };
 
-const rubyGemsData = (data = {}, action) => {
-  if (action.type === "RUBY_GEMS_DATA") {
+const gemData = (data = {}, action) => {
+  if (action.type === "GEM_DATA") {
     return action.payload;
   }
   return data;
@@ -92,9 +92,8 @@ const treehouseData = (profile = {}, action) => {
 };
 
 export default combineReducers({
-  rubyGemsData,
-  manifestData,
   treehouseData,
+  manifestData,
   timezoneData,
   spotifyData,
   mediumData,
@@ -102,7 +101,8 @@ export default combineReducers({
   trelloData,
   menuState,
   countdown,
-  repeat,
   siteWidth,
-  npmData
+  gemData,
+  npmData,
+  repeat,
 });

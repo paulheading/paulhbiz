@@ -7,41 +7,33 @@ import SpotifyFeed from "./SpotifyFeed";
 import { TrelloFeed } from "components/Trello";
 import { RubyGemSvg } from "components/SvgIcons";
 
-import getRubyGemsData from "modules/rubygems";
+import getNPMData from "modules/npm";
+import getGemData from "modules/gem";
 import getManifestData from "modules/manifest";
 import getSpotifyData from "modules/spotify";
 import getTrelloData from "modules/trello";
-import { npmData, rubyGemsData, manifestData, spotifyData, trelloData } from "actions";
+import { npmData, gemData, manifestData, spotifyData, trelloData } from "actions";
 import { objectReady } from "modules/helpers";
-// import moment from "moment";
 
-// const npm = require('api-npm');
-// const now = moment().format();
-
-function DesktopArea({ npmData, rubyGemsData, manifestData, spotifyData, trelloData }) {
+function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }) {
   useEffect(() => {
     (async () => {
-      rubyGemsData(await getRubyGemsData());
+      npmData(await getNPMData());
+      gemData(await getGemData());
       manifestData(await getManifestData());
       spotifyData(await getSpotifyData());
       trelloData(await getTrelloData());
     })();
     makeDraggable();
-  }, [rubyGemsData, manifestData, spotifyData, trelloData]);
-
-  // npm.getstat('barbican-reset','2021-04-06', now, test);
-
-  // function test(data){
-  //   return npmData(data);
-  // }
+  }, [npmData, gemData, manifestData, spotifyData, trelloData]);
 
   const store = {
-    rubyGems: useSelector(state => state.rubyGemsData),
+    gem: useSelector(state => state.gemData),
     npm: useSelector(state => state.npmData),
   };
 
-  const gem = objectReady(store.rubyGems) ? { downloads: store.rubyGems.downloads } : { downloads: "20000" };
-  const reset = objectReady(store.npm) ? { downloads: store.npm.downloads } : { downloads: "1000" };
+  const gem = objectReady(store.gem) ? { downloads: store.gem.downloads } : { downloads: "20000" };
+  const reset = objectReady(store.npm) ? { downloads: store.npm.collected.npm.downloads[5].count } : { downloads: "1000" };
 
   const [spotifyFolder, setSpotifyFolder] = useState(true);
   const [trelloFolder, setTrelloFolder] = useState(true);
@@ -93,4 +85,4 @@ function DesktopArea({ npmData, rubyGemsData, manifestData, spotifyData, trelloD
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ npmData, rubyGemsData, manifestData, spotifyData, trelloData })(DesktopArea);
+export default connect(mapStateToProps,{ npmData, gemData, manifestData, spotifyData, trelloData })(DesktopArea);

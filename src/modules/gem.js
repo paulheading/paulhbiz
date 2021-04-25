@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export default function getRubyGemsData() {
+export default function getGemData() {
   return axios
     .get("https://rubygems.org/api/v1/gems/futuro", {
-      headers: { Accept: "application/json" },
+      headers: { Accept: "application/json" }
     })
     .then(({ data }) => {
-      console.log("futuro ruby gem: ", data);
+      console.log("gem: ", data);
       return data;
     })
     .catch(err => console.log(err));

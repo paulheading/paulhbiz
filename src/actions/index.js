@@ -33,9 +33,9 @@ export const npmData = query => {
   };
 };
 
-export const rubyGemsData = query => {
+export const gemData = query => {
   return {
-    type: "RUBY_GEMS_DATA",
+    type: "GEM_DATA",
     payload: query,
   };
 };

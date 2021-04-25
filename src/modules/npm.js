@@ -1,10 +1,13 @@
-import moment from "moment";
+import axios from "axios";
 
-const npm = require('api-npm');
-const now = moment().format();
-
-npm.getstat('barbican-reset','2021-04-06', now, test);
-
-export default function test(data){
-  return data;
+export default function getNPMData() {
+  return axios
+    .get("https://api.npms.io/v2/package/barbican-reset", {
+      headers: { Accept: "application/json" }
+    })
+    .then(({ data }) => {
+      console.log("npm: ", data);
+      return data;
+    })
+    .catch(err => console.log(err));
 }
