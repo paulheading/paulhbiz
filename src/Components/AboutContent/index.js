@@ -25,7 +25,7 @@ function AboutContent() {
         <div className="wrap feed-content">
           <TrelloPage name="About" />
           { resumeLink }
-          <div className="container trello-feed">
+          <div className="container trello-feed about">
             <div className="wrap trello-feed">
               <DesktopCards date />
             </div>

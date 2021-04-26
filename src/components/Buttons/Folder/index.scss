@@ -6,6 +6,11 @@
 }
 
 .btn.folder-button {
+
+  svg {
+    display: block;
+  }
+
   &.focus-visible {
     box-shadow: none;
 

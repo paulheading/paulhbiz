@@ -120,9 +120,11 @@
 }
 
 @mixin window-container {
+  @include container-reset;
   @include inline-block;
   position: absolute;
   width: auto;
+  z-index: 2;
 
   @include media-breakpoint-up(sm) {
     padding: 0.625rem;
@@ -134,4 +136,10 @@
   animation-timing-function: steps(4);
   animation-name: colorCycle;
   animation-duration: 1s;
+}
+
+@mixin container-reset {
+  max-width: none;
+  width: auto;
+  padding: 0;
 }
