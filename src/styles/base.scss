@@ -93,5 +93,5 @@ label {
 }
 
 .btn.focus-visible {
-  @include single-box($white);
+  @include ph-single-box($white);
 }

@@ -1,4 +1,10 @@
-@import "~bootstrap/scss/bootstrap";
+
+@import "~barbican-reset/bootstrap/helpers";
+@import "~barbican-reset/helpers";
+
+@import "~barbican-reset/bootstrap";
+// @import "~barbican-reset";
+
 @import "styles/variables";
 @import "styles/base";
 @import "styles/badge";
@@ -15,7 +21,6 @@
 @import "components/ResumeContent";
 @import "components/BlogContent";
 @import "components/NotFound";
-@import "components/OverlayMenu";
 @import "components/FooterArea";
 @import "components/EmailForm";
 

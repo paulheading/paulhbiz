@@ -16,15 +16,6 @@
     left: 0;
     top: 0;
   }
-
-  .btn {
-    font-size: $h5-font-size * 1.1;
-  }
-
-  .btn-link {
-    padding-right: 0;
-    padding-left: 0;
-  }
 }
 
 .wrap.site-nav {
@@ -38,7 +29,7 @@
   }
 }
 
-.block.site-nav {
+.wrap.nav-links {
   grid-auto-flow: column;
   justify-content: end;
   align-items: center;
@@ -46,27 +37,50 @@
   display: grid;
 }
 
-.link.site-nav {
-  @include inline-block;
+@mixin link-site-nav {
+  font-size: $font-size-xl;
+  text-decoration: none;
 
-  &.btn-link {
-    padding: 0.375rem;
-
-    &.focus-visible {
-      @include single-box($white);
-      background-color: rgba($black, 0.8);
-      text-decoration: none;
-      color: $white;
-
-      svg path {
-        fill: $white;
-      }
-    }
+  &.focus-visible {
+    @include ph-double-box($black, $white);
+    background-color: $black;
+    color: $white;
   }
 }
 
-.btn.site-nav {
+@mixin button-site-nav {
+  @include link-site-nav;
+  @extend .btn;
+}
+
+.link.nav-button {
+  @include button-site-nav;
+  @extend .btn-dark;
+
   &.focus-visible {
-    @include double-box($white, $black);
+    @include ph-single-box($white);
+  }
+}
+
+.link.nav-logo {
+  @include button-site-nav;
+  @extend .btn-link;
+  padding: 0;
+
+  &.focus-visible {
+    @include ph-single-box($black);
+    background-color: $black;
+    fill: $white;
+  }
+}
+
+.link.site-nav {
+  @include link-site-nav;
+}
+
+.btn.nav-burger {
+  &.focus-visible {
+    background-color: $black;
+    fill: $white;
   }
 }

@@ -49,7 +49,7 @@
   padding-right: $badge-margin;
 
   &.focus-visible {
-    @include single-box($gray-300);
+    @include ph-single-box($gray-300);
     background-color: $gray-300;
   }
 }

@@ -8,7 +8,7 @@
   }
 
   .focus-visible.btn:focus {
-    @include single-box($gray-400);
+    @include ph-single-box($gray-400);
   }
 
   .field-title {

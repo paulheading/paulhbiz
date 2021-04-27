@@ -1,18 +1,13 @@
-.overlay-content {
-  &__container {
-    @include center(90%);
-    font-size: $h2-font-size;
-    min-height: 30rem;
-    height: 100%;
-  }
 
-  &__wrap {
-    @include inline-block;
-  }
+.component.overlay-content {
+  min-height: $mobile-min-height;
+  font-size: $h2-font-size;
+  place-items: center;
+  text-align: center;
+  display: grid;
+  height: 100%;
+}
 
-  &__row {
-    + .overlay-content__row {
-      margin-top: 1.25rem;
-    }
-  }
+.wrap.overlay-content {
+  display: grid;
 }

@@ -19,6 +19,14 @@
   }
 }
 
+@mixin ph-single-box($bg: $white, $size: 0.25rem) {
+  @include single-box($bg, $size);
+}
+
+@mixin ph-double-box($bg: $white, $col: $black, $bg_size: 0.375rem, $col_size: 0.625rem) {
+  @include double-box($bg, $col, $bg_size, $col_size);
+}
+
 @mixin inline-block($align: middle) {
   vertical-align: $align;
   display: inline-block;
@@ -32,14 +40,6 @@
     height: $pcent;
     content: "";
   }
-}
-
-@mixin single-box($bg: $white, $size: 4px) {
-  box-shadow: 0 0 0 $size $bg;
-}
-
-@mixin double-box($bg: $white, $col: $black) {
-  box-shadow: 0 0 0 6px $bg, 0 0 0 10px $col;
 }
 
 @mixin container-default($vh: 75vh) {

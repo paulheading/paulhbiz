@@ -1,6 +1,5 @@
 .hero-content {
   &__container {
-    @include container-default;
     @include center;
     height: $mobile-min-height;
     position: relative;

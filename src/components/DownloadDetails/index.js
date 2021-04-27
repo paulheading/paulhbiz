@@ -21,7 +21,7 @@ export default function DownloadDetails({ type, name, downloads }) {
   }
 
   return (
-    <div class="component download-details">
+    <div className="component download-details">
       <a className="link download-details" href={ printUrl() }>
         <div className="block download-details">
           { printSvg() }

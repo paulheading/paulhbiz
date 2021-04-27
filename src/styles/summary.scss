@@ -96,6 +96,6 @@
 
 .summary-link {
   &.focus-visible {
-    @include single-box;
+    @include ph-single-box;
   }
 }
