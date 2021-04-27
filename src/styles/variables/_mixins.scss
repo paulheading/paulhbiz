@@ -143,3 +143,19 @@
   width: auto;
   padding: 0;
 }
+
+@mixin link-site-nav {
+  font-size: $font-size-xl;
+  text-decoration: none;
+
+  &.focus-visible {
+    @include ph-double-box($black, $white);
+    background-color: $black;
+    color: $white;
+  }
+}
+
+@mixin button-site-nav {
+  @include link-site-nav;
+  @extend .btn;
+}
