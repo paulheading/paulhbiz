@@ -42,11 +42,13 @@
   }
 }
 
-@mixin container-default($vh: 75vh) {
+@mixin container-default($value: 75) {
+  height: $mobile-min-height;
+
   @include media-breakpoint-up(sm) {
+    max-height: $desktop-max-height;
     min-height: $mobile-min-height;
-    max-height: 40rem;
-    height: $vh;
+    height: #{$value}vh;
   }
 }
 
@@ -140,7 +142,6 @@
 
 @mixin container-reset {
   max-width: none;
-  width: auto;
   padding: 0;
 }
 

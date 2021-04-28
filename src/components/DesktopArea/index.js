@@ -4,7 +4,7 @@ import { makeDraggable } from "modules/animations";
 import { FolderButton } from "components/Buttons";
 import DownloadDetails from "components/DownloadDetails";
 import CreditLine from "components/CreditLine";
-import SpotifyFeed from "./SpotifyFeed";
+import SpotifyFeed from "components/SpotifyFeed";
 import { TrelloFeed } from "components/Trello";
 
 import getNPMData from "modules/npm";

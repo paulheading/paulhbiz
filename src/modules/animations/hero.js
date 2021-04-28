@@ -4,15 +4,15 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(DrawSVGPlugin);
 
 const tl = gsap.timeline({ defaults: { duration: 2 } });
+const svgHeroContent = ".svg.hero-content";
 
 export function tl0() {
-  tl.clear()
-    .from(".hero-content__svg path", { drawSVG: "0%" }, "together");
+  tl.clear().from(`${svgHeroContent} path`, { drawSVG: "0%" });
 }
 
 export function tl2() {
-  const sidePath = ".hero-content__svg g#sidebar path";
-  const mainPath = ".hero-content__svg path#main";
+  const sidePath = `${svgHeroContent} g#sidebar path`;
+  const mainPath = `${svgHeroContent} path#main`;
 
   tl.clear()
     .set(sidePath,{ opacity: 0 })

@@ -17,7 +17,6 @@
 @import "components/SvgIcons/Spotify";
 @import "components/SvgIcons/Wifi";
 
-@import "components/AboutContent";
 @import "components/ResumeContent";
 @import "components/BlogContent";
 @import "components/NotFound";
@@ -27,8 +26,9 @@
 @import "components/Buttons/Folder";
 
 @import "components/DesktopArea";
-@import "components/DesktopArea/SpotifyFeed";
 @import "components/DesktopTopbar";
+
+@import "components/SpotifyFeed";
 
 @import "components/Trello/Feed";
 @import "components/Trello/Cards/Desktop";

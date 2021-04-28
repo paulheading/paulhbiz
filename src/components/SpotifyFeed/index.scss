@@ -1,7 +1,8 @@
+
 .spotify-feed {
   &.container {
     @include window-container;
-    left: -2rem;
+    left: -4rem;
     top: 2rem;
 
     @include media-breakpoint-up(sm) {

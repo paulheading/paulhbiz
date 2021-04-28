@@ -8,11 +8,10 @@
   background-color: $teal;
   font-size: 1.125rem;
   padding: 1.25rem;
-  max-width: none;
 }
 
 .wrap.desktop-area {
-  height: $mobile-min-height;
+  @include container-default(70);
   position: relative;
 
   @include media-breakpoint-up(sm) {
@@ -40,15 +39,4 @@
   width: 14.25rem;  
   display: grid;
   padding: 1rem;
-}
-
-.container.trello-feed.desktop {
-  @include window-container;
-  left: 2rem;
-  top: 8rem;
-
-  @include media-breakpoint-up(sm) {
-    left: 10rem;
-    top: 7rem;
-  }
 }

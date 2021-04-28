@@ -2,6 +2,10 @@
   background-color: $teal;
   color: $c-teal--dark;
   text-align: center;
+
+  @include media-breakpoint-down(xs) {
+    display: none;
+  }
 }
 
 .credit-line {

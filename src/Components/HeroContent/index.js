@@ -27,8 +27,8 @@ function HeroContent() {
     return <Link to={link.url}>{remove.hero(name)}</Link>;
   }
 
-  const ifHeroName = name => name && <h1 className="hero-content__title">{printLink(name)}</h1>;
-  const ifHeroSvg = svg => svg && <div className="hero-content__svg">{parse(svg)}</div>;
+  const ifHeroName = name => name && <h1 className="title hero-content">{printLink(name)}</h1>;
+  const ifHeroSvg = svg => svg && <div className="svg hero-content">{parse(svg)}</div>;
 
   return (
     <div className={`component hero-content ${card.className}`}>
@@ -36,12 +36,10 @@ function HeroContent() {
         <title>{manifest.title}</title>
         <meta name="description" content={manifest.description} />
       </Helmet>
-      <div className="hero-content__container">
-        <div className="hero-content__wrap">
-          <div>
-            {ifHeroName(card.name)}
-            {ifHeroSvg(card.svg)}
-          </div>
+      <div className="container hero-content">
+        <div className="wrap hero-content">
+          {ifHeroName(card.name)}
+          {ifHeroSvg(card.svg)}
         </div>
       </div>
     </div>
