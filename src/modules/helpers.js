@@ -85,7 +85,7 @@ export const print = {
       }
     },
   },
-  labels: card => {
+  labels: (card, date) => {
     const labels = card.labels;
     if (labels.length) {
       let color = "";
@@ -95,14 +95,14 @@ export const print = {
             color = label.color;
             return <Badge key={label.id} className={label.color}>{label.name}</Badge>;
           })}
-          { print.label.dates(card,color) }
+          { date && print.label.dates(card, color) }
         </span>
       );
     } else {
       return (
         <span>
           <Badge>Personal</Badge>
-          { print.label.dates(card) }
+          { date && print.label.dates(card) }
         </span>
       );
     }

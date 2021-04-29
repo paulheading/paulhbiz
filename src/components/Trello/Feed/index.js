@@ -5,7 +5,7 @@ import { DotsSvg, AddCardSvg } from "components/SvgIcons";
 import { Card } from "react-bootstrap";
 import { DesktopCards } from '../index';
 
-function TrelloFeed({ context }) {
+function TrelloFeed({ context, dates }) {
   const trello = useSelector((state) => state.trelloData);
   const ready = object.ready(trello);
 
@@ -18,7 +18,7 @@ function TrelloFeed({ context }) {
           </div>
           <DotsSvg />
         </div>
-        <DesktopCards />
+        <DesktopCards dates={dates} />
         <div className="trello-feed footer">
           <div className={`trello-feed add-another ${!ready && "placeholder"}`}>
             {ready ? "+ Add another card" : "."}

@@ -45,6 +45,7 @@ function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }
         <div className="wrap desktop-area">
 
           <SpotifyFeed />
+
           <TrelloFeed context="desktop" />
 
           <div className="wrap desktop-right">
