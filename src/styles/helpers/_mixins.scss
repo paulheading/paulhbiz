@@ -160,3 +160,38 @@
   @include link-site-nav;
   @extend .btn;
 }
+
+@mixin code-badge {
+  padding: 0;
+  
+  a {
+    border-radius: $border-radius-lg;
+    background-color: $black;
+    padding: 0.375rem 0.5rem;
+    text-decoration: none;
+    display: block;
+    color: $lime;
+
+    &:hover {
+      @include animate-colors;
+    }
+  }
+}
+
+@mixin split-badge($col: $black, $bg: $gray-200) {
+  grid-auto-flow: column;
+  border: 1px solid $col;
+  background-color: $bg;
+  display: inline-grid;
+  color: $col;
+  padding: 0;
+
+  span {
+    padding: 0.5rem;
+
+    &:first-child {
+      background-color: $col;
+      color: $bg;
+    }
+  }
+}

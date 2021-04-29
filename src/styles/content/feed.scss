@@ -23,8 +23,16 @@
     @include double-box($gray-200, $black);
   }
 
-  h1 {
-    margin-bottom: 0.625rem;
+  .badge:not(.split) {
+    padding: 0.5rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   img {
@@ -34,15 +42,9 @@
 }
 
 .summary.feed-content {
-  justify-content: start;
-  grid-auto-flow: column;
-  margin-bottom: 1.25rem;
-  display: grid;
-  gap: 1rem;
+  margin: -0.5rem -0.5rem 1.25rem;
 
-  &.dates {
-    @include media-breakpoint-down(sm) {
-      display: block;
-    }
+  .badge, a {
+    margin: 0.5rem;
   }
 }

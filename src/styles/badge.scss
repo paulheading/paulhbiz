@@ -10,21 +10,17 @@
     margin-right: 0;
   }
 
+  &.split {
+    @include split-badge;
+  }
+
   &.code {
-    padding: 0;
-  
-    a {
-      border-radius: $border-radius-lg;
-      background-color: $black;
-      padding: 0.375rem 0.5rem;
-      text-decoration: none;
-      display: block;
-      color: $lime;
-  
-      &:hover {
-        @include animate-colors;
-      }
-    }
+    @include code-badge;
+  }
+
+  .bg-dark {
+    background-color: $black !important;
+    border-color: $black;
   }
 
   &.placeholder {
@@ -40,7 +36,7 @@ $colors: (
   "blue"   : $blue
 );
 
-.badge:not(.outline) {
+.badge:not(.outline, .split) {
   background-color: $gray-600;
   color: $white;
 

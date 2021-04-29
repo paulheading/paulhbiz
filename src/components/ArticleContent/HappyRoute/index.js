@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import moment from "moment";
 import { remove, seo, filter } from "modules/helpers";
 import parse from "html-react-parser";
+import { Badge } from "react-bootstrap";
 
 function ArticleContent({ card }) {
   const live = filter.in.live(card.attachments);
@@ -15,14 +16,15 @@ function ArticleContent({ card }) {
 
   function dateSummary() {
     const invalid = "Invalid date";
-    const printDue = () => card.dueComplete ? <div>Finished: {due.format("MMM YYYY")}</div> : <div>In progress</div>;
+    const printDue = () => card.dueComplete ? <Badge className="split"><span>Finished</span><span>{due.format("MMM YYYY")}</span></Badge> : <Badge className="bg-dark">In progress</Badge>;
+
     const printSpan = () => span > 1 ? `${span} Months` : `${span} Month`;
 
     if (due !== invalid && start !== invalid) {
       return (
-        <div className="summary feed-content dates">
+        <div className="summary feed-content">
           {printDue()}
-          <div>Lasted: {printSpan()}</div>
+          <Badge className="split"><span>Lasted</span><span>{printSpan()}</span></Badge>
         </div>
       );
     }
