@@ -13,7 +13,7 @@ import getManifestData from "modules/manifest";
 import getSpotifyData from "modules/spotify";
 import getTrelloData from "modules/trello";
 import { npmData, gemData, manifestData, spotifyData, trelloData } from "actions";
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 
 function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }) {
   useEffect(() => {
@@ -32,8 +32,8 @@ function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }
     npm: useSelector(state => state.npmData),
   };
 
-  const gem = objectReady(store.gem) ? { downloads: store.gem.downloads } : { downloads: "20000" };
-  const reset = objectReady(store.npm) ? { downloads: store.npm.collected.npm.downloads[5].count } : { downloads: "1000" };
+  const gem = object.ready(store.gem) ? { downloads: store.gem.downloads } : { downloads: "20000" };
+  const reset = object.ready(store.npm) ? { downloads: store.npm.collected.npm.downloads[5].count } : { downloads: "1000" };
 
   const [spotifyFolder, setSpotifyFolder] = useState(true);
   const [trelloFolder, setTrelloFolder] = useState(true);

@@ -3,12 +3,13 @@ import { marquee } from "modules/animations";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-export function objectReady(target) {
-  const keys = Object.keys(target).length;
-  return keys > 0 ? true : false;
-}
-
-export const objectKey = value => Object.keys(value).toString();
+export const object = {
+  ready: target => {
+    const keys = Object.keys(target).length;
+    return keys > 0 ? true : false;
+  },
+  key: value => Object.keys(value).toString()
+};
 
 export const pathify = value => simplify(value).split(" ").join("-").toLowerCase();
 

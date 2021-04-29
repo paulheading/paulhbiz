@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { WifiSvg } from "components/SvgIcons";
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 import { wifiSignal } from "modules/animations";
 import getTimezoneData from "modules/timezone";
 import { timezoneData } from "actions";
 
 function DesktopTopbar({ timezoneData }) {
   const timezone = useSelector(state => state.timezoneData);
-  const placeholder = !objectReady(timezone) ? "placeholder" : "";
-  const location = objectReady(timezone) ? timezone.location : ".";
-  const time = objectReady(timezone) ? timezone.time : ".";
+  const placeholder = !object.ready(timezone) ? "placeholder" : "";
+  const location = object.ready(timezone) ? timezone.location : ".";
+  const time = object.ready(timezone) ? timezone.time : ".";
 
   useEffect(() => (async () => timezoneData(await getTimezoneData()))(), [timezoneData]);
   useEffect(() => wifiSignal(), []);

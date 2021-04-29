@@ -1,13 +1,13 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
 import Card from 'react-bootstrap/Card';
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 import { SpotifySvg } from "components/SvgIcons";
 import { Row } from "react-bootstrap";
 
 function SpotifyFeed() {
   const spotify = useSelector((state) => state.spotifyData);
-  const ready = objectReady(spotify);
+  const ready = object.ready(spotify);
 
   function headerPlaceholder() {
     return (

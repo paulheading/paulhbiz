@@ -3,7 +3,7 @@ import { connect, useSelector } from "react-redux";
 import { Helmet } from 'react-helmet';
 import { TrelloPage } from "components/Trello";
 import getMediumData from "modules/medium";
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 import { mediumData } from "actions";
 
 function BlogContent({mediumData}) {
@@ -12,7 +12,7 @@ function BlogContent({mediumData}) {
   }
   
   // Get SEO information from store
-  const manifest = objectReady(store.manifest) && store.manifest.pages.blog;
+  const manifest = object.ready(store.manifest) && store.manifest.pages.blog;
 
   useEffect(() => {
     (async () => mediumData(await getMediumData()))();

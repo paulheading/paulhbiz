@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { objectReady, limitLength, filter, print } from "modules/helpers";
+import { object, limitLength, filter, print } from "modules/helpers";
 import { Card } from "react-bootstrap";
 import parse from "html-react-parser";
 
@@ -13,7 +13,7 @@ function DesktopCards({ total = 3, date = false }) {
   const printDate = due => <div className="date trello-card-desktop">{ due ? moment(due).format("MMM YYYY") : "Ongoing" }</div>;
 
   function cardContents() {
-    if (!objectReady(trello)) {
+    if (!object.ready(trello)) {
       const cards = [];
       for (let index = 0; index < total; index++) {
         cards.push( 

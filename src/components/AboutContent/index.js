@@ -3,7 +3,7 @@ import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import { TrelloPage, DesktopCards } from "components/Trello";
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 
 function AboutContent() {
   const store = {
@@ -12,8 +12,8 @@ function AboutContent() {
   }
 
   // Get SEO information from store
-  const manifest = objectReady(store.manifest) && store.manifest.pages.about;
-  const resumeLink = objectReady(store.trello) ? <p>My online resume is <Link to="/resume">available here</Link>.</p> : <p className="placeholder">.</p>;
+  const manifest = object.ready(store.manifest) && store.manifest.pages.about;
+  const resumeLink = object.ready(store.trello) ? <p>My online resume is <Link to="/resume">available here</Link>.</p> : <p className="placeholder">.</p>;
 
   return (
     <div className="component about-content">

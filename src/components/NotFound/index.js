@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
 import { Helmet } from 'react-helmet';
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 
 function NotFound() {
   const store = {
@@ -9,7 +9,7 @@ function NotFound() {
   };
   
   // Get SEO information from store
-  const manifest = objectReady(store.manifest) && store.manifest.pages.notfound;
+  const manifest = object.ready(store.manifest) && store.manifest.pages.notfound;
 
   return (
     <div className="component not-found">

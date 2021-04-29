@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 import Badge from "react-bootstrap/Badge";
 import getTreehouseData from "modules/treehouse";
 import { treehouseData } from "actions";
@@ -12,7 +12,7 @@ function SkillsRow({ treehouseData, title }) {
   const store = {
     treehouse: useSelector(state => state.treehouseData)
   }
-  const ready = objectReady(store.treehouse);
+  const ready = object.ready(store.treehouse);
   const placeholder = ready ? "live" : "placeholder";
   const newTitle = ready ? parse(title) : ".";
   const feed = ready ? store.treehouse : temp.treehouse;

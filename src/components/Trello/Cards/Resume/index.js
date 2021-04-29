@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { objectReady, remove, filter, limitLength, print } from "modules/helpers";
+import { object, remove, filter, limitLength, print } from "modules/helpers";
 import { Col } from "react-bootstrap";
 import parse from "html-react-parser";
 
@@ -52,7 +52,7 @@ function ResumeCards({ source, total = 3, title }) {
     );
   }
 
-  const cardContents = source => !objectReady(source) ? printPlaceholders() : source.map((card,index) => index < total ? printCard(card) : null);
+  const cardContents = source => !object.ready(source) ? printPlaceholders() : source.map((card,index) => index < total ? printCard(card) : null);
 
   return cardContents(source);
 }

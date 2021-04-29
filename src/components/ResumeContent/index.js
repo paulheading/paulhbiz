@@ -7,7 +7,7 @@ import ProjectsRow from "./Rows/Projects";
 import SkillsRow from "./Rows/Skills";
 import getGithubData from "modules/github";
 import { githubData } from "actions";
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 
 function ResumeContent({ githubData }) {
   const store = {
@@ -15,7 +15,7 @@ function ResumeContent({ githubData }) {
   };
   
   // Get SEO information from store
-  const manifest = objectReady(store.manifest) && store.manifest.pages.resume;
+  const manifest = object.ready(store.manifest) && store.manifest.pages.resume;
   
   useEffect(() => {
     (async () => githubData(await getGithubData()))();

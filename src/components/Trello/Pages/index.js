@@ -1,10 +1,10 @@
 import { connect, useSelector } from "react-redux";
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 import parse from "html-react-parser";
 
 function TrelloPage({ name, links }) {
   const trello = useSelector((state) => state.trelloData);
-  const card = objectReady(trello) && trello.pages.cards.filter(card => name === card.name)[0];
+  const card = object.ready(trello) && trello.pages.cards.filter(card => name === card.name)[0];
   let content = "";
    
   if (!card) { 

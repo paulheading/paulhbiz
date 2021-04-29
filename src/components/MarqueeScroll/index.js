@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { objectReady, calcRepeat, filter, remove } from "modules/helpers";
+import { object, calcRepeat, filter, remove } from "modules/helpers";
 import { countdown, repeat } from "actions";
 import { marquee } from "modules/animations";
 import temp from "modules/placeholder";
@@ -13,7 +13,7 @@ function MarqueeScroll({ countdown, repeat }) {
     countdown: useSelector(state => state.countdown),
     repeat: useSelector(state => state.repeat),
   };
-  const ready = objectReady(store.trello);
+  const ready = object.ready(store.trello);
   const hero = {};
 
   hero.feed = ready ? store.trello.projects.cards : temp.trello.projects.cards;
@@ -27,9 +27,7 @@ function MarqueeScroll({ countdown, repeat }) {
     repeat(calcRepeat());
     window.addEventListener("resize", () => {
       clearTimeout(resize);
-      resize = setTimeout(() => {
-        repeat(calcRepeat());
-      }, 100);
+      resize = setTimeout(() => repeat(calcRepeat()), 100);
     });
   }, [repeat]);
 
@@ -72,4 +70,4 @@ function MarqueeScroll({ countdown, repeat }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{countdown,repeat})(MarqueeScroll);
+export default connect(mapStateToProps,{ countdown, repeat })(MarqueeScroll);

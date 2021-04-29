@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
-import { objectReady, filter, remove } from "modules/helpers";
+import { object, filter, remove } from "modules/helpers";
 import temp from "modules/placeholder";
 import parse from "html-react-parser";
 
@@ -14,9 +14,9 @@ function HeroContent() {
   };
   
   // Get SEO information from store
-  const manifest = objectReady(store.manifest) && store.manifest;
+  const manifest = object.ready(store.manifest) && store.manifest;
 
-  let feed = objectReady(store.trello) ? store.trello.projects.cards : temp.trello.projects.cards;
+  let feed = object.ready(store.trello) ? store.trello.projects.cards : temp.trello.projects.cards;
   feed = filter.in.hero(feed);
   const card = feed[store.countdown];
 

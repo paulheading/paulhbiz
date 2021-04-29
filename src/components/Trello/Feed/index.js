@@ -1,13 +1,13 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
-import { objectReady } from "modules/helpers";
+import { object } from "modules/helpers";
 import { DotsSvg, AddCardSvg } from "components/SvgIcons";
 import { Card } from "react-bootstrap";
 import { DesktopCards } from '../index';
 
 function TrelloFeed({ context }) {
   const trello = useSelector((state) => state.trelloData);
-  const ready = objectReady(trello);
+  const ready = object.ready(trello);
 
   return (
     <div className={`container trello-feed ${ context }`}>
