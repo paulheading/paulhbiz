@@ -3,12 +3,12 @@ import { object } from "modules/helpers";
 import parse from "html-react-parser";
 
 function TrelloPage({ name, links }) {
-  const trello = useSelector((state) => state.trelloData);
+  const trello = useSelector(state => state.trelloData);
   const card = object.ready(trello) && trello.pages.cards.filter(card => name === card.name)[0];
   let content = "";
    
   if (!card) { 
-    if (!links) { content += "<h1 class='placeholder'>.</h1>"; }
+    if (!links) { content += `<h2>${ name }</h2>`; }
     for (let index = 0; index < 3; index++) { content += "<p class='placeholder'>.</p>"; }
   } else {
     if (links) {

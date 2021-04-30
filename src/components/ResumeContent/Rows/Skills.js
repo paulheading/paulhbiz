@@ -6,16 +6,11 @@ import Badge from "react-bootstrap/Badge";
 import getTreehouseData from "modules/treehouse";
 import { treehouseData } from "actions";
 import temp from "modules/placeholder";
-import parse from "html-react-parser";
 
-function SkillsRow({ treehouseData, title }) {
-  const store = {
-    treehouse: useSelector(state => state.treehouseData)
-  }
-  const ready = object.ready(store.treehouse);
-  const placeholder = ready ? "live" : "placeholder";
-  const newTitle = ready ? parse(title) : ".";
-  const feed = ready ? store.treehouse : temp.treehouse;
+function SkillsRow({ treehouseData }) {
+  const treehouse = useSelector(state => state.treehouseData);
+  const ready = object.ready(treehouse);
+  const feed = ready ? treehouse : temp.treehouse;
 
   const printSkills = () => {
     let points = feed.points;
@@ -38,15 +33,13 @@ function SkillsRow({ treehouseData, title }) {
     });
   }
 
-  useEffect(() => {
-    (async () => treehouseData(await getTreehouseData()))();
-  }, [treehouseData]);
+  useEffect(() => (async () => treehouseData(await getTreehouseData()))(), [treehouseData]);
 
   return (
     <Container className="page-row">
       <Row>
         <Col sm={12}>
-          <h2 className={`title resume-row ${placeholder}`}>{newTitle}</h2>
+          <h2 className="title resume-row">Skills</h2>
         </Col>
         <Col className="skills" sm={12}>
           {printSkills()}

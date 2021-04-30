@@ -28,7 +28,7 @@ function ProjectsRow({ title }) {
     <Container className="page-row">
       <Row>
         <Col sm={12}>
-          <h2 className={`title resume-row ${ placeholder }`}>{title}</h2>
+          <h2 className="title resume-row">{title}</h2>
         </Col>
         <ResumeCards source={trelloCards(title)} title={title} />
       </Row>
