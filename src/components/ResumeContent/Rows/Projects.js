@@ -8,7 +8,6 @@ import { ResumeCards } from "components/Trello";
 
 function ProjectsRow({ title }) {
   const trello = useSelector(state => state.trelloData);
-  const placeholder = !object.ready(trello) ? "placeholder" : "";
 
   const trelloCards = title => {
     if (object.ready(trello)) {
