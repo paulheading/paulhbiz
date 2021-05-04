@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
@@ -12,6 +12,13 @@ function HeroContent() {
     countdown: useSelector(state => state.countdown),
     manifest: useSelector(state => state.manifestData)
   };
+
+  const ref = {
+    svg: useRef(null)
+  };
+
+  // can't do this => console.log(`${anyRef}`);
+  // can do this => console.log(anyRef);
   
   // Get SEO information from store
   const manifest = object.ready(store.manifest) && store.manifest;
@@ -20,15 +27,17 @@ function HeroContent() {
   feed = filter.in.hero(feed);
   const card = feed[store.countdown];
 
-  useEffect(() => card.animation(), [card]);
+  useEffect(() => card.animation(ref.svg.current), [card, ref.svg]);
 
   function printLink(name) {
     const link = filter.in.more(card.attachments);
     return <Link to={link.url}>{remove.hero(name)}</Link>;
   }
 
-  const ifHeroName = name => name && <h1 className="title hero-content">{printLink(name)}</h1>;
-  const ifHeroSvg = svg => svg && <div className="svg hero-content">{parse(svg)}</div>;
+  const hero = {
+    name: name => name && <h1 className="title hero-content">{printLink(name)}</h1>,
+    svg: svg => svg && <div className="svg hero-content" ref={ref.svg}>{parse(svg)}</div>
+  }
 
   return (
     <div className={`component hero-content ${card.className}`}>
@@ -38,8 +47,8 @@ function HeroContent() {
       </Helmet>
       <div className="container hero-content">
         <div className="wrap hero-content">
-          {ifHeroName(card.name)}
-          {ifHeroSvg(card.svg)}
+          {hero.name(card.name)}
+          {hero.svg(card.svg)}
         </div>
       </div>
     </div>

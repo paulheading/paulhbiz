@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "focus-visible/dist/focus-visible.min.js";
 
-import ScrollToTop from "hooks/ScrollToTop";
+import { ScrollToTop, CalcWidth } from "hooks";
 import HeroContent from "components/HeroContent";
 import AboutContent from "components/AboutContent";
 import BlogContent from "components/BlogContent";
@@ -17,24 +17,15 @@ import OverlayMenu from "components/OverlayMenu";
 import SiteNav from "components/SiteNav";
 import NotFound from "components/NotFound";
 import ResumeContent from "components/ResumeContent";
-import { siteWidth } from "actions";
 
 import "./App.scss";
 
-function App({ siteWidth }) {
+function App() {
   const menuState = useSelector(state => state.menuState) ? "menu-open" : "menu-closed";
-
-  useEffect(() => {
-    let resize;
-    siteWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      clearTimeout(resize);
-      resize = setTimeout(() => siteWidth(window.innerWidth), 100);
-    });
-  }, [siteWidth]);
 
   return (
     <BrowserRouter>
+      <CalcWidth />
       <ScrollToTop />
       <OverlayMenu />
       <div className={`component site-wrap ${menuState}`}>
@@ -59,4 +50,4 @@ function App({ siteWidth }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { siteWidth })(App);
+export default connect(mapStateToProps)(App);

@@ -1,7 +1,7 @@
 import axios from "axios";
 import showdown from "showdown";
 import { remove, pathify } from "./helpers";
-import { tl0, tl2 } from "./animations/hero";
+import { tl1, tl2 } from "./animations/hero";
 
 const converter = new showdown.Converter();
 
@@ -44,15 +44,12 @@ const getSvgsOnCard = actions => {
   return result;
 }
 
-const attachAnimation = card => {
-  return card.animation = () => {
-    if (card.id === "606d70215309533eec28564a") {
-      return tl0();
-    } else if (card.id === "6073409c74b96c31fb853842") {
-      return tl2();
-    } else {
-      return tl0();
-    }
+const attachAnimation = card => card.animation = target => {
+  switch (card.id) {
+    case "6073409c74b96c31fb853842":
+      return tl2(target);    
+    default:
+      return tl1(target);
   }
 }
 

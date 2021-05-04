@@ -1,5 +1,4 @@
 import { Badge } from "react-bootstrap";
-import { marquee } from "modules/animations";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
@@ -22,11 +21,6 @@ export const localify = url => {
     url = url.split("//");
     return `/${url[1]}`;
   }
-}
-
-export function calcRepeat() {
-  const target = document.querySelector(marquee.target);
-  return Math.ceil((window.innerWidth + 500) / target.offsetWidth);
 }
 
 export const is = {
