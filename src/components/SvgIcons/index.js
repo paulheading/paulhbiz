@@ -1,6 +1,5 @@
 import CheckBoxBlank from "./CheckBoxBlank";
 import CheckBoxDone from "./CheckBoxDone";
-import WifiSvg from "./Wifi";
 import ExitSvg from "./Exit";
 import SpotifySvg from "./Spotify";
 import DotsSvg from "./Dots";
@@ -17,7 +16,6 @@ import NPMSvg from "./NPM";
 export {
   CheckBoxBlank,
   CheckBoxDone,
-  WifiSvg,
   ExitSvg,
   SpotifySvg,
   DotsSvg,

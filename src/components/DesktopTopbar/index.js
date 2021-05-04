@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
-import { WifiSvg } from "components/SvgIcons";
 import { object } from "modules/helpers";
-import { wifiSignal } from "modules/animations";
 import getTimezoneData from "modules/timezone";
 import { timezoneData } from "actions";
+import { WifiSignal } from "hooks";
 
 function DesktopTopbar({ timezoneData }) {
   const timezone = useSelector(state => state.timezoneData);
@@ -13,7 +12,6 @@ function DesktopTopbar({ timezoneData }) {
   const time = object.ready(timezone) ? timezone.time : ".";
 
   useEffect(() => (async () => timezoneData(await getTimezoneData()))(), [timezoneData]);
-  useEffect(() => wifiSignal(), []);
 
   return (
     <div className="component desktop-topbar">
@@ -21,7 +19,7 @@ function DesktopTopbar({ timezoneData }) {
         <span>{location}</span>
       </div>      
       <div className="status desktop-topbar">
-        <WifiSvg />
+        <WifiSignal />
       </div>
       <div className={`status desktop-topbar ${placeholder}`}>
         <span>{time}</span>

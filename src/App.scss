@@ -14,9 +14,9 @@
 @import "styles/content/page";
 @import "styles/summary";
 
-@import "components/SvgIcons/Spotify";
-@import "components/SvgIcons/Wifi";
+@import "hooks/WifiSignal";
 
+@import "components/SvgIcons/Spotify";
 @import "components/ResumeContent";
 @import "components/BlogContent";
 @import "components/NotFound";

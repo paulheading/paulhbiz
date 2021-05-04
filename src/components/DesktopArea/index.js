@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
-import { makeDraggable } from "modules/animations";
+import makeDraggable from "modules/animations/desktop";
 import { FolderButton } from "components/Buttons";
 import DownloadDetails from "components/DownloadDetails";
 import CreditLine from "components/CreditLine";
@@ -24,7 +24,7 @@ function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }
       spotifyData(await getSpotifyData());
       trelloData(await getTrelloData());
     })();
-    makeDraggable();
+    makeDraggable(desktop.current);
   }, [npmData, gemData, manifestData, spotifyData, trelloData]);
 
   const store = {
@@ -37,15 +37,15 @@ function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }
 
   const [spotifyFolder, setSpotifyFolder] = useState(true);
   const [trelloFolder, setTrelloFolder] = useState(true);
+  const desktop = useRef(null);
 
   return (
-    <div className="component desktop-area">
+    <div ref={desktop} className="component desktop-area">
       <div className="container desktop-area">
 
         <div className="wrap desktop-area">
 
           <SpotifyFeed />
-
           <TrelloFeed context="desktop" />
 
           <div className="wrap desktop-right">

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { object, filter, remove } from "modules/helpers";
-import { marquee } from "modules/animations";
+import marquee from "modules/animations/marquee";
 import temp from "modules/placeholder";
 import parse from "html-react-parser";
 import { Countdown, CalcRepeat } from "hooks";
