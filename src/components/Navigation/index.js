@@ -20,7 +20,7 @@ function SiteNav({ menuState }) {
           <Link to="/about" className="link nav-button">About</Link>
           { !is.small(siteWidth) && <Link to="/resume" className="link site-nav" variant="link">Resume</Link> }
           { !is.small(siteWidth) && <Link to="/blog" className="link site-nav" variant="link">Blog</Link> }
-          { is.small(siteWidth) && <Button className="nav-burger" variant="link" onClick={() => menuState(true)}><BurgerSvg /></Button> }
+          { is.small(siteWidth)  && <Button className="nav-burger" variant="link" onClick={() => menuState(true)}><BurgerSvg /></Button> }
         </div>
       </div>
     </div>

@@ -82,7 +82,7 @@
 
     @include media-breakpoint-up(sm) {
       min-height: $mobile-min-height;
-      padding-top: 5.625rem;
+      padding: 5.625rem 3rem 0;
     }
 
     @include media-breakpoint-up(md) {

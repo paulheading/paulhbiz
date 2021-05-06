@@ -42,7 +42,6 @@ function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }
   return (
     <div ref={desktop} className="component desktop-area">
       <div className="container desktop-area">
-
         <div className="wrap desktop-area">
 
           <SpotifyFeed />
@@ -51,6 +50,7 @@ function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }
           <div className="wrap desktop-right">
 
             <div className="wrap desktop-folders">
+
               <FolderButton
                 title="Spotify"
                 input={spotifyFolder}
@@ -59,6 +59,7 @@ function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }
                 title="Trello"
                 input={trelloFolder}
                 output={setTrelloFolder} />
+
             </div>
 
             <DownloadDetails
@@ -71,7 +72,6 @@ function DesktopArea({ npmData, gemData, manifestData, spotifyData, trelloData }
               downloads={reset.downloads} />
 
           </div>
-
         </div>
 
         <CreditLine />

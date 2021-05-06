@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import { object, filter, remove } from "modules/helpers";
 import marquee from "modules/animations/marquee";
 import temp from "modules/placeholder";
@@ -29,16 +29,11 @@ function MarqueeScroll() {
   useEffect(() => marquee.scroll(ref.wrap.current), [ref.wrap]);
   useEffect(() => marquee.tl.restart(), [store.trello, store.countdown]);
 
-  function printLink() {
-    const link = filter.in.more(hero.card.attachments);
-    return <Link to={link.url}>{link.name}</Link>
-  }
-
   function printTitle() {
     const name = remove.hero(hero.card.name);
     let items = [];
     if (!hero.marquee) { hero.marquee = name; }
-    for (let index = 0; index < store.repeat; index++) { items.push(<div key={index} ref={ref.target} className="marquee-scroll__target">{parse(hero.marquee)}</div>); }
+    for (let index = 0; index < 10; index++) { items.push(<div key={index} ref={ref.target} className="marquee-scroll__target">{parse(hero.marquee)}</div>); }
     return items;
   }
 
@@ -46,7 +41,9 @@ function MarqueeScroll() {
     <div className="component marquee-scroll">
       <Countdown feed={hero.feed} />
       <CalcRepeat target={ref.target.current} />
-      <div className="marquee-link__container">{printLink()}</div>
+      <div className="marquee-link__container">
+        <Button onClick={()=>console.log("works")}>Pause</Button>
+      </div>
       <div className="marquee-scroll__container">
         <div className="marquee-scroll__wrap" ref={ref.wrap}>{printTitle()}</div>
       </div>

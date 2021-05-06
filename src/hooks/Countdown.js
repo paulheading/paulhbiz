@@ -10,7 +10,7 @@ function Countdown({ feed, countdown }) {
   };
 
   const ready = object.ready(store.trello);
-  const speed = 3000;
+  const speed = 4000;
 
   useEffect(() => {
     if (ready) {

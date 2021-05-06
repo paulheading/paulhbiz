@@ -14,7 +14,7 @@ import DesktopArea from "components/DesktopArea";
 import EmailForm from "components/EmailForm";
 import FooterArea from "components/FooterArea";
 import OverlayMenu from "components/OverlayMenu";
-import SiteNav from "components/SiteNav";
+import Navigation from "components/Navigation";
 import NotFound from "components/NotFound";
 import ResumeContent from "components/ResumeContent";
 
@@ -29,7 +29,7 @@ function App() {
       <ScrollToTop />
       <OverlayMenu />
       <div className={`component site-wrap ${menuState}`}>
-        <SiteNav />
+        <Navigation />
         <Switch>
           <Route path="/" exact component={HeroContent} />
           <Route path="/about" exact component={AboutContent} />

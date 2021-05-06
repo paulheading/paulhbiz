@@ -1,5 +1,5 @@
 import moment from "moment";
-import { tl1 } from "./animations/hero";
+import { tl0 } from "./animations/hero";
 import { pathify, remove } from "./helpers";
 
 const vars = {
@@ -16,7 +16,7 @@ export const placeholder = {
   marquee: "loading data ... please wait",
   start: "2019-12-01T12:19:00.000Z",
   className: `card-${vars.id}`,
-  animation: target => tl1(target),
+  animation: target => tl0(target),
   due: moment().format(),
   dueComplete: false,
   route: vars.route,
