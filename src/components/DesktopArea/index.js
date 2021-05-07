@@ -43,9 +43,9 @@ function DesktopArea({ npm, gem, manifest, spotify, trello, pause }) {
   const desktop = useRef(null);
 
   return (
-    <div ref={desktop} className="component desktop-area">
+    <div className="component desktop-area">
       <div className="container desktop-area">
-        <div className="wrap desktop-area">
+        <div ref={desktop} className="wrap desktop-area">
 
           <SpotifyFeed />
           <TrelloFeed context="desktop" />
