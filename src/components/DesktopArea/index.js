@@ -1,21 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
+import Button from "react-bootstrap/Button";
 import makeDraggable from "modules/animations/desktop";
 import { FolderButton } from "components/Buttons";
 import DownloadDetails from "components/DownloadDetails";
 import CreditLine from "components/CreditLine";
 import SpotifyFeed from "components/SpotifyFeed";
 import { TrelloFeed } from "components/Trello";
+import { PauseSvg, PlaySvg } from "components/SvgIcons";
 
 import getNPMData from "modules/npm";
 import getGemData from "modules/gem";
 import getManifestData from "modules/manifest";
 import getSpotifyData from "modules/spotify";
 import getTrelloData from "modules/trello";
-import { npm, gem, manifest, spotify, trello } from "actions";
+import { npm, gem, manifest, spotify, trello, pause } from "actions";
 import { object } from "modules/helpers";
 
-function DesktopArea({ npm, gem, manifest, spotify, trello }) {
+function DesktopArea({ npm, gem, manifest, spotify, trello, pause }) {
   useEffect(() => {
     (async () => {
       npm(await getNPMData());
@@ -28,6 +30,7 @@ function DesktopArea({ npm, gem, manifest, spotify, trello }) {
   }, [npm, gem, manifest, spotify, trello]);
 
   const store = {
+    pause: useSelector(state => state.pause),
     gem: useSelector(state => state.gem),
     npm: useSelector(state => state.npm),
   };
@@ -71,6 +74,8 @@ function DesktopArea({ npm, gem, manifest, spotify, trello }) {
               name="barbican-reset" 
               downloads={reset.downloads} />
 
+            <Button className="pause-play" variant="link" onClick={() => pause(!store.pause)}>{ store.pause ? <PlaySvg /> : <PauseSvg /> }</Button>
+
           </div>
         </div>
 
@@ -83,4 +88,4 @@ function DesktopArea({ npm, gem, manifest, spotify, trello }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ npm, gem, manifest, spotify, trello })(DesktopArea);
+export default connect(mapStateToProps,{ npm, gem, manifest, spotify, trello, pause })(DesktopArea);

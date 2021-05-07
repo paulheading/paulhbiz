@@ -1,13 +1,12 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { connect, useSelector } from "react-redux";
-import { Button } from "react-bootstrap";
-import { remove } from "modules/helpers";
+import { filter, remove } from "modules/helpers";
 import marquee from "modules/animations/marquee";
 import parse from "html-react-parser";
 import { Countdown } from "hooks";
-import { pause } from "actions";
 
-function MarqueeScroll({ pause }) {
+function MarqueeScroll() {
   const store = {
     trello: useSelector(state => state.trello),
     pause: useSelector(state => state.pause),
@@ -20,7 +19,6 @@ function MarqueeScroll({ pause }) {
     wrap: useRef(null),
   };
 
-  const toggleMotion = store.pause ? "Play" : "Pause";
   const card = store.hero.card;
 
   useEffect(() => store.pause ? marquee.tl.pause() : marquee.scroll(ref.wrap.current), [store.pause, ref.wrap]);
@@ -30,18 +28,21 @@ function MarqueeScroll({ pause }) {
     const name = remove.hero(card.name);
     let items = [];
     if (!card.marquee) { card.marquee = name; }
-    for (let index = 0; index < 10; index++) { items.push(<div key={index} ref={ref.target} className="marquee-scroll__target">{parse(card.marquee)}</div>); }
+    for (let index = 0; index < 10; index++) { items.push(<div key={index} ref={ref.target} className="target marquee-scroll">{parse(card.marquee)}</div>); }
     return items;
+  }
+
+  function printLink() {
+    const link = filter.in.more(card.attachments);
+    return <Link to={link.url}>{link.name}</Link>
   }
 
   return (
     <div className="component marquee-scroll">
       <Countdown />
-      <div className="marquee-link__container">
-        <Button className="toggle-motion" onClick={() => pause(!store.pause)}>{toggleMotion}</Button>
-      </div>
-      <div className="marquee-scroll__container">
-        <div className="marquee-scroll__wrap" ref={ref.wrap}>{printTitle()}</div>
+      <div className="container marquee-link">{printLink()}</div>
+      <div className="container marquee-scroll">
+        <div className="wrap marquee-scroll" ref={ref.wrap}>{printTitle()}</div>
       </div>
     </div>
   );
@@ -49,4 +50,4 @@ function MarqueeScroll({ pause }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { pause })(MarqueeScroll);
+export default connect(mapStateToProps)(MarqueeScroll);

@@ -11,7 +11,9 @@ import RightArrowSvg from "./RightArrow";
 import FolderOpenSvg from "./FolderOpen";
 import FolderClosedSvg from "./FolderClosed";
 import RubyGemSvg from "./RubyGem";
-import NPMSvg from "./NPM";
+import NpmSvg from "./Npm";
+import PauseSvg from "./Pause";
+import PlaySvg from "./Play";
 
 export {
   CheckBoxBlank,
@@ -27,5 +29,7 @@ export {
   FolderOpenSvg,
   FolderClosedSvg,
   RubyGemSvg,
-  NPMSvg
+  NpmSvg,
+  PauseSvg,
+  PlaySvg
 };

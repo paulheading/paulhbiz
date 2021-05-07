@@ -1,4 +1,4 @@
-import { RubyGemSvg, NPMSvg } from "components/SvgIcons";
+import { RubyGemSvg, NpmSvg } from "components/SvgIcons";
 
 export default function DownloadDetails({ type, name, downloads }) {
 
@@ -16,7 +16,7 @@ export default function DownloadDetails({ type, name, downloads }) {
       case "rubygem":
         return <RubyGemSvg />;
       default:
-        return <NPMSvg />;
+        return <NpmSvg />;
     }
   }
 
