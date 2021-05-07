@@ -3,7 +3,7 @@ import { object } from "modules/helpers";
 import parse from "html-react-parser";
 
 function TrelloPage({ name, links }) {
-  const trello = useSelector(state => state.trelloData);
+  const trello = useSelector(state => state.trello);
   const card = object.ready(trello) && trello.pages.cards.filter(card => name === card.name)[0];
   let content = "";
    

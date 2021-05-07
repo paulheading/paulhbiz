@@ -3,14 +3,15 @@ import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import { object, filter, remove } from "modules/helpers";
-import temp from "modules/placeholder";
 import parse from "html-react-parser";
 
 function HeroContent() {
   const store = {
-    trello: useSelector(state => state.trelloData),
-    countdown: useSelector(state => state.countdown),
-    manifest: useSelector(state => state.manifestData)
+    manifest: useSelector(state => state.manifest),
+    trello: useSelector(state => state.trello),
+    pause: useSelector(state => state.pause),
+    count: useSelector(state => state.count),
+    hero: useSelector(state => state.hero),
   };
 
   const ref = {
@@ -22,12 +23,9 @@ function HeroContent() {
   
   // Get SEO information from store
   const manifest = object.ready(store.manifest) && store.manifest;
+  const card = store.hero.card;
 
-  let feed = object.ready(store.trello) ? store.trello.projects.cards : temp.trello.projects.cards;
-  feed = filter.in.hero(feed);
-  const card = feed[store.countdown];
-
-  useEffect(() => card.animation(ref.svg.current), [card, ref.svg]);
+  useEffect(() => card.animation(store.pause, ref.svg.current), [card, store.pause, ref.svg]);
 
   function printLink(name) {
     const link = filter.in.more(card.attachments);

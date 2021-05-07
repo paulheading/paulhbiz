@@ -4,19 +4,19 @@ import { Helmet } from 'react-helmet';
 import { TrelloPage } from "components/Trello";
 import getMediumData from "modules/medium";
 import { object } from "modules/helpers";
-import { mediumData } from "actions";
+import { medium } from "actions";
 
-function BlogContent({mediumData}) {
+function BlogContent({medium}) {
   const store = {
-    manifest: useSelector(state => state.manifestData)
+    manifest: useSelector(state => state.manifest)
   }
   
   // Get SEO information from store
   const manifest = object.ready(store.manifest) && store.manifest.pages.blog;
 
   useEffect(() => {
-    (async () => mediumData(await getMediumData()))();
-  }, [mediumData]);
+    (async () => medium(await getMediumData()))();
+  }, [medium]);
 
   return (
     <div className="component about-content">
@@ -35,4 +35,4 @@ function BlogContent({mediumData}) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{mediumData})(BlogContent);
+export default connect(mapStateToProps,{medium})(BlogContent);

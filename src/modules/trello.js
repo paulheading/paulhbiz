@@ -44,12 +44,12 @@ const getSvgsOnCard = actions => {
   return result;
 }
 
-const attachAnimation = card => card.animation = target => {
+const attachAnimation = card => card.animation = (pause, target) => {
   switch (card.id) {
     case "6073409c74b96c31fb853842":
-      return tl2(target);    
+      return tl2(pause, target);    
     default:
-      return tl1(target);
+      return tl1(pause, target);
   }
 }
 

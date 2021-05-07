@@ -7,7 +7,7 @@ import { Card } from "react-bootstrap";
 import parse from "html-react-parser";
 
 function DesktopCards({ total = 3, date = false }) {
-  const trello = useSelector(state => state.trelloData);
+  const trello = useSelector(state => state.trello);
   const hasDate = date ? "has-date" : "";
 
   const printDate = due => <div className="date trello-card-desktop">{ due ? moment(due).format("MMM YYYY") : "Ongoing" }</div>;

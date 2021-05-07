@@ -6,7 +6,7 @@ import { Card } from "react-bootstrap";
 import { DesktopCards } from '../index';
 
 function TrelloFeed({ context, dates }) {
-  const trello = useSelector((state) => state.trelloData);
+  const trello = useSelector((state) => state.trello);
   const ready = object.ready(trello);
 
   return (

@@ -9,7 +9,7 @@ import temp from "modules/placeholder";
 
 function ArticleContent() {
   const { route } = useParams();
-  const store = { trello: useSelector(state => state.trelloData) };
+  const store = { trello: useSelector(state => state.trello) };
   let valid = false;
   let data = {};
 

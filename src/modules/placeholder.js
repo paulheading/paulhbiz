@@ -16,7 +16,7 @@ export const placeholder = {
   marquee: "loading data ... please wait",
   start: "2019-12-01T12:19:00.000Z",
   className: `card-${vars.id}`,
-  animation: target => tl0(target),
+  animation: (pause, target) => tl0(pause, target),
   due: moment().format(),
   dueComplete: false,
   route: vars.route,

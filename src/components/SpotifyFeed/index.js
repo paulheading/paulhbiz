@@ -6,7 +6,7 @@ import { SpotifySvg } from "components/SvgIcons";
 import { Row } from "react-bootstrap";
 
 function SpotifyFeed() {
-  const spotify = useSelector((state) => state.spotifyData);
+  const spotify = useSelector((state) => state.spotify);
   const ready = object.ready(spotify);
 
   function headerPlaceholder() {

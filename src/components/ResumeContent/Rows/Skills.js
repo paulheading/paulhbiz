@@ -4,13 +4,16 @@ import { Container, Row, Col } from "react-bootstrap";
 import { object } from "modules/helpers";
 import Badge from "react-bootstrap/Badge";
 import getTreehouseData from "modules/treehouse";
-import { treehouseData } from "actions";
+import { treehouse } from "actions";
 import temp from "modules/placeholder";
 
-function SkillsRow({ treehouseData }) {
-  const treehouse = useSelector(state => state.treehouseData);
-  const ready = object.ready(treehouse);
-  const feed = ready ? treehouse : temp.treehouse;
+function SkillsRow({ treehouse }) {
+  const store = {
+    treehouse: useSelector(state => state.treehouse)
+  };
+
+  const ready = object.ready(store.treehouse);
+  const feed = ready ? store.treehouse : temp.treehouse;
 
   const printSkills = () => {
     let points = feed.points;
@@ -33,7 +36,7 @@ function SkillsRow({ treehouseData }) {
     });
   }
 
-  useEffect(() => (async () => treehouseData(await getTreehouseData()))(), [treehouseData]);
+  useEffect(() => (async () => treehouse(await getTreehouseData()))(), [treehouse]);
 
   return (
     <Container className="page-row">
@@ -51,4 +54,4 @@ function SkillsRow({ treehouseData }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ treehouseData })(SkillsRow);
+export default connect(mapStateToProps,{ treehouse })(SkillsRow);

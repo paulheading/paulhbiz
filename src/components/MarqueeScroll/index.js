@@ -1,48 +1,44 @@
 import React, { useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
-import { object, filter, remove } from "modules/helpers";
+import { remove } from "modules/helpers";
 import marquee from "modules/animations/marquee";
-import temp from "modules/placeholder";
 import parse from "html-react-parser";
-import { Countdown, CalcRepeat } from "hooks";
+import { Countdown } from "hooks";
+import { pause } from "actions";
 
-function MarqueeScroll() {
+function MarqueeScroll({ pause }) {
   const store = {
-    trello: useSelector(state => state.trelloData),
-    countdown: useSelector(state => state.countdown),
-    repeat: useSelector(state => state.repeat),
+    trello: useSelector(state => state.trello),
+    pause: useSelector(state => state.pause),
+    count: useSelector(state => state.count),
+    hero: useSelector(state => state.hero),
   };
 
   const ref = { 
-    wrap: useRef(null), 
-    target: useRef(null) 
+    target: useRef(null),
+    wrap: useRef(null),
   };
 
-  const ready = object.ready(store.trello);
-  const hero = {};
+  const toggleMotion = store.pause ? "Play" : "Pause";
+  const card = store.hero.card;
 
-  hero.feed = ready ? store.trello.projects.cards : temp.trello.projects.cards;
-  hero.feed = filter.in.hero(hero.feed);
-  hero.card = hero.feed[store.countdown];
-
-  useEffect(() => marquee.scroll(ref.wrap.current), [ref.wrap]);
-  useEffect(() => marquee.tl.restart(), [store.trello, store.countdown]);
+  useEffect(() => store.pause ? marquee.tl.pause() : marquee.scroll(ref.wrap.current), [store.pause, ref.wrap]);
+  useEffect(() => store.pause ? marquee.tl.pause() : marquee.tl.restart(), [store.pause, store.trello, store.count]);
 
   function printTitle() {
-    const name = remove.hero(hero.card.name);
+    const name = remove.hero(card.name);
     let items = [];
-    if (!hero.marquee) { hero.marquee = name; }
-    for (let index = 0; index < 10; index++) { items.push(<div key={index} ref={ref.target} className="marquee-scroll__target">{parse(hero.marquee)}</div>); }
+    if (!card.marquee) { card.marquee = name; }
+    for (let index = 0; index < 10; index++) { items.push(<div key={index} ref={ref.target} className="marquee-scroll__target">{parse(card.marquee)}</div>); }
     return items;
   }
 
   return (
     <div className="component marquee-scroll">
-      <Countdown feed={hero.feed} />
-      <CalcRepeat target={ref.target.current} />
+      <Countdown />
       <div className="marquee-link__container">
-        <Button onClick={()=>console.log("works")}>Pause</Button>
+        <Button className="toggle-motion" onClick={() => pause(!store.pause)}>{toggleMotion}</Button>
       </div>
       <div className="marquee-scroll__container">
         <div className="marquee-scroll__wrap" ref={ref.wrap}>{printTitle()}</div>
@@ -53,4 +49,4 @@ function MarqueeScroll() {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(MarqueeScroll);
+export default connect(mapStateToProps, { pause })(MarqueeScroll);

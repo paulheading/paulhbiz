@@ -3,7 +3,7 @@ import { connect, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "focus-visible/dist/focus-visible.min.js";
 
-import { ScrollToTop, CalcWidth } from "hooks";
+import { HeroFeed, ScrollToTop, CalcWidth } from "hooks";
 import HeroContent from "components/HeroContent";
 import AboutContent from "components/AboutContent";
 import BlogContent from "components/BlogContent";
@@ -30,6 +30,7 @@ function App() {
       <OverlayMenu />
       <div className={`component site-wrap ${menuState}`}>
         <Navigation />
+        <HeroFeed />
         <Switch>
           <Route path="/" exact component={HeroContent} />
           <Route path="/about" exact component={AboutContent} />

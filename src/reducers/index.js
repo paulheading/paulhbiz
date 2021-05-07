@@ -1,4 +1,17 @@
 import { combineReducers } from "redux";
+import temp from "modules/placeholder";
+
+const heroData = {
+  feed: temp.trello.projects.cards,
+  card: temp.trello.projects.cards[0]
+}
+
+const hero = (data = heroData, action) => {
+  if (action.type === "HERO") {
+    return action.payload;
+  }
+  return data;
+};
 
 const siteWidth = (state = 0, action) => {
   if (action.type === "SITEWIDTH") {
@@ -7,18 +20,18 @@ const siteWidth = (state = 0, action) => {
   return state;
 };
 
-const countdown = (state = 0, action) => {
+const count = (state = 0, action) => {
   if (action.type === "COUNTDOWN") {
     return action.payload;
   }
   return state;
 };
 
-const repeat = (state = 1, action) => {
-  if (action.type === "REPEAT") {
+const pause = (paused = false, action) => {
+  if (action.type === "MOTION_STATE") {
     return action.payload;
   }
-  return state;
+  return paused;
 };
 
 const menuState = (state = false, action) => {
@@ -28,63 +41,63 @@ const menuState = (state = false, action) => {
   return state;
 };
 
-const npmData = (data = {}, action) => {
+const npm = (data = {}, action) => {
   if (action.type === "NPM_DATA") {
     return action.payload;
   }
   return data;
 };
 
-const gemData = (data = {}, action) => {
+const gem = (data = {}, action) => {
   if (action.type === "GEM_DATA") {
     return action.payload;
   }
   return data;
 };
 
-const manifestData = (data = {}, action) => {
+const manifest = (data = {}, action) => {
   if (action.type === "MANIFEST_DATA") {
     return action.payload;
   }
   return data;
 };
 
-const timezoneData = (zone = {}, action) => {
+const timezone = (zone = {}, action) => {
   if (action.type === "TIMEZONE_DATA") {
     return action.payload;
   }
   return zone;
 };
 
-const trelloData = (data = {}, action) => {
+const trello = (data = {}, action) => {
   if (action.type === "TRELLO_DATA") {
     return action.payload;
   }
   return data;
 };
 
-const mediumData = (data = {}, action) => {
+const medium = (data = {}, action) => {
   if (action.type === "MEDIUM_DATA") {
     return action.payload;
   }
   return data;
 };
 
-const spotifyData = (playlist = [], action) => {
+const spotify = (playlist = [], action) => {
   if (action.type === "SPOTIFY_DATA") {
     return action.payload;
   }
   return playlist;
 };
 
-const githubData = (profile = {}, action) => {
+const github = (profile = {}, action) => {
   if (action.type === "GITHUB_DATA") {
     return action.payload;
   }
   return profile;
 };
 
-const treehouseData = (profile = {}, action) => {
+const treehouse = (profile = {}, action) => {
   if (action.type === "TREEHOUSE_DATA") {
     return action.payload;
   }
@@ -92,17 +105,18 @@ const treehouseData = (profile = {}, action) => {
 };
 
 export default combineReducers({
-  treehouseData,
-  manifestData,
-  timezoneData,
-  spotifyData,
-  mediumData,
-  githubData,
-  trelloData,
+  treehouse,
+  manifest,
+  timezone,
+  pause,
+  spotify,
+  medium,
+  github,
+  trello,
   menuState,
-  countdown,
+  count,
   siteWidth,
-  gemData,
-  npmData,
-  repeat,
+  gem,
+  npm,
+  hero
 });

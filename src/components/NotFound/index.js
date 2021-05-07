@@ -5,7 +5,7 @@ import { object } from "modules/helpers";
 
 function NotFound() {
   const store = {
-    manifest: useSelector(state => state.manifestData)
+    manifest: useSelector(state => state.manifest)
   };
   
   // Get SEO information from store

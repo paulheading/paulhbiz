@@ -2,16 +2,19 @@ import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { object } from "modules/helpers";
 import getTimezoneData from "modules/timezone";
-import { timezoneData } from "actions";
+import { timezone } from "actions";
 import { WifiSignal } from "hooks";
 
-function DesktopTopbar({ timezoneData }) {
-  const timezone = useSelector(state => state.timezoneData);
-  const placeholder = !object.ready(timezone) ? "placeholder" : "";
-  const location = object.ready(timezone) ? timezone.location : ".";
-  const time = object.ready(timezone) ? timezone.time : ".";
+function DesktopTopbar({ timezone }) {
+  const store = {
+    timezone: useSelector(state => state.timezone)
+  };
+  
+  const placeholder = !object.ready(store.timezone) ? "placeholder" : "";
+  const location = object.ready(store.timezone) ? store.timezone.location : ".";
+  const time = object.ready(store.timezone) ? store.timezone.time : ".";
 
-  useEffect(() => (async () => timezoneData(await getTimezoneData()))(), [timezoneData]);
+  useEffect(() => (async () => timezone(await getTimezoneData()))(), [timezone]);
 
   return (
     <div className="component desktop-topbar">
@@ -30,4 +33,4 @@ function DesktopTopbar({ timezoneData }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ timezoneData })(DesktopTopbar);
+export default connect(mapStateToProps,{ timezone })(DesktopTopbar);

@@ -6,20 +6,20 @@ import BiographyRow from "./Rows/Biography";
 import ProjectsRow from "./Rows/Projects";
 import SkillsRow from "./Rows/Skills";
 import getGithubData from "modules/github";
-import { githubData } from "actions";
+import { github } from "actions";
 import { object } from "modules/helpers";
 
-function ResumeContent({ githubData }) {
+function ResumeContent({ github }) {
   const store = {
-    manifest: useSelector(state => state.manifestData)
+    manifest: useSelector(state => state.manifest)
   };
   
   // Get SEO information from store
   const manifest = object.ready(store.manifest) && store.manifest.pages.resume;
   
   useEffect(() => {
-    (async () => githubData(await getGithubData()))();
-  }, [githubData]);
+    (async () => github(await getGithubData()))();
+  }, [github]);
 
   return (
     <div className="component resume-content">
@@ -43,4 +43,4 @@ function ResumeContent({ githubData }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ githubData })(ResumeContent);
+export default connect(mapStateToProps,{ github })(ResumeContent);

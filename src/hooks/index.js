@@ -1,7 +1,7 @@
-import CalcRepeat from "./CalcRepeat";
 import CalcWidth from "./CalcWidth";
 import Countdown from "./Countdown";
 import ScrollToTop from "./ScrollToTop";
 import WifiSignal from "./WifiSignal";
+import HeroFeed from "./HeroFeed";
 
-export { CalcRepeat, CalcWidth, Countdown, ScrollToTop, WifiSignal };
+export { CalcWidth, Countdown, ScrollToTop, WifiSignal, HeroFeed };

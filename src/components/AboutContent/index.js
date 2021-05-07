@@ -7,8 +7,8 @@ import { object } from "modules/helpers";
 
 function AboutContent() {
   const store = {
-    trello: useSelector(state => state.trelloData),
-    manifest: useSelector(state => state.manifestData)
+    trello: useSelector(state => state.trello),
+    manifest: useSelector(state => state.manifest)
   }
 
   // Get SEO information from store
