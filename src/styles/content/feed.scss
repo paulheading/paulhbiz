@@ -39,6 +39,10 @@
       font-size: 1.4375rem;
     }
 
+    &:not(.summary) {
+      font-weight: 400;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
