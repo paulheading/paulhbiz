@@ -195,3 +195,14 @@
     }
   }
 }
+
+@mixin input-reset {
+  font-weight: 600;
+  color: inherit;
+  border: none;
+  padding: 0;
+
+  &::placeholder {
+    color: inherit;
+  }
+}

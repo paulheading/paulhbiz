@@ -38,5 +38,6 @@
 .target.marquee-scroll {
   @include inline-block;
   padding-right: 1.25rem;
+  text-decoration: none;
   user-select: none;
 }

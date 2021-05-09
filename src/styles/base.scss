@@ -30,14 +30,17 @@ body {
   background-color: $gray-200;
   min-width: $body-min-width;
   font-size: $font-size-lg;
+  font-weight: 600;
   color: $black;
   height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
+  line-height: $display-line-height;
   margin-bottom: 1.25rem;
   font-weight: bold;
+
 
   &.placeholder {
     @include placeholder($max:50%);
@@ -65,18 +68,12 @@ a {
   }
 }
 
-input,
-textarea {
-  color: inherit;
-  border: none;
-  padding: 0;
-
-  &::placeholder {
-    color: inherit;
-  }
+input {
+  @include input-reset;
 }
 
 textarea {
+  @include input-reset;
   resize: none;
 }
 
@@ -94,4 +91,15 @@ label {
 
 .btn.focus-visible {
   @include ph-single-box($white);
+}
+
+// feed-content
+
+h1 {
+  @include media-breakpoint-up(md) {
+    font-size: 2.625rem;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 2.75rem;
+  }
 }

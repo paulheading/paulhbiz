@@ -52,9 +52,17 @@
 }
 
 .component.site-wrap {
+
   &.menu-open {
     position: relative;
     overflow: hidden;
     height: 0;
+  }
+  
+  &.test-mode {
+    border: 1px solid white;
+    @include media-breakpoint-up(sm) { border: 1px solid green; }
+    @include media-breakpoint-up(md) { border: 1px solid blue; }
+    @include media-breakpoint-up(lg) { border: 1px solid red; }
   }
 }

@@ -27,6 +27,13 @@ const count = (state = 0, action) => {
   return state;
 };
 
+const test = (test = false, action) => {
+  if (action.type === "TEST") {
+    return action.payload;
+  }
+  return test;
+};
+
 const pause = (paused = false, action) => {
   if (action.type === "MOTION_STATE") {
     return action.payload;
@@ -116,7 +123,8 @@ export default combineReducers({
   menuState,
   count,
   siteWidth,
+  test,
+  hero,
   gem,
-  npm,
-  hero
+  npm
 });

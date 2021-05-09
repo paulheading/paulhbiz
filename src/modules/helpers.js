@@ -26,14 +26,17 @@ export const localify = url => {
 export const is = {
   home: path => "/" === path ? "is-home" : "not-home",
   small: value => value < breakpoints.sm ? true : false,
+  medium: value => value < breakpoints.md ? true : false,
   linkLocal: (link, name = link.name) => link.local ? <Link to={link.url}>{name}</Link> : <a href={link.url}>{name}</a>
 };
 
 export const breakpoints = {
-  sm: 576,
+  xs: 416,
+  sm: 520,
   md: 768,
-  lg: 992,
+  lg: 960,
   xl: 1200,
+  xxl: 1600,
 };
 
 export const limitLength = (title, limit = 140) => title.length > limit ? `${title.slice(0, limit)} ...` : title;

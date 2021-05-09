@@ -40,10 +40,10 @@ function ArticleContent({ card }) {
         <div className="wrap feed-content">
           <h1>{ title }</h1>
           {dateSummary()}
-          <div className="summary feed-content">
+          <p className="summary feed-content">
             { live && <a href={live.url}>See project</a> }
             { code && <a href={code.url}>See code</a> }
-          </div>
+          </p>
           { card.desc && parse(card.desc) }          
          </div>
       </div>

@@ -1,3 +1,11 @@
+
+export const test = query => {
+  return {
+    type: "TEST",
+    payload: query,
+  };
+};
+
 export const hero = query => {
   return {
     type: "HERO",

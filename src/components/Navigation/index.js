@@ -14,7 +14,7 @@ function Navigation({ menuState }) {
     <div className={`container site-nav ${is.home(path)}`}>
       <div className="wrap site-nav">
         <div className="wrap nav-logo">
-          <Link to="/" className="link nav-logo">{ is.small(siteWidth) ? <MobileLogoSvg /> : <DesktopLogoSvg /> }</Link>
+          <Link to="/" className="link nav-logo">{ is.medium(siteWidth) ? <MobileLogoSvg /> : <DesktopLogoSvg /> }</Link>
         </div>
         <div className="wrap nav-links">
           <Link to="/about" className="link nav-button">About</Link>

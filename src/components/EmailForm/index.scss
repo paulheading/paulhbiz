@@ -13,6 +13,8 @@
 
   .field-title {
     @include inline-block;
+    font-weight: 800;
+    
     @include media-breakpoint-down(xs) {
       margin-right: 0.75rem;
     }
@@ -28,7 +30,6 @@
       background-color: lightskyblue;
       border-radius: $border-radius;
       padding: 0.25rem 0.5rem;
-      font-weight: normal;
       color: $black;
     }
 
@@ -92,7 +93,6 @@
 
   &__wrap {
     @include auto-margin;
-    // box-shadow: 0 0 0.5rem $gray-300;
     max-width: $content-max-width;
 
     @include media-breakpoint-up(sm) {
@@ -113,7 +113,6 @@
 
   &__content {
     background-color: $white;
-    font-weight: bold;
     color: $gray-500;
 
     @include media-breakpoint-up(sm) {
