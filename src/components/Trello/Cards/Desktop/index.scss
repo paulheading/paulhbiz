@@ -1,5 +1,5 @@
 .card.trello-card-desktop {
-  padding: $trello-card-margin ($trello-card-margin * 3);
+  padding: $margin-trello-card ($margin-trello-card * 3);
   box-shadow: 0 0.125rem #b3b8c5;
   border-radius: $border-radius;
   background-color: $white;
@@ -17,10 +17,10 @@
   }
 
   &.has-date {
-    padding: ($trello-card-margin * 2) ($trello-card-margin * 3);
+    padding: ($margin-trello-card * 2) ($margin-trello-card * 3);
     
     @include media-breakpoint-up(md) {
-      grid-column-gap: $trello-card-margin * 2;
+      grid-column-gap: $margin-trello-card * 2;
       grid-template-columns: 5.5rem auto;
       display: grid;
     }
@@ -41,12 +41,12 @@
   color: $gray-700;
 
   &.placeholder {
-    max-width: 80%;
+    max-width: $max-width-content;
   }
 }
 
 .link.trello-card-desktop {
-  padding-right: $badge-margin;
+  padding-right: $margin-badge;
 
   &.focus-visible {
     @include ph-single-box($gray-300);

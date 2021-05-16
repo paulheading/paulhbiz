@@ -1,17 +1,16 @@
 
 .component.desktop-area {
+  font-size: $font-size-body * 0.9;
   overflow: hidden;
 }
 
 .container.desktop-area {
   @include container-reset;
   background-color: $teal;
-  font-size: 1.125rem;
-  padding: 1.25rem;
 }
 
 .wrap.desktop-area {
-  @include container-default(70);
+  @include container-default;
   position: relative;
 
   @include media-breakpoint-up(sm) {
@@ -22,8 +21,14 @@
   }
 }
 
-.wrap.desktop-right {
+.container.desktop-windows {
+  @include container-reset;
+}
+
+.container.desktop-folders {
+  @include container-reset;
   position: absolute;
+  width: auto;
   z-index: 1;
   right: 0;
   top: 0;

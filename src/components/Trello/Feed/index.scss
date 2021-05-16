@@ -22,10 +22,10 @@
 
 .wrap.trello-feed {
   @include auto-margin;
-  max-width: $feed-max-width;
+  max-width: $max-width-feed;
   
   @include media-breakpoint-up(md) {
-    max-width: $feed-max-width * 2;
+    max-width: $max-width-feed * 2;
   }
 }
 
@@ -37,7 +37,8 @@
 
   &.header-title {
     &.placeholder {
-      @include placeholder($gray-400, 75%);
+      @include placeholder($gray-400);
+      max-width: 75%;
     }
   }
 
@@ -49,7 +50,8 @@
 
   &.add-another {
     &.placeholder {
-      @include placeholder($gray-400, 75%);
+      @include placeholder($gray-400);
+      max-width: 75%;
     }
   }
 }

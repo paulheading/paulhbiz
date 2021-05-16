@@ -12,19 +12,21 @@ function ArticleContent({ card }) {
   const title = remove.hero(card.name);
   const start = moment(card.start);
   const due = card.due ? moment(card.due) : moment();
-  const span = moment(due).diff(start, "months");
+  let span = moment(due).diff(start, "months");
+  span = span > 1 ? `${span} Months` : `${span} Month`; 
 
   function dateSummary() {
     const invalid = "Invalid date";
-    const printDue = () => card.dueComplete ? <Badge className="split"><span>Finished</span><span>{due.format("MMM YYYY")}</span></Badge> : <Badge className="bg-dark">In progress</Badge>;
-
-    const printSpan = () => span > 1 ? `${span} Months` : `${span} Month`;
+    const project = {
+      due: () => card.dueComplete ? <Badge className="project-due split"><span>Finished</span><span>{due.format("MMM YYYY")}</span></Badge> : <Badge className="project-due bg-dark">In progress</Badge>,
+      span: () => <Badge className="project-span split"><span>Lasted</span><span>{span}</span></Badge>
+    };
 
     if (due !== invalid && start !== invalid) {
       return (
         <div className="summary feed-content">
-          {printDue()}
-          <Badge className="split"><span>Lasted</span><span>{printSpan()}</span></Badge>
+          {project.due()}
+          {project.span()}
         </div>
       );
     }

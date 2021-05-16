@@ -1,9 +1,9 @@
 
 .container.site-nav {
   @include container-reset;
-  min-width: $body-min-width;
-  padding-bottom: 1.875rem;
-  padding-top: 1.875rem;
+  min-width: $min-width-body;
+  padding-bottom: $padding-navigation;
+  padding-top: $padding-navigation;
 
   @include media-breakpoint-up(sm) {
     padding: 3.75rem;
@@ -20,13 +20,14 @@
 
 .wrap.site-nav {
   @include auto-margin;
-  max-width: $content-max-width;
+  justify-content: space-between;
+  max-width: $max-width-content;
   grid-auto-flow: column;
   align-items: center;
   display: grid;
 
   @include media-breakpoint-up(sm) {
-    max-width: $desktop-max-width;
+    max-width: $max-width-desktop;
   }
 }
 
@@ -34,7 +35,7 @@
   grid-auto-flow: column;
   justify-content: end;
   align-items: center;
-  grid-gap: 1.25rem;
+  grid-gap: $font-size-lg;
   display: grid;
 }
 

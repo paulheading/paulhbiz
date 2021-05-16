@@ -5,9 +5,9 @@
 .container.marquee-scroll {
   border-bottom: 0.25rem solid $black;
   border-top: 0.25rem solid $black;
-  padding-bottom: 0.9375rem;
   background-color: $white;
-  padding-top: 0.9375rem;
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
   white-space: nowrap;
   overflow: hidden;
   max-width: none;
@@ -37,7 +37,7 @@
 
 .target.marquee-scroll {
   @include inline-block;
-  padding-right: 1.25rem;
+  padding-right: $font-size-lg;
   text-decoration: none;
   user-select: none;
 }

@@ -1,6 +1,6 @@
 .page-row.container {
   background-color: $white;
-  padding: 1.875rem;
+  padding: $padding-navigation;
   max-width: none;
 
   @include media-breakpoint-down(xs) {
@@ -12,7 +12,7 @@
   }
 
   @include media-breakpoint-up(sm) {
-    padding: 1.875rem 2.5rem;
+    padding: $padding-navigation 2.5rem;
 
     + .page-row.container {
       border-top: 1px dashed $gray-300;
@@ -22,13 +22,14 @@
   @include media-breakpoint-down(xs) {
     .col-sm-8,
     .col-sm-4 {
-      @include repeat-margin($val: 1.25rem);
+      @include repeat-margin($val: $font-size-lg);
     }
   }
 
   .card__badge {
     &.placeholder {
-      @include placeholder($gray-300, 25%);
+      @include placeholder($gray-300);
+      max-width: 25%;
     }
   }
 
@@ -47,13 +48,13 @@
     padding-bottom: 8rem;
 
     @include media-breakpoint-up(sm) {
-      padding-right: 1.875rem;
-      padding-left: 1.875rem;
+      padding-right: $padding-navigation;
+      padding-left: $padding-navigation;
     }
   }
   &__wrap {
     @include auto-margin;
-    max-width: $page-max-width;
+    max-width: $max-width-page;
 
     @include media-breakpoint-up(sm) {
       box-shadow: 0 0 0.5rem $gray-300;

@@ -1,13 +1,14 @@
 .component.resume-card {
   @include media-breakpoint-down(xs) {
     + .component.education-card {
-      margin-top: 1.25rem;
+      margin-top: $font-size-lg;
     }
   }
 }
 
 .title.resume-row {
   &.placeholder {
-    @include placeholder($max: 25%);
+    @include placeholder;
+    max-width: 25%;
   }
 }

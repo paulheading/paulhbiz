@@ -45,12 +45,14 @@ function DesktopArea({ npm, gem, manifest, spotify, trello, pause }) {
   return (
     <div className="component desktop-area">
       <div className="container desktop-area">
-        <div ref={desktop} className="wrap desktop-area">
-
-          <SpotifyFeed />
-          <TrelloFeed context="desktop" />
-
-          <div className="wrap desktop-right">
+        <div className="wrap desktop-area">
+          
+          <div ref={desktop} className="container desktop-windows">
+            <SpotifyFeed />
+            <TrelloFeed context="desktop" />
+          </div>
+          
+          <div className="container desktop-folders">
 
             <div className="wrap desktop-folders">
 

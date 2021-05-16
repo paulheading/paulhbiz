@@ -15,9 +15,9 @@
 .title.hero-content {
   @include auto-margin;
   font-size: $h1-font-size * 0.9;
+  max-width: $max-width-hero-sm;
   position: relative;
-  line-height: 1.25;
-  max-width: 15rem;
+  margin-bottom: 0;
   z-index: 2;
 
   a {
@@ -30,13 +30,13 @@
   }
 
   @include media-breakpoint-up(sm) {
+    max-width: $max-width-hero-lg;
     font-size: $h1-font-size;
-    max-width: 24rem;
   }
-}
 
-.subtitle.hero-content {
-  font-size: $h5-font-size;
+  @include media-breakpoint-up(md) {
+    font-size: $h1-font-size * 1.05;
+  }
 }
 
 .svg.hero-content {

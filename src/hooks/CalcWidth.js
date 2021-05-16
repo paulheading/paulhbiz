@@ -8,7 +8,7 @@ function CalcWidth({ siteWidth }) {
     siteWidth(window.innerWidth);
     window.addEventListener("resize", () => {
       clearTimeout(resize);
-      resize = setTimeout(() => siteWidth(window.innerWidth), 100);
+      resize = setTimeout(() => siteWidth(window.innerWidth), 0);
     });
   }, [siteWidth]);
 

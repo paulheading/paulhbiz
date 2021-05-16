@@ -1,8 +1,4 @@
 .component.email-form {
-  @include media-breakpoint-down(xs) {
-    font-size: 1.125rem;
-  }
-
   .focus-visible {
     @include double-box($col: $gray-400);
   }
@@ -56,94 +52,90 @@
   }
 }
 
-.topbar {
-  &__btn {
-    @include inline-block;
-    background-color: $gray-600;
-    border-radius: 50%;
-    height: 1.25rem;
-    width: 1.25rem;
+.btn.close-btn {
+  @include topbar-btn;
+  background-color: $red;
+}
 
-    &.close-btn {
-      background-color: $red;
-    }
+.btn.minimise-btn {
+  @include topbar-btn;
+  background-color: $orange;
+}
 
-    &.minimise-btn {
-      background-color: $orange;
-    }
+.container.email-form {
+  @include container-reset;
+  background: linear-gradient($gray-200, $gray-300);
+  padding-top: 3.75rem;
+  position: relative;
+  overflow: hidden;
+
+  @include media-breakpoint-up(sm) {
+    padding: 5.625rem 3rem 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-top: 7.5rem;
   }
 }
 
-.email-form {
-  &__container {
-    background: linear-gradient($gray-200, $gray-300);
-    padding-top: 3.75rem;
-    position: relative;
-    overflow: hidden;
+.wrap.email-form {
+  @include auto-margin;
+  max-width: $max-width-content;
 
+  @include media-breakpoint-up(sm) {
+    max-width: 34rem;
+  }
+}
+
+.topbar.email-form {
+  border-top-right-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+  background-color: $gray-400;
+  grid-auto-flow: column;
+  justify-content: start;
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.form.email-form {
+  background-color: $white;
+  color: $gray-500;
+
+  @include media-breakpoint-up(sm) {
+    padding-left: 1.5rem;
+  }
+}
+
+.row.email-form {
+  padding: 0.75rem;
+  display: block;
+  margin: 0;
+
+  + .row.email-form:not(.--submit) {
+    border-top: 1px solid $gray-300;
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding-left: 0;
+  }
+  
+  &.--tag {
+    align-items: center;
+  }
+
+  &.--input {
     @include media-breakpoint-up(sm) {
-      min-height: $mobile-min-height;
-      padding: 5.625rem 3rem 0;
-    }
-
-    @include media-breakpoint-up(md) {
-      padding-top: 7.5rem;
+      grid-template-columns: 6rem auto;
+      display: grid;
     }
   }
 
-  &__wrap {
-    @include auto-margin;
-    max-width: $content-max-width;
+  &.--submit {
+    text-align: right;
 
-    @include media-breakpoint-up(sm) {
-      max-width: 34rem;
-    }
-  }
-
-  &__topbar {
-    border-top-right-radius: $border-radius;
-    border-top-left-radius: $border-radius;
-    background-color: $gray-400;
-    grid-auto-flow: column;
-    justify-content: start;
-    padding: 1rem;
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  &__content {
-    background-color: $white;
-    color: $gray-500;
-
-    @include media-breakpoint-up(sm) {
-      padding-left: 1.5rem;
-    }
-  }
-
-  &__row {
-    padding: 0.75rem;
-
-    @include media-breakpoint-up(sm) {
-      padding-left: 0;
-    }
-
-    &.input {
-      @include media-breakpoint-up(sm) {
-        grid-template-columns: 6rem auto;
-        display: grid;
-      }
-    }
-
-    &.submit {
-      text-align: right;
-
-      .btn {
-        text-decoration: none;
-      }
-    }
-
-    + .email-form__row:not(.submit) {
-      border-top: 1px solid $gray-300;
+    .btn {
+      text-decoration: none;
     }
   }
 }

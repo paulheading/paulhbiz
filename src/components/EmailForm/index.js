@@ -23,26 +23,26 @@ function EmailForm() {
 
   return (
     <div className="component email-form">
-      <div className="email-form__container">
-        <div className="email-form__wrap">
+      <div className="container email-form">
+        <div className="wrap email-form">
           {formSuccess && <Alert variant="success" onClose={() => setFormSuccess(false)} dismissible>sent!</Alert>}
-          <div className="email-form__topbar">
-            <div className="topbar__btn close-btn"></div>
-            <div className="topbar__btn minimise-btn"></div>
+          <div className="topbar email-form">
+            <div className="btn close-btn"></div>
+            <div className="btn minimise-btn"></div>
           </div>
           <form
-            className="email-form__content"
+            className="form email-form"
             onSubmit={handleSubmit(onSubmit)}
             // duplicate below @ public/index.html
             data-netlify="true"
             name="contact"
             method="post"
           >
-            <div className="email-form__row tag">
+            <div className="row email-form --tag">
               <div className="field-title">To</div>
               <div className="field-value tag">hello@paulh.biz</div>
             </div>
-            <div className="email-form__row input">
+            <div className="row email-form --input">
               <label className="field-title">Subject</label>
               <input
                 className="field-value subject"
@@ -51,7 +51,7 @@ function EmailForm() {
                 type="text"
               />
             </div>
-            <div className="email-form__row input">
+            <div className="row email-form --input">
               <label className="field-title">From</label>
               <input
                 {...register("from", { required: true })}
@@ -61,14 +61,14 @@ function EmailForm() {
               />
             </div>
             {errors.from && <span>This field is required</span>}
-            <div className="email-form__row text-field">
+            <div className="row email-form --text-field">
               <textarea
                 {...register("message")}
                 placeholder="Message"
                 rows="4"
               />
             </div>
-            <div className="email-form__row submit">
+            <div className="row email-form --submit">
               <Button variant="link" type="submit">
                 Submit
               </Button>

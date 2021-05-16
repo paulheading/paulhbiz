@@ -10,23 +10,27 @@ $c-teal--tint: darken($teal, 10%);
 $c-teal--shade: darken($teal, 20%);
 $c-teal--dark: darken($teal, 35%);
 
-$font-size-base: 1.125rem;
-$font-size-xl: $font-size-lg * 1.1;
+$font-size-body:   1.25rem;
+$font-size-nav:    1.375rem;
 
 $line-height-sm: 1.3;
 
-$body-min-width: 20rem;
-$mobile-min-height: 30rem;
+$min-width-body: 20rem;
+$min-height-mobile: 30rem;
 
-$desktop-max-height: 40rem;
-$desktop-max-width: 60rem;
+$max-height-desktop: 40rem;
 
-$content-max-width: 81.25%;
-$page-max-width: 87.5%;
-$feed-max-width: 20rem;
+$max-width-hero-sm: 15rem;
+$max-width-hero-lg: 25rem;
+$max-width-content: 82%;
+$max-width-page: 87.5%;
+$max-width-desktop: 60rem;
+$max-width-feed: 20rem;
 
-$trello-card-margin: 0.25rem;
-$badge-margin: $trello-card-margin * 2;
+$padding-navigation: 1.5625rem; 
+
+$margin-trello-card: 0.25rem;
+$margin-badge: $margin-trello-card * 2;
 
 $green : hsl(134, 60%, 33%);
 $blue  : hsl(211, 100%, 46%);

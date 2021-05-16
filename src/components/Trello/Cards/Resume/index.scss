@@ -1,5 +1,5 @@
 .title.trello-card-resume {
-  padding-right: $trello-card-margin;
+  padding-right: $margin-trello-card;
 
   &.placeholder {
     @include placeholder;
@@ -7,7 +7,7 @@
 }
 
 .link.trello-card-resume {
-  padding-right: $trello-card-margin;
+  padding-right: $margin-trello-card;
 }
 
 .desc.trello-card-resume {
@@ -26,7 +26,8 @@
   }
 
   &.placeholder {
-    @include placeholder($max: 80%);
+    @include placeholder;
+    max-width: $max-width-content;
   }
 }
 

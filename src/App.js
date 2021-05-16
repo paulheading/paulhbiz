@@ -27,6 +27,8 @@ function App({ test }) {
     test:  useSelector(state => state.test) 
   };
 
+  test(false);
+
   const menuState = store.menu ? "menu-open" : "menu-closed";
   const testMode = store.test ? "test-mode" : "";
 
@@ -40,11 +42,11 @@ function App({ test }) {
         <HeroFeed />
         <Switch>
           <Route path="/" exact component={HeroContent} />
-          <Route path="/about" exact component={AboutContent} />
+          {/* <Route path="/about" exact component={AboutContent} />
           <Route path="/blog" exact component={BlogContent} />
           <Route path="/blog/:route" exact component={ArticleContent} />
           <Route path="/resume" exact component={ResumeContent} />
-          <Route component={NotFound} />
+          <Route component={NotFound} /> */}
         </Switch>
         <MarqueeScroll />
         <DesktopTopbar />

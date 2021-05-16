@@ -9,10 +9,15 @@
 
 .wrap.feed-content {
   @include auto-margin;
-  max-width: $content-max-width;
+  max-width: $max-width-content;
 
   @include media-breakpoint-up(sm) {
-    max-width: $feed-max-width * 3;
+    max-width: $max-width-desktop;
+    font-size: $font-size-nav;
+  }
+
+  @include media-breakpoint-up(md) {
+    font-size: $h4-font-size;
   }
 
   > .placeholder {
@@ -24,8 +29,6 @@
   }
 
   .badge {
-    font-size: 1rem;
-
     &:not(.split) {
       padding: 0.5rem;
     }
@@ -33,11 +36,6 @@
 
   p {
     margin-bottom: 1rem;
-    font-size: 1.375rem;
-
-    @include media-breakpoint-up(md) {
-      font-size: 1.4375rem;
-    }
 
     &:not(.summary) {
       font-weight: 400;
@@ -55,7 +53,7 @@
 }
 
 .summary.feed-content {
-  margin: -0.5rem -0.5rem 1.25rem;
+  margin: 0 -0.5rem 1rem;
 
   .badge, a {
     margin: 0.5rem;

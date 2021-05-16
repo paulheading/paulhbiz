@@ -42,13 +42,10 @@
   }
 }
 
-@mixin container-default($value: 75) {
-  height: $mobile-min-height;
-
+@mixin container-default {
+  height: $min-height-mobile;
   @include media-breakpoint-up(sm) {
-    max-height: $desktop-max-height;
-    min-height: $mobile-min-height;
-    height: #{$value}vh;
+    height: 32.5rem;
   }
 }
 
@@ -146,8 +143,12 @@
 }
 
 @mixin link-site-nav {
-  font-size: $font-size-xl;
+  font-size: $font-size-nav;
   text-decoration: none;
+
+  @include media-breakpoint-up(sm) {
+    font-size: $h4-font-size;
+  }
 
   &.focus-visible {
     @include ph-double-box($black, $white);
@@ -205,4 +206,13 @@
   &::placeholder {
     color: inherit;
   }
+}
+
+@mixin topbar-btn {
+  @include inline-block;
+  background-color: $gray-600;
+  height: $font-size-lg;
+  width: $font-size-lg;
+  border-radius: 50%;
+  padding: 0;
 }
