@@ -2,7 +2,7 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
-import { TrelloPage, DesktopCards } from "components/Trello";
+import { TrelloPage } from "components/Trello";
 import { object } from "modules/helpers";
 
 function AboutContent() {
