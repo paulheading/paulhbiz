@@ -16,10 +16,6 @@
     font-size: $font-size-nav;
   }
 
-  @include media-breakpoint-up(md) {
-    font-size: $h4-font-size;
-  }
-
   > .placeholder {
     @include placeholder($gray-400);
   }
