@@ -19,8 +19,8 @@ function NotFound() {
       </Helmet>
       <div className="container feed-content">
         <div className="wrap feed-content">
-          <h1 className="feed-content__title">Page Not Found 🤬</h1>
-          <h5 className="feed-content__subtitle">uh oh! where da page gone?</h5>
+          <h1 className="title feed-content">Page Not Found 🤬</h1>
+          <h4 className="subtitle feed-content">uh oh! where da page gone?</h4>
         </div>
       </div>
     </div>

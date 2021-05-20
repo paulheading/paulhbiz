@@ -143,7 +143,6 @@
 }
 
 @mixin link-site-nav {
-  font-size: $font-size-nav;
   text-decoration: none;
 
   @include media-breakpoint-up(sm) {

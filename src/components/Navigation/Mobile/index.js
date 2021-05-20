@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { menuState } from "actions";
 import { ExitSvg } from "components/SvgIcons";
 
-function OverlayMenu({ menuState }) {
+function MobileDesktopNavigation({ menuState }) {
   const store = { menuState: useSelector(state => state.menuState) };
 
   return (
@@ -23,4 +23,4 @@ function OverlayMenu({ menuState }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { menuState })(OverlayMenu);
+export default connect(mapStateToProps, { menuState })(MobileDesktopNavigation);
