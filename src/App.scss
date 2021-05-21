@@ -18,16 +18,19 @@
 @import "components/SvgIcons/MobileLogo";
 @import "components/SvgIcons/DesktopLogo";
 
-@import "components/ResumeContent";
-@import "components/BlogContent";
-@import "components/NotFound";
+@import "components/pages/Resume";
+@import "components/pages/Blog";
+@import "components/pages/NotFound";
+@import "components/pages/Article/HappyRoute";
+
+@import "components/areas/Hero";
+@import "components/areas/Desktop";
+@import "components/areas/Topbar";
+
 @import "components/FooterArea";
 @import "components/EmailForm";
 
 @import "components/Buttons/Folder";
-
-@import "components/DesktopArea";
-@import "components/DesktopTopbar";
 
 @import "components/SpotifyFeed";
 
@@ -42,12 +45,8 @@
 
 @import "components/Navigation/Desktop";
 
-@import "components/HeroContent";
-
 @import "components/LoadingAnimation";
 @import "components/DownloadDetails";
-
-@import "components/ArticleContent/HappyRoute";
 
 #root {
   height: 100%;

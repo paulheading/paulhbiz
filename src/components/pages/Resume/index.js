@@ -9,7 +9,7 @@ import getGithubData from "modules/github";
 import { github } from "actions";
 import { object } from "modules/helpers";
 
-function ResumeContent({ github }) {
+function ResumePage({ github }) {
   const store = {
     manifest: useSelector(state => state.manifest)
   };
@@ -43,4 +43,4 @@ function ResumeContent({ github }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ github })(ResumeContent);
+export default connect(mapStateToProps,{ github })(ResumePage);

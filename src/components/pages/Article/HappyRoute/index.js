@@ -6,7 +6,7 @@ import { remove, seo, filter } from "modules/helpers";
 import parse from "html-react-parser";
 import { Badge } from "react-bootstrap";
 
-function ArticleContent({ card }) {
+function HappyRoute({ card }) {
   const live = filter.in.live(card.attachments);
   const code = filter.in.code(card.attachments);
   const title = remove.hero(card.name);
@@ -55,4 +55,4 @@ function ArticleContent({ card }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(ArticleContent);
+export default connect(mapStateToProps)(HappyRoute);

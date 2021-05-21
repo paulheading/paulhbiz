@@ -5,7 +5,7 @@ import getTimezoneData from "modules/timezone";
 import { timezone } from "actions";
 import { WifiSignal } from "hooks";
 
-function DesktopTopbar({ timezone }) {
+function TopbarArea({ timezone }) {
   const store = {
     timezone: useSelector(state => state.timezone)
   };
@@ -33,4 +33,4 @@ function DesktopTopbar({ timezone }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ timezone })(DesktopTopbar);
+export default connect(mapStateToProps,{ timezone })(TopbarArea);

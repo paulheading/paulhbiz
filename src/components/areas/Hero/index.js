@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import { object, filter, remove } from "modules/helpers";
 import parse from "html-react-parser";
 
-function HeroContent() {
+function HeroArea() {
   const store = {
     manifest: useSelector(state => state.manifest),
     trello: useSelector(state => state.trello),
@@ -55,4 +55,4 @@ function HeroContent() {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(HeroContent);
+export default connect(mapStateToProps)(HeroArea);

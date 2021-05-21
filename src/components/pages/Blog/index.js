@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import { TrelloPage } from "components/Trello";
+import getMediumData from "modules/medium";
 import { object } from "modules/helpers";
+import { medium } from "actions";
 
-function AboutContent() {
+function BlogPage({medium}) {
   const store = {
-    trello: useSelector(state => state.trello),
     manifest: useSelector(state => state.manifest)
   }
-
+  
   // Get SEO information from store
-  const manifest = object.ready(store.manifest) && store.manifest.pages.about;
-  const resumeLink = object.ready(store.trello) ? <p>My online resume is <Link to="/resume">available here</Link>.</p> : <p className="placeholder">.</p>;
+  const manifest = object.ready(store.manifest) && store.manifest.pages.blog;
+
+  useEffect(() => {
+    (async () => medium(await getMediumData()))();
+  }, [medium]);
 
   return (
     <div className="component about-content">
@@ -23,8 +26,7 @@ function AboutContent() {
       </Helmet>
       <div className="container feed-content">
         <div className="wrap feed-content">
-          <TrelloPage name="About" />
-          { resumeLink }
+          <TrelloPage name="Blog" />
         </div>
       </div>
     </div>
@@ -33,4 +35,4 @@ function AboutContent() {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(AboutContent);
+export default connect(mapStateToProps,{medium})(BlogPage);

@@ -2,12 +2,12 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { object } from "modules/helpers";
-import NotFound from "components/NotFound";
+import { NotFound } from "components/pages";
 import HappyRoute from "./HappyRoute";
 import LoadRoute from "./LoadRoute";
 import temp from "modules/placeholder";
 
-function ArticleContent() {
+function ArticlePage() {
   const { route } = useParams();
   const store = { trello: useSelector(state => state.trello) };
   let valid = false;
@@ -29,4 +29,4 @@ function ArticleContent() {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(ArticleContent);
+export default connect(mapStateToProps)(ArticlePage);

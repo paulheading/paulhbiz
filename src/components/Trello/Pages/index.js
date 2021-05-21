@@ -8,7 +8,7 @@ function TrelloPage({ name, links }) {
   let content = "";
    
   if (!card) { 
-    if (!links) { content += `<h2>${ name }</h2>`; }
+    if (!links) { content += `<h1>${ name }</h1>`; }
     for (let index = 0; index < 3; index++) { content += "<p class='placeholder'>.</p>"; }
   } else {
     if (links) {

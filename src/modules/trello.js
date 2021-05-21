@@ -63,7 +63,7 @@ const getCardData = async (id,label) => {
     card.actions = actions;
     card.attachments = attachments;
     if (label === "projects") {
-      card.attachments.push({ name: "Read more", url: `/blog/${route}` });      
+      card.attachments.push({ name: "Read more", url: `/article/${route}` });      
     }
     card.svg = getSvgsOnCard(actions);
     card.className = `card-${card.id}`;
