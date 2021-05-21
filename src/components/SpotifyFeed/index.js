@@ -2,7 +2,7 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import Card from 'react-bootstrap/Card';
 import { object } from "modules/helpers";
-import { SpotifySvg } from "components/SvgIcons";
+import { SpotifySvg } from "icons";
 import { Row } from "react-bootstrap";
 
 function SpotifyFeed() {

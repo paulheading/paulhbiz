@@ -14,39 +14,32 @@
 
 @import "hooks/WifiSignal";
 
-@import "components/SvgIcons/Spotify";
-@import "components/SvgIcons/MobileLogo";
-@import "components/SvgIcons/DesktopLogo";
+@import "icons/Spotify";
+@import "icons/MobileLogo";
+@import "icons/DesktopLogo";
 
-@import "components/pages/Resume";
-@import "components/pages/Blog";
-@import "components/pages/NotFound";
-@import "components/pages/Article/HappyRoute";
+@import "pages/Resume";
+@import "pages/Blog";
+@import "pages/NotFound";
+@import "pages/Article/HappyRoute";
 
-@import "components/areas/Hero";
-@import "components/areas/Desktop";
-@import "components/areas/Topbar";
+@import "sections/Navigation/Desktop";
+@import "sections/Hero";
+@import "sections/Desktop";
+@import "sections/Topbar";
+@import "sections/Marquee";
+@import "sections/Footer";
+@import "sections/Credit";
 
-@import "components/FooterArea";
 @import "components/EmailForm";
-
 @import "components/Buttons/Folder";
-
 @import "components/SpotifyFeed";
-
 @import "components/Trello/Feed";
 @import "components/Trello/Cards/Desktop";
 @import "components/Trello/Cards/Resume";
 @import "components/Trello/Pages";
-
-@import "components/CreditLine";
-
-@import "components/MarqueeScroll";
-
-@import "components/Navigation/Desktop";
-
 @import "components/LoadingAnimation";
-@import "components/DownloadDetails";
+@import "components/DownloadStats";
 
 #root {
   height: 100%;

@@ -6,7 +6,7 @@ import marquee from "modules/animations/marquee";
 import parse from "html-react-parser";
 import { Countdown } from "hooks";
 
-function MarqueeScroll() {
+function MarqueeSection() {
   const store = {
     trello: useSelector(state => state.trello),
     pause: useSelector(state => state.pause),
@@ -51,4 +51,4 @@ function MarqueeScroll() {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(MarqueeScroll);
+export default connect(mapStateToProps)(MarqueeSection);

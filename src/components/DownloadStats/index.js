@@ -1,6 +1,6 @@
-import { RubyGemSvg, NpmSvg } from "components/SvgIcons";
+import { RubyGemSvg, NpmSvg } from "icons";
 
-export default function DownloadDetails({ type, name, downloads }) {
+export default function DownloadStats({ type, name, downloads }) {
 
   function printUrl() {
     switch (type) {

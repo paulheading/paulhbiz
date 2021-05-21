@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useSelector } from "react-redux";
 import { object } from "modules/helpers";
-import { DotsSvg, AddCardSvg } from "components/SvgIcons";
+import { DotsSvg, AddCardSvg } from "icons";
 import { Card } from "react-bootstrap";
 import { DesktopCards } from '../index';
 

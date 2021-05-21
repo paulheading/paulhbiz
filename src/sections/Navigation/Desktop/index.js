@@ -2,7 +2,7 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import { useLocation, Link } from "react-router-dom";
 import { menuState } from "actions";
-import { MobileLogoSvg, DesktopLogoSvg } from "components/SvgIcons";
+import { MobileLogoSvg, DesktopLogoSvg } from "icons";
 import { is } from "modules/helpers";
 
 function DesktopNavigation({ menuState }) {

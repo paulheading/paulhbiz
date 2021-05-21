@@ -3,11 +3,11 @@ import { connect, useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import makeDraggable from "modules/animations/desktop";
 import { FolderButton } from "components/Buttons";
-import DownloadDetails from "components/DownloadDetails";
-import CreditLine from "components/CreditLine";
+import DownloadStats from "components/DownloadStats";
 import SpotifyFeed from "components/SpotifyFeed";
 import { TrelloFeed } from "components/Trello";
-import { PauseSvg, PlaySvg } from "components/SvgIcons";
+import { PauseSvg, PlaySvg } from "icons";
+import { CreditSection } from "sections";
 
 import getNPMData from "modules/npm";
 import getGemData from "modules/gem";
@@ -17,7 +17,7 @@ import getTrelloData from "modules/trello";
 import { npm, gem, manifest, spotify, trello, pause } from "actions";
 import { object } from "modules/helpers";
 
-function DesktopArea({ npm, gem, manifest, spotify, trello, pause }) {
+function DesktopSection({ npm, gem, manifest, spotify, trello, pause }) {
   useEffect(() => {
     (async () => {
       npm(await getNPMData());
@@ -67,11 +67,11 @@ function DesktopArea({ npm, gem, manifest, spotify, trello, pause }) {
 
             </div>
 
-            <DownloadDetails
+            <DownloadStats
               type="rubygem" 
               name="futuro" 
               downloads={futuro.downloads} />
-            <DownloadDetails 
+            <DownloadStats 
               type="npm"
               name="barbican-reset" 
               downloads={reset.downloads} />
@@ -81,7 +81,7 @@ function DesktopArea({ npm, gem, manifest, spotify, trello, pause }) {
           </div>
         </div>
 
-        <CreditLine />
+        <CreditSection />
 
       </div>
     </div>
@@ -90,4 +90,4 @@ function DesktopArea({ npm, gem, manifest, spotify, trello, pause }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ npm, gem, manifest, spotify, trello, pause })(DesktopArea);
+export default connect(mapStateToProps,{ npm, gem, manifest, spotify, trello, pause })(DesktopSection);

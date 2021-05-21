@@ -3,7 +3,7 @@ import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { menuState } from "actions";
-import { ExitSvg } from "components/SvgIcons";
+import { ExitSvg } from "icons";
 
 function MobileDesktopNavigation({ menuState }) {
   const store = { menuState: useSelector(state => state.menuState) };

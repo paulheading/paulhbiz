@@ -5,12 +5,9 @@ import "focus-visible/dist/focus-visible.min.js";
 
 import { test } from "actions";
 import { HeroFeed, ScrollToTop, CalcWidth } from "hooks";
-import { DesktopNavigation } from "components/Navigation";
-import { HeroArea, DesktopArea, TopbarArea } from "components/areas";
-import { AboutPage, ArticlePage, ResumePage, NotFound } from "components/pages";
-import MarqueeScroll from "components/MarqueeScroll";
+import { HeroSection, DesktopSection, TopbarSection, DesktopNavigation, MarqueeSection, FooterSection } from "sections";
+import { AboutPage, ArticlePage, ResumePage, NotFound } from "pages";
 import EmailForm from "components/EmailForm";
-import FooterArea from "components/FooterArea";
 
 import "./App.scss";
 
@@ -33,18 +30,18 @@ function App({ test }) {
         <DesktopNavigation />
         <HeroFeed />
         <Switch>
-          <Route path="/" exact component={HeroArea} />
+          <Route path="/" exact component={HeroSection} />
           <Route path="/about" exact component={AboutPage} />
           {/* <Route path="/blog" exact component={BlogPage} /> */}
           <Route path="/article/:route" exact component={ArticlePage} />
           <Route path="/resume" exact component={ResumePage} />
           <Route component={NotFound} />
         </Switch>
-        <MarqueeScroll />
-        <TopbarArea />
-        <DesktopArea />
+        <MarqueeSection />
+        <TopbarSection />
+        <DesktopSection />
         <EmailForm />
-        <FooterArea />
+        <FooterSection />
       </div>
     </BrowserRouter>
   );

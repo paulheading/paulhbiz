@@ -2,7 +2,7 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { object } from "modules/helpers";
-import { NotFound } from "components/pages";
+import { NotFound } from "pages";
 import HappyRoute from "./HappyRoute";
 import LoadRoute from "./LoadRoute";
 import temp from "modules/placeholder";
