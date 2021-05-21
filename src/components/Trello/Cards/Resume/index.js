@@ -18,10 +18,12 @@ function ResumeCards({ source, total = 3, title }) {
     }
   }
 
-  function printDates(card) {
+  const printDates = card => {
     const date = title !== "Roles" ? moment(card.due) : moment(card.start);
     const handle = title !== "Roles" ? "Finished" : "Started";
-    return <div className="due trello-card-resume"><strong>{handle}:</strong> {date.format(`MMM YYYY`)}</div>;
+    const hasFinished = () => <span><strong>{handle}:</strong> {date.format(`MMM YYYY`)}</span>;
+    
+    return <div className="due trello-card-resume">{ card.due ?  hasFinished() : "Ongoing" }</div>;
   }
 
   const printPlaceholders = () => {

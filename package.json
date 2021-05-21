@@ -7,7 +7,7 @@
     "@testing-library/user-event": "^13.1.5",
     "api-npm": "^1.0.0",
     "axios": "^0.21.1",
-    "barbican-reset": "^0.4.2",
+    "barbican-reset": "^0.5.4",
     "bootstrap": "^4.6.0",
     "focus-visible": "^5.2.0",
     "gsap": "file:src/libraries/gsap-bonus.tgz",
