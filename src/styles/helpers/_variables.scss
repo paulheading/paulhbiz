@@ -10,6 +10,9 @@ $c-teal--tint: darken($teal, 10%);
 $c-teal--shade: darken($teal, 20%);
 $c-teal--dark: darken($teal, 35%);
 
+$font-family-base: neue-haas-grotesk-text, sans-serif;
+$headings-font-family: neue-haas-grotesk-display, sans-serif;
+
 $font-size-body:    1.25rem;
 $font-size-desktop: $font-size-body * 0.9;
 $font-size-nav:     $font-size-body * 1.1;

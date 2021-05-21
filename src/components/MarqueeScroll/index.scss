@@ -26,8 +26,7 @@
     border-top-right-radius: $border-radius;
     border-top-left-radius: $border-radius;
     background-color: $black;
-    font-weight: bold;
-    padding: 1rem;
+    padding: 1rem;    
 
     &.focus-visible {
       @include ph-double-box;
@@ -37,6 +36,7 @@
 
 .target.marquee-scroll {
   @include inline-block;
+  @include display-font;
   padding-right: $font-size-lg;
   text-decoration: none;
   user-select: none;

@@ -9,7 +9,7 @@ import { DesktopNavigation } from "components/Navigation";
 import HeroContent from "components/HeroContent";
 import AboutContent from "components/AboutContent";
 // import BlogContent from "components/BlogContent";
-// import ArticleContent from "components/ArticleContent";
+import ArticleContent from "components/ArticleContent";
 import MarqueeScroll from "components/MarqueeScroll";
 import DesktopTopbar from "components/DesktopTopbar";
 import DesktopArea from "components/DesktopArea";
@@ -41,8 +41,8 @@ function App({ test }) {
         <Switch>
           <Route path="/" exact component={HeroContent} />
           <Route path="/about" exact component={AboutContent} />
-          {/* <Route path="/blog" exact component={BlogContent} />
-          <Route path="/blog/:route" exact component={ArticleContent} /> */}
+          {/* <Route path="/blog" exact component={BlogContent} /> */}
+          <Route path="/blog/:route" exact component={ArticleContent} />
           <Route path="/resume" exact component={ResumeContent} />
           <Route component={NotFound} />
         </Switch>

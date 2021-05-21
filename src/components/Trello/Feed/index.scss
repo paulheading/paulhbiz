@@ -1,5 +1,6 @@
 
 .container.trello-feed {
+  @include display-font;
   font-size: $font-size-desktop;
   margin-top: 2rem;
   max-width: none;

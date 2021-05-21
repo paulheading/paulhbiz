@@ -1,0 +1,28 @@
+.badge {
+  border: 1px solid $gray-600;
+  padding: 0.375rem 0.5rem;
+  transition: none;
+  font-weight: 600;
+  font-size: 80%;
+
+  &:not(:last-of-type) {
+    margin-right: $margin-badge;
+  }
+}
+
+.badge.split {
+  @include split-badge;
+}
+
+.badge.code {
+  @include code-badge;
+}
+
+.badge.bg-dark {
+  background-color: $black !important;
+  border-color: $black;
+}
+
+.badge.placeholder {
+  @include placeholder;
+}

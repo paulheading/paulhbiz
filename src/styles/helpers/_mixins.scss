@@ -1,3 +1,21 @@
+@mixin base-font($weight: false) {
+  font-family: $font-family-base;
+  letter-spacing: -0.02rem;
+
+  @if $weight {
+    font-weight: $weight;
+  }
+}
+
+@mixin display-font($weight: false) {
+  font-family: $headings-font-family;
+  letter-spacing: normal;
+
+  @if $weight {
+    font-weight: $weight;
+  }
+}
+
 @mixin auto-margin {
   margin-right: auto;
   margin-left: auto;
@@ -143,6 +161,7 @@
 }
 
 @mixin link-site-nav {
+  @include display-font(600);
   text-decoration: none;
 
   @include media-breakpoint-up(sm) {

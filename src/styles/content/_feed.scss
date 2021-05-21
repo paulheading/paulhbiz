@@ -1,5 +1,6 @@
 .container.feed-content {
   @include container-reset;
+  @include base-font(400);
   padding-bottom: 5.8125rem;
 
   @include media-breakpoint-up(sm) {
@@ -24,18 +25,12 @@
     @include double-box($gray-200, $black);
   }
 
-  .badge {
-    &:not(.split) {
-      padding: 0.5rem;
-    }
+  .badge:not(.split) {
+    padding: 0.5rem;
   }
 
   p {
     margin-bottom: 1rem;
-
-    &:not(.summary) {
-      font-weight: 400;
-    }
 
     &:last-child {
       margin-bottom: 0;

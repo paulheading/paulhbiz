@@ -64,6 +64,7 @@
 
 .container.email-form {
   @include container-reset;
+  @include display-font;
   background: linear-gradient($gray-200, $gray-300);
   padding-top: 3.75rem;
   position: relative;
