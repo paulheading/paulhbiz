@@ -1,7 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
 
-function FooterSection() {
+export default function FooterSection() {
   return (
     <div className="component footer-area">
       <div className="footer-area__container">
@@ -12,8 +11,4 @@ function FooterSection() {
       </div>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(FooterSection);
+};

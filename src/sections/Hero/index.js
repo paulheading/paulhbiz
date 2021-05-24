@@ -1,16 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
-import { object, filter, remove } from "modules/helpers";
+import { filter, remove } from "modules/helpers";
 import parse from "html-react-parser";
 
-function HeroSection() {
+export default function HeroSection() {
   const store = {
-    manifest: useSelector(state => state.manifest),
-    trello: useSelector(state => state.trello),
+    seo: useSelector(state => state.seo),
     pause: useSelector(state => state.pause),
-    count: useSelector(state => state.count),
     hero: useSelector(state => state.hero),
   };
 
@@ -18,41 +16,38 @@ function HeroSection() {
     svg: useRef(null)
   };
 
+  const print = {
+    link: name => {
+      const link = filter.in.more(card.attachments);
+      return <Link to={link.url}>{remove.hero(name)}</Link>;
+    },
+    name: name => name && <h1 className="title hero-content">{print.link(name)}</h1>,
+    svg: svg => svg && <div className="svg hero-content" ref={ref.svg}>{parse(svg)}</div>
+  }
+
+  // use hoooks instead of connect
+  // https://www.samdawson.dev/article/react-redux-use-selector-vs-connect
+
   // can't do this => console.log(`${anyRef}`);
   // can do this => console.log(anyRef);
   
-  // Get SEO information from store
-  const manifest = object.ready(store.manifest) && store.manifest;
+  const seo = store.seo.home;
   const card = store.hero.card;
 
   useEffect(() => card.animation(store.pause, ref.svg.current), [card, store.pause, ref.svg]);
 
-  function printLink(name) {
-    const link = filter.in.more(card.attachments);
-    return <Link to={link.url}>{remove.hero(name)}</Link>;
-  }
-
-  const hero = {
-    name: name => name && <h1 className="title hero-content">{printLink(name)}</h1>,
-    svg: svg => svg && <div className="svg hero-content" ref={ref.svg}>{parse(svg)}</div>
-  }
-
   return (
     <div className={`component hero-content ${card.className}`}>
       <Helmet>
-        <title>{manifest.title}</title>
-        <meta name="description" content={manifest.description} />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
       </Helmet>
       <div className="container hero-content">
         <div className="wrap hero-content">
-          {hero.name(card.name)}
-          {hero.svg(card.svg)}
+          {print.name(card.name)}
+          {print.svg(card.svg)}
         </div>
       </div>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(HeroSection);
+};

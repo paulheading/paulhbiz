@@ -1,7 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
 
-function LoadingAnimation() {
+export default function LoadingAnimation() {
   return (
     <div className="component loading-animation">
       <div className="loading-wrap">
@@ -14,8 +13,4 @@ function LoadingAnimation() {
       </div>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(LoadingAnimation);
+};

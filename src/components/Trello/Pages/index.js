@@ -1,8 +1,8 @@
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { object } from "modules/helpers";
 import parse from "html-react-parser";
 
-function TrelloPage({ name, links }) {
+export default function TrelloPage({ name, links }) {
   const trello = useSelector(state => state.trello);
   const card = object.ready(trello) && trello.pages.cards.filter(card => name === card.name)[0];
   let content = "";
@@ -21,8 +21,4 @@ function TrelloPage({ name, links }) {
   }
 
   return <div className={`component trello-page ${name.toLowerCase()}`}>{parse(content)}</div>;
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(TrelloPage);
+};

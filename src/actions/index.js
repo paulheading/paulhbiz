@@ -1,7 +1,7 @@
 
 export const test = query => {
   return {
-    type: "TEST",
+    type: "test",
     payload: query,
   };
 };
@@ -55,9 +55,9 @@ export const gem = query => {
   };
 };
 
-export const manifest = query => {
+export const seo = query => {
   return {
-    type: "MANIFEST_DATA",
+    type: "SEO_DATA",
     payload: query,
   };
 };

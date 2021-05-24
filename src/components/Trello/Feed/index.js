@@ -1,11 +1,11 @@
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { object } from "modules/helpers";
 import { DotsSvg, AddCardSvg } from "icons";
 import { Card } from "react-bootstrap";
 import { DesktopCards } from '../index';
 
-function TrelloFeed({ context, dates }) {
+export default function TrelloFeed({ context, dates }) {
   const trello = useSelector((state) => state.trello);
   const ready = object.ready(trello);
 
@@ -28,8 +28,4 @@ function TrelloFeed({ context, dates }) {
       </Card>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(TrelloFeed);
+};

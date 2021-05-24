@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import { useForm } from "react-hook-form";
 import { Button, Alert } from "react-bootstrap";
 
-function EmailForm() {
+export default function EmailForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [formSuccess, setFormSuccess] = useState(false);
 
@@ -79,7 +78,3 @@ function EmailForm() {
     </div>
   );
 }
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(EmailForm);

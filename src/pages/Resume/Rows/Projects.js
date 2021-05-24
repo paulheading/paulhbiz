@@ -1,12 +1,12 @@
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { object } from "modules/helpers";
 import { ResumeCards } from "components/Trello";
 
-function ProjectsRow({ title }) {
+export default function ProjectsRow({ title }) {
   const trello = useSelector(state => state.trello);
 
   const trelloCards = title => {
@@ -33,8 +33,4 @@ function ProjectsRow({ title }) {
       </Row>
     </Container>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(ProjectsRow);
+};

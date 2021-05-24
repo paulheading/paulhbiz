@@ -1,31 +1,25 @@
-import React, { useEffect } from "react";
-import { connect, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Helmet } from 'react-helmet';
 import NameRow from "./Rows/Name";
 import BiographyRow from "./Rows/Biography";
 import ProjectsRow from "./Rows/Projects";
 import SkillsRow from "./Rows/Skills";
-import getGithubData from "modules/github";
-import { github } from "actions";
-import { object } from "modules/helpers";
+// import getGithubData from "modules/github";
 
-function ResumePage({ github }) {
-  const store = {
-    manifest: useSelector(state => state.manifest)
-  };
+export default function ResumePage() {
+  const store = { seo: useSelector(state => state.seo) };
+  // const github = useDispatch();
+  const seo = store.seo.resume;
   
-  // Get SEO information from store
-  const manifest = object.ready(store.manifest) && store.manifest.pages.resume;
-  
-  useEffect(() => {
-    (async () => github(await getGithubData()))();
-  }, [github]);
+  // https://redux.js.org/tutorials/fundamentals/part-6-async-logic#using-the-redux-thunk-middleware
+  // useEffect(() => (async () => github(await getGithubData()))(), [github]);
 
   return (
     <div className="component resume-content">
       <Helmet>
-        <title>{manifest.title}</title>
-        <meta name="description" content={manifest.description} />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
       </Helmet>
       <div className="page-content__container">
         <div className="page-content__wrap">
@@ -40,7 +34,3 @@ function ResumePage({ github }) {
     </div>
   );
 }
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps,{ github })(ResumePage);

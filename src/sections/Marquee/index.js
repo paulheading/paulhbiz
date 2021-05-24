@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { filter, remove } from "modules/helpers";
 import marquee from "modules/animations/marquee";
 import parse from "html-react-parser";
 import { Countdown } from "hooks";
 
-function MarqueeSection() {
+export default function MarqueeSection() {
   const store = {
     trello: useSelector(state => state.trello),
     pause: useSelector(state => state.pause),
@@ -47,8 +47,4 @@ function MarqueeSection() {
       </div>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(MarqueeSection);
+};

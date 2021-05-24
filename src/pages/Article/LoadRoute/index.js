@@ -1,10 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Helmet } from 'react-helmet';
 import { seo } from "modules/helpers";
 import LoadingAnimation from "components/LoadingAnimation";
 
-function LoadRoute() {
+export default function LoadRoute() {
   return (
     <div className="component load-route">
       <Helmet>
@@ -17,8 +16,4 @@ function LoadRoute() {
       </div>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(LoadRoute);
+};

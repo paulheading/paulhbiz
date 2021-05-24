@@ -53,17 +53,17 @@ const attachAnimation = card => card.animation = (pause, target) => {
   }
 }
 
-const getCardData = async (id,label) => {
+const getCardData = async (id, label) => {
   let cards = await getCardsOnList(id);
   cards = cards.map(async card => {
     const actions = await getTrello(`cards/${card.id}/actions`);
     const attachments = await getTrello(`cards/${card.id}/attachments`);
-    const route = pathify(remove.hero(card.name));
+    const route = `/article/${label}/${pathify(remove.hero(card.name))}`;
     card.route = route;
     card.actions = actions;
     card.attachments = attachments;
-    if (label === "projects") {
-      card.attachments.push({ name: "Read more", url: `/article/${route}` });      
+    if (label !== "pages") {
+      card.attachments.push({ name: "Read more", url: route });      
     }
     card.svg = getSvgsOnCard(actions);
     card.className = `card-${card.id}`;

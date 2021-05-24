@@ -1,12 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Helmet } from 'react-helmet';
 import moment from "moment";
 import { remove, seo, filter } from "modules/helpers";
 import parse from "html-react-parser";
 import { Badge } from "react-bootstrap";
 
-function HappyRoute({ card }) {
+export default function HappyRoute({ card }) {
   const live = filter.in.live(card.attachments);
   const code = filter.in.code(card.attachments);
   const title = remove.hero(card.name);
@@ -51,8 +50,4 @@ function HappyRoute({ card }) {
       </div>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(HappyRoute);
+};

@@ -1,21 +1,16 @@
 import React from "react";
 import moment from "moment";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { object, remove, filter, limitLength, print } from "modules/helpers";
 import { Col } from "react-bootstrap";
 import parse from "html-react-parser";
 
-function ResumeCards({ source, total = 3, title }) {
+export default function ResumeCards({ source, total = 3, title }) {
 
   const linkName = card => {
-    if (title === "Projects") {
-      const more = filter.in.more(card.attachments);
-      const name = remove.hero(card.name);
-      return <Link className="link trello-card-resume" to={more.url}>{parse(name)}</Link>;
-    } else {
-      return <span className="title trello-card-resume">{parse(card.name)}</span>;
-    }
+    const more = filter.in.more(card.attachments);
+    const name = remove.hero(card.name);
+    return <Link className="link trello-card-resume" to={more.url}>{parse(name)}</Link>;
   }
 
   const printDates = card => {
@@ -57,8 +52,4 @@ function ResumeCards({ source, total = 3, title }) {
   const cardContents = source => !object.ready(source) ? printPlaceholders() : source.map((card,index) => index < total ? printCard(card) : null);
 
   return cardContents(source);
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(ResumeCards);
+};

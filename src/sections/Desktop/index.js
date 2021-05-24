@@ -11,23 +11,21 @@ import { CreditSection } from "sections";
 
 import getNPMData from "modules/npm";
 import getGemData from "modules/gem";
-import getManifestData from "modules/manifest";
 import getSpotifyData from "modules/spotify";
 import getTrelloData from "modules/trello";
-import { npm, gem, manifest, spotify, trello, pause } from "actions";
+import { npm, gem, spotify, trello, pause } from "actions";
 import { object } from "modules/helpers";
 
-function DesktopSection({ npm, gem, manifest, spotify, trello, pause }) {
+function DesktopSection({ npm, gem, spotify, trello, pause }) {
   useEffect(() => {
     (async () => {
       npm(await getNPMData());
       gem(await getGemData());
-      manifest(await getManifestData());
       spotify(await getSpotifyData());
       trello(await getTrelloData());
     })();
     makeDraggable(desktop.current);
-  }, [npm, gem, manifest, spotify, trello]);
+  }, [npm, gem, spotify, trello]);
 
   const store = {
     pause: useSelector(state => state.pause),
@@ -90,4 +88,4 @@ function DesktopSection({ npm, gem, manifest, spotify, trello, pause }) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{ npm, gem, manifest, spotify, trello, pause })(DesktopSection);
+export default connect(mapStateToProps,{ npm, gem, spotify, trello, pause })(DesktopSection);

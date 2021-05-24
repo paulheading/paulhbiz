@@ -3,26 +3,19 @@ import { connect, useSelector } from "react-redux";
 import { Helmet } from 'react-helmet';
 import { TrelloPage } from "components/Trello";
 import getMediumData from "modules/medium";
-import { object } from "modules/helpers";
 import { medium } from "actions";
 
-function BlogPage({medium}) {
-  const store = {
-    manifest: useSelector(state => state.manifest)
-  }
-  
-  // Get SEO information from store
-  const manifest = object.ready(store.manifest) && store.manifest.pages.blog;
+function BlogPage({ medium }) {
+  const store = { seo: useSelector(state => state.seo) }  
+  const seo = store.seo.blog;
 
-  useEffect(() => {
-    (async () => medium(await getMediumData()))();
-  }, [medium]);
+  useEffect(() => (async () => medium(await getMediumData()))(), [medium]);
 
   return (
     <div className="component about-content">
       <Helmet>
-        <title>{manifest.title}</title>
-        <meta name="description" content={manifest.description} />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
       </Helmet>
       <div className="container feed-content">
         <div className="wrap feed-content">

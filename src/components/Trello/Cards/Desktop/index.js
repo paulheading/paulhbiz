@@ -1,12 +1,12 @@
 import React from "react";
 import moment from "moment";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { object, limitLength, filter, print } from "modules/helpers";
 import { Card } from "react-bootstrap";
 import parse from "html-react-parser";
 
-function DesktopCards({ total = 3, date = false }) {
+export default function DesktopCards({ total = 3, date = false }) {
   const trello = useSelector(state => state.trello);
   const hasDate = date ? "has-date" : "";
 
@@ -47,8 +47,4 @@ function DesktopCards({ total = 3, date = false }) {
   }
 
   return cardContents();
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps)(DesktopCards);
+};

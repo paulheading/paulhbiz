@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import temp from "modules/placeholder";
+import seoData from "modules/seo";
 
 const heroData = {
   feed: temp.trello.projects.cards,
@@ -28,7 +29,7 @@ const count = (state = 0, action) => {
 };
 
 const test = (test = false, action) => {
-  if (action.type === "TEST") {
+  if (action.type === "test") {
     return action.payload;
   }
   return test;
@@ -62,8 +63,8 @@ const gem = (data = {}, action) => {
   return data;
 };
 
-const manifest = (data = {}, action) => {
-  if (action.type === "MANIFEST_DATA") {
+const seo = (data = seoData, action) => {
+  if (action.type === "SEO_DATA") {
     return action.payload;
   }
   return data;
@@ -113,7 +114,7 @@ const treehouse = (profile = {}, action) => {
 
 export default combineReducers({
   treehouse,
-  manifest,
+  seo,
   timezone,
   pause,
   spotify,
