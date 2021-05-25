@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { object, filter } from "modules/helpers";
 import { hero } from "actions";
 
-function HeroFeed({ hero }) {
+export default function HeroFeed() {
+  
   const store = {
     hero: useSelector(state => state.hero),
     pause: useSelector(state => state.pause),
@@ -11,19 +12,17 @@ function HeroFeed({ hero }) {
     count: useSelector(state => state.count),
   };
 
+  const write = useDispatch();
+
   useEffect(() => {
     if (object.ready(store.trello) && !store.pause) {
-      hero({
+      write(hero({
         feed: filter.in.hero(store.trello.projects.cards),
         card: filter.in.hero(store.trello.projects.cards)[store.count]
-      });
+      }));
     }
-  }, [hero, store.count, store.trello, store.pause]);
+  }, [write, store.count, store.trello, store.pause]);
 
   return null;
   
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps, { hero })(HeroFeed);
+};

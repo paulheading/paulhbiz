@@ -1,20 +1,17 @@
 import { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { siteWidth } from "actions";
 
-function CalcWidth({ siteWidth }) {
+export default function CalcWidth() {
+  const write = useDispatch();
   useEffect(() => {
     let resize;
-    siteWidth(window.innerWidth);
+    write(siteWidth(window.innerWidth));
     window.addEventListener("resize", () => {
       clearTimeout(resize);
-      resize = setTimeout(() => siteWidth(window.innerWidth), 0);
+      resize = setTimeout(() => write(siteWidth(window.innerWidth)), 0);
     });
-  }, [siteWidth]);
+  }, [write]);
 
   return null;
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps,{ siteWidth })(CalcWidth);
+};

@@ -1,19 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Helmet } from 'react-helmet';
 import NameRow from "./Rows/Name";
 import BiographyRow from "./Rows/Biography";
 import ProjectsRow from "./Rows/Projects";
 import SkillsRow from "./Rows/Skills";
-// import getGithubData from "modules/github";
+import getGithubData from "modules/github";
+import { github } from "actions";
 
 export default function ResumePage() {
   const store = { seo: useSelector(state => state.seo) };
-  // const github = useDispatch();
+  const write = useDispatch();
   const seo = store.seo.resume;
   
-  // https://redux.js.org/tutorials/fundamentals/part-6-async-logic#using-the-redux-thunk-middleware
-  // useEffect(() => (async () => github(await getGithubData()))(), [github]);
+  useEffect(() => (async () => write(github(await getGithubData())))(), [write]);
 
   return (
     <div className="component resume-content">

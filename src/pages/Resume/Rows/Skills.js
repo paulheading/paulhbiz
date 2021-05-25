@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import { object } from "modules/helpers";
 import Badge from "react-bootstrap/Badge";
@@ -7,10 +7,9 @@ import getTreehouseData from "modules/treehouse";
 import { treehouse } from "actions";
 import temp from "modules/placeholder";
 
-function SkillsRow({ treehouse }) {
-  const store = {
-    treehouse: useSelector(state => state.treehouse)
-  };
+export default function SkillsRow() {
+  const store = { treehouse: useSelector(state => state.treehouse) };
+  const write = useDispatch();
 
   const ready = object.ready(store.treehouse);
   const feed = ready ? store.treehouse : temp.treehouse;
@@ -36,7 +35,7 @@ function SkillsRow({ treehouse }) {
     });
   }
 
-  useEffect(() => (async () => treehouse(await getTreehouseData()))(), [treehouse]);
+  useEffect(() => (async () => write(treehouse(await getTreehouseData())))(), [write]);
 
   return (
     <Container className="page-row">
@@ -50,8 +49,4 @@ function SkillsRow({ treehouse }) {
       </Row>
     </Container>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps,{ treehouse })(SkillsRow);
+};

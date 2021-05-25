@@ -25,9 +25,6 @@ export default function HeroSection() {
     svg: svg => svg && <div className="svg hero-content" ref={ref.svg}>{parse(svg)}</div>
   }
 
-  // use hoooks instead of connect
-  // https://www.samdawson.dev/article/react-redux-use-selector-vs-connect
-
   // can't do this => console.log(`${anyRef}`);
   // can do this => console.log(anyRef);
   

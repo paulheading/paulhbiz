@@ -1,13 +1,14 @@
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useLocation, Link } from "react-router-dom";
-import { menuState } from "actions";
+// import { menuState } from "actions";
 import { MobileLogoSvg, DesktopLogoSvg } from "icons";
 import { is } from "modules/helpers";
 
-function DesktopNavigation({ menuState }) {
+export default function DesktopNavigation() {
   const path = useLocation().pathname;
   const siteWidth = useSelector(state => state.siteWidth);
+  // const write = useDispatch();
 
   return (
     <div className={`container site-nav ${is.home(path)}`}>
@@ -24,8 +25,4 @@ function DesktopNavigation({ menuState }) {
       </div>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps, { menuState })(DesktopNavigation);
+};

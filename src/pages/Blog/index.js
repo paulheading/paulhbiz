@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Helmet } from 'react-helmet';
 import { TrelloPage } from "components/Trello";
 import getMediumData from "modules/medium";
 import { medium } from "actions";
 
-function BlogPage({ medium }) {
-  const store = { seo: useSelector(state => state.seo) }  
+export default function BlogPage() {
+  const store = { seo: useSelector(state => state.seo) };
+  const write = useDispatch();
   const seo = store.seo.blog;
 
-  useEffect(() => (async () => medium(await getMediumData()))(), [medium]);
+  useEffect(() => (async () => write(medium(await getMediumData())))(), [write]);
 
   return (
     <div className="component about-content">
@@ -24,8 +25,4 @@ function BlogPage({ medium }) {
       </div>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps,{medium})(BlogPage);
+};

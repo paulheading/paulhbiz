@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Button from "react-bootstrap/Button";
 import makeDraggable from "modules/animations/desktop";
 import { FolderButton } from "components/Buttons";
@@ -16,22 +16,23 @@ import getTrelloData from "modules/trello";
 import { npm, gem, spotify, trello, pause } from "actions";
 import { object } from "modules/helpers";
 
-function DesktopSection({ npm, gem, spotify, trello, pause }) {
-  useEffect(() => {
-    (async () => {
-      npm(await getNPMData());
-      gem(await getGemData());
-      spotify(await getSpotifyData());
-      trello(await getTrelloData());
-    })();
-    makeDraggable(desktop.current);
-  }, [npm, gem, spotify, trello]);
-
+export default function DesktopSection() {
   const store = {
     pause: useSelector(state => state.pause),
     gem: useSelector(state => state.gem),
     npm: useSelector(state => state.npm),
   };
+  const write = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      write(npm(await getNPMData()));
+      write(gem(await getGemData()));
+      write(spotify(await getSpotifyData()));
+      write(trello(await getTrelloData()));
+    })();
+    makeDraggable(desktop.current);
+  }, [write]);
 
   const futuro = object.ready(store.gem) ? { downloads: store.gem.downloads } : { downloads: "20000" };
   const reset = object.ready(store.npm) ? { downloads: store.npm.collected.npm.downloads[5].count } : { downloads: "1000" };
@@ -84,8 +85,4 @@ function DesktopSection({ npm, gem, spotify, trello, pause }) {
       </div>
     </div>
   );
-}
-
-const mapStateToProps = state => state;
-
-export default connect(mapStateToProps,{ npm, gem, spotify, trello, pause })(DesktopSection);
+};
