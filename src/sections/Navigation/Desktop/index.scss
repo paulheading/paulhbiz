@@ -1,6 +1,5 @@
 
 .container.site-nav {
-  @include container-reset;
   min-width: $min-width-body;
   padding-bottom: $padding-navigation;
   padding-top: $padding-navigation;

@@ -1,5 +1,4 @@
 .container.hero-content {
-  @include container-reset;
   @include container-default;
   place-items: center;
   text-align: center;

@@ -1,5 +1,4 @@
 .container.feed-content {
-  @include container-reset;
   @include base-font(400);
   padding-bottom: 5.8125rem;
 
@@ -18,7 +17,7 @@
   }
 
   > .placeholder {
-    @include placeholder($gray-400);
+    // @include placeholder($gray-400);
   }
 
   .focus-visible {

@@ -28,7 +28,7 @@
   top: 0;
 }
 
-@mixin placeholder($col: $gray-300, $max: false) {
+@mixin placeholder($col: $gray-400, $max: false) {
   background-color: $col;
   color: $col;
 
@@ -158,6 +158,13 @@
 @mixin container-reset {
   max-width: none;
   padding: 0;
+}
+
+@mixin row-reset {
+  > * {
+    width: auto;
+    padding: 0;
+  }
 }
 
 @mixin link-site-nav {

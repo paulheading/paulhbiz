@@ -5,7 +5,6 @@
 }
 
 .container.desktop-area {
-  @include container-reset;
   background-color: $teal;
 }
 
@@ -21,12 +20,7 @@
   }
 }
 
-.container.desktop-windows {
-  @include container-reset;
-}
-
 .container.desktop-folders {
-  @include container-reset;
   position: absolute;
   width: auto;
   z-index: 1;

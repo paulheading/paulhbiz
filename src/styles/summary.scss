@@ -34,7 +34,7 @@
     }
 
     &.placeholder {
-      @include placeholder($gray-400);
+      // @include placeholder($gray-400);
     }
   }
 }
@@ -83,7 +83,7 @@
   }
 
   &.placeholder {
-    @include placeholder;
+    // @include placeholder;
     display: block;
     margin: 0;
   }

@@ -1,0 +1,36 @@
+
+.container.page-row {
+  background-color: $white;
+  padding: $padding-navigation;
+
+  @include media-breakpoint-down(xs) {
+    box-shadow: 0 0 0.5rem $gray-300;
+
+    + .container.page-row {
+      margin-top: 2rem;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding: $padding-navigation 2.5rem;
+
+    + .container.page-row {
+      border-top: 1px dashed $gray-300;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    .col-sm-8,
+    .col-sm-4 {
+      @include repeat-margin($val: $font-size-lg);
+    }
+  }
+}
+
+.title.page-row {
+  margin: 0;
+
+  @include media-breakpoint-up(sm) {
+    margin: 0.625rem 0 0;
+  }
+}

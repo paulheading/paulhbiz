@@ -1,6 +1,7 @@
 import { Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import parse from "html-react-parser";
 
 export const object = {
   ready: target => {
@@ -57,11 +58,13 @@ export const filter = {
   }  
 }
 
-export const seo = {
-  title: content => `Paul Heading | ${ content } | Full Stack Designer`
-};
-
 export const print = {
+  seo: content => `Paul Heading | ${ content } | Full Stack Designer`,
+  placeholders: count => {
+    let content = "";
+    for (let index = 0; index < count; index++) { content += "<p class='placeholder'>.</p>"; }
+    return parse(content);
+  },
   label: {
     time: span => {
       if (span > 11) {

@@ -21,8 +21,8 @@ export default function ResumePage() {
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
       </Helmet>
-      <div className="page-content__container">
-        <div className="page-content__wrap">
+      <div className="container page-content">
+        <div className="wrap page-content">
           <NameRow />
           <BiographyRow />
           <ProjectsRow title="Projects" />

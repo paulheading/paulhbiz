@@ -10,7 +10,7 @@ export default function NotFound() {
     <div className="component not-found">
       <Helmet>
         <title>{seo.title}</title>
-        <meta name="description" content={seo.description} />
+        <meta name="description" content={ seo.description } />
       </Helmet>
       <div className="container feed-content">
         <div className="wrap feed-content">

@@ -7,16 +7,11 @@ export default function NameRow() {
     <Container className="page-row">
       <Row>
         <Col sm={8}>
-          <h1 className="page-row__title">Paul Heading</h1>
+          <h1 className="title resume-row">Paul Heading</h1>
         </Col>
         <Col sm={4}>
-          <div className="page-row__address">Hackney, London</div>
-          <a
-            className="link__email"
-            href="mailto:hello@paulh.biz?subject=Hello!"
-          >
-            hello@paulh.biz
-          </a>
+          <div className="address resume-row">Hackney, London</div>
+          <a className="link resume-row" href="mailto:hello@paulh.biz?subject=Hello!">hello@paulh.biz</a>
         </Col>
       </Row>
     </Container>

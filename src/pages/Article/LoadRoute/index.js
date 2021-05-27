@@ -1,17 +1,16 @@
 import React from "react";
 import { Helmet } from 'react-helmet';
-import { seo } from "modules/helpers";
-import LoadingAnimation from "components/LoadingAnimation";
+import { print } from "modules/helpers";
 
 export default function LoadRoute() {
   return (
     <div className="component load-route">
       <Helmet>
-        <title>{ seo.title("Loading route") }</title>
+        <title>{ print.seo("Loading route") }</title>
       </Helmet>
       <div className="container feed-content">
         <div className="wrap feed-content">
-          <LoadingAnimation />
+          { print.placeholders(5) }
         </div>
       </div>
     </div>

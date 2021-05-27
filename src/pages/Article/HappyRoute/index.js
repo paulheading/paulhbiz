@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from 'react-helmet';
 import moment from "moment";
-import { remove, seo, filter } from "modules/helpers";
+import { remove, print, filter } from "modules/helpers";
 import parse from "html-react-parser";
 import { Badge } from "react-bootstrap";
 
@@ -34,7 +34,7 @@ export default function HappyRoute({ card }) {
   return (
     <div className="component about-content">
       <Helmet>
-        <title>{ seo.title(title) }</title>
+        <title>{ print.seo(title) }</title>
         <meta name="description" content={ card.desc } />
       </Helmet>
       <div className="container feed-content">

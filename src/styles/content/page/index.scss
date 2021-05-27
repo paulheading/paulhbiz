@@ -1,0 +1,18 @@
+@import "content";
+@import "row";
+
+.link.social {
+  display: block;
+}
+
+.link.email {
+  display: block;
+}
+
+.skills {
+  margin: -0.25rem;
+
+  .badge {
+    margin: 0.25rem;
+  }
+}

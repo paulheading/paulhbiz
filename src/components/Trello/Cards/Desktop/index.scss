@@ -1,5 +1,5 @@
 .card.trello-card-desktop {
-  padding: $margin-trello-card ($margin-trello-card * 3);
+  padding: $margin-trello ($margin-trello * 3);
   box-shadow: 0 0.125rem #b3b8c5;
   border-radius: $border-radius;
   background-color: $white;
@@ -17,10 +17,10 @@
   }
 
   &.has-date {
-    padding: ($margin-trello-card * 2) ($margin-trello-card * 3);
+    padding: ($margin-trello * 2) ($margin-trello * 3);
     
     @include media-breakpoint-up(md) {
-      grid-column-gap: $margin-trello-card * 2;
+      grid-column-gap: $margin-trello * 2;
       grid-template-columns: 5.5rem auto;
       display: grid;
     }
