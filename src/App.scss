@@ -12,26 +12,25 @@
 @import "styles/content";
 @import "styles/summary";
 
-@import "hooks/WifiSignal";
+@import "hooks/WifiHook";
 
 @import "icons/Spotify";
-@import "icons/MobileLogo";
-@import "icons/DesktopLogo";
+@import "icons/Logo/Mobile";
+@import "icons/Logo/Desktop";
 
 @import "pages/Resume";
-@import "pages/Blog";
+@import "pages/Home";
 @import "pages/NotFound";
 @import "pages/Article/HappyRoute";
 
-@import "sections/Navigation/Desktop";
-@import "sections/Hero";
-@import "sections/Desktop";
-@import "sections/Topbar";
-@import "sections/Marquee";
-@import "sections/Footer";
-@import "sections/Credit";
+@import "blocks/Navigation";
+@import "blocks/Marquee";
+@import "blocks/Topbar";
+@import "blocks/Desktop";
+@import "blocks/Credit";
+@import "blocks/Email";
+@import "blocks/Footer";
 
-@import "components/EmailForm";
 @import "components/Buttons/Folder";
 @import "components/SpotifyFeed";
 @import "components/Trello/Feed";
@@ -58,4 +57,8 @@
     @include media-breakpoint-up(md) { border: 1px solid blue; }
     @include media-breakpoint-up(lg) { border: 1px solid red; }
   }
+}
+
+.row {
+  @include row-reset;
 }

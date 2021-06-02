@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import { object, remove, filter, limitLength, print } from "modules/helpers";
+import { object, remove, filter, limitLength, print } from "modules/_helpers";
 import { Col } from "react-bootstrap";
 import parse from "html-react-parser";
 

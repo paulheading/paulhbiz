@@ -1,0 +1,24 @@
+.component.credit-block {
+  padding-bottom: $font-size-lg;
+  background-color: $teal;
+  color: $c-teal--dark;
+  text-align: center;
+
+  @include media-breakpoint-down(xs) {
+    display: none;
+  }
+}
+
+.credit-block {
+  &.badge {
+    background-color: $c-teal--tint;
+    border-color: $c-teal--tint;
+    color: $white;
+  }
+
+  &.focus-visible {
+    @include double-box($c-teal--dark, $c-teal--dark);
+    background-color: $c-teal--dark;
+    color: $white;
+  }
+}

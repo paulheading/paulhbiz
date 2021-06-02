@@ -162,8 +162,8 @@
 
 @mixin row-reset {
   > * {
-    width: auto;
     padding: 0;
+    margin: 0;
   }
 }
 

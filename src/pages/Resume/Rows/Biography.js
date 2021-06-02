@@ -12,7 +12,7 @@ export default function BiographyRow() {
         </Col>
         <Col sm={4}>
           <a className="link social" href="https://github.com/paulheading">Github</a>
-          <a className="link social" href="https://paulheading.medium.com/">Medium</a>
+          {/* <a className="link social" href="https://paulheading.medium.com/">Medium</a> */}
           <a className="link social" href="https://teamtreehouse.com/paulheading">Treehouse</a>
         </Col>
       </Row>

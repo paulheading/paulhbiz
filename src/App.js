@@ -3,11 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "focus-visible/dist/focus-visible.min.js";
 
-import { HeroFeed, ScrollToTop, CalcWidth } from "hooks";
-import { HeroSection, DesktopSection, TopbarSection, DesktopNavigation, MarqueeSection, FooterSection } from "sections";
-import { AboutPage, ArticlePage, ResumePage, NotFound } from "pages";
-import EmailForm from "components/EmailForm";
-import { test } from "actions";
+import { Layout } from "blocks";
+import { HomePage, AboutPage, ArticlePage, ResumePage, NotFound } from "pages";
+import { test } from "store/actions";
 
 import "./App.scss";
 
@@ -15,12 +13,12 @@ export default function App() {
   const write = useDispatch();
 
   const store = {
-    menu:  useSelector(state => state.menuState),
+    menu:  useSelector(state => state.menu),
     test:  useSelector(state => state.test) 
   };
   
   const routes = [
-    { path: "/", component: HeroSection, exact: true },
+    { path: "/", component: HomePage, exact: true },
     { path: "/about", component: AboutPage, exact: true },
     { path: "/resume", component: ResumePage, exact: true },
     { path: "/article/projects/:route", component: ArticlePage },
@@ -31,24 +29,16 @@ export default function App() {
 
   write(test(false));
 
-  const menuState = store.menu ? "menu-open" : "menu-closed";
-  const testMode = store.test ? "test-mode" : "";
+  const _test = store.test ? "test-mode" : "";
 
   return (
     <BrowserRouter>
-      <CalcWidth />
-      <ScrollToTop />
-      <div className={`component site-wrap ${menuState} ${testMode}`}>
-        <DesktopNavigation />
-        <HeroFeed />
+      <div className={`component site-wrap ${_test}`}>
+      <Layout>
         <Switch>
           { routes.map((route, index) => (<Route key={index} { ...route} />)) }
         </Switch>
-        <MarqueeSection />
-        <TopbarSection />
-        <DesktopSection />
-        <EmailForm />
-        <FooterSection />
+      </Layout>
       </div>
     </BrowserRouter>
   );

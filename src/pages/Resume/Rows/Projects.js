@@ -3,14 +3,13 @@ import { useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { object } from "modules/helpers";
 import { ResumeCards } from "components/Trello";
 
 export default function ProjectsRow({ title }) {
   const trello = useSelector(state => state.trello);
 
   const trelloCards = title => {
-    if (object.ready(trello)) {
+    if (trello.ready) {
       if (title === "Education") {
         return trello.education.cards;
       } else if (title === "Roles") {

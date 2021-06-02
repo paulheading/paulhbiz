@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from 'react-helmet';
 import moment from "moment";
-import { remove, print, filter } from "modules/helpers";
+import { remove, print, filter } from "modules/_helpers";
 import parse from "html-react-parser";
 import { Badge } from "react-bootstrap";
 

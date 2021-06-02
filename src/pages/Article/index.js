@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { object } from "modules/helpers";
+import { object } from "modules/_helpers";
 import { NotFound } from "pages";
 import HappyRoute from "./HappyRoute";
 import LoadRoute from "./LoadRoute";
-import temp from "modules/placeholder";
+import temp from "store";
 
 export default function ArticlePage() {
   const { pathname } = useLocation();

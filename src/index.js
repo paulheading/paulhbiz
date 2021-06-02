@@ -7,10 +7,10 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from 'redux-thunk';
 
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import reducers from "./reducers";
+import "index.css";
+import App from "App";
+import reportWebVitals from "reportWebVitals";
+import reducers from "store/reducers";
 
 ReactDOM.render(
   <Provider store={createStore(reducers, applyMiddleware(thunkMiddleware))}>

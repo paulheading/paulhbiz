@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { object, limitLength, filter, print } from "modules/helpers";
+import { object, limitLength, filter, print } from "modules/_helpers";
 import { Card } from "react-bootstrap";
 import parse from "html-react-parser";
 

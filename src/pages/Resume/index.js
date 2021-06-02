@@ -1,26 +1,26 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Helmet } from 'react-helmet';
+import { useDispatch } from "react-redux";
+import Head from "components/Head";
+
 import NameRow from "./Rows/Name";
 import BiographyRow from "./Rows/Biography";
 import ProjectsRow from "./Rows/Projects";
 import SkillsRow from "./Rows/Skills";
-import getGithubData from "modules/github";
-import { github } from "actions";
+
+import { getGithubData, seo } from "modules";
+import { github } from "store/actions";
 
 export default function ResumePage() {
-  const store = { seo: useSelector(state => state.seo) };
   const write = useDispatch();
-  const seo = store.seo.resume;
-  
-  useEffect(() => (async () => write(github(await getGithubData())))(), [write]);
+
+  useEffect(() => (async () => {
+    const data = { github: await getGithubData() };
+    if (data.github) { write(github(data.github)); }    
+  })(), [write]);
 
   return (
     <div className="component resume-content">
-      <Helmet>
-        <title>{seo.title}</title>
-        <meta name="description" content={seo.description} />
-      </Helmet>
+      <Head { ...seo.resume } />
       <div className="container page-content">
         <div className="wrap page-content">
           <NameRow />

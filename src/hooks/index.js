@@ -1,7 +1,7 @@
-import CalcWidth from "./CalcWidth";
-import Countdown from "./Countdown";
-import ScrollToTop from "./ScrollToTop";
-import WifiSignal from "./WifiSignal";
-import HeroFeed from "./HeroFeed";
+import WidthHook from "./WidthHook";
+import CountHook from "./CountHook";
+import ScrollHook from "./ScrollHook";
+import WifiHook from "./WifiHook";
+import HeroHook from "./HeroHook";
 
-export { CalcWidth, Countdown, ScrollToTop, WifiSignal, HeroFeed };
+export { WidthHook, CountHook, ScrollHook, WifiHook, HeroHook };

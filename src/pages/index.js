@@ -1,13 +1,13 @@
 import AboutPage from "./About";
 import ArticlePage from "./Article";
-import BlogPage from "./Blog";
+import HomePage from "./Home";
 import ResumePage from "./Resume";
 import NotFound from "./NotFound";
 
 export {
   AboutPage,
   ArticlePage,
+  HomePage,
   ResumePage,
-  NotFound,
-  BlogPage
+  NotFound
 };
