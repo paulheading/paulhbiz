@@ -6,8 +6,15 @@ export default function getGemData() {
       headers: { Accept: "application/json" }
     })
     .then(({ data }) => {
+      data = {
+        downloads: data.downloads,
+        ready: true,
+        type: "gem",
+        title: data.name,
+        url: data.project_uri
+      };
       console.log("gem: ", data);
-      return data;
+      return data;      
     })
     .catch(err => console.log(err));
 }

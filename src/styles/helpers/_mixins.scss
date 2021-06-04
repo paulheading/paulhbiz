@@ -28,15 +28,6 @@
   top: 0;
 }
 
-@mixin placeholder($col: $gray-400, $max: false) {
-  background-color: $col;
-  color: $col;
-
-  @if $max {
-    max-width: $max;
-  }
-}
-
 @mixin ph-single-box($bg: $white, $size: 0.25rem) {
   @include single-box($bg, $size);
 }

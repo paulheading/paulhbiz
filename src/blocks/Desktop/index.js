@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "react-bootstrap/Button";
 
-import { FolderButton } from "components/Buttons";
-import DownloadStats from "components/DownloadStats";
-import SpotifyFeed from "components/SpotifyFeed";
+import { Folder } from "components/Buttons";
+import Downloads from "components/Downloads";
+import { SpotifyFeed } from "components/Spotify";
 import { TrelloFeed } from "components/Trello";
 
 import { PauseSvg, PlaySvg } from "icons";
@@ -30,10 +30,10 @@ export default function DesktopBlock() {
         spotify: await getSpotifyData(),
         trello: await getTrelloData(),
       }
-      if (data.npm) { write(npm(data.npm.collected.npm.downloads[5].count)); }
-      if (data.gem) { write(gem(data.gem.downloads)); }
+      if (data.npm) { write(npm(data.npm)); }
+      if (data.gem) { write(gem(data.gem)); }
       // if (data.spotify) { write(spotify(data.spotify)); }
-      if (data.trello) { write(trello(data.trello)); }
+      // if (data.trello) { write(trello(data.trello)); }
     })();
     makeDraggable(desktop.current);
   }, [write]);
@@ -48,35 +48,33 @@ export default function DesktopBlock() {
         <div className="wrap desktop-block">
           
           <div ref={desktop} className="container desktop-windows">
+
             <SpotifyFeed />
             <TrelloFeed context="desktop" />
+          
           </div>
           
           <div className="container desktop-folders">
 
             <div className="wrap desktop-folders">
 
-              <FolderButton
+              <Folder
                 title="Spotify"
                 input={spotifyFolder}
                 output={setSpotifyFolder} />
-              <FolderButton
+              <Folder
                 title="Trello"
                 input={trelloFolder}
                 output={setTrelloFolder} />
 
             </div>
 
-            <DownloadStats
-              type="rubygem" 
-              name="futuro" 
-              downloads={store.gem.downloads} />
-            <DownloadStats 
-              type="npm"
-              name="barbican-reset" 
-              downloads={store.npm.downloads} />
+            <Downloads { ...store.gem } />
+            <Downloads { ...store.npm } />
 
-            <Button className="pause-play" variant="link" onClick={() => pause(!store.pause)}>{ store.pause ? <PlaySvg /> : <PauseSvg /> }</Button>
+            <Button className="pause-play" variant="link" onClick={() => pause(!store.pause)}>
+              { store.pause ? <PlaySvg /> : <PauseSvg /> }
+            </Button>
 
           </div>
         </div>

@@ -10,7 +10,7 @@ import MobileLogo from "./Logo/Mobile";
 // import RightArrowSvg from "./_RightArrow";
 import FolderOpenSvg from "./Folder/Open";
 import FolderClosedSvg from "./Folder/Closed";
-import RubyGemSvg from "./Gem";
+import GemSvg from "./Gem";
 import NpmSvg from "./Npm";
 import PauseSvg from "./Pause";
 import PlaySvg from "./Play";
@@ -28,7 +28,7 @@ export {
   // RightArrowSvg,
   FolderOpenSvg,
   FolderClosedSvg,
-  RubyGemSvg,
+  GemSvg,
   NpmSvg,
   PauseSvg,
   PlaySvg

@@ -1,9 +1,8 @@
-import React from "react";
 
-export default function SpotifySvg({ className }) {
+export default function SpotifySvg() {
   return (
     <svg
-      className={`spotify-svg ${className}`}
+      className="spotify-svg"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 167.5 167.5"
     >

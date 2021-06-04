@@ -6,6 +6,14 @@ export default function getNPMData() {
       headers: { Accept: "application/json" }
     })
     .then(({ data }) => {
+      data = data.collected;
+      data = {
+        downloads: data.npm.downloads[5].count,
+        ready: true,
+        type: "npm",
+        title: data.metadata.name,
+        url: data.metadata.links.npm
+      }
       console.log("npm: ", data);
       return data;
     })

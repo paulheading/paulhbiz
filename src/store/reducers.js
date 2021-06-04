@@ -9,9 +9,9 @@ const count = (data = init.count, { type, payload }) => { if (type === "COUNT") 
 const test = (data = "test data", { type, payload }) => { if (type === "TEST") { return payload; } return data; };
 const pause = (data = init.pause, { type, payload }) => { if (type === "PAUSE") { return payload; } return data; };
 const menu = (data = "menu data", { type, payload }) => { if (type === "MENU") { return payload; } return data; };
-const npm = (data = init.npm.downloads, { type, payload }) => { if (type === "NPM") { return payload; } return data; };
-const gem = (data = init.gem.downloads, { type, payload }) => { if (type === "GEM") { return payload; } return data; };
-const timezone = (data = "timezone data", { type, payload }) => { if (type === "TIMEZONE") { return payload; } return data; };
+const npm = (data = init.npm, { type, payload }) => { if (type === "NPM") { return payload; } return data; };
+const gem = (data = init.gem, { type, payload }) => { if (type === "GEM") { return payload; } return data; };
+const timezone = (data = init.timezone, { type, payload }) => { if (type === "TIMEZONE") { return payload; } return data; };
 const trello = (data = init.trello, { type, payload }) => { if (type === "TRELLO") { return payload; } return data; };
 const medium = (data = "medium data", { type, payload }) => { if (type === "MEDIUM") { return payload; } return data; };
 const spotify = (data = init.spotify, { type, payload }) => { if (type === "SPOTIFY") { return payload; } return data; };

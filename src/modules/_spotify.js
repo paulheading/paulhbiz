@@ -49,12 +49,15 @@ export default async function getSpotifyData() {
         ready: true,
         profile: `https://open.spotify.com/user/${data.owner.display_name}`,
         tracks: data.tracks.items.map(({ track }) => ({
-          artists: track.artists,
+          artist: {
+            url: track.artists[0].external_urls.spotify,
+            name: track.artists[0].name
+          },
           url: track.external_urls.spotify,
           name: track.name,
         })),
         playlist: {
-          images: data.images,
+          image: data.images[1].url,
           owner: data.owner.display_name,
           name: data.name,
           url: data.external_urls.spotify,

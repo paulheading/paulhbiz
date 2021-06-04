@@ -4,7 +4,7 @@ import Badge from "react-bootstrap/Badge";
 import { FolderClosedSvg, FolderOpenSvg } from "icons";
 import gsap from 'gsap';
 
-export default function FolderButton({ title, input, output }) {
+export default function Folder({ title, input, output }) {
   const tl = gsap.timeline({ defaults: { duration: 0.2, ease: "power1.in" } });
   const target = `.container.${title.toLowerCase()}-feed`; 
   
@@ -19,10 +19,10 @@ export default function FolderButton({ title, input, output }) {
   }
 
   return (
-    <div className="folder-button container">
-      <Button onClick={toggleState} className="folder-button" variant="link">
+    <div className="component folder">
+      <Button onClick={toggleState} className="folder" variant="link">
         { input ? <FolderOpenSvg /> : <FolderClosedSvg /> }
-        <Badge className="folder-button" pill>{title}</Badge>
+        <Badge className="folder" pill>{title}</Badge>
       </Button>
     </div>
   );

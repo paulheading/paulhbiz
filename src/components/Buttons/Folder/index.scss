@@ -1,11 +1,9 @@
 
-.container.folder-button {
+.component.folder {
   @include inline-block;
-  max-width: none;
-  padding: 0;
 }
 
-.btn.folder-button {
+.btn.folder {
 
   svg {
     display: block;
@@ -20,7 +18,7 @@
   }
 }
 
-.badge.folder-button {
+.badge.folder {
   background-color: $c-teal--tint;
   border-color: $c-teal--tint;
   margin-top: 0.25rem;

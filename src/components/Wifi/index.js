@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { signal } from "animations/desktop";
 
-export default function WifiHook() {
+export default function Wifi() {
   const wifi = useRef(null);
 
   useEffect(() => signal(wifi.current), []);

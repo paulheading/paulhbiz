@@ -2,7 +2,6 @@
 @import "~barbican-reset/bootstrap/helpers";
 @import "~barbican-reset/helpers";
 @import "~barbican-reset/bootstrap";
-@import "~barbican-reset/scss/placeholder";
 
 @import "styles/helpers";
 @import "styles/base";
@@ -11,8 +10,6 @@
 @import "styles/container";
 @import "styles/content";
 @import "styles/summary";
-
-@import "hooks/WifiHook";
 
 @import "icons/Spotify";
 @import "icons/Logo/Mobile";
@@ -32,12 +29,13 @@
 @import "blocks/Footer";
 
 @import "components/Buttons/Folder";
-@import "components/SpotifyFeed";
+@import "components/Spotify/Feed";
 @import "components/Trello/Feed";
 @import "components/Trello/Cards/Desktop";
 @import "components/Trello/Cards/Resume";
 @import "components/Trello/Pages";
-@import "components/DownloadStats";
+@import "components/Downloads";
+@import "components/Wifi";
 
 #root {
   height: 100%;

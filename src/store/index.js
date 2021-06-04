@@ -35,9 +35,12 @@ const tracks = count => {
   let tracks = [];
   for (let index = 0; index < count; index++) {
     tracks.push({
-      artists: [{ name: "", external_urls: { spotify: "" } }],
-      name: "",
-      url: "",
+      artist: { 
+        name: ".", 
+        url: null 
+      },
+      name: ".",
+      url: null,
     });
   }
   return tracks;
@@ -45,13 +48,13 @@ const tracks = count => {
 
 const spotify = {
   ready: false,
-  profile: "",
-  tracks: tracks(5),
+  profile: ".",
+  tracks: tracks(3),
   playlist: {
-    images: [{}, { url: "" }],
-    owner: "",
-    name: "",
-    url: "",
+    image: null,
+    owner: ".",
+    name: ".",
+    url: null,
   }
 }
 
@@ -66,18 +69,37 @@ const treehouse = {
   profile_url: "https://teamtreehouse.com/paulheading"
 }
 
+const timezone = {
+  ready: false,
+  location: ".",
+  time: "."
+}
+
+const gem = {
+  downloads: ".",
+  ready: false,
+  type: "gem",
+  title: ".",
+  url: null,  
+};
+
+const npm = {
+  downloads: ".",
+  ready: false,
+  type: "npm",
+  title: ".",
+  url: null,  
+};
+
 const init = {
   trello,
   spotify,
   treehouse,
+  timezone,
   pause: false,
   count: 0,
-  gem: {
-    downloads: 20000
-  },
-  npm: {
-    downloads: 1000
-  },
+  gem,
+  npm
 }
 
 export default init;

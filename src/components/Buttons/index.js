@@ -1,3 +1,3 @@
-import FolderButton from "./Folder";
+import Folder from "./Folder";
 
-export { FolderButton };
+export { Folder };
