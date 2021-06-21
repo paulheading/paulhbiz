@@ -6,13 +6,12 @@ import { TrelloPage } from "components/Trello";
 export default function BiographyRow() {
   return (
     <Container className="page-row">
-      <Row>
-        <Col sm={8}>
+      <Row className="page-row">
+        <Col className="resume-biography">
           <TrelloPage name="Biography" />
         </Col>
-        <Col sm={4}>
+        <Col className="resume-social">
           <a className="link social" href="https://github.com/paulheading">Github</a>
-          {/* <a className="link social" href="https://paulheading.medium.com/">Medium</a> */}
           <a className="link social" href="https://teamtreehouse.com/paulheading">Treehouse</a>
         </Col>
       </Row>

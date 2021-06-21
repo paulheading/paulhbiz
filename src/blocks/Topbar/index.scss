@@ -1,9 +1,9 @@
 .component.topbar-block {
-  border-bottom: 0.25rem solid $c-teal--shade;
+  border-bottom: $margin-sm solid $c-teal--shade;
   background-color: $c-teal--tint;
-  padding-bottom: 0.5rem;
+  padding-bottom: $margin-md;
+  padding-top: $margin-md;
   color: $c-teal--dark;
-  padding-top: 0.5rem;
   text-align: center;
 }
 

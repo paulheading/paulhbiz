@@ -16,9 +16,9 @@ $c-teal--dark: darken($teal, 35%);
 $font-family-base: neue-haas-grotesk-text, sans-serif;
 $headings-font-family: neue-haas-grotesk-display, sans-serif;
 
-$font-size-body:    1.25rem;
+$font-size-body: 1.25rem;
 $font-size-desktop: $font-size-body * 0.9;
-$font-size-nav:     $font-size-body * 1.1;
+$font-size-nav: $font-size-body * 1.1;
 
 $line-height-sm: 1.3;
 
@@ -34,11 +34,12 @@ $max-width-page: 87.5%;
 $max-width-desktop: 60rem;
 $max-width-feed: 20rem;
 
-$padding-navigation: 1.5625rem; 
+$padding-navigation: 1.5625rem;
 
-$margin-trello: 0.25rem;
-$margin-badge: $margin-trello * 2;
+$margin-sm: 0.25rem;
+$margin-md: 0.5rem;
+$margin-lg: 1rem;
 
-$green : hsl(134, 60%, 33%);
-$blue  : hsl(211, 100%, 46%);
-$lime  : hsl(85, 100%, 60%);
+$green: hsl(134, 60%, 33%);
+$blue: hsl(211, 100%, 46%);
+$lime: hsl(85, 100%, 60%);

@@ -1,12 +1,12 @@
 .badge {
   border: 1px solid $gray-600;
-  padding: 0.375rem 0.5rem;
+  padding: 0.375rem $margin-md;
   transition: none;
   font-weight: 600;
   font-size: 80%;
 
   &:not(:last-of-type) {
-    margin-right: $margin-badge;
+    margin-right: $margin-md;
   }
 }
 
@@ -23,6 +23,11 @@
   border-color: $black;
 }
 
-.badge.placeholder {
-  // @include placeholder;
+.badge.points {
+  margin: 0.25rem;
+
+  &.placeholder {
+    @include placeholder;
+    border-color: transparent;
+  }
 }

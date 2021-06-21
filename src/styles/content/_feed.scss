@@ -16,8 +16,8 @@
     font-size: $font-size-nav;
   }
 
-  > .placeholder {
-    // @include placeholder($gray-400);
+  .placeholder {
+    @include placeholder-animation($width: 100%);
   }
 
   .focus-visible {
@@ -25,11 +25,11 @@
   }
 
   .badge:not(.split) {
-    padding: 0.5rem;
+    padding: $margin-md;
   }
 
   p {
-    margin-bottom: 1rem;
+    margin-bottom: $margin-lg;
 
     &:last-child {
       margin-bottom: 0;
@@ -43,9 +43,9 @@
 }
 
 .summary.feed-content {
-  margin: 0 -0.5rem 1rem;
+  margin: 0 -$margin-md 1rem;
 
   .badge, a {
-    margin: 0.5rem;
+    margin: $margin-md;
   }
 }

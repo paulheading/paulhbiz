@@ -32,8 +32,8 @@ export default function DesktopBlock() {
       }
       if (data.npm) { write(npm(data.npm)); }
       if (data.gem) { write(gem(data.gem)); }
-      // if (data.spotify) { write(spotify(data.spotify)); }
-      // if (data.trello) { write(trello(data.trello)); }
+      if (data.spotify) { write(spotify(data.spotify)); }
+      if (data.trello) { write(trello(data.trello)); }
     })();
     makeDraggable(desktop.current);
   }, [write]);
@@ -72,9 +72,9 @@ export default function DesktopBlock() {
             <Downloads { ...store.gem } />
             <Downloads { ...store.npm } />
 
-            <Button className="pause-play" variant="link" onClick={() => pause(!store.pause)}>
+            {/* <Button className="pause-play" variant="link" onClick={() => pause(!store.pause)}>
               { store.pause ? <PlaySvg /> : <PauseSvg /> }
-            </Button>
+            </Button> */}
 
           </div>
         </div>

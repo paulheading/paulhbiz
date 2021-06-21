@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import parse from "html-react-parser";
-import { print } from "modules/_helpers";
+import { print } from "modules/helpers";
 
 export default function TrelloPage({ name }) {
   const trello = useSelector(state => state.trello);

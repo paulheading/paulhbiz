@@ -1,55 +1,26 @@
 import React from "react";
-import moment from "moment";
-import { Link } from "react-router-dom";
-import { object, remove, filter, limitLength, print } from "modules/_helpers";
+import { useSelector } from "react-redux";
+import { filter, print } from "modules/helpers";
 import { Col } from "react-bootstrap";
-import parse from "html-react-parser";
 
-export default function ResumeCards({ source, total = 3, title }) {
+export default function ResumeCards({ title }) {
+  const trello = useSelector(state => state.trello);
+  let content = trello.ready ? filter.trello(trello, title) : filter.out.hero(trello.projects.cards); 
+  content = content.filter((_, index) => index < 3);
 
-  const linkName = card => {
-    const more = filter.in.more(card.attachments);
-    const name = remove.hero(card.name);
-    return <Link className="link trello-card-resume" to={more.url}>{parse(name)}</Link>;
-  }
-
-  const printDates = card => {
-    const date = title !== "Roles" ? moment(card.due) : moment(card.start);
-    const handle = title !== "Roles" ? "Finished" : "Started";
-    const hasFinished = () => <span><strong>{handle}:</strong> {date.format(`MMM YYYY`)}</span>;
-    
-    return <div className="due trello-card-resume">{ card.due ?  hasFinished() : "Ongoing" }</div>;
-  }
-
-  const printPlaceholders = () => {
-    const cards = [];
-    for (let index = 0; index < total; index++) {
-      cards.push( 
-      <Col sm={4} key={`placeholder-${index}`}>
-        <div className="title trello-card-resume placeholder">.</div>
-        <div className="desc trello-card-resume placeholder">.</div>
-      </Col>
-      );
-    }
-    return cards;
-  }
-
-  const printCard = card => {
+  return content.map((card, index) => {
+    const placeholder = card.placeholder ? "placeholder" : "";
     return (
-      <Col sm={4} key={card.id}>
-        {card.labels && print.labels(card)}
-        <div className="wrap trello-card-resume-title">
-          {linkName(card)}
-          {printDates(card)}
+      <Col className="resume-card" key={`resume-card-${index}`}>
+        {card.labels && print.labels(card.labels)}
+        <div className="wrap resume-card-title">
+          {print.resume.name(card)}
+          {print.resume.dates(card)}
         </div>
-        <div className="desc trello-card-resume">
-          {parse(limitLength(card.desc))}
+        <div className={`copy resume-card ${placeholder}`}>
+          {filter.string(card.desc)}
         </div>
       </Col>
     );
-  }
-
-  const cardContents = source => !object.ready(source) ? printPlaceholders() : source.map((card,index) => index < total ? printCard(card) : null);
-
-  return cardContents(source);
+  });
 };

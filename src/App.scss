@@ -60,3 +60,7 @@
 .row {
   @include row-reset;
 }
+
+.resume-link {
+  margin-top: $margin-lg;
+}

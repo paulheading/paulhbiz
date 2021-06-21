@@ -7,8 +7,9 @@
 }
 
 .title.resume-row {
+  margin-bottom: 0;
+
   &.placeholder {
-    @include placeholder;
-    max-width: 25%;
+    @include placeholder($width: 25%);
   }
 }

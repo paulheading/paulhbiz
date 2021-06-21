@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { filter, remove } from "modules/_helpers";
+import { filter, remove } from "modules/helpers";
 import marquee from "animations/marquee";
 import parse from "html-react-parser";
 

@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { filter } from "modules/_helpers";
+import { filter } from "modules/helpers";
 import { hero } from "store/actions";
 
 export default function HeroHook() {
-  
   const store = {
     hero: useSelector(state => state.hero),
     pause: useSelector(state => state.pause),
@@ -13,15 +12,13 @@ export default function HeroHook() {
   };
 
   const write = useDispatch();
-  const live = store.trello.ready;
+  const ready = store.trello.ready;
   const cards = store.trello.projects.cards;
-
-  useEffect(() => {
-    if (live) {
-      write(hero({ feed: filter.in.hero(cards), card: filter.in.hero(cards)[store.count] }));
-    }
-  }, [write, live, cards, store.count, store.pause]);
-
-  return null;
   
+  useEffect(() => {
+    const feed = filter.in.hero(cards);
+    if (ready) { write(hero({ feed, card: feed[store.count] })); }
+  }, [write, ready, cards, store.count, store.pause]);
+
+  return null;  
 };

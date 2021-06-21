@@ -1,28 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { object } from "modules/_helpers";
 import { NotFound } from "pages";
 import HappyRoute from "./HappyRoute";
 import LoadRoute from "./LoadRoute";
-import temp from "store";
 
 export default function ArticlePage() {
   const { pathname } = useLocation();
-  const store = { trello: useSelector(state => state.trello) };
+  const trello = useSelector(state => state.trello);
+  const cards = [ ...trello.projects.cards, ...trello.roles.cards, ...trello.education.cards];
   let valid = false;
   let data = {};
 
-  temp.trello.projects.cards.forEach(card => { if (card.route === pathname) { valid = true; data = card; }});
-
   function validateRoute() { 
-    if (!object.ready(store.trello)) {
+    if (!trello.ready) {
       return <LoadRoute />;
     } else {
-      [ ...store.trello.projects.cards, 
-        ...store.trello.roles.cards, 
-        ...store.trello.education.cards].forEach(card => { if (card.route === pathname) { valid = true; data = card; }});
-      return valid ? <HappyRoute card={data} /> : <NotFound />;
+      cards.forEach(card => { if (card.route === pathname) { valid = true; data = card; }});
+      return valid ? <HappyRoute { ...data } /> : <NotFound />;
     }
   }
 

@@ -3,11 +3,11 @@
 }
 
 .container.marquee-block {
-  border-bottom: 0.25rem solid $black;
-  border-top: 0.25rem solid $black;
+  border-bottom: $margin-sm solid $black;
+  border-top: $margin-sm solid $black;
+  padding-bottom: $margin-sm * 3;
+  padding-top: $margin-sm * 3;
   background-color: $white;
-  padding-bottom: 0.75rem;
-  padding-top: 0.75rem;
   white-space: nowrap;
   overflow: hidden;
   max-width: none;
@@ -26,7 +26,7 @@
     border-top-right-radius: $border-radius;
     border-top-left-radius: $border-radius;
     background-color: $black;
-    padding: 1rem;    
+    padding: $margin-lg;    
 
     &.focus-visible {
       @include ph-double-box;

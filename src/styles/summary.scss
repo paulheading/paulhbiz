@@ -20,7 +20,7 @@
       @include media-breakpoint-down(xs) {
         line-height: $headings-line-height;
         font-size: $h5-font-size;
-        margin-top: 0.75rem;
+        margin-top: $margin-sm * 3;
       }
     }
 
@@ -43,7 +43,7 @@
   @include repeat-margin;
 
   .card-body {
-    padding: 0.75rem;
+    padding: $margin-sm * 3;
 
     @include media-breakpoint-up(sm) {
       display: grid;
@@ -79,7 +79,7 @@
 
 .summary-title {
   @include media-breakpoint-up(sm) {
-    margin-right: 0.5rem;
+    margin-right: $margin-md;
   }
 
   &.placeholder {

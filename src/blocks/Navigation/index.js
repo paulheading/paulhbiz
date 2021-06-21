@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useLocation, Link } from "react-router-dom";
 import { MobileLogo, DesktopLogo } from "icons";
-import { is } from "modules/_helpers";
+import { is } from "modules/helpers";
 
 export default function NavigationBlock() {
   const path = useLocation().pathname;

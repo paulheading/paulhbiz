@@ -1,6 +1,6 @@
 import axios from "axios";
 import showdown from "showdown";
-import { remove, pathify } from "modules/_helpers";
+import { remove, pathify } from "modules/helpers";
 import { tl1, tl2 } from "animations/hero";
 
 const converter = new showdown.Converter();
@@ -27,15 +27,10 @@ const getTrello = target => axios
 
 const promiseData = target => Promise.all(target).then(data => data);
 
-const getCardsOnList = (id = TRELLO.LIST.HERO) => getTrello(`list/${id}/cards/`).then(data => {
-  return !data ? null : data.map(value => {
-    value.desc = converter.makeHtml(value.desc);
-    return value;
-  });
-});
+const getCardsOnList = (id = TRELLO.LIST.HERO) => getTrello(`list/${id}/cards/`);
 
 const getSvgsOnCard = actions => {
-  let result;
+  let result = null;
   actions.forEach(({ data }) => {
     if (data.text) {
       if (data.text.startsWith("`<svg")) {
@@ -55,7 +50,7 @@ const attachAnimation = card => card.animation = (pause, target) => {
   }
 }
 
-const getCardData = async (id, label) => {
+const getCardData = async (id, list) => {
   let data = await getCardsOnList(id);
 
   if (!data) { 
@@ -64,13 +59,16 @@ const getCardData = async (id, label) => {
     data = data.map(async card => {
       const actions = await getTrello(`cards/${card.id}/actions`);
       const attachments = await getTrello(`cards/${card.id}/attachments`);
-      const route = `/article/${label}/${pathify(remove.hero(card.name))}`;
+      const route = `/article/${pathify(list)}/${pathify(remove.hero(card.name))}`;
       card.route = route;
       card.actions = actions;
       card.attachments = attachments;
-      if (label !== "pages") { card.attachments.push({ name: "Read more", url: route }); }
+      card.list = { name: list };
+      card.desc = converter.makeHtml(card.desc);
+      if (list !== "Pages") { card.attachments.push({ name: "Read more", url: route }); }
       card.svg = getSvgsOnCard(actions);
-      card.className = `card-${card.id}`;
+      card.class = `card-${card.id}`;
+      card.placeholder = false;
       attachAnimation(card);
       return card;
     });
@@ -87,19 +85,19 @@ export default async function getTrelloData() {
   const data = {
     pages: {
       info: await getList(TRELLO.LIST.PAGES),
-      cards: await getCardData(TRELLO.LIST.PAGES, "pages"),
+      cards: await getCardData(TRELLO.LIST.PAGES, "Pages"),
     },
     projects: {
       info: await getList(TRELLO.LIST.PROJECTS),
-      cards: await getCardData(TRELLO.LIST.PROJECTS, "projects"),
+      cards: await getCardData(TRELLO.LIST.PROJECTS, "Projects"),
     },
     roles: {
       info: await getList(TRELLO.LIST.ROLES),
-      cards: await getCardData(TRELLO.LIST.ROLES, "roles"),
+      cards: await getCardData(TRELLO.LIST.ROLES, "Roles"),
     },
     education: {
       info: await getList(TRELLO.LIST.EDUCATION),
-      cards: await getCardData(TRELLO.LIST.EDUCATION, "education"),
+      cards: await getCardData(TRELLO.LIST.EDUCATION, "Education"),
     },
   };
 

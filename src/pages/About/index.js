@@ -9,7 +9,7 @@ export default function AboutPage() {
   const trello = useSelector(state => state.trello);
 
   const print = {
-    link: trello.ready ? <p>My online resume is <Link to="/resume">available here</Link>.</p> : <p className="placeholder">.</p>
+    link: trello.ready ? <p className="copy resume-link">My online resume is <Link to="/resume">available here</Link>.</p> : <p className="copy resume-link placeholder">.</p>
   }
 
   return (

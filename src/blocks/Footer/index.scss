@@ -1,15 +1,15 @@
 
 @mixin footer-margin {
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
+  margin-right: $margin-md;
+  margin-left: $margin-md;
 }
 
 .container.footer-block {
   @include container-reset;
+  padding-bottom: $margin-lg;
+  padding-top: $margin-lg;
   background-color: $black;
-  padding-bottom: 1rem;
   text-align: center;
-  padding-top: 1rem;
   font-weight: 800;
   color: $white;
 }

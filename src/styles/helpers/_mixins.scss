@@ -28,7 +28,7 @@
   top: 0;
 }
 
-@mixin ph-single-box($bg: $white, $size: 0.25rem) {
+@mixin ph-single-box($bg: $white, $size: $margin-sm) {
   @include single-box($bg, $size);
 }
 
@@ -60,6 +60,7 @@
 
 @mixin trello-section {
   grid-template-columns: auto 1.5rem;
+  align-items: center;
   padding: 0.625rem;
   display: grid;
 }
@@ -122,7 +123,7 @@
 
 @mixin style-date {
   font-size: $font-size-sm;
-  margin-top: 0.25rem;
+  margin-top: $margin-sm;
   color: $gray-700;
   display: block;
 }
@@ -184,7 +185,7 @@
   a {
     border-radius: $border-radius-lg;
     background-color: $black;
-    padding: 0.375rem 0.5rem;
+    padding: 0.375rem $margin-md;
     text-decoration: none;
     display: block;
     color: $lime;
@@ -204,7 +205,7 @@
   padding: 0;
 
   span {
-    padding: 0.5rem;
+    padding: $margin-md;
 
     &:first-child {
       background-color: $col;

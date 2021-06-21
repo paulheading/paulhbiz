@@ -21,10 +21,10 @@ export default function SkillsRow() {
   
     return list.map((topic,index) => {
       const value = points[topic];
-      const placeholder = store.treehouse.ready ? "purple" : "placeholder";
+      const classes = store.treehouse.ready ? "points purple" : "points placeholder";
   
       if (topic !== "total") {
-        return value >= 100 && <Badge className={placeholder} key={`topic-${index}`}>{topic} {value}</Badge>;
+        return value >= 100 && <Badge className={classes} key={`topic-${index}`}>{topic} {value}</Badge>;
       }
       return null;
     });
@@ -34,11 +34,11 @@ export default function SkillsRow() {
 
   return (
     <Container className="page-row">
-      <Row>
-        <Col sm={12}>
+      <Row className="page-row --points">
+        <Col className="full-width">
           <h2 className="title resume-row">Skills</h2>
         </Col>
-        <Col className="skills" sm={12}>
+        <Col className="skills">
           {printSkills()}
         </Col>
       </Row>

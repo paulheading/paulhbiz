@@ -1,23 +1,23 @@
 import React from "react";
-import { Helmet } from 'react-helmet';
+import Head from "components/Head";
 import moment from "moment";
-import { remove, print, filter } from "modules/_helpers";
+import { remove, print, filter } from "modules/helpers";
 import parse from "html-react-parser";
 import { Badge } from "react-bootstrap";
 
-export default function HappyRoute({ card }) {
-  const live = filter.in.live(card.attachments);
-  const code = filter.in.code(card.attachments);
-  const title = remove.hero(card.name);
-  const start = moment(card.start);
-  const due = card.due ? moment(card.due) : moment();
+export default function HappyRoute(data) {
+  const live = filter.in.live(data.attachments);
+  const code = filter.in.code(data.attachments);
+  const title = remove.hero(data.name);
+  const start = moment(data.start);
+  const due = data.due ? moment(data.due) : moment();
   let span = moment(due).diff(start, "months");
   span = span > 1 ? `${span} Months` : `${span} Month`; 
 
-  function dateSummary() {
+  function DateSummary() {
     const invalid = "Invalid date";
     const project = {
-      due: () => card.dueComplete ? <Badge className="project-due split"><span>Finished</span><span>{due.format("MMM YYYY")}</span></Badge> : <Badge className="project-due bg-dark">In progress</Badge>,
+      due: () => data.dueComplete ? <Badge className="project-due split"><span>Finished</span><span>{due.format("MMM YYYY")}</span></Badge> : <Badge className="project-due bg-dark">In progress</Badge>,
       span: () => <Badge className="project-span split"><span>Lasted</span><span>{span}</span></Badge>
     };
 
@@ -33,19 +33,16 @@ export default function HappyRoute({ card }) {
   
   return (
     <div className="component about-content">
-      <Helmet>
-        <title>{ print.seo(title) }</title>
-        <meta name="description" content={ card.desc } />
-      </Helmet>
+      <Head title={ print.seo(title) } description={ data.desc } />
       <div className="container feed-content">
         <div className="wrap feed-content">
           <h1>{ title }</h1>
-          {dateSummary()}
+          <DateSummary />
           <p className="summary feed-content">
             { live && <a href={live.url}>See project</a> }
             { code && <a href={code.url}>See code</a> }
           </p>
-          { card.desc && parse(card.desc) }          
+          { data.desc && parse(data.desc) }          
          </div>
       </div>
     </div>

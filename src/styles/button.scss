@@ -17,9 +17,9 @@
   }
 
   @include core;
+  padding: ($margin-sm * 3) 1rem;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  padding: 0.75rem 1rem;
 
   &:not(:disabled):not(.disabled) {
 

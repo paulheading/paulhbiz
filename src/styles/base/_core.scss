@@ -15,7 +15,7 @@ p {
   @include repeat-margin;
 
   &.placeholder {
-    @include placeholder;
+    @include placeholder-animation;
 
     &:nth-child(even) {
       max-width: 90%;

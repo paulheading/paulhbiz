@@ -4,7 +4,7 @@ import Head from "components/Head";
 
 import NameRow from "./Rows/Name";
 import BiographyRow from "./Rows/Biography";
-import ProjectsRow from "./Rows/Projects";
+import CardsRow from "./Rows/Cards";
 import SkillsRow from "./Rows/Skills";
 
 import { getGithubData, seo } from "modules";
@@ -25,10 +25,10 @@ export default function ResumePage() {
         <div className="wrap page-content">
           <NameRow />
           <BiographyRow />
-          <ProjectsRow title="Projects" />
-          <ProjectsRow title="Roles" />
+          <CardsRow title="Projects" />
+          <CardsRow title="Roles" />
           <SkillsRow title="Skills" />
-          <ProjectsRow title="Education" />
+          <CardsRow title="Education" />
         </div>
       </div>
     </div>

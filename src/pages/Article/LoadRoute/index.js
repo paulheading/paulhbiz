@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from 'react-helmet';
-import { print } from "modules/_helpers";
+import { print } from "modules/helpers";
 
 export default function LoadRoute() {
   return (

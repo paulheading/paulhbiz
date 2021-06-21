@@ -1,50 +1,25 @@
 import React from "react";
-import moment from "moment";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { object, limitLength, filter, print } from "modules/_helpers";
+import { filter, print } from "modules/helpers";
 import { Card } from "react-bootstrap";
-import parse from "html-react-parser";
 
-export default function DesktopCards({ total = 3, date = false }) {
+export default function DesktopCards() {
   const trello = useSelector(state => state.trello);
-  const hasDate = date ? "has-date" : "";
+  const subtitle = <span className="title card-subtitle placeholder">.</span>;
 
-  const printDate = due => <div className="date trello-card-desktop">{ due ? moment(due).format("MMM YYYY") : "Ongoing" }</div>;
-
-  function cardContents() {
-    if (!object.ready(trello)) {
-      const cards = [];
-      for (let index = 0; index < total; index++) {
-        cards.push( 
-        <Card className={`trello-card-desktop ${hasDate}`} key={`placeholder-${index}`}>
-          <div className="title trello-card-desktop placeholder">.</div>
-          <div className="desc trello-card-desktop placeholder">.</div>
-        </Card>
-        );
-      }
-      return cards;
-    } else {
-      return filter.out.hero(trello.projects.cards).map((card,index) => {
-        const link = filter.in.more(card.attachments);
-
-        if (index < total) {
-          return (
-            <Card className={`trello-card-desktop ${hasDate}`} key={card.id}>
-              { date && printDate(card.due) }
-              <div className="wrap trello-card-desktop-inner">
-                <Link className="link trello-card-desktop" to={link.url}>
-                  { parse(limitLength(card.name,40)) }
-                </Link>
-                { card.labels && print.labels(card, date) }
-              </div>
-            </Card>
-          );
-        }
-        return null;
-      });
-    }
-  }
-
-  return cardContents();
+  return filter.out.hero(trello.projects.cards).map((card, index) => {
+    const placeholder = card.placeholder ? "placeholder" : "";
+    const link = filter.in.more(card.attachments);
+    
+    return (
+      <Card className="trello-desktop" key={`trello-desktop-${index}`}>
+        <Link className="link card-name" to={link.url}>
+          <span className={`title card-name ${placeholder}`}>{ filter.string(card.name,40) }</span>
+        </Link>
+        { !trello.ready && subtitle }
+        { card.labels && print.labels(card) }
+      </Card>
+    );
+  });  
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Head from "components/Head";
-import { filter, remove } from "modules/_helpers";
+import { filter, remove } from "modules/helpers";
 import parse from "html-react-parser";
 import { seo } from "modules";
 
@@ -24,16 +24,13 @@ export default function HomePage() {
     name: name => name && <h1 className="title home-page">{print.link(name)}</h1>,
     svg: svg => svg && <div className="svg home-page" ref={ref.svg}>{parse(svg)}</div>
   }
-
-  // can't do this => console.log(`${anyRef}`);
-  // can do this => console.log(anyRef);
   
   const card = store.hero.card;
 
   useEffect(() => card.animation(store.pause, ref.svg.current), [card, store.pause, ref.svg]);
 
   return (
-    <div className={`component home-page ${card.className}`}>
+    <div className={`component home-page ${card.class}`}>
       <Head { ...seo.home } />
       <div className="container home-page">
         <div className="wrap home-page">

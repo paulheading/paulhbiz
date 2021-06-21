@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { object } from "modules/_helpers";
 import { count } from "store/actions";
 
 export default function CountHook() {
@@ -10,8 +9,7 @@ export default function CountHook() {
     hero: useSelector(state => state.hero),
   };
   const write = useDispatch();
-
-  const ready = object.ready(store.trello);
+  const ready = store.trello.ready;
   const feed = store.hero.feed;
   const speed = 4000;
 

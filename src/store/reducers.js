@@ -1,7 +1,9 @@
+import { filter } from "modules/helpers";
 import { combineReducers } from "redux";
 import init from "store";
 
-const cards = init.trello.projects.cards;
+let cards = init.trello.projects.cards;
+cards = filter.in.hero(cards);
 
 const hero = (data = { feed: cards, card: cards[init.count] }, { type, payload }) => { if (type === "HERO") { return payload; } return data; };
 const width = (data = "width data", { type, payload }) => { if (type === "WIDTH") { return payload; } return data; };
