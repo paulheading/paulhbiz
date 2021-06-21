@@ -12,7 +12,7 @@ import { CreditBlock } from "blocks";
 
 import makeDraggable from "animations/desktop";
 import { getNpmData, getGemData, getSpotifyData, getTrelloData } from "modules";
-import { npm, gem, spotify, trello, pause } from "store/actions";
+import { npm, gem, spotify, trello } from "store/actions";
 
 export default function DesktopBlock() {
   const store = {
