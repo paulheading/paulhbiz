@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 
 import { Folder } from "components/Buttons";
 import Downloads from "components/Downloads";
 import { SpotifyFeed } from "components/Spotify";
 import { TrelloFeed } from "components/Trello";
 
-import { PauseSvg, PlaySvg } from "icons";
+// import { PauseSvg, PlaySvg } from "icons";
 import { CreditBlock } from "blocks";
 
 import makeDraggable from "animations/desktop";
