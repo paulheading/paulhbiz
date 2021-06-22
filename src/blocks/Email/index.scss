@@ -28,6 +28,10 @@
       background-color: lightskyblue;
       border-radius: $border-radius;
       color: $black;
+
+      @include media-breakpoint-down(sm) {
+        margin-left: $margin-md;
+      }
     }
 
     &.subject {
