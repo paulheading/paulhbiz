@@ -130,14 +130,7 @@
 
 @mixin window-container {
   @include container-reset;
-  @include inline-block;
-  position: absolute;
   width: auto;
-  z-index: 2;
-
-  @include media-breakpoint-up(sm) {
-    padding: 0.625rem;
-  }
 }
 
 @mixin animate-colors {
@@ -232,4 +225,16 @@
   width: $font-size-lg;
   border-radius: 50%;
   padding: 0;
+}
+
+@mixin position-feed($a:0,$b:0,$c:0,$d:0) {
+  position: absolute;
+  z-index: 2;
+  left: $a;
+  top: $b;
+
+  @include media-breakpoint-up(sm) {
+    left: $c;
+    top: $d;
+  }
 }

@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 // import Button from "react-bootstrap/Button";
 
-import { Folder } from "components/Buttons";
+import Folder from "components/Folder";
 import Downloads from "components/Downloads";
 import { SpotifyFeed } from "components/Spotify";
 import { TrelloFeed } from "components/Trello";
+
+import { DesktopHook } from "hooks";
 
 // import { PauseSvg, PlaySvg } from "icons";
 import { CreditBlock } from "blocks";
 
 import makeDraggable from "animations/desktop";
-import { getNpmData, getGemData, getSpotifyData, getTrelloData } from "modules";
-import { npm, gem, spotify, trello } from "store/actions";
 
 export default function DesktopBlock() {
   const store = {
@@ -20,38 +20,34 @@ export default function DesktopBlock() {
     gem: useSelector(state => state.gem),
     npm: useSelector(state => state.npm),
   };
-  const write = useDispatch();
 
-  useEffect(() => {
-    (async () => {
-      const data = {
-        npm: await getNpmData(),
-        gem: await getGemData(),
-        spotify: await getSpotifyData(),
-        trello: await getTrelloData(),
-      }
-      if (data.npm) { write(npm(data.npm)); }
-      if (data.gem) { write(gem(data.gem)); }
-      if (data.spotify) { write(spotify(data.spotify)); }
-      if (data.trello) { write(trello(data.trello)); }
-    })();
-    makeDraggable(desktop.current);
-  }, [write]);
+  const ref = {
+    desktop: useRef(null),
+    spotify: useRef(null),
+    trello: useRef(null),
+  };
 
   const [spotifyFolder, setSpotifyFolder] = useState(true);
   const [trelloFolder, setTrelloFolder] = useState(true);
-  const desktop = useRef(null);
+
+  useEffect(() => makeDraggable(ref.desktop.current), [ref.desktop]);
 
   return (
     <div className="component desktop-block">
+      <DesktopHook />
       <div className="container desktop-block">
         <div className="wrap desktop-block">
           
-          <div ref={desktop} className="container desktop-windows">
+          <div ref={ref.desktop} className="container desktop-windows">
 
-            <SpotifyFeed />
-            <TrelloFeed context="desktop" />
-          
+            <div className="position spotify-feed" ref={ref.spotify}>
+              <SpotifyFeed />
+            </div>
+
+            <div className="position trello-feed" ref={ref.trello}>
+              <TrelloFeed />           
+            </div>
+
           </div>
           
           <div className="container desktop-folders">
@@ -60,10 +56,12 @@ export default function DesktopBlock() {
 
               <Folder
                 title="Spotify"
+                target={ref.spotify.current}
                 input={spotifyFolder}
                 output={setSpotifyFolder} />
               <Folder
                 title="Trello"
+                target={ref.trello.current}
                 input={trelloFolder}
                 output={setTrelloFolder} />
 

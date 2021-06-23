@@ -1,14 +1,11 @@
 
+.position.spotify-feed {
+  @include position-feed(-4rem, 2rem, 2rem, 2rem);
+}
+
 .component.spotify-feed {
   @include display-font;
   @include window-container;
-  left: -4rem;
-  top: 2rem;
-
-  @include media-breakpoint-up(sm) {
-    left: 2rem;
-    top: 2rem;
-  }
 }
 
 .card.spotify-feed {

@@ -4,14 +4,14 @@ import { DotsSvg, AddCardSvg } from "icons";
 import { Card } from "react-bootstrap";
 import { DesktopCards } from '../index';
 
-export default function TrelloFeed({ context }) {
+export default function TrelloFeed() {
   const trello = useSelector((state) => state.trello);
   const placeholder = !trello.ready ? "placeholder" : "";
 
   return (
-    <div className={`container trello-feed ${ context }`}>
+    <div className="component trello-feed">
       <Card className="trello-wrap">
-        <div className="trello-feed header">
+        <div className="header trello-feed">
           <div className={`title feed-name ${placeholder}`}>Projects</div>
           <DotsSvg />
         </div>

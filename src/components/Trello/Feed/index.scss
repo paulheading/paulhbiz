@@ -1,38 +1,13 @@
 
-.container.trello-feed {
+.position.trello-feed {
+  @include position-feed(2rem, 6rem, 8rem, 7rem);  
+}
+
+.component.trello-feed {
+  @include window-container;
   @include display-font;
   font-size: $font-size-desktop;
-  margin-top: 2rem;
-  max-width: none;
-  padding: 0;
 
-  @include media-breakpoint-up(sm) {
-    margin-top: 4rem;
-  }
-}
-
-.container.trello-feed.desktop {
-  @include window-container;
-  left: 2rem;
-  top: 6rem;
-
-  @include media-breakpoint-up(sm) {
-    left: 8rem;
-    top: 5rem;
-  }
-}
-
-.wrap.trello-feed {
-  @include auto-margin;
-  max-width: $max-width-feed;
-  
-  @include media-breakpoint-up(md) {
-    max-width: $max-width-feed * 2;
-  }
-}
-
-.trello-feed {
-  
   .title.feed-name {
     &.placeholder {
       @include placeholder-animation($width: 70%);
@@ -45,6 +20,15 @@
       @include placeholder-animation($width: 90%);
       line-height: 1;
     }
+  }
+}
+
+.wrap.trello-feed {
+  @include auto-margin;
+  max-width: $max-width-feed;
+  
+  @include media-breakpoint-up(md) {
+    max-width: $max-width-feed * 2;
   }
 }
 
