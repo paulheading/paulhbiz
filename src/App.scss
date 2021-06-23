@@ -63,3 +63,14 @@
 .resume-link {
   margin-top: $margin-lg;
 }
+
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  height: 1px;
+  padding: 0;
+  width: 1px;
+  border: 0;
+}

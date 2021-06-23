@@ -157,3 +157,12 @@
   font-size: $font-size-sm;
   grid-column: 2;
 }
+
+.alert button.close {
+  background-color: transparent;
+  border: transparent;
+  margin-right: 1rem;
+  font-weight: 800;
+  color: inherit;
+  padding: 0;
+}

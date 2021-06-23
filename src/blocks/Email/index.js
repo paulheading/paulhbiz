@@ -46,8 +46,7 @@ export default function EmailBlock() {
             // duplicate below @ public/index.html
             data-netlify="true"
             name="contact"
-            method="post"
-          >
+            method="post">
             <div className="row email-block --tag">
               <div className="field-title">To</div>
               <div className="field-value tag">hello@paulh.biz</div>
