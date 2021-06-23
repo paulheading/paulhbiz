@@ -4,11 +4,8 @@ import { Button, Alert } from "react-bootstrap";
 
 export default function EmailBlock() {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const [formSuccess, setFormSuccess] = useState(false);  
-
-  function encode(data) {
-    return Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
-  }
+  const [formSuccess, setFormSuccess] = useState(false);
+  const encode = data => Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
 
   const onSubmit = form => {
     fetch("/", {
@@ -75,7 +72,7 @@ export default function EmailBlock() {
                 className="field-value email"
                 type="text"
               />
-              {errors.from && <div class="alert email-block --from">{ print.error.from() }</div>}
+              {errors.from && <div className="alert email-block --from">{ print.error.from() }</div>}
             </div>
             
             <div className="row email-block --text-field">
