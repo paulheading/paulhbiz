@@ -17,13 +17,23 @@ export default function Home() {
   };
 
   const print = {
-    link: name => {
+    link: function(name) {
       const link = filter.in.more(card.attachments);
       return <Link href={link.url}>{remove.hero(name)}</Link>;
     },
-    name: name => name && <h1 className="title home-page">{print.link(name)}</h1>,
-    svg: svg => svg && <div className="svg home-page" ref={ref.svg}>{parse(svg)}</div>
-  };
+    name: function(name) {
+      if (name) {
+        return <h1 className="title home-page">{print.link(name)}</h1>; 
+      } return null;
+    },
+    svg: function() {
+      if (svg) {
+        return <div className="svg home-page" ref={ref.svg}>{parse(svg)}</div>;
+      } return null;
+    }
+  }
+
+
 
   const card = store.hero.card;
 
