@@ -25,7 +25,9 @@ export default function Home() {
     svg: svg => svg && <div className="svg home-page" ref={ref.svg}>{parse(svg)}</div>
   };
 
-  print.link.displayName = 'PrintLink'; 
+  print.link.displayName = 'PrintLink';
+  print.name.displayName = 'PrintName';
+  print.svg.displayName = 'PrintSvg'; 
 
   const card = store.hero.card;
 

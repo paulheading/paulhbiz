@@ -1,8 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Card from 'react-bootstrap/Card';
-import { SpotifyLogo } from "logos";
-import { Row } from "react-bootstrap";
+import { useSelector } from 'react-redux'
+import { Card, Row } from 'react-bootstrap'
+import { SpotifyLogo } from 'logos'
+import Image from 'next/image'
 
 export default function SpotifyFeed() {
   const spotify = useSelector(({ spotify }) => spotify);
@@ -32,12 +31,14 @@ export default function SpotifyFeed() {
     }
   };
 
+  print.track.displayName = 'PrintTrack';
+
   return (
     <div className="component spotify-feed">
       <Card className="spotify-feed">
         <div className="wrap spotify-header">
           <a href={playlist.url} className="link spotify-playlist">
-            { playlist.image && <img src={playlist.image} alt={playlist.owner} className="img spotify-playlist" /> }
+            { playlist.image && <Image src={playlist.image} alt={playlist.owner} className="img spotify-playlist" /> }
           </a>
           <div className="wrap spotify-playlist">
             <div className="wrap playlist-info">

@@ -13,6 +13,9 @@ export default function Status({ start, due, dueComplete }) {
     span: () => <Badge className="project-span split"><span>Lasted</span><span>{span}</span></Badge>
   };
 
+  project.due.displayName = 'ProjectDue';
+  project.span.displayName = 'ProjectSpan';
+
   if (due !== invalid && start !== invalid) {
     return (
       <div className="component status">
