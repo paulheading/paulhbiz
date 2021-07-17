@@ -1,0 +1,149 @@
+
+.position.spotify-feed {
+  @include position-feed(-4rem, 2rem, 2rem, 2rem);
+}
+
+.component.spotify-feed {
+  @include display-font;
+  @include window-container;
+}
+
+.card.spotify-feed {
+  background-color: $c-spotify-bg;
+  border-radius: $border-radius;
+  color: $c-spotify-text;
+  border: none;
+  width: 15rem;
+}
+
+.wrap.spotify-header {
+  border-top-right-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+  background-color: $c-spotify-header;
+  grid-template-columns: 5rem auto;
+  min-height: 5rem;
+  display: grid;
+  color: $white;
+  padding: 0;
+}
+
+.link.spotify-playlist {
+  background-color: $c-spotify-bg;
+  
+  &.focus-visible {
+    @include double-box($c-spotify-header, $white);
+  }
+  
+  &:not(.focus-visible) {
+    border-top-left-radius: $border-radius;
+
+    .spotify-feed.profile-img {
+      border-top-left-radius: $border-radius;
+    }
+  }
+}
+
+.img.spotify-playlist {
+  width: 5rem;
+
+  &.placeholder {
+    @include placeholder($c-spotify-bg);
+    border-top-left-radius: $border-radius;
+    height: 5rem;
+  }
+}
+
+.wrap.spotify-playlist {
+  grid-template-columns: auto 1.5rem;
+  padding: 0.625rem;
+  display: grid;
+}
+
+.title.playlist-name {
+  &.placeholder {
+    @include placeholder($c-spotify-bg, 50%);
+  }
+}
+
+.link.playlist-name {
+  @extend strong;
+
+  &.placeholder {
+    @include placeholder-animation($c-spotify-bg, 50%);
+    margin-bottom: $margin-md;
+  }
+  &.focus-visible {
+    @include double-box($c-spotify-header, $white);
+  }
+}
+
+.title.playlist-owner {
+  &.placeholder {
+    @include placeholder($c-spotify-bg);
+    margin-top: 0.375rem;
+    max-width: 75%;
+  }
+}
+
+.link.playlist-owner {
+  &.placeholder {
+    @include placeholder-animation($c-spotify-bg, 80%);
+  }
+
+  &.focus-visible {
+    @include double-box($c-spotify-header, $white);
+  }
+}
+
+.wrap.spotify-tracks {
+  max-height: 16.5rem;
+  overflow: scroll;
+}
+
+.row.spotify-feed {
+  padding: $margin-sm ($margin-sm * 3);
+  grid-template-columns: 2rem auto;
+  display: grid;
+  margin: 0;
+
+  &:first-of-type {
+    padding-top: $margin-sm * 3;
+  }
+
+  &:last-of-type {
+    padding-bottom: $margin-sm * 3;
+  }
+}
+
+.spotify-feed {
+
+  .title.track-position {
+    &.placeholder {
+      @include placeholder($c-spotify-header, 75%);
+      height: 1.5rem;
+    }
+  }
+
+  .link.track-name {
+    color: $white;
+
+    &.placeholder {
+      @include placeholder-animation($c-spotify-header, 100%);
+      margin-bottom: $margin-md;
+    }
+
+    &.focus-visible {
+      @include double-box($c-spotify-bg, $white);
+    }
+  }
+
+  .link.track-artist {
+    &.placeholder {
+      @include placeholder-animation($c-spotify-header, 100%);
+    }
+
+    &.focus-visible {
+      @include double-box($c-spotify-bg, $c-spotify-text);
+    }
+  }
+};

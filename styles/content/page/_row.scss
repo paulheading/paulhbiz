@@ -1,0 +1,56 @@
+
+.container.page-row {
+  background-color: $white;
+  padding: $padding-navigation;
+
+  @include media-breakpoint-down(sm) {
+    box-shadow: 0 0 $margin-md $gray-300;
+
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    &:not(:first-of-type) {
+      border-top: 1px dashed $gray-300;
+    }
+  }
+}
+
+.row.page-row {
+  gap: $margin-md * 3;
+  display: grid;
+  margin: 0;
+
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: 2fr 1fr;
+
+    &.--cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.title.page-row {
+  margin: 0;
+
+  @include media-breakpoint-up(sm) {
+    margin: 0.625rem 0 0;
+  }
+}
+
+@mixin full-width-col {
+  @include media-breakpoint-up(sm) {
+    grid-column: 1 / 4;
+  }
+}
+
+.col.full-width {
+  @include full-width-col;
+}
+
+.col.skills {
+  @include full-width-col;
+  margin: -0.25rem;
+}

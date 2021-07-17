@@ -1,0 +1,23 @@
+
+.container.page-content {
+  padding-bottom: 8rem;
+
+  @include media-breakpoint-up(sm) {
+    padding-right: $padding-navigation;
+    padding-left: $padding-navigation;
+  }
+}
+
+.wrap.page-content {
+  @include auto-margin;
+  max-width: $max-width-page;
+
+  .placeholder:not(.points) {
+    width: 100%;
+  }
+
+  @include media-breakpoint-up(sm) {
+    box-shadow: 0 0 $margin-md $gray-300;
+    max-width: 48rem;
+  }
+}

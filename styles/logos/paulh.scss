@@ -1,0 +1,7 @@
+.logo.paulh {
+  width: 3.75rem;
+
+  @include media-breakpoint-up(sm) {
+    width: 7.5rem;
+  }
+}

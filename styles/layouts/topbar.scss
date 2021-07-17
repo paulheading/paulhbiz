@@ -1,0 +1,21 @@
+.component.topbar-block {
+  border-bottom: $margin-sm solid $c-teal--shade;
+  background-color: $c-teal--tint;
+  padding-bottom: $margin-md;
+  padding-top: $margin-md;
+  color: $c-teal--dark;
+  text-align: center;
+}
+
+.status.topbar-block {
+  @include inline-block;
+  min-width: 5rem;
+
+  &.placeholder {
+    @include placeholder($c-teal--shade);
+  }
+
+  .wifi-svg {
+    fill: $c-teal--dark;
+  }
+}

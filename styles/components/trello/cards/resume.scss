@@ -1,0 +1,44 @@
+.title.resume-card {
+  padding-right: $margin-sm;
+
+  &.placeholder {
+    @include placeholder-animation;
+  }
+}
+
+.link.resume-card {
+  padding-right: $margin-sm;
+}
+
+.copy.resume-card {
+  line-height: $line-height-sm;
+  margin-top: $margin-md;
+  font-size: $font-size-sm;
+  color: $gray-700;
+
+  p {
+    display: inline;
+    margin: 0;
+  }
+
+  img {
+    display: none;
+  }
+
+  &.placeholder {
+    @include placeholder-animation;
+  }
+}
+
+.wrap.resume-card-title {
+  line-height: $line-height-sm;
+  margin-top: $margin-md;
+}
+
+.title.resume-card-due {
+  @include style-date;
+
+  &.placeholder {
+    @include placeholder-animation($width:60%);
+  }
+}

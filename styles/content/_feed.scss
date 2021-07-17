@@ -1,0 +1,47 @@
+.container.feed-content {
+  @include base-font(400);
+  padding-bottom: 5.8125rem;
+
+  @include media-breakpoint-up(sm) {
+    padding: 0 3.75rem 8.25rem;
+  }
+}
+
+.wrap.feed-content {
+  @include auto-margin;
+  max-width: $max-width-content;
+
+  @include media-breakpoint-up(sm) {
+    max-width: $max-width-desktop;
+    font-size: $font-size-nav;
+  }
+
+  .placeholder {
+    @include placeholder-animation($width: 100%);
+  }
+
+  .focus-visible {
+    @include double-box($gray-200, $black);
+  }
+
+  .badge:not(.split) {
+    padding: $margin-md;
+  }
+
+  p {
+    margin-bottom: $margin-lg;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    font-weight: 800;
+  }
+
+  img {
+    max-width: 100%;
+    margin: 2rem 0;
+  }
+}

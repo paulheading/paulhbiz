@@ -1,0 +1,45 @@
+
+$images: "../../images";
+
+$c-spotify-bg: #0d100a;
+$c-spotify-header: #222b1b;
+$c-spotify-text: #a0a19e;
+
+$c-trello-bg: #ebecf0;
+$c-trello-text: #172b4e;
+$c-trello-text--faded: #5f6c84;
+
+$c-teal--tint: darken($teal, 10%);
+$c-teal--shade: darken($teal, 20%);
+$c-teal--dark: darken($teal, 35%);
+
+$font-family-base: neue-haas-grotesk-text, sans-serif;
+$headings-font-family: neue-haas-grotesk-display, sans-serif;
+
+$font-size-body: 1.25rem;
+$font-size-desktop: $font-size-body * 0.9;
+$font-size-nav: $font-size-body * 1.1;
+
+$line-height-sm: 1.3;
+
+$min-width-body: 20rem;
+$min-height-mobile: 30rem;
+
+$max-height-desktop: 40rem;
+
+$max-width-hero-sm: 15rem;
+$max-width-hero-lg: 25rem;
+$max-width-content: 82%;
+$max-width-page: 87.5%;
+$max-width-desktop: 60rem;
+$max-width-feed: 20rem;
+
+$padding-navigation: 1.5625rem;
+
+$margin-sm: 0.25rem;
+$margin-md: 0.5rem;
+$margin-lg: 1rem;
+
+$green: hsl(134, 60%, 33%);
+$blue: hsl(211, 100%, 46%);
+$lime: hsl(85, 100%, 60%);

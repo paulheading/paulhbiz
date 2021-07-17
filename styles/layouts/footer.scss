@@ -1,0 +1,27 @@
+
+@mixin footer-margin {
+  margin-right: $margin-md;
+  margin-left: $margin-md;
+}
+
+.container.footer-block {
+  @include container-reset;
+  padding-bottom: $margin-lg;
+  padding-top: $margin-lg;
+  background-color: $black;
+  text-align: center;
+  font-weight: 800;
+  color: $white;
+}
+
+.title.footer-block {
+  @include footer-margin;
+}
+
+.link.footer-block {
+  @include footer-margin;
+
+  &.focus-visible {
+    @include double-box($black, $white);
+  }  
+}

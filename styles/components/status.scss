@@ -1,0 +1,7 @@
+.status.component {
+  margin: $margin-lg (-$margin-md);
+
+  .badge, a {
+    margin: $margin-md;
+  }
+}

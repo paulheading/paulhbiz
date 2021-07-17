@@ -1,0 +1,61 @@
+
+.component.navigation-block {
+  padding-bottom: $padding-navigation;
+  padding-top: $padding-navigation;
+  min-width: $min-width-body;
+
+  @include media-breakpoint-up(sm) {
+    padding: 3.75rem;
+  }
+
+  &.is-home {
+    position: absolute;
+    z-index: 999;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+}
+
+.container.navigation-block {
+  @include container-reset;
+  @include auto-margin;
+  justify-content: space-between;
+  max-width: $max-width-content;
+  grid-auto-flow: column;
+  align-items: center;
+  display: grid;
+
+  @include media-breakpoint-up(sm) {
+    max-width: $max-width-desktop;
+  }
+}
+
+.link.navigation-block {
+  @include button-site-nav;
+}
+
+.button.navigation-block {
+  @include button-site-nav;
+  @extend .btn-dark;
+}
+
+.wrap.navigation-block {
+  grid-gap: $font-size-lg;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: center;
+  display: grid;
+}
+
+.link.logo {
+  @include button-site-nav;
+  @extend .btn-link;
+  padding: 0;
+
+  &.focus-visible {
+    @include ph-single-box($black);
+    background-color: $black;
+    fill: $white;
+  }
+}

@@ -1,0 +1,61 @@
+
+.position.trello-feed {
+  @include position-feed(2rem, 6rem, 8rem, 7rem);  
+}
+
+.component.trello-feed {
+  @include window-container;
+  @include display-font;
+  font-size: $font-size-desktop;
+
+  .title.feed-name {
+    &.placeholder {
+      @include placeholder-animation($width: 70%);
+      line-height: 1;
+    }
+  }
+
+  .title.add-another {
+    &.placeholder {
+      @include placeholder-animation($width: 90%);
+      line-height: 1;
+    }
+  }
+}
+
+.wrap.trello-feed {
+  @include auto-margin;
+  max-width: $max-width-feed;
+  
+  @include media-breakpoint-up(md) {
+    max-width: $max-width-feed * 2;
+  }
+}
+
+.header.trello-feed {
+  @include trello-section;
+  fill: $c-trello-text;
+}
+
+.footer.trello-feed {
+  @include trello-section;
+  color: $c-trello-text--faded;
+  fill: $c-trello-text--faded;
+}
+
+.card.trello-wrap {
+  background-color: $c-trello-bg;
+  padding-right: 0.625rem;
+  padding-left: 0.625rem;
+  color: $c-trello-text;
+  border: none;
+  width: 16rem;
+
+  .title.trello-card-desktop {
+    margin-bottom: $margin-sm;
+  }
+
+  .desc.trello-card-desktop {
+    margin-top: $form-text-margin-top;
+  }
+}

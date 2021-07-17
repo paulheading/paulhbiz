@@ -1,0 +1,41 @@
+
+.component.desktop-block {
+  font-size: $font-size-desktop;
+  overflow: hidden;
+}
+
+.container.desktop-block {
+  background-color: $teal;
+}
+
+.wrap.desktop-block {
+  @include container-default;
+  position: relative;
+
+  @include media-breakpoint-up(sm) {
+    @include auto-margin;
+    grid-auto-flow: column;
+    max-width: 75rem;
+    display: grid;
+  }
+}
+
+.container.desktop-folders {
+  position: absolute;
+  width: auto;
+  z-index: 1;
+  right: 0;
+  top: 0;
+
+  @include media-breakpoint-down(xs) {
+    display: none;
+  }
+}
+
+.wrap.desktop-folders {
+  grid-template-columns: repeat(2, 6.125rem);
+  justify-content: end;
+  width: 14.25rem;  
+  display: grid;
+  padding: $margin-lg;
+}

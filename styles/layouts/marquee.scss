@@ -1,0 +1,53 @@
+.layout.marquee {
+  position: relative;
+}
+
+.container.marquee-tab {
+  text-align: center;
+  position: absolute;
+  top: -3.875rem;
+  color: $white;
+  right: 0;
+  left: 0;
+}
+
+.link.marquee-tab {
+  @include inline-block;
+  border-top-right-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+  background-color: $black;
+  padding: $margin-lg;
+
+  &.focus-visible {
+    @include ph-double-box;
+  }
+}
+
+.container.marquee {
+  @include container-reset;
+}
+
+.link.marquee {
+  border-bottom: $margin-sm solid $black;
+  border-top: $margin-sm solid $black;
+  padding-bottom: $margin-sm * 3;
+  padding-top: $margin-sm * 3;
+  background-color: $white;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+
+  &.focus-visible {
+    background-color: $black;
+    border-color: $white;
+    color: $white;
+  }
+}
+
+.title.marquee {
+  @include inline-block;
+  @include display-font;
+  padding-right: $font-size-lg;
+  text-decoration: none;
+  user-select: none;
+}
