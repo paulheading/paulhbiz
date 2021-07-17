@@ -38,7 +38,7 @@ export default function SpotifyFeed() {
       <Card className="spotify-feed">
         <div className="wrap spotify-header">
           <a href={playlist.url} className="link spotify-playlist">
-            { playlist.image && <Image src={playlist.image} alt={playlist.owner} className="img spotify-playlist" /> }
+            { playlist.image && <Image width="80" height="80" src={playlist.image} alt={playlist.owner} className="img spotify-playlist" /> }
           </a>
           <div className="wrap spotify-playlist">
             <div className="wrap playlist-info">
