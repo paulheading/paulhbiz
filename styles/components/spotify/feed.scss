@@ -1,4 +1,8 @@
 
+$focus-playlist: $c-spotify-header, $white, 0.25rem, 0.375rem;
+$focus-name: $c-spotify-bg, $white, 0.25rem, 0.375rem;
+$focus-artist: $c-spotify-bg, $c-spotify-text, 0.25rem, 0.375rem;
+
 .position.spotify-feed {
   @include position-feed(-4rem, 2rem, 2rem, 2rem);
 }
@@ -30,8 +34,12 @@
 .link.spotify-playlist {
   background-color: $c-spotify-bg;
   
-  &.focus-visible {
-    @include double-box($c-spotify-header, $white);
+  &.focus-visible, &:hover {
+    @include ph-double-box($focus-playlist...);
+
+    > div {
+      border-radius: $border-radius-sm;
+    }
   }
   
   &:not(.focus-visible) {
@@ -72,8 +80,8 @@
     @include placeholder-animation($c-spotify-bg, 50%);
     margin-bottom: $margin-md;
   }
-  &.focus-visible {
-    @include double-box($c-spotify-header, $white);
+  &.focus-visible, &:hover {
+    @include ph-double-box($focus-playlist...);
   }
 }
 
@@ -90,8 +98,8 @@
     @include placeholder-animation($c-spotify-bg, 80%);
   }
 
-  &.focus-visible {
-    @include double-box($c-spotify-header, $white);
+  &.focus-visible, &:hover {
+    @include ph-double-box($focus-playlist...);
   }
 }
 
@@ -132,8 +140,8 @@
       margin-bottom: $margin-md;
     }
 
-    &.focus-visible {
-      @include double-box($c-spotify-bg, $white);
+    &.focus-visible, &:hover {
+      @include ph-double-box($focus-name...);
     }
   }
 
@@ -142,8 +150,8 @@
       @include placeholder-animation($c-spotify-header, 100%);
     }
 
-    &.focus-visible {
-      @include double-box($c-spotify-bg, $c-spotify-text);
+    &.focus-visible, &:hover {
+      @include ph-double-box($focus-artist...);
     }
   }
 };

@@ -32,7 +32,16 @@
 }
 
 .link.navigation-block {
-  @include button-site-nav;
+  $border: 6px solid;
+  @include nav-font-size;
+  border-bottom: $border transparent;
+  border-top: $border transparent;
+  text-decoration: none;
+  border-radius: 0;
+
+  &:hover, &.focus-visible {
+    border-bottom: $border $black;
+  }
 }
 
 .button.navigation-block {
@@ -46,16 +55,4 @@
   justify-content: end;
   align-items: center;
   display: grid;
-}
-
-.link.logo {
-  @include button-site-nav;
-  @extend .btn-link;
-  padding: 0;
-
-  &.focus-visible {
-    @include ph-single-box($black);
-    background-color: $black;
-    fill: $white;
-  }
 }

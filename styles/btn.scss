@@ -1,14 +1,15 @@
 .btn {
-  @include display-font(600);
   text-decoration: none;
   font-size: inherit;
+  font-weight: 600;
   transition: none;
-}
+  color: $black;
 
-.btn.focus-visible {
-  @include ph-single-box($white);
-  background-color: $black;
-  color: $white;
+  &:hover, &.focus-visible {
+    @include ph-single-box($white);
+    background-color: $black;
+    color: $white;
+  }
 }
 
 .btn.toggle-motion {
@@ -38,7 +39,8 @@
 }
 
 .btn-dark {
-  @include reset-button;
+  @include button-reset;
+  color: $white;
 }
 
 .btn-link {

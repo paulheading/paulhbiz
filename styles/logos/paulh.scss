@@ -1,3 +1,19 @@
+.link.logo {
+  $border: 6px solid;
+  $padding: 0.5rem;
+
+  border-bottom: $border transparent;
+  padding-bottom: $padding;
+  position: relative;
+  border-radius: 0;
+  display: block;
+  top: $padding;
+
+  &.focus-visible, &:hover {
+    border-bottom: $border $black;
+  }
+}
+
 .logo.paulh {
   width: 3.75rem;
 

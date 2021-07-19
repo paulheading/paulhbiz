@@ -30,10 +30,12 @@
 
 @mixin ph-single-box($bg: $white, $size: $margin-sm) {
   @include single-box($bg, $size);
+  border-radius: $border-radius-sm;
 }
 
 @mixin ph-double-box($bg: $white, $col: $black, $bg_size: 0.375rem, $col_size: 0.625rem) {
   @include double-box($bg, $col, $bg_size, $col_size);
+  border-radius: $border-radius-sm;
 }
 
 @mixin inline-block($align: middle) {
@@ -65,21 +67,21 @@
   display: grid;
 }
 
-@mixin reset-button-core($col: $black) {
-  background-color: $col;
-  border-color: $col;
+@mixin button-reset-core {
+  background-color: $black;
+  border-color: $black;
 }
 
-@mixin reset-button($col: $black) {
-  @include reset-button-core($col);
+@mixin button-reset {
+  @include button-reset-core;
 
   &:active {
-    background-color: $col !important;
+    background-color: $black !important;
   }
 
   &:hover,
   &:focus {
-    background-color: $col;
+    background-color: $black;
   }
 }
 
@@ -152,12 +154,15 @@
   }
 }
 
-@mixin button-site-nav {
-  @extend .btn;
-
+@mixin nav-font-size {
   @include media-breakpoint-up(sm) {
     font-size: $h4-font-size;
   }
+}
+
+@mixin button-site-nav {
+  @extend .btn;
+  @include nav-font-size;
 }
 
 @mixin code-badge {

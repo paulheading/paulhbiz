@@ -18,7 +18,7 @@
   background-color: $black;
   padding: $margin-lg;
 
-  &.focus-visible {
+  &:hover, &.focus-visible {
     @include ph-double-box;
   }
 }
