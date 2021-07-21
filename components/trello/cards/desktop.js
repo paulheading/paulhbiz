@@ -15,15 +15,14 @@ export default function DesktopCards() {
     name = remove.hero(name);
     
     return (
-      <Card className="trello-desktop" key={`trello-desktop-${index}`}>
-        <Link href={link.url}>
-          <a className="link card-name">
-            <span className={`title card-name ${placeholder ? "placeholder" : ""}`}>{ filter.string(name, 40) }</span>
-          </a>          
-        </Link>
-        { !trello.ready && subtitle }
-        { labels && print.labels(labels) }
-      </Card>
+      <Link href={link.url}>
+        <a className="link desktop-card">
+          <Card className="desktop" key={`desktop-${index}`}>
+            <span className={`title desktop-card ${placeholder ? "placeholder" : ""}`}>{ filter.string(name, 40) }</span>
+            { labels && print.labels(labels) }
+          </Card>
+        </a>          
+      </Link>
     );
   });  
 };

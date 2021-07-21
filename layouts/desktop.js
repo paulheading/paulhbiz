@@ -42,14 +42,10 @@ export default function DesktopLayout() {
         <div className="wrap desktop-block">
           <div ref={ref.desktop} className="container desktop-windows">
             <div className="position spotify-feed" ref={ref.spotify}>
-
               <SpotifyFeed />
-
             </div>
             <div className="position trello-feed" ref={ref.trello}>
-
               <TrelloFeed />
-
             </div>
           </div>
 
