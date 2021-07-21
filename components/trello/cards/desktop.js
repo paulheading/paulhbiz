@@ -15,9 +15,9 @@ export default function DesktopCards() {
     name = remove.hero(name);
     
     return (
-      <Link href={link.url}>
+      <Link href={link.url} key={`desktop-${index}`}>
         <a className="link desktop-card">
-          <Card className="desktop" key={`desktop-${index}`}>
+          <Card className="desktop">
             <span className={`title desktop-card ${placeholder ? "placeholder" : ""}`}>{ filter.string(name, 40) }</span>
             { labels && print.labels(labels) }
           </Card>
