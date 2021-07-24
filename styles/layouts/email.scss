@@ -1,12 +1,16 @@
-.component.email-block {
-  .focus-visible {
-    @include double-box($col: $gray-400);
-    border-radius: 0;
-  }
 
-  .focus-visible.btn:focus {
-    @include ph-single-box($gray-400);
-  }
+@mixin input-focus {
+  @include double-box($col: $gray-400);
+  border-radius: 0;
+}
+
+@mixin btn-link {
+  background-color: transparent;
+  border-color: transparent;
+  color: inherit;
+}
+
+.component.email-block {
 
   .field-title {
     @include inline-block;
@@ -24,28 +28,34 @@
   .field-value {
     @include inline-block;
     padding: 0;
+  }
 
-    &.tag {
-      padding: $margin-sm ($margin-md);
-      background-color: lightskyblue;
-      border-radius: $border-radius;
-      color: $black;
-
-      @include media-breakpoint-down(sm) {
-        margin-left: $margin-md;
-      }
+  input.field-value {
+    &.focus-visible, &:hover {
+      @include input-focus;
     }
+  }
 
-    &.subject {
-      @include media-breakpoint-down(xs) {
-        width: 10rem;
-      }
+  .field-value.subject {
+    @include media-breakpoint-down(xs) {
+      width: 10rem;
     }
+  }
 
-    &.email {
-      @include media-breakpoint-down(xs) {
-        width: 11.25rem;
-      }
+  .field-value.tag {
+    padding: $margin-sm ($margin-md);
+    background-color: lightskyblue;
+    border-radius: $border-radius;
+    color: $black;
+
+    @include media-breakpoint-down(sm) {
+      margin-left: $margin-md;
+    }
+  }
+
+  .field-value.email {
+    @include media-breakpoint-down(xs) {
+      width: 11.25rem;
     }
   }
 
@@ -56,6 +66,10 @@
 
     @include media-breakpoint-up(sm) {
       height: 14rem;
+    }
+
+    &.focus-visible, &:hover {
+      @include input-focus;
     }
   }
 }
@@ -171,6 +185,8 @@
 }
 
 .btn.submit-email {
+  @include btn-link;
+
   &.focus-visible, &:hover {
     @include single-box($gray-500);
     background: $gray-500;

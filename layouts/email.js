@@ -81,7 +81,7 @@ export default function EmailLayout() {
               />
             </div>
             <div className="row email-block --submit">
-              <Button className="submit-email" variant="link" type="submit">
+              <Button className="submit-email" type="submit">
                 Submit
               </Button>
             </div>

@@ -8,12 +8,6 @@
   &:focus {
     box-shadow: none;
   }
-
-  &:hover, &.focus-visible {
-    @include ph-single-box($white);
-    background-color: $black;
-    color: $white;
-  }
 }
 
 .btn.toggle-motion {
@@ -39,14 +33,5 @@
       @include core;
       border-radius: $border-radius;
     }
-  }
-}
-
-.btn-link {
-  text-decoration: underline;
-  color: inherit;
-
-  &:hover {
-    color: inherit;
   }
 }

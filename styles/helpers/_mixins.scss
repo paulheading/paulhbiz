@@ -166,6 +166,12 @@
 @mixin button-site-nav {
   @extend .btn;
   @include nav-font-size;
+
+  &.focus-visible, &:hover {
+    @include ph-single-box($white);
+    background-color: $black;
+    color: $white;
+  }
 }
 
 @mixin code-badge {
