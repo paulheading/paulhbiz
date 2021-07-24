@@ -31,7 +31,7 @@
   }
 }
 
-.link.navigation-block {
+.link.navigation {
   $border: 6px solid;
   @include nav-font-size;
   border-bottom: $border transparent;
@@ -44,9 +44,10 @@
   }
 }
 
-.button.navigation-block {
+.button.navigation {
   @include button-site-nav;
-  @extend .btn-dark;
+  background-color: $black;
+  color: $white;
 }
 
 .wrap.navigation-block {

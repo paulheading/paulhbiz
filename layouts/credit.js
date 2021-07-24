@@ -1,11 +1,13 @@
-import Badge from "react-bootstrap/Badge";
+import { Badge } from 'react-bootstrap'
 
 export default function CreditLayout() {
   return (
-    <div className="component credit-block">
-      <Badge className="credit-block" pill>
-        Icons made by <a href="https://www.flaticon.com/authors/dinosoftlabs" className="credit-block" title="DinosoftLabs" >DinosoftLabs</a>
-      </Badge>
+    <div className="credit layout">
+      <a className="credit link" href="https://www.flaticon.com/authors/dinosoftlabs">
+        <Badge className="credit" pill>
+          Icons made by <span>DinosoftLabs</span>
+        </Badge>
+      </a>
     </div>
   );
 }

@@ -169,3 +169,11 @@
   color: inherit;
   padding: 0;
 }
+
+.btn.submit-email {
+  &.focus-visible, &:hover {
+    @include single-box($gray-500);
+    background: $gray-500;
+    color: $white;
+  }
+}

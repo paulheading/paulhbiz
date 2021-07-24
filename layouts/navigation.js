@@ -20,10 +20,10 @@ export default function NavigationLayout() {
         </div>
         <div className="wrap navigation-block">
           <Link href="/about">
-            <a className="button navigation-block">About</a>
+            <a className="button navigation">About</a>
           </Link>
           <Link href="/resume">
-            <a className="link navigation-block">Resume</a>
+            <a className="link navigation">Resume</a>
           </Link>
         </div>
       </div>

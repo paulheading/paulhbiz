@@ -5,14 +5,14 @@ export default function Downloads({ ready, type, url, name, downloads }) {
   const placeholder = !ready ? "placeholder" : "";
 
   return (
-    <div className="component downloads">
+    <div className="downloads component">
       <a className={`link downloads ${placeholder}`} href={url}>
-        <div className="block downloads --svg">
+        <div className="svg downloads">
           { type === "gem" ? <GemLogo /> : <NpmLogo /> }
         </div>
-        <div className="block downloads --info">
-          <div className={`title downloads-title ${placeholder}`}>{ name }</div>
-          <div className={`title downloads-figure ${placeholder}`}>{ downloads }</div>              
+        <div className="info downloads">
+          <div className={`title downloads ${placeholder}`}>{ name }</div>
+          <div className={`figue downloads ${placeholder}`}>{ downloads }</div>              
         </div>
       </a>
     </div>

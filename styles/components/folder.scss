@@ -4,12 +4,13 @@
 }
 
 .btn.folder {
+  background-color: transparent;
 
   svg {
     display: block;
   }
 
-  &.focus-visible {
+  &.focus-visible, &:hover {
     box-shadow: none;
 
     .badge {

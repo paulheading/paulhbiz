@@ -1,4 +1,4 @@
-.component.credit-block {
+.credit.layout {
   padding-bottom: $font-size-lg;
   background-color: $teal;
   color: $c-teal--dark;
@@ -9,16 +9,22 @@
   }
 }
 
-.credit-block {
-  &.badge {
-    background-color: $c-teal--tint;
-    border-color: $c-teal--tint;
-    color: $white;
+.credit.link {
+  &.focus-visible, &:hover {
+    .credit.badge {
+      border-radius: $border-radius-sm;
+      background-color: $c-teal--dark;
+      color: $white;
+    }
   }
+}
 
-  &.focus-visible {
-    @include double-box($c-teal--dark, $c-teal--dark);
-    background-color: $c-teal--dark;
-    color: $white;
+.credit.badge {
+  background-color: $c-teal--tint;
+  border-color: $c-teal--tint;
+  color: $white;
+
+  span {
+    text-decoration: underline;
   }
 }
