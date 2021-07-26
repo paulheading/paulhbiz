@@ -39,3 +39,7 @@
 .row {
   @include row-reset;
 }
+
+.sr-only {
+  @include visually-hidden;
+}

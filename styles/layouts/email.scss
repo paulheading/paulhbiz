@@ -178,10 +178,15 @@
 .alert button.close {
   background-color: transparent;
   border: transparent;
-  margin-right: 1rem;
+  font-size: 1.75rem;
+  position: absolute;
   font-weight: 800;
+  line-height: 1;
   color: inherit;
-  padding: 0;
+  padding: 1rem;
+  z-index: 2;
+  right: 0;
+  top: 0;
 }
 
 .btn.submit-email {

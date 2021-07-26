@@ -35,7 +35,7 @@ export default function EmailLayout() {
     <div className="component email-block">
       <div className="container email-block">
         <div className="wrap email-block">
-          {formSuccess && <Alert variant="success" onClose={() => setFormSuccess(false)} dismissible>sent!</Alert>}
+          {formSuccess && <Alert variant="success" onClose={() => setFormSuccess(false)} dismissible>Sent!</Alert>}
           <div className="topbar email-block">
             <div className="btn close-btn"></div>
             <div className="btn minimise-btn"></div>
