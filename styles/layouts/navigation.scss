@@ -1,5 +1,13 @@
 
-.component.navigation-block {
+.route--home .navigation-block.component {
+  position: absolute;
+  z-index: 999;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.navigation-block.component {
   padding-bottom: $padding-navigation;
   padding-top: $padding-navigation;
   min-width: $min-width-body;
@@ -7,17 +15,9 @@
   @include media-breakpoint-up(sm) {
     padding: 3.75rem;
   }
-
-  &.is-home {
-    position: absolute;
-    z-index: 999;
-    right: 0;
-    left: 0;
-    top: 0;
-  }
 }
 
-.container.navigation-block {
+.navigation-block.container {
   @include container-reset;
   @include auto-margin;
   justify-content: space-between;
@@ -56,4 +56,13 @@
   justify-content: end;
   align-items: center;
   display: grid;
+}
+
+.layout.component:not(.route--home) {
+  a.navigation.--about {
+    &.focus-visible, &:hover {
+      background: $green;
+      box-shadow: none;
+    }
+  }
 }

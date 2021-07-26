@@ -38,9 +38,7 @@
   display: block;
 
   &.focus-visible {
-    background-color: $black;
-    border-color: $white;
-    color: $white;
+    background-color: $gray-300;
   }
 }
 

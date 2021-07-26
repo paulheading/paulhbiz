@@ -11,8 +11,12 @@ export default function BiographyRow() {
           <TrelloPage name="Biography" />
         </Col>
         <Col className="resume-social">
-          <a className="link social" href="https://github.com/paulheading">Github</a>
-          <a className="link social" href="https://teamtreehouse.com/paulheading">Treehouse</a>
+          <div className="wrap social">
+            <a className="link social" href="https://github.com/paulheading">Github</a>
+          </div>
+          <div className="wrap social">
+            <a className="link social" href="https://teamtreehouse.com/paulheading">Treehouse</a>
+          </div>
         </Col>
       </Row>
     </Container>

@@ -1,10 +1,15 @@
-
 .container.page-content {
+  $tint: rgba($gray-500, 0.5);
   padding-bottom: 8rem;
 
   @include media-breakpoint-up(sm) {
     padding-right: $padding-navigation;
     padding-left: $padding-navigation;
+  }
+
+  a.focus-visible, a:hover {
+    @include single-box($tint);
+    background: $tint;
   }
 }
 

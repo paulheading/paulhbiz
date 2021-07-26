@@ -6,6 +6,13 @@ import moment from "moment"
 
 const print = {};
 
+print.route = path => {
+  let label = path.slice(1);
+  if (!label.length) {
+    label = 'home';
+  } return `route--${label}`;  
+};
+
 print.seo = content => `Paul Heading | ${ content } | Full Stack Designer`;
 
 print.placeholders = count => {
