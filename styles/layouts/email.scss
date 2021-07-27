@@ -1,7 +1,9 @@
 
 @mixin input-focus {
-  @include double-box($col: $gray-400);
-  border-radius: 0;
+  $tint: rgba($c-yellow, 0.2);
+  @include ph-single-box($tint);
+  background-color: $tint;
+  color: $gray-800;
 }
 
 @mixin btn-link {
@@ -165,14 +167,6 @@
       width: auto;
     }
   }
-}
-
-.alert.email-block {
-  @extend .alert-primary;
-  padding: $margin-md ($margin-sm * 3);
-  margin: ($margin-sm * 3) 0 0;
-  font-size: $font-size-sm;
-  grid-column: 2;
 }
 
 .alert button.close {

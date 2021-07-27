@@ -10,6 +10,7 @@ import CardsRow from './rows/cards'
 import NameRow from './rows/name'
 import SkillsRow from './rows/skills'
 import Status from './status'
+import Notification from './notification'
 
 export {
   SpotifyFeed,
@@ -23,5 +24,6 @@ export {
   CardsRow,
   NameRow,
   SkillsRow,
-  Status
+  Status,
+  Notification
 }

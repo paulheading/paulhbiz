@@ -12,7 +12,7 @@ export default function Layout({ children }) {
       <CountHook />
       <HeroHook />
       <Navigation />
-      {children}
+      { children }
       <Marquee />
       <Topbar />
       <Desktop />

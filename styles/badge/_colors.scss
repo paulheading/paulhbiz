@@ -1,9 +1,9 @@
 $colors: (
   "purple" : $purple, 
-  "green"  : $green, 
+  "green"  : $c-green, 
   "orange" : $orange, 
   "red"    : $red, 
-  "blue"   : $blue
+  "blue"   : $c-blue
 );
 
 .badge:not(.outline, .split) {

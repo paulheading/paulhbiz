@@ -61,7 +61,7 @@
 .layout.component:not(.route--home) {
   a.navigation.--about {
     &.focus-visible, &:hover {
-      background: $green;
+      background: $c-green;
       box-shadow: none;
     }
   }

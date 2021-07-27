@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "barbican-reset": "^0.6.1",
+    "barbican-reset": "^0.6.9",
     "bootstrap": "^5.0.2",
     "gsap": "file:libraries/gsap-bonus.tgz",
     "html-react-parser": "^1.2.7",

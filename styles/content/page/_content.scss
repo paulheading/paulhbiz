@@ -1,5 +1,4 @@
 .container.page-content {
-  $tint: rgba($gray-500, 0.5);
   padding-bottom: 8rem;
 
   @include media-breakpoint-up(sm) {
@@ -8,8 +7,8 @@
   }
 
   a.focus-visible, a:hover {
-    @include single-box($tint);
-    background: $tint;
+    @include single-box($c-focus);
+    background: $c-focus;
   }
 }
 

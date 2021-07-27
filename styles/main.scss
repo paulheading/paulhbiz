@@ -1,7 +1,11 @@
 
-@import "~barbican-reset/bootstrap/helpers";
+@import "~bootstrap/dist/css/bootstrap";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 @import "~barbican-reset/helpers";
-@import "~barbican-reset/bootstrap";
+
+@import "~barbican-reset/scss/notification";
 
 @import "./helpers";
 @import "./base";
@@ -30,6 +34,7 @@
 @import "./components/downloads";
 @import "./components/folder";
 @import "./components/status";
+@import "./components/notification";
 
 @import "./logos/spotify";
 @import "./logos/paulh";

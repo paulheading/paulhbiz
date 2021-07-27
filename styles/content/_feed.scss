@@ -20,10 +20,6 @@
     @include placeholder-animation($width: 100%);
   }
 
-  .focus-visible {
-    @include double-box($gray-200, $black);
-  }
-
   .badge:not(.split) {
     padding: $margin-md;
   }
@@ -38,6 +34,11 @@
 
   a {
     font-weight: 800;
+
+    &.focus-visible, &:hover {
+      @include single-box($c-focus);
+      background: $c-focus;
+    }
   }
 
   img {

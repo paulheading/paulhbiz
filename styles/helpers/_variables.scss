@@ -13,6 +13,13 @@ $c-teal--tint: darken($teal, 10%);
 $c-teal--shade: darken($teal, 20%);
 $c-teal--dark: darken($teal, 35%);
 
+$c-green: hsl(134, 60%, 33%);
+$c-blue: hsl(211, 100%, 46%);
+$c-yellow: hsl(40, 100%, 60%);
+$c-lime: hsl(85, 100%, 60%);
+
+$c-focus: rgba($c-yellow, 0.5);
+
 $font-family-base: neue-haas-grotesk-text, sans-serif;
 $headings-font-family: neue-haas-grotesk-display, sans-serif;
 
@@ -39,7 +46,3 @@ $padding-navigation: 1.5625rem;
 $margin-sm: 0.25rem;
 $margin-md: 0.5rem;
 $margin-lg: 1rem;
-
-$green: hsl(134, 60%, 33%);
-$blue: hsl(211, 100%, 46%);
-$lime: hsl(85, 100%, 60%);

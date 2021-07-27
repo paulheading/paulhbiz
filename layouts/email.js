@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Alert } from "react-bootstrap";
+import { Notification } from 'components';
 
 export default function EmailLayout() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -35,7 +36,7 @@ export default function EmailLayout() {
     <div className="component email-block">
       <div className="container email-block">
         <div className="wrap email-block">
-          {formSuccess && <Alert variant="success" onClose={() => setFormSuccess(false)} dismissible>Sent!</Alert>}
+          { formSuccess && <Alert variant="success" onClose={() => setFormSuccess(false)} dismissible>Sent!</Alert> }
           <div className="topbar email-block">
             <div className="btn close-btn"></div>
             <div className="btn minimise-btn"></div>
@@ -61,6 +62,7 @@ export default function EmailLayout() {
             </div>
             <div className="row email-block --input">
               <label className="field-title">From</label>
+              <div className="wrap input">
               <input
                 {...register("from", { 
                   required: true, 
@@ -70,20 +72,14 @@ export default function EmailLayout() {
                 className="field-value email"
                 type="text"
               />
-              {errors.from && <div className="alert email-block --from">{ print.error.from() }</div>}
-            </div>
-            
+              { errors.from && <Notification>{ print.error.from() }</Notification> }
+              </div>
+            </div>            
             <div className="row email-block --text-field">
-              <textarea
-                {...register("message")}
-                placeholder="Message"
-                rows="4"
-              />
+              <textarea {...register("message")} placeholder="Message" rows="4" />
             </div>
             <div className="row email-block --submit">
-              <Button className="submit-email" type="submit">
-                Submit
-              </Button>
+              <Button className="submit-email" type="submit">Submit</Button>
             </div>
           </form>
         </div>
