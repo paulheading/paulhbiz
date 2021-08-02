@@ -34,7 +34,8 @@ export default function SpotifyFeed() {
   print.track.displayName = 'PrintTrack';
 
   return (
-    <div className="component spotify-feed">
+    <div className="component spotify-feed" id="spotify-feed">
+      <a className="skiplink spotify" href="#trello-feed">Skip to Projects</a>
       <Card className="spotify-feed">
         <div className="wrap spotify-header">
           <a href={playlist.url} className="link spotify-playlist">

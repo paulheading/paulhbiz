@@ -29,6 +29,7 @@
 
   .field-value {
     @include inline-block;
+    width: 100%;
     padding: 0;
   }
 

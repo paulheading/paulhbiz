@@ -9,10 +9,10 @@ export default function Folder({ title, target, input, output }) {
   
   function toggleState() {
     if (input) {
-      tl.to(target,{ scale: 0.5 }).set(target,{ opacity: 0 });
+      tl.to(target,{ scale: 0.5 }).set(target,{ opacity: 0, display: "none" });
       output(!input);
     } else {
-      tl.set(target,{ opacity: 1 }).to(target,{ scale: 1 });
+      tl.set(target,{ clearProps: "display", opacity: 1 }).to(target,{ scale: 1 });
       output(!input);
     }
   }

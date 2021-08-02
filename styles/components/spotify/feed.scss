@@ -10,6 +10,19 @@ $focus-artist: $c-spotify-bg, $c-spotify-text, 0.25rem, 0.375rem;
 .component.spotify-feed {
   @include display-font;
   @include window-container;
+  position: relative;
+}
+
+.skiplink.spotify {
+  border-radius: $border-radius-sm;
+  position: absolute;
+  padding: 0.5rem;
+  z-index: -1;
+  
+  &.focus-visible {
+    background: $white;
+    z-index: 999;
+  }
 }
 
 .card.spotify-feed {
@@ -33,19 +46,20 @@ $focus-artist: $c-spotify-bg, $c-spotify-text, 0.25rem, 0.375rem;
 
 .link.spotify-playlist {
   background-color: $c-spotify-bg;
+  display: grid;
   
   &.focus-visible, &:hover {
     @include ph-double-box($focus-playlist...);
 
-    > div {
-      border-radius: $border-radius-sm;
+    img {
+      border-radius: $border-radius;
     }
   }
   
   &:not(.focus-visible) {
     border-top-left-radius: $border-radius;
 
-    .spotify-feed.profile-img {
+    img {
       border-top-left-radius: $border-radius;
     }
   }

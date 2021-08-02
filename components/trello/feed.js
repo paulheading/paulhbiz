@@ -9,7 +9,7 @@ export default function TrelloFeed() {
   const placeholder = !trello.ready ? "placeholder" : "";
 
   return (
-    <div className="component trello-feed">
+    <div className="component trello-feed" id="trello-feed">
       <Card className="trello-wrap">
         <div className="header trello-feed">
           <div className={`title feed-name ${placeholder}`}>Projects</div>
