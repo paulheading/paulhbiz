@@ -62,7 +62,7 @@
   a.navigation.--about {
     &.focus-visible, &:hover {
       @include ph-single-box($black);
-      background: $white;
+      background: $gray-200;
       color: $black;
     }
   }
