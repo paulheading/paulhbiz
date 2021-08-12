@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { TrelloPage } from "components";
+import { TrelloPage, SocialRow } from "components";
 
 export default function BiographyRow() {
   return (
@@ -11,12 +11,9 @@ export default function BiographyRow() {
           <TrelloPage name="Biography" />
         </Col>
         <Col className="resume-social">
-          <div className="wrap social">
-            <a className="link social" href="https://github.com/paulheading">Github</a>
-          </div>
-          <div className="wrap social">
-            <a className="link social" href="https://teamtreehouse.com/paulheading">Treehouse</a>
-          </div>
+          <SocialRow url="https://github.com/paulheading" title="Github" />
+          <SocialRow url="https://paulheading.medium.com/" title="Medium" />
+          <SocialRow url="https://teamtreehouse.com/paulheading" title="Treehouse" />
         </Col>
       </Row>
     </Container>

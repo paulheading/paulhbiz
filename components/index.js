@@ -9,6 +9,7 @@ import BiographyRow from './rows/biography'
 import CardsRow from './rows/cards'
 import NameRow from './rows/name'
 import SkillsRow from './rows/skills'
+import SocialRow from './rows/social'
 import Status from './status'
 import Notification from './notification'
 
@@ -24,6 +25,7 @@ export {
   CardsRow,
   NameRow,
   SkillsRow,
+  SocialRow,
   Status,
   Notification
 }
