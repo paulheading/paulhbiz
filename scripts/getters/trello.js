@@ -59,9 +59,10 @@ const getCardData = async (id, list) => {
     data = data.map(async card => {
       const actions = await trelloData(`cards/${card.id}/actions`);
       const attachments = await trelloData(`cards/${card.id}/attachments`);
-      const route = `/article/${pathify(list)}/${pathify(remove.hero(card.name))}`;
+      const route = `/${pathify(list)}/${pathify(remove.hero(card.name))}`;
 
       card.route = route;
+      console.log("route: ", card.route);
       card.actions = actions;
       card.attachments = attachments;
       card.list = { name: list };

@@ -2,6 +2,7 @@ import parse from 'html-react-parser'
 import { Head } from 'layouts'
 import { Status } from 'components'
 import { remove, print, filter } from 'scripts/helpers'
+import Link from 'next/link'
 
 export default function ArticleLayout({ name, desc, attachments, start, due }) {
   name = remove.hero(name);
@@ -23,6 +24,7 @@ export default function ArticleLayout({ name, desc, attachments, start, due }) {
             { code && <a href={code.url}>See code</a> }
           </p>
           { desc && parse(desc) }
+          <Link href="/resume"><a>Back to Resume</a></Link>
          </div>
       </div>
     </div>
