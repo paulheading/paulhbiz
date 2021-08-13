@@ -12,7 +12,7 @@ export default function Downloads({ ready, type, url, name, downloads }) {
         </div>
         <div className="info downloads">
           <div className={`title downloads ${placeholder}`}>{ name }</div>
-          <div className={`figue downloads ${placeholder}`}>{ downloads }</div>              
+          <div className={`figure downloads ${placeholder}`}>{ downloads }</div>              
         </div>
       </a>
     </div>
