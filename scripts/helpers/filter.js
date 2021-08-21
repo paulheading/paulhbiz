@@ -5,6 +5,7 @@ const filter = {};
 filter.in = {
   hero: value => value.filter(({ name }) => name.startsWith("Hero: ")),
   more: value => value.filter(({ name }) => name === "Read more")[0],
+  medium: value => value.filter(({ name }) => name === "Medium")[0],
   live: value => value.filter(({ name }) => name === "Live")[0],
   code: value => value.filter(({ name }) => name === "Code")[0]
 };

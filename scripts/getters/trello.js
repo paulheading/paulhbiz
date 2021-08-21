@@ -2,6 +2,7 @@ import axios from "axios";
 import showdown from "showdown";
 import { remove, pathify } from "scripts/helpers";
 import { hero } from 'scripts/animations'
+import { filter } from 'scripts/helpers'
 
 const converter = new showdown.Converter();
 
@@ -50,6 +51,34 @@ const attachAnimation = card => card.animation = (pause, target) => {
   }
 }
 
+const filterProjectCards = async () => {
+  let data = await getCardsOnList(TRELLO.LIST.PROJECTS);
+
+  if (data) {
+    data = data.map(async card => {
+      const actions = await trelloData(`cards/${card.id}/actions`);
+      const attachments = await trelloData(`cards/${card.id}/attachments`);
+      const route = `/projects/${pathify(remove.hero(card.name))}`;
+      const more = filter.in.more(attachments);
+
+      if (!more) { attachments.push({ name: "Read more", url: route }); }
+
+      card.route = route;
+      card.actions = actions;
+      card.attachments = attachments;
+      card.list = { name: "Projects" };
+      card.desc = converter.makeHtml(card.desc);
+      card.svg = getSvgsOnCard(actions);
+      card.class = `card-${card.id}`;
+      card.placeholder = false;
+      attachAnimation(card);
+
+      return card;
+    });
+    return promiseData(data);    
+  } return null;
+}
+
 const getCardData = async (id, list) => {
   let data = await getCardsOnList(id);
 
@@ -62,7 +91,6 @@ const getCardData = async (id, list) => {
       const route = `/${pathify(list)}/${pathify(remove.hero(card.name))}`;
 
       card.route = route;
-      console.log("route: ", card.route);
       card.actions = actions;
       card.attachments = attachments;
       card.list = { name: list };
@@ -72,7 +100,6 @@ const getCardData = async (id, list) => {
       card.class = `card-${card.id}`;
       card.placeholder = false;
       attachAnimation(card);
-      
       return card;
     });
     return promiseData(data);
@@ -92,7 +119,7 @@ export default async function getTrello() {
     },
     projects: {
       info: await getList(TRELLO.LIST.PROJECTS),
-      cards: await getCardData(TRELLO.LIST.PROJECTS, "Projects"),
+      cards: await filterProjectCards(),
     },
     roles: {
       info: await getList(TRELLO.LIST.ROLES),
