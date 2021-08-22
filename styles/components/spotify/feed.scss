@@ -88,7 +88,7 @@ $focus-artist: $c-spotify-bg, $c-spotify-text, 0.25rem, 0.375rem;
 }
 
 .link.playlist-name {
-  @extend strong;
+  // @extend strong;
 
   &.placeholder {
     @include placeholder-animation($c-spotify-bg, 50%);
