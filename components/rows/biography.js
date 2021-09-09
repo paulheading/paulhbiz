@@ -13,7 +13,6 @@ export default function BiographyRow() {
         <Col className="resume-social">
           <SocialRow url="https://github.com/paulheading" title="Github" />
           <SocialRow url="https://blog.paulh.biz/" title="Medium" />
-          <SocialRow url="https://teamtreehouse.com/paulheading" title="Treehouse" />
         </Col>
       </Row>
     </Container>

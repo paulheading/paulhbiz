@@ -84,9 +84,9 @@ const spotify = {
 const treehouse = {
   badges: [],
   points: {
-    Javascript: 100,
-    Databases: 100,
-    Design: 100,
+    "JavaScript": 100,
+    "Databases": 100,
+    "Design": 100,
   },
   profile_name: "paulheading",
   profile_url: "https://teamtreehouse.com/paulheading"
