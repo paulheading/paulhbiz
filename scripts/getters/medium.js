@@ -1,5 +1,4 @@
 import axios from "axios";
-import { pathify } from "../helpers";
 
 const RSS2JSON = {
   API_KEY: process.env.NEXT_PUBLIC_RSS2JSON_API_KEY,
@@ -14,16 +13,16 @@ export default async function getMedium() {
       },
     })
     .then(({ data }) => {
-      data = data.items.map((item, index) => {
-        item.id = `medium-${index}`;
-        item.date = item.pubDate;
-        item.type = "blog";
-        item.path = `${pathify(item.title)}`;
-        item.url = `/${item.type}/${item.path}`;
-        delete item.pubDate;
-        delete item.enclosure;
-        return item;
-      });
+      // data = data.items.map((item, index) => {
+      //   item.id = `medium-${index}`;
+      //   item.date = item.pubDate;
+      //   item.type = "blog";
+      //   item.path = `${pathify(item.title)}`;
+      //   item.url = `/${item.type}/${item.path}`;
+      //   delete item.pubDate;
+      //   delete item.enclosure;
+      //   return item;
+      // });
       console.log("medium: ", data);
       return data;
     })

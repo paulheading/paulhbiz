@@ -1,6 +1,6 @@
 import { filter } from "scripts/helpers";
-import { combineReducers } from "redux";
-import init from "./init";
+import { combineReducers } from 'redux'
+import init from './init'
 
 let cards = init.trello.projects.cards;
 cards = filter.in.hero(cards);
@@ -15,7 +15,7 @@ const npm = (data = init.npm, { type, payload }) => { if (type === "NPM") { retu
 const gem = (data = init.gem, { type, payload }) => { if (type === "GEM") { return payload; } return data; };
 const timezone = (data = init.timezone, { type, payload }) => { if (type === "TIMEZONE") { return payload; } return data; };
 const trello = (data = init.trello, { type, payload }) => { if (type === "TRELLO") { return payload; } return data; };
-const medium = (data = "medium data", { type, payload }) => { if (type === "MEDIUM") { return payload; } return data; };
+const medium = (data = init.medium, { type, payload }) => { if (type === "MEDIUM") { return payload; } return data; };
 const spotify = (data = init.spotify, { type, payload }) => { if (type === "SPOTIFY") { return payload; } return data; };
 const github = (data = "github data", { type, payload }) => { if (type === "GITHUB") { return payload; } return data; };
 const treehouse = (data = init.treehouse, { type, payload }) => { if (type === "TREEHOUSE") { return payload; } return data; };

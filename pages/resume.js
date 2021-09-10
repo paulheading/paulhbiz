@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Head } from 'layouts'
 
 import { NameRow, BiographyRow, CardsRow, SkillsRow } from 'components'
@@ -8,7 +8,10 @@ import get from "scripts/getters";
 import { github } from 'store/actions'
 
 export default function ResumePage() {
+  const store = { medium: useSelector(({ medium }) => medium) };
   const write = useDispatch();
+
+  console.log("medium: ", store.medium);
 
   useEffect(() => (async () => {
     const data = { github: await get.Github() };

@@ -14,11 +14,23 @@ filter.out = {
   hero: value => value.filter(({ name }) => !name.startsWith("Hero: "))
 }
 
-filter.string = (title, limit = 140) => {
+filter.anchors = (value, limit = 0) => {
+  value.split('href').forEach(string => string.startsWith('="') ? limit += (string.length - 3) : null);
+  return limit;
+}
+
+filter.string = (title, limit = 140, output) => {
   if (title.length > limit) {
-    title = title.slice(0, limit) + '...';
+    output = title.slice(0, limit);
+    limit += filter.anchors(output);
+    output = title.slice(0, limit);
+    // re-trim if we are in the middle of a word
+    output = output.substr(0, Math.min(output.length, output.lastIndexOf(' ')));
+    output += ' ...';
+  } else {
+    output = title;
   }
-  return parse(title);
+  return parse(output);
 }
 
 filter.trello = (trello, title) => {
